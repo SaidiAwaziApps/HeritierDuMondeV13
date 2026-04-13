@@ -91,11 +91,13 @@ class AuthenticationController extends Controller
      * ****************************************************************/
     public function loginHandler(Request $request)
     {
+        // Validation du formualire
         $request->validate([
             'username' => ['required'],
             'password' => ['required', 'min:4', 'max:20']
         ]);
 
+        // Utilisateur a authentifier
         $user = User::where('username', $request->username) 
                     ->where('status', true)
                     ->first();
@@ -111,10 +113,10 @@ class AuthenticationController extends Controller
             die($e->getMessage());
         }
 
-        
-
+        // Authentifie (connecte) l' utilisateur
         Auth::login($user);
 
+        // Redirection page avec restriction
         return $user->hasRole('admin') && $this->credibleToDashboard()
             ? redirect()->route('dashboard.admin')
             : redirect()->route('home.admin');
