@@ -1,0 +1,282 @@
+h6 {
+    font-size: 18px;
+    font-family: italic;
+    text-align: left;
+    opacity: 0.8;
+}
+
+h6 > i {
+    opacity: 0.5;
+}
+
+div#number_bloc > h6 {
+    text-align: center;
+}
+
+div#number_bloc > div#number_bloc_item {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+}
+
+div#number_bloc > div#number_bloc_item > div {
+    width: 19.66%;
+    height: 110px;
+    text-align: center;
+    word-wrap: break-word;
+}
+
+@media all and (max-width: 500px) {
+    div#number_bloc > div#number_bloc_item {
+        display: block;
+    }
+    div#number_bloc > div#number_bloc_item > div {
+        width: 100%;
+        margin-bottom: 6px;
+    }
+}
+
+div#number_bloc > div#number_bloc_item > div > div.card-body p span {
+    font-size: 17px;
+    font-weight: bold;
+    font-family: italic; 
+    opacity: 0.9;
+}
+
+div#number_bloc > div#number_bloc_item > div > div.card-body p span:nth-child(1) {
+    opacity: 0.5;
+}
+
+div#number_bloc > div#number_bloc_item > div > div.card-body p span:nth-child(3) {
+    opacity: 0.7;
+}
+
+
+div#charts_bloc {
+    margin-top: 14px;
+}
+
+div#charts_bloc > div h6 {
+    text-align: left;
+    font-size: 18px;
+    /* font-weight: bold; */
+    font-family: italic;
+    opacity: 0.8;
+}
+
+
+div#charts_bloc > div#donation_bloc {
+    margin-top: 14px;
+}
+
+@media all and (max-width: 500px) {
+    div#charts_bloc > div#donation_bloc >  div#donation_bloc_content {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    div#charts_bloc div#donation_bloc > div#donation_bloc_content > div {
+        width: 100%;
+    } 
+}
+
+@media all and (min-width: 500px) {
+    div#charts_bloc div#donation_bloc > div#donation_bloc_content {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    div#charts_bloc div#donation_bloc > div#donation_bloc_content > div {
+        margin-bottom: 4px;
+    }
+
+    div#charts_bloc div#donation_bloc > div#donation_bloc_content > div:nth-child(1) {
+        width: 100%;
+    }
+
+    div#charts_bloc div#donation_bloc > div#donation_bloc_content > div:nth-child(2) {
+        width: 66%;
+    }
+
+    div#charts_bloc div#donation_bloc > div#donation_bloc_content > div:nth-child(3) {
+        width: 33.6%;
+    }
+}
+
+div#charts_bloc div#donation_bloc > div#donation_bloc_content > div {
+    margin-bottom: 5px;
+}
+
+
+div#evenement_bloc {
+    margin-top: 12px;
+}
+
+div#evenement_bloc > div#evenement_bloc_content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+}
+
+div#evenement_bloc_content > div:nth-child(1) {
+    width: 66%;
+}
+
+div#evenement_bloc_content > div:nth-child(2) {
+    width: 33.6%;
+}
+
+
+@media all and (max-width: 500px) {
+    div#evenement_bloc > div#evenement_bloc_content {
+        display: block;
+    }
+    div#evenement_bloc_content > div {
+        margin-bottom: 6px;
+    }
+    div#evenement_bloc_content > div:nth-child(1) {
+        width: 100%;
+    }
+    div#evenement_bloc_content > div:nth-child(2) {
+        width: 100%;
+    } 
+}
+
+
+div#charts_bloc > div#offre_emploie_bloc {
+    margin-top: 10px;
+}
+
+@media all and (max-width: 500px) {
+    div#charts_bloc > div#offre_emploie_bloc > div#offre_emploie_bloc_content { 
+        display: block;
+    }
+    div#charts_bloc > div#offre_emploie_bloc > div#offre_emploie_bloc_content > div:nth-child(1) {
+        width: 100%;
+    }
+    div#charts_bloc > div#offre_emploie_bloc > div#offre_emploie_bloc_content > div:nth-child(2) {
+        width: 100%;
+    }
+}
+
+@media all and (min-width: 500px) {
+    div#charts_bloc > div#offre_emploie_bloc > div#offre_emploie_bloc_content {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+    }
+    div#charts_bloc > div#offre_emploie_bloc > div#offre_emploie_bloc_content > div:nth-child(1) {
+        width: 59%;
+    }
+    div#charts_bloc > div#offre_emploie_bloc > div#offre_emploie_bloc_content > div:nth-child(2) {
+        width: 40.6%;
+    }
+}
+
+div#charts_bloc > div#offre_emploie_bloc > div#offre_emploie_bloc_content > div {
+    margin-bottom: 6px;
+}
+
+
+div#specify_moment_bloc {
+    position: fixed;
+    top: 80%;
+    left: 41%;
+    opacity: 0.8;
+    background-color: #f8f8ff;
+}
+
+@media all and (max-width: 500px) {
+    div#specify_moment_bloc {
+        left: 20%;
+    }
+}
+
+@media all and (max-width: 400px) {
+    div#specify_moment_bloc {
+        left: 13%;
+    }
+}
+
+
+div#specify_moment_bloc .card {
+    width: 270px;
+}
+
+div#specify_moment_bloc .card .card-body form {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+}
+
+div#specify_moment_bloc .card .card-body form > div:nth-child(1) {
+    width: 80%;
+}
+
+div#specify_moment_bloc .card .card-body form > div:nth-child(2) {
+    width: 19%;
+    padding-top: 28px;
+    /* background-color: red; */
+}
+
+div#specify_moment_bloc .card .card-body .dropdown ul.dropdown-menu li:nth-child(1) {
+    text-align: center;
+}
+
+div#specify_moment_bloc .card .card-body .dropdown ul.dropdown-menu li:nth-child(2n+1) {
+    padding: 4px;
+}
+
+div#specify_moment_bloc .card .card-body .dropdown ul.dropdown-menu li:nth-child(2n+3):hover {
+    margin-left: 5px;
+    margin-right: 5px;        
+    background-color: cadetblue;
+    border-radius: 2px;
+    color: white;
+    cursor: pointer;
+}
+
+div#specify_moment_bloc .card .card-body .dropdown ul.dropdown-menu li span {
+    font-size: 18px;
+    /* font-weight: bold; */
+    font-family: italic;
+}
+
+div#specify_moment_bloc .card .card-body .dropdown ul.dropdown-menu li:nth-child(1) span {
+    font-weight: bold;
+}
+
+div#specify_moment_bloc .card .card-body .dropdown ul.dropdown-menu li:nth-child(2n+1) span i {
+    opacity: 0.6;
+}
+
+
+span[id="feedback_chart_graph"] {
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: italic;
+    opacity: 0.8;
+}
+
+label[for="annee"] {
+    font-size: 18px;
+    font-weight: bold;
+    font-family: italic;
+}
+
+label[for="annee"] i[class="fa fa-calendar"] { 
+    color: black;
+    opacity: 0.4;
+}
+
+label[for="annee"] i[id="required-sign"] {
+    color: red;
+}
+
+input[name="annee"] {
+    border: 1px solid #ccc;
+    border-bottom: 3px solid #ccc;
+}

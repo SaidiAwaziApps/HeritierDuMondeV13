@@ -1,0 +1,231 @@
+html {
+    padding: 0px;
+    margin: 0px;
+}
+
+body {
+    padding: 4px;
+}
+
+@media all and (min-width: 700px) {
+    body {
+        padding: 8px 40px 10px 40px;
+    }
+}
+
+
+.card-header {
+    text-align: center;
+}
+
+.card-header span {
+    font-size: 24px;
+    font-weight: bold;
+    font-family: italic;
+    opacity: 0.5;
+}
+
+/* *****************************************************************************
+ * BLOC CONTENT LES LOGO ET LES INPUTS (NOM, SLOGANT, TEL, EMAIL &&  ADRESSE)
+ * *****************************************************************************/
+#first_content_bloc {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    margin-top: -4px;
+}
+
+#first_content_bloc > div:nth-child(1) {
+    width: 30%;
+}
+
+#first_content_bloc > div:nth-child(2) {
+    width: 68.4%;
+}
+
+@media all and (max-width: 500px) {
+    #first_content_bloc {
+        display: block;
+    }
+    
+    #first_content_bloc > div:nth-child(1) {
+        width: 100%;
+    }
+    
+    #first_content_bloc > div:nth-child(2) {
+        width: 100%;
+    }   
+}
+
+@media all and (max-width: 700px) {
+    #first_content_bloc #logo_bloc {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+#first_content_bloc #logo_bloc > div > div.card > div.card-body {
+    width: 100%;
+    height: 210px;
+    border-radius: 20px;    
+}
+
+
+#first_content_bloc #logo_bloc_input input[type="file"] {
+    display: none;
+}
+
+#first_content_bloc #logo_bloc_input label {
+    font-size: 16px;
+    font-weight: bold;
+    font-family: italic;
+    text-align: center;
+    color: white;
+    display: block;
+    background-color: cadetblue;
+    border-radius: 4px;
+    padding: 4px;
+    margin-top: 6px;
+    cursor: pointer;
+}
+
+@media all and (max-width: 700px) {
+    #first_content_bloc #input_bloc {
+        margin-top: 10px;
+    }
+    #first_content_bloc #input_bloc > div {
+        margin-bottom: 6px;
+    }
+    #first_content_bloc #input_bloc > div > div {
+        margin-bottom: 4px;
+    }
+}
+
+#first_content_bloc #tel_email_bloc {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+}
+
+@media all and (max-width: 500px) {
+    #first_content_bloc #tel_email_bloc {
+        display: block;
+    } 
+}
+
+#first_content_bloc #tel_email_bloc .form-group {
+    width: 49.6%;
+}
+
+@media all and (max-width: 500px) {
+    #first_content_bloc #tel_email_bloc .form-group {
+        width: 100%;
+    } 
+}
+
+
+/* *****************************************************************************
+ * BLOC CONTENT LES CHAMPS RESEAUX SOCIAUX
+ * *****************************************************************************/
+#second_content_bloc {
+    margin-top: 16px;
+}
+
+#second_content_bloc h6 {
+    text-align: center;
+    font-size: 18px;
+    font-family: italic;
+}
+
+#second_content_bloc > div {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+}
+
+#second_content_bloc > div > div {
+    width: 24.6%;
+}
+
+@media all and (max-width: 800px) {
+    #second_content_bloc > div {
+        display: flex;
+        justify-content: space-between;
+    } 
+    #second_content_bloc > div > div {
+        width: 49.6%;
+    }
+}
+
+@media all and (max-width: 500px) {
+    #second_content_bloc > div {
+        display: block;
+    } 
+    #second_content_bloc > div > div {
+        width: 100%;
+        margin-bottom: 10px; 
+    }
+}
+
+
+/* *****************************************************************************
+ * BLOC CONTENANT LE BUTTON SOUMISSION
+ * *****************************************************************************/
+#submit_bloc {
+    margin-top: 10px;
+}
+
+#submit_bloc > div.d-grid button span {
+    font-size: 17px;
+    font-weight: bold;
+    font-family: italic;
+}
+
+
+
+/* ****************************
+ * STYLISATION LABEL 
+ * ***************************/
+label {
+    font-size: 16px;
+    font-weight: bold;
+    font-family: italic;
+}
+
+i[id="required-sign"] {
+    color: red;
+}
+
+i[id="not-required-sign"] { 
+    color: cadetblue;
+}
+
+input[type="text"],input[type="tel"],
+input[type="email"],input[type="url"] {   
+    border-bottom: 1px solid #ccc;
+}
+
+
+
+/* ***************
+ * BLOC IMAGE 
+ * **************/
+.imgs-bloc > .imgs-bloc-context {
+    position: fixed;
+    top: 62%;
+    left: 50%;
+    z-index: 1100;
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+}
+
+@media all and (max-width: 700px) {
+    .imgs-bloc > .imgs-bloc-context {
+        top: 70%;
+        left: 46%;
+    }
+}
+
+
+

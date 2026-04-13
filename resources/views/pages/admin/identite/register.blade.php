@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Identite du Site</title>
+    <link rel="stylesheet" href="{{ asset('dependance/bootstrap/dist/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('style/identite/register.css') }}">
+    <link rel="stylesheet" href="{{ asset('dependance/bootstrap-icons-1.11.3/font/bootstrap-icons.css')}}">
+</head>
+<body>
+    <div class="card">
+        <div class="card-body">
+            <div id="header">
+                <h2> 
+                   <i class="bi bi-hdd-network" style="color: cadetblue;"></i> Identite du site web 
+                </h2>
+            </div> 
+            <div id="section">
+                <div class="d-flex-center">
+                    <div id="content">
+                        <form method="POST" action="{{ route('identite.save') }}">
+                            @csrf
+                            <div id="form_content_bloc">
+                                <div id="first_content_bloc">
+                                    <div id="logo_bloc">
+                                        <div id="logo_bloc_image">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <img src="{{ asset('image/logo_site.png') }}" alt="" class="rounded-thumbnail" style="width: 100%;height: 100%;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="logo_bloc_input">
+                                            <label for="logo">
+                                               <i class="bi bi-image"></i> Inserer logo
+                                            </label>
+                                            <input type="file"  accept="image/*" name="logo" id="logo">
+                                        </div>
+                                    </div>
+                                    <!-- Fin logo_bloc  -->
+                                    <div id="input_bloc">
+                                        <div id="nom_bloc">
+                                            <div class="form-group">
+                                                <label for="nom">
+                                                    Nom:<i id="required-sign">*</i>
+                                                </label>
+                                                <input type="text" name="nom" id="nom" class="form-control input-sm" placeholder="Entrer le nom du site" maxlength="30" required>
+                                            </div>
+                                        </div>
+                                        <div id="slogant_bloc">
+                                            <div class="form-group">
+                                                <label for="slogant">
+                                                    Slogant:<i id="required-sign">*</i>
+                                                </label>
+                                                <input type="text" name="slogant" id="slogant" class="form-control" placeholder="Entrer le slogant du site" maxlength="30" required>
+                                            </div>
+                                        </div>
+                                        <div id="tel_email_bloc">
+                                            <div class="form-group">
+                                                <label for="tel">
+                                                    Tel:<i id="required-sign">*</i>
+                                                </label>
+                                                <input type="tel" name="tel" id="tel" class="form-control" placeholder="Numero telephone" maxlength="20" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="tel">
+                                                    Email:<i id="required-sign">*</i>
+                                                </label>
+                                                <input type="email" name="email" id="email" class="form-control" placeholder="Adresse @ email" maxlength="20" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Fin input_bloc -->  
+                                </div>
+                                <!-- fin first_content_bloc -->   
+                                <div id="second_content_bloc">
+                                    <h6>
+                                        Inserer liens sociaux: <i class="bi bi-facebook" style="color: blue;"></i> <i class="bi bi-twitter" style="color: #00acee;"></i> <i class="bi bi-google" style="color: #db4a39;"></i> <i class="bi bi-instagram" style="color: #C32AA3;"></i> 
+                                    </h6>
+                                    <div id="social_bloc">
+                                        <div id="facebook_bloc">
+                                            <label for="facebook">
+                                               <i class="bi bi-facebook" style="color: blue;"></i> Facebook:
+                                            </label>
+                                            <input type="url" name="facebook" id="facebook" class="form-control" placeholder="Lien facebook">
+                                        </div>
+                                        <div id="twitter_bloc">
+                                            <label for="twitter">
+                                               <i class="bi bi-twitter" style="color: #00acee;"></i> Twitter:
+                                            </label>
+                                            <input type="url" name="twitter" id="twitter" class="form-control" placeholder="Lien Twitter">
+                                        </div>
+                                        <div id="google_bloc">
+                                            <label for="google">
+                                               <i class="bi bi-google" style="color: #db4a39;"></i> Google+:
+                                            </label>
+                                            <input type="url" name="google" id="google" class="form-control" placeholder="Lien google+">
+                                        </div>
+                                        <div id="instagram_bloc">
+                                            <label for="instagram">
+                                               <i class="bi bi-instagram" style="color: #C32AA3;"></i> Instagram:
+                                            </label>
+                                            <input type="url" name="instagram" id="instagram" class="form-control" placeholder="Lien Instagram">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- fin second_bloc_content --> 
+                                <div id="submit_bloc">
+                                    <div class="d-grid">
+                                        <button type="submit" class="btn btn-primary btn-block btn-sm active">
+                                            <span>
+                                               <i class="bi bi-upload"></i> Enregistrer
+                                            </span>
+                                        </button>
+                                    </div> 
+                                </div>
+                                <!-- fin submit_bloc -->  
+                            </div>
+                        </form> 
+                    </div> 
+                </div>
+            </div>
+            <!-- Fin section -->
+        </div>
+        <!-- Fin card-body -->
+    </div>
+
+    <!-- Dependance Js -->
+    <script src="{{ asset('dependance/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('dependance/popper/js/popper.min.js') }}"  crossorigin="anonymous"></script>
+    <script src="{{ asset('script/identite/register.js') }}"></script>
+</body>
+</html>

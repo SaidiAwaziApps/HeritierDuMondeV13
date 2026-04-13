@@ -1,0 +1,139 @@
+#form_bloc {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    height: 88vh;  
+}
+
+#form_bloc form {
+    width: 34%;
+    max-width: 400px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+@media all and (max-width: 1000px) {
+    #form_bloc form {
+        width: 64%;
+    }
+}
+
+@media all and (max-width: 500px) {
+    #form_bloc form {
+        width: 100%;
+        padding-left: 10px;
+        padding-right: 10px;
+    } 
+}
+
+#form_header {
+    text-align: center;
+    padding: 8px;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 15px;
+}
+
+#form_header span {
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: italic;
+    opacity: 0.6;
+}
+
+#form_body h5 {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: italic;
+    margin-bottom: 15px;
+} 
+
+#form_body h5 i {
+    opacity: 0.6;
+    margin-right: 6px;
+}
+
+
+#input_bloc .form-group:nth-child(1) {
+    margin-bottom: 6px;
+}
+
+label {
+    font-size: 17px;
+    font-weight: bold;
+    font-family: italic;
+}
+
+label i[class="fa fa-user"],
+label i[class="fa fa-lock"] {
+    opacity: 0.6;
+}
+
+label i[id="required-sign"] {
+    color: red;
+    margin-left: 2px;
+}
+
+input#username,
+input#password {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-bottom: 3px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#submit_bloc {
+    margin-top: 15px;
+}
+
+#submit_bloc span {
+    font-size: 18px;
+    font-weight: bold;
+    font-family: italic;
+}
+
+
+/* ***********************************************************
+ * VALIDATION DU FORMULAIRE
+ * ***********************************************************/
+#errors_bloc {
+    margin-top: 2px;
+}
+
+.error-item {
+    display: block;
+    text-align: center;
+    margin-bottom: 4px;
+}
+
+.error-item span {
+    font-size: 16px;
+    font-weight: bold;
+    font-family: italic;
+    color: red;
+}
+
+/* ***********************************************************
+ * LIEN MOT DE PASSE OUBLIE ( RESET BLOC)
+ * ***********************************************************/
+#reset_bloc {
+    margin-top: 2px;
+}
+
+#reset_bloc a {
+    float: right;
+    font-size: 16px;
+    font-family: italic;
+    text-decoration: none;
+}
+
+#reset_bloc a:hover {
+    text-decoration: underline;
+}
+
+

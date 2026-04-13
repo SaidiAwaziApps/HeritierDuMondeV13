@@ -1,0 +1,140 @@
+html {
+    padding: 0px;
+    margin: 0px;
+}
+
+body {
+    padding: 4px;
+}
+
+@media all and (min-width: 700px) {
+    body {
+        padding: 8px 40px 10px 40px;
+    }
+}
+
+div#header h2 {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    font-family: italic;
+    opacity: 0.5;
+}
+
+div#first_content_bloc {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+}
+
+div#first_content_bloc > div:nth-child(1) {
+    width: 30%;
+}
+
+div#first_content_bloc > div:nth-child(2) {
+    width: 68.4%;
+}
+
+@media all and (max-width: 500px) {
+    div#first_content_bloc {
+        display: block;
+    }
+    
+    div#first_content_bloc > div:nth-child(1) {
+        width: 100%;
+    }
+    
+    div#first_content_bloc > div:nth-child(2) {
+        width: 68.4%;
+    }   
+}
+
+div#logo_bloc > div > div.card > div.card-body {
+    width: 100%;
+    height: 206px;
+    border-radius: 20px;    
+}
+
+
+div#logo_bloc_input input[type="file"] {
+    display: none;
+}
+
+div#logo_bloc_input label {
+    font-size: 16px;
+    font-weight: bold;
+    font-family: italic;
+    text-align: center;
+    color: white;
+    display: block;
+    background-color: cadetblue;
+    border-radius: 4px;
+    padding: 4px;
+    margin-top: 6px;
+    cursor: pointer;
+}
+
+
+h6 {
+    text-align: center;
+    font-size: 18px;
+    font-family: italic;
+}
+
+div#second_content_bloc {
+    margin-top: 12px;
+}
+
+div#second_content_bloc > div {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+}
+
+div#second_content_bloc > div > div {
+    width: 24.6%;
+}
+
+@media all and (max-width: 800px) {
+    div#second_content_bloc > div {
+        display: flex;
+        justify-content: space-between;
+    } 
+    div#second_content_bloc > div > div {
+        width: 49.6%;
+    }
+}
+
+@media all and (max-width: 500px) {
+    div#second_content_bloc > div {
+        display: block;
+    } 
+    div#second_content_bloc > div > div {
+        width: 100%;
+    }
+}
+
+div#submit_bloc {
+    margin-top: 10px;
+}
+
+div#submit_bloc > div.d-grid button span {
+    font-size: 17px;
+    font-weight: bold;
+    font-family: italic;
+}
+
+label {
+    font-size: 16px;
+    font-weight: bold;
+    font-family: italic;
+}
+
+i[id="required-sign"] {
+    color: red;
+}
+
+input[type="text"],input[type="tel"],
+input[type="email"],input[type="url"] {   
+    border-bottom: 1px solid #ccc;
+}

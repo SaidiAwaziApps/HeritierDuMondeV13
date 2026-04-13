@@ -1,0 +1,42 @@
+body {
+    background-color: rgb(243, 243, 251);
+    font-family: sans-serif;
+}
+
+
+div#sociaux_info {
+    padding: 18px 0px 6px 0px;
+    margin-top: 10px;
+    border-radius: 6px;
+    background-color: #ccc;
+}
+
+div#sociaux_info > div {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+div#sociaux_info > div ul li {
+    float: left;
+    margin-left: 16px;
+    list-style-type: none;
+}
+
+div#sociaux_info > div ul li span {
+    font-size: 19px;
+    font-family: italic;
+}
+
+@media all and (max-width: 500px) {
+    div#sociaux_info > div ul li {
+        margin-left: 20px;
+    }
+    div#sociaux_info > div ul li span {
+      display: none;
+    } 
+}
+
+div#sociaux_info > div ul li a:hover {
+    opacity: 0.4;
+}

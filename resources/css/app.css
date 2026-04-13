@@ -1,0 +1,7 @@
+/* Utilisation de Bootstrap uniquement */
+@import "bootstrap/dist/css/bootstrap.min.css";
+
+/* Optionnel : styles personnalisés */
+body {
+font-family: Arial, sans-serif;
+}
