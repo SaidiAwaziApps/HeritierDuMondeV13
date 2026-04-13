@@ -1,8 +1,9 @@
+<?php $headTitle = '';?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 
-    <title>Administration</title>
+    <title>{{ $headTitle }}</title>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,6 +19,9 @@
 
     <!-- Styles dashboard -->
     @include('components.admin.template.dashboard.admin.head.styles')
+
+    <!-- Styles user -->
+    @include('components.admin.template.user.head.styles')
 
     <script src="{{ asset('dependance/font-awesome/font-awesome.js') }}"></script>
 

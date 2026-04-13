@@ -1,0 +1,165 @@
+.card .card-header span.card-title {
+    font-size: 20px;
+    font-weight: bold;
+    font-family: italic;
+    opacity: 0.6;
+}
+
+.card .card-header span.card-title i {
+    opacity: 0.4;
+}
+ 
+
+.card .card-header a {
+    float: right;
+}
+
+.card .card-header a span {
+    font-weight: bold;
+    font-family: italic;
+}
+
+
+#profil_meta_bloc {
+    display: flex;
+    justify-content: space-between;
+    flex: nowrap;
+}
+
+#profil_meta_bloc > #profil_bloc {
+    width: 30%;
+}
+
+#profil_meta_bloc > #meta_bloc {
+    width: 68%;
+}
+
+@media all and (min-width: 600px) {
+    #profil_bloc > #profil_bloc_img .card .card-body {
+        height: 196px; 
+    }
+}
+
+@media all and (max-width: 600px) {
+    #profil_meta_bloc {
+        display: block;
+        margin-bottom: 10px;
+    }
+    #profil_meta_bloc > #profil_bloc {
+        width: 100%;
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+    #profil_meta_bloc > #meta_bloc {
+        width: 100%;
+        padding-top: 12px;
+        margin-top: 12px;
+        border-top: 2px solid #f8f8ff;
+    }    
+    #profil_meta_bloc > #meta_bloc > div {
+        margin-bottom: 3px;
+    }
+}
+
+#profil_meta_bloc > #meta_bloc > div {
+    margin-bottom: 4px;
+}
+
+
+#profil_bloc_img > .card > .card-body {
+    height: 190px;
+}
+
+#profil_bloc_input > label {
+    font-size: 16px;
+    font-weight: bold;
+    font-family: italic;
+    display: block;
+    text-align: center;
+    padding: 4px;
+    margin-top: 6px;
+    border-radius: 4px;
+    background-color: cadetblue;
+    color: white;
+    cursor: pointer;
+}
+
+#profil_bloc_input > input {
+    display: none;
+}
+
+#nom_prenom_bloc {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+}
+
+#nom_prenom_bloc > div {
+    width: 49.5%;
+}
+
+@media all and (max-width: 600px) {
+    #nom_prenom_bloc {
+        display: block;
+    }
+    #nom_prenom_bloc > div {
+        width: 100%;
+        margin-bottom: 4px;
+    }   
+}
+
+#username_password_bloc {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+}
+
+#username_password_bloc > div {
+    width: 49.5%;
+}
+
+@media all and (max-width: 600px) {
+    #username_password_bloc {
+        display: block;
+    }
+    #username_password_bloc > div {
+        width: 100%;
+    }
+}
+
+#role_bloc {
+    padding: 10px 10px 1px 10px;
+}
+
+#role_bloc input {
+    margin-left: 10px;
+}
+
+#role_bloc span {
+    font-size: 17px;
+    font-family: italic;
+}
+
+label {
+    font-size: 16px;
+    font-weight: bold;
+    font-family: italic;
+}
+
+label i[id="required-sign"] {
+    color: red;
+}
+
+#submit_bloc {
+    margin-top: 8px;
+}
+
+input[type="text"],input[type="email"],input[type="password"] {
+    border-bottom: 1px solid #ccc;
+}
+
+#submit_bloc .d-grid button span {
+    font-size: 16px;
+    font-weight: bold;
+    font-family: italic;
+}

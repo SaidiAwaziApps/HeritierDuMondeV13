@@ -1,0 +1,61 @@
+.card .card-header span.card-title {
+    font-size: 20px;
+    font-weight: bold;
+    font-family: italic;
+    opacity: 0.6;
+}
+
+.card .card-header span.card-title i {
+    opacity: 0.4;
+}
+
+.card .card-header a {
+    float: right;
+}
+
+.card .card-header a span {
+    font-weight: bold;
+    font-family: italic;
+}
+
+table thead tr th {
+    font-weight: bold;
+    font-family: italic;
+}
+
+
+table tbody td {
+    font-family: italic;
+    font-size: 17px;
+}
+
+table tbody td div.d-grid a.btn-default {
+    border: 1px solid #ccc;
+}
+
+table tbody tr td:nth-child(8) .dropdown .btn-group button:nth-child(1) {
+    cursor: default;
+}
+
+table tbody tr td:nth-child(8) .dropdown .btn-group ul li:nth-child(1) {
+    text-align: center;
+    font-weight: bold;
+    opacity: 0.7;
+}
+
+table tbody tr td:nth-child(8) .dropdown .btn-group ul li {
+    font-family: italic;
+}
+
+table tbody tr td:nth-child(8) .dropdown .btn-group ul li a {
+    font-family: italic;
+    font-size: 16px;
+}
+
+table tbody tr td:nth-child(8) .dropdown .btn-group ul li a i {
+    opacity: 0.6;
+}
+
+table tbody tr td:nth-child(6) a {
+    border: 1px solid #ccc;
+}

@@ -1,0 +1,122 @@
+.card .card-header span.card-title {
+    font-size: 20px;
+    font-weight: bold;
+    font-family: italic;
+}
+
+.card .card-header a {
+    float: right;
+}
+
+.card .card-header a span {
+    font-weight: bold;
+    font-family: italic;
+}
+
+
+#user_access_bloc #user_bloc {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap; 
+}
+
+#user_bloc #profil_bloc {
+    width: 31%;
+}
+
+#user_bloc #meta_bloc {
+    width: 68%;
+}
+
+@media all and (max-width: 700px) {
+    #user_access_bloc #user_bloc {
+        display: block;
+    }
+    #user_bloc #profil_bloc {
+        width: 100%;
+    }
+    #user_bloc #meta_bloc {
+        width: 100%;
+    }
+}
+
+#profil_bloc > .card > .card-body {
+    width: 100%;
+    height: 206px;
+} 
+
+ul.list-group li span {
+    font-size: 17px;
+    font-family: italic;
+}
+
+ul.list-group li span:nth-child(1) {
+    font-weight: bold;
+}
+
+ul.list-group li:nth-child(5) span:nth-child(2) {
+    text-transform: capitalize;
+}
+
+
+#illustration {
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+    margin-bottom: 10px;
+    /* padding-bottom: 4px; */
+    border-bottom: 2px solid #ccc;
+}
+
+#illustration ul li {
+    float: left;
+    margin-left: 10px;
+    list-style-type: none;
+}
+
+#illustration ul li span {
+    font-size: 18px;
+    font-family: italic;
+}
+
+#illustration ul li span:nth-child(2n+1) {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    opacity: 0.8;
+}
+
+#illustration ul li:nth-child(1) span:nth-child(1) {
+    background-color: green;
+}
+
+#illustration ul li:nth-child(2) span:nth-child(1) {
+    background-color: red;
+}
+
+#illustration ul li:nth-child(3) span:nth-child(1) {
+    background-color: pink;
+}
+
+
+table thead tr th,
+table tbody tr td {
+    font-size: 17px;
+    font-family: italic;
+    text-transform: capitalize;
+}
+
+/* @media all and (min-width: 700px) {
+    table tbody tr td:nth-child(2) span:nth-child(1) {
+        display: inline-block;
+        width: 86px;
+    }
+}  */
+
+.password-dots {
+    font-size: 20px;   /* taille */
+    letter-spacing: 3px; /* espace entre les points */
+    font-weight: bold;
+    opacity: 0.8;
+}

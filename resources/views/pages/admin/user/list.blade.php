@@ -1,86 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Utilisateurs</title>
-   <style>
-      div.card .card-header span.card-title {
-         font-size: 20px;
-         font-weight: bold;
-         font-family: italic;
-         opacity: 0.6;
-      }
 
-      div.card .card-header span.card-title i {
-         opacity: 0.4;
-      }
-
-      div.card .card-header a {
-         float: right;
-      }
-
-      div.card .card-header a span {
-         font-weight: bold;
-         font-family: italic;
-      }
-
-      table thead tr th {
-         font-weight: bold;
-         font-family: italic;
-      }
-
-
-      table tbody td {
-         font-family: italic;
-         font-size: 17px;
-      }
-
-      table tbody td div.d-grid a.btn-default {
-         border: 1px solid #ccc;
-      }
-
-      table tbody tr td:nth-child(8) .dropdown .btn-group button:nth-child(1) {
-         cursor: default;
-      }
-
-      table tbody tr td:nth-child(8) .dropdown .btn-group ul li:nth-child(1) {
-         text-align: center;
-         font-weight: bold;
-         opacity: 0.7;
-      }
-
-      table tbody tr td:nth-child(8) .dropdown .btn-group ul li {
-         font-family: italic;
-      }
-
-      table tbody tr td:nth-child(8) .dropdown .btn-group ul li a {
-         font-family: italic;
-         font-size: 16px;
-      }
-
-      table tbody tr td:nth-child(8) .dropdown .btn-group ul li a i {
-         opacity: 0.6;
-      }
-
-   </style>
-</head>
-<body>
    @extends('layouts.admin')
 
    @section('content')
+      @php $headTitle = 'Utilisateurs'; @endphp
    <div id="globalContent">
       <div class="card">
          <div class="card-header">
             <span class="card-title">
                <i class="fa fa-users"></i> Gestion utilisateurs
             </span>   
-            <a href="{{ route('user.register') }}" class="btn btn-default btn-sm active">
+            <a href="{{ route('user.register_page') }}" class="btn btn-default btn-sm active">
                <span>
                   <i class="fa fa-plus"></i>
                </span>
             </a>
-            </h5>
          </div>
          <div class="card-body">
             <div class="card">
@@ -197,17 +130,16 @@
       </div>
       <!-- fin card -->
       
+      <!-- Scripts internes -->
       <script>
          new DataTable('#example', {
-    layout: {
-        topStart: {
-            buttons: ['copy', 'excel', 'pdf', 'colvis']
-        }
-    }
-});
+            layout: {
+               topStart: {
+                  buttons: ['copy', 'excel', 'pdf', 'colvis']
+               }
+            }    
+         });
       </script>
-
    </div>      
    @endsection
-</body>
-</html>
+

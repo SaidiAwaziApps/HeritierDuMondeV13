@@ -22,8 +22,8 @@ class UserController extends Controller
     /* ************************************************************
      * RENVOIE LA PAGE LIST UTILISATEURS 
      * ************************************************************/
-    public function list(){    
-        return view('pages.user.list', [
+    public function list() {    
+        return view('pages.admin.user.list', [
             'users' => User::getAll()
         ]);           
     }
@@ -31,24 +31,15 @@ class UserController extends Controller
     /* ************************************************************
      * RENVOIE LA PAGE DETAILS
      * ************************************************************/
-    public function details($id) 
-    {
+    public function details($id) {
         // Utilisateur a detailler
         $user = User::getOne($id);
 
         // Rend visible le champ password
         $user->makeVisible(['password']);
 
-        // Decrypt le mot de passe 
-        try {
-            $user->password = Crypt::decryptString($user->password);
-        }
-        catch(DecryptException $e){
-            die($e->getMessage());
-        }
-
         // Renvoie la page details
-        return view('pages.user.details', [
+        return view('pages.admin.user.details', [
            'ressources' => Ressource::getAll(), 
            'user'       => $user 
         ]);   
@@ -57,7 +48,7 @@ class UserController extends Controller
     /* ************************************************************
      * RENVOIE LA PAGE ENREGISTREMENT
      * ************************************************************/
-    public function register(){
+    public function register_page(){
         return view('pages.user.register');
     }
 
@@ -69,21 +60,22 @@ class UserController extends Controller
         $user = User::getOne($id);
 
         // Rend visible le champ password
-        $user->makeVisible(['password']);
+        // $user->makeVisible(['password']);
 
         // Decrypt le mot de passe 
-        try {
-            $user->password = Crypt::decryptString($user->password);
-        }
-        catch(DecryptException $e){
-            die($e->getMessage());
-        }
+        // try {
+        //     $user->password = Crypt::decryptString($user->password);
+        // }
+        // catch(DecryptException $e){
+        //     die($e->getMessage());
+        // }
 
         // Renvoie la page update
-        return view('pages.user.update', [
+        return view('pages.admin.user.update', [
             'user' => $user,
         ]);
     }
+
 
     /* ************************************************************
      * RENVOIE LA PAGE MON PROFIL
@@ -94,6 +86,8 @@ class UserController extends Controller
         ]);
     }
 
+
+    
     /* ************************************************************
      * TRAITE ENREGISTREMENT INSTANCE
      * ************************************************************/
@@ -145,7 +139,7 @@ class UserController extends Controller
     /* ************************************************************
      * TRAITE LA MODIFICATION D' UNE INSTANCE
      * ************************************************************/
-    public function update($id, Request $request){
+    public function update_handler($id, Request $request){
         // Validation formulaire
         $request->validate([
             'nom'      => ['required'],
