@@ -2,7 +2,7 @@
 
 @section('content')
 <div id="globalContent">
-    <form method="POST" action="{{ route('access_ressource.update',['user_id'=>$user->id]) }}">
+    <form method="POST" action="{{ route('access_ressource.update_handler', ['user_id' => $user->id]) }}">
         @csrf
         @method('PUT')
         
@@ -14,7 +14,7 @@
                     <div class="card">
                         <div class="card-body text-center">
                             <span>
-                               <i class="fa fa-shield"></i> Definir les access aux ressources
+                               <i class="fa fa-shield"></i> Definir les privileges
                             </span>
                         </div>
                     </div>
@@ -56,7 +56,7 @@
                                         </a>
                                     </h2>
                                     <div id="ressource_{{ $ressource->id }}" class="accordion-collapse collapse" data-bs-parent="#ressources">
-                                        <div class="accordion-body d-flex flex-wrap justify-content-start">
+                                        <div class="accordion-body d-flex flex-wrap justify-content-center">
                                             @if(!in_array($ressource->nom, ['contact','benevole','don']))
                                                 @php $actions = ['register','delete','update']; @endphp
                                                 @foreach($actions as $action)
@@ -64,7 +64,7 @@
                                                         <input type="checkbox" name="access_ressources[]" 
                                                                id="access_{{ $ressource->id }}_{{ $action }}" 
                                                                value="{{ json_encode(['ressource_id'=>$ressource->id,'action'=>$action]) }}"
-                                                               @if(in_array($action, $user->access_ressources[$ressource->id] ?? [])) checked @endif>
+                                                               @if(in_array($action, $user->access_ressources->toArray()[$ressource->id] ?? [])) checked @endif>
                                                         <label for="access_{{ $ressource->id }}_{{ $action }}">{{ ucfirst($action) }}</label>
                                                     </div>
                                                 @endforeach
@@ -73,7 +73,7 @@
                                                     <input type="checkbox" name="access_ressources[]" 
                                                            id="access_{{ $ressource->id }}_authorized" 
                                                            value="{{ json_encode(['ressource_id'=>$ressource->id,'action'=>'authorized']) }}"
-                                                           @if(in_array('authorized', $user->access_ressources[$ressource->id] ?? [])) checked @endif>
+                                                           @if(in_array('authorized', $user->access_ressources->toArray()[$ressource->id] ?? [])) checked @endif>
                                                     <label for="access_{{ $ressource->id }}_authorized">Authorized</label>
                                                 </div>    
                                             @endif
