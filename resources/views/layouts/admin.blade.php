@@ -23,6 +23,9 @@
     <!-- Styles user -->
     @include('components.admin.template.user.head.styles')
 
+    <!-- Styles access_ressource -->
+    @include('components.admin.template.access_ressource.head.styles')
+
     <script src="{{ asset('dependance/font-awesome/font-awesome.js') }}"></script>
 
     <script src="{{ asset('dependance/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>

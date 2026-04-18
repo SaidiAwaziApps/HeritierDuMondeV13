@@ -62,7 +62,7 @@
                                     <li class="list-group-item">
                                         <span> Password: </span>
                                         <span>
-                                            <i class="password-dots">........</i> 
+                                            <i class="password-dots"> ********(*) </i> 
                                         </span>
                                     </li>
                                     <li class="list-group-item">
