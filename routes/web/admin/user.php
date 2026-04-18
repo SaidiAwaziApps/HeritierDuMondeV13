@@ -12,6 +12,7 @@ Route::middleware([\App\Http\Middleware\IsAdmin::class,\App\Http\Middleware\Trac
         Route::get('/list', [UserController::class, 'list'])->name('list');
         Route::get('/details/{id}', [UserController::class, 'details'])->name('details');
         Route::get('/update/{id}', [UserController::class, 'update_page'])->name('update_page');
+        Route::get('/reset-password/{id}', [UserController::class, 'reset_password_page'])->name('reset_password_page');
 
         // Cette route nécessite un middleware supplémentaire
         Route::get('/my-profil', [UserController::class, 'my_profil'])
@@ -20,5 +21,6 @@ Route::middleware([\App\Http\Middleware\IsAdmin::class,\App\Http\Middleware\Trac
 
         Route::post('/save', [UserController::class, 'save'])->name('save');
         Route::put('/update/{id}', [UserController::class, 'update_handler'])->name('update');
+        Route::put('/reset-password/{id}', [UserController::class, 'reset_password_handler'])->name('reset_password_handler');
         Route::delete('/delete-one/{id}', [UserController::class, 'delete_one'])->name('delete_one');
     });
