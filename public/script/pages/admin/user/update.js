@@ -16,9 +16,9 @@ function onSelectFile(e){
  * ***********************************************************************/
 document.addEventListener('DOMContentLoaded', function() {
     /* ---- Variables DOM  ---- */
-    const elements = document.querySelectorAll('input[type="checkbox"]');
+    const elements  = document.querySelectorAll('input[type="checkbox"]');
     const fileInput = document.querySelector('input[type="file"]');
-
+    
     /* ---- Parcourt ensemble des roles && elements ---- */
     roles.forEach(role => {
         elements.forEach(element => {
