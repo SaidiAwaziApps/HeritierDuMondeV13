@@ -1,0 +1,133 @@
+    #title_bloc .card .card-body {
+        text-align: center;
+    }
+
+    #title_bloc .card .card-body span {
+        font-size: 18px;
+        font-weight: bold;
+        font-family: italic;
+    }
+
+    #title_bloc .card .card-body span i {
+        opacity: 0.5;
+    }
+
+
+    #profil_access_bloc {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+        margin-top: 4px;
+    }
+
+    #profil_access_bloc > #profil_bloc {
+        width: 30%;
+    }
+
+    #profil_access_bloc > #access_bloc {
+        width: 69%;
+    }
+
+    @media all and (max-width: 700px) {
+        #profil_access_bloc {
+            display: block;
+        }  
+        #profil_access_bloc > #profil_bloc {
+            width: 100%;
+        }
+        #profil_access_bloc > #access_bloc {
+            width: 100%;
+            margin-top: 4px;
+        } 
+    }
+
+    #profil_bloc_description .card .card-body {
+        text-align: center;
+    }
+
+    #profil_bloc_description .card .card-body span {
+        font-size: 17px;
+        font-family: italic;
+    }
+
+    #profil_bloc_description .card .card-body span:nth-child(1) {
+        font-weight: bold;
+    }
+
+    @media all and (max-width: 700px) {
+        #profil_bloc_description .card .card-body {
+            text-align: center;
+        }
+    }
+
+
+    .accordion-item .accordion-header a {
+        background-color: white;
+        text-decoration: none;
+        text-transform: capitalize;
+        font-size: 17px;
+        /* font-weight: bold; */
+        font-family: italic;
+        color: black;
+    }
+
+    .accordion-item .accordion-header a:hover {
+        background-color: #f8f8ff;
+    }
+
+    .accordion-body {
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: nowrap;
+    }
+
+    .accordion-body > div > label {
+        font-size: 18px;
+        font-family: italic;
+    }
+
+
+    #check_all_bloc {
+        margin-top: 4px;
+        padding-top: 2px;
+        /* border-top: 2px solid #f8f8ff; */
+    }
+
+
+    #check_all_bloc {
+        text-align: center;
+        background-color: #f8f8ff;
+        padding: 10px;
+        border-radius: 4px;
+    }
+
+    #check_all_bloc label {
+        font-size: 17px;
+        font-family: italic;
+    }
+
+
+    @media all and (min-width: 700px) {
+        #submit_bloc {
+            position: fixed;
+            top: 416px;
+            left: 62%;
+            z-index: 1001;
+            opacity: 0.5;
+        }
+        #submit_bloc > div {
+            text-align: center;
+        }
+    }
+
+    @media all and (max-width: 700px) {
+        #submit_bloc {
+            margin-top: 10px;
+        } 
+    }
+
+    #submit_bloc > div > button span {
+        font-size: 16px;
+        font-weight: bold;
+        font-family: italic;
+    }
