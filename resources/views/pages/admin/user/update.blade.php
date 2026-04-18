@@ -25,7 +25,9 @@
                             <div id="profil_bloc_img">
                                 <div class="card">
                                     <div class="card-body">
-                                        <img src="{{ Storage::url($user->photo) }}" alt="Profil Image" id="user_profil_img" class="rounded-thumbnail cover" style="width: 100%;height: 100%;">
+                                        <a href="{{ Storage::url($user->photo) }}">
+                                            <img src="{{ Storage::url($user->photo) }}" alt="Profil Image" id="user_profil_img" class="rounded-thumbnail cover" style="width: 100%;height: 100%;">
+                                        </a>    
                                     </div>
                                 </div>
                             </div>
@@ -69,19 +71,18 @@
                                 <input type="checkbox" name="roles[]" id="roles" value="blogeur"> <span> Blogeur </span>
                                 <input type="checkbox" name="roles[]" id="roles" value="auteur"> <span> Auteur </span>
                             </div>
-                            <div id="username_password_bloc">
+                            <div id="username_bloc">
                                 <div class="form-group">
                                     <label for="username">
                                         Username:<i id="required-sign">*</i>
                                     </label>
                                     <input type="text" name="username" id="username" value="{{ $user->username }}" class="form-control" placeholder="Nom utilisateur" maxlength="20" required>
                                 </div>
-                                <div class="form-group">
-                                    <label for="password">
-                                        Password:<i id="required-sign">*</i>
-                                    </label>
-                                    <input type="password" name="password" id="password" value="{{ $user->password }}" class="form-control" placeholder="Mot de passe" maxlength="20" required>
-                                </div>
+                            </div>
+                            <div id="password_bloc">
+                                <a href="{{ route('user.reset_password_page', ['id' => $user->id]) }}" title="Cliquer pour reinitializer le mot de passe">
+                                    Reset password ?
+                                </a>
                             </div>
                         </div>
                         <!-- fin meta_bloc --> 
