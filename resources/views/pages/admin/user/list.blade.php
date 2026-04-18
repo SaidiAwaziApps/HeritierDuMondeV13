@@ -97,7 +97,7 @@
                                              <li class="dropdown-divider"></li>
                                              <li class="dropdown-item">
                                                 <div class="d-grid">
-                                                   <a href="{{ route('user.update_page',['id'=>$user->id]) }}" title="Utilisateur" class="btn btn-default btn-block btn-sm">
+                                                   <a href="{{ route('user.update_page',['id' => $user->id]) }}" title="Utilisateur" class="btn btn-default btn-block btn-sm">
                                                       <i class="fa fa-user"></i> User
                                                    </a>
                                                 </div>
@@ -105,7 +105,7 @@
                                              <li class="dropdown-divider"></li>
                                              <li class="dropdown-item">
                                                 <div class="d-grid">
-                                                   <a href="{{ route('access_ressource.update_page',['user_id'=>$user->id]) }}" title="Privileges" class="btn btn-default btn-block btn-sm">
+                                                   <a href="{{ route('access_ressource.update_page',['user_id' => $user->id]) }}" title="Privileges" class="btn btn-default btn-block btn-sm">
                                                       <i class="fa fa-shield"></i> Privilegies
                                                    </a>
                                                 </div>
