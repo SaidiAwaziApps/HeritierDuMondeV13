@@ -51,7 +51,7 @@
                                         </a>
                                     </h2>
                                     <div id="ressource_{{ $ressource->id }}" class="accordion-collapse collapse" data-bs-parent="#ressources">
-                                        <div class="accordion-body d-flex flex-wrap justify-content-start">
+                                        <div class="accordion-body d-flex flex-wrap justify-content-center">
                                             @if(!in_array($ressource->nom, ['contact','benevole','don']))
                                                 @php
                                                     $actions = ['register','delete','update'];
