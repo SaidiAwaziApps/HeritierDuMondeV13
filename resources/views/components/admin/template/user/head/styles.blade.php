@@ -6,6 +6,10 @@
    <link rel="stylesheet" href="{{ asset('style/pages/admin/user/update.css') }}">
 @endif
 
+@if(Route::currentRouteName() == 'user.reset_password_page')
+   <link rel="stylesheet" href="{{ asset('style/pages/admin/user/reset_password.css') }}">
+@endif
+
 @if(Route::currentRouteName() == 'user.list')
    <link rel="stylesheet" href="{{ asset('style/pages/admin/user/list.css') }}">
 @endif
