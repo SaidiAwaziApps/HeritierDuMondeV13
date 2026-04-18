@@ -13,22 +13,24 @@ use App\Http\Controllers\Admin\AccessRessourceController;
 |
 */
 
-Route::middleware(['isAdmin', 'trackHistoryMiddleware'])->prefix('access-ressource')->group(function () {
+Route::middleware([\App\Http\Middleware\IsAdmin::class, \App\Http\Middleware\TrackHistoryMiddleware::class])
+->prefix('access-ressource')
+->as('access_ressource.')->group(function () {
 
     // Page d'enregistrement d'accès pour un utilisateur
-    Route::get('/register/{user_id}', [AccessRessourceController::class, 'register'])
-        ->name('access_ressource.register');
+    Route::get('/register/{user_id}', [AccessRessourceController::class, 'register_page'])
+        ->name('register_page');
 
     // Page de mise à jour d'accès pour un utilisateur
     Route::get('/update/{user_id}', [AccessRessourceController::class, 'update_page'])
-        ->name('access_ressource.update_page');
+        ->name('update_page');
 
     // Enregistrement de l'accès
     Route::post('/save', [AccessRessourceController::class, 'save'])
-        ->name('access_ressource.save');
+        ->name('save');
 
     // Mise à jour de l'accès
-    Route::put('/update/{user_id}', [AccessRessourceController::class, 'update'])
-        ->name('access_ressource.update');
+    Route::put('/update/{user_id}', [AccessRessourceController::class, 'update_handler'])
+        ->name('update_handler');
 
 });
