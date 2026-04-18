@@ -12,7 +12,7 @@ use Illuminate\Notifications\Notifiable;
 
 use Illuminate\Support\Facades\Cache;
 
-#[Fillable(['name', 'email', 'password'])]
+#[Fillable(['nom', 'prenom', 'email', 'username', 'password', 'photo', 'status'])]
 #[Hidden(['password', 'remember_token'])]
 class User extends Authenticatable
 {
