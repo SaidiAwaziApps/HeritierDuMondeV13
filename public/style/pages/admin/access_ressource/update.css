@@ -136,4 +136,7 @@
         font-family: italic;
     }
 
-    /* ae938d */
+  
+    label {
+        margin-right: 1px;
+    }
