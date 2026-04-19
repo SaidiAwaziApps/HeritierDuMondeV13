@@ -3,7 +3,7 @@
  * *************************************************************/
 document.addEventListener('DOMContentLoaded',function() {
     /* ---- Variables DOM ---- */
-    let elements = document.querySelectorAll('input[type="checkbox"]');
+    let elements = document.querySelectorAll('input[name="access_ressources[]"]');
     let check_all_input = document.querySelector('input[id="check_all"]');
 
     /* ---- Parcourt ensembles du tableau access_ressource && elements ---- */
