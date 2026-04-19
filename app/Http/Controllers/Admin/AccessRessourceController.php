@@ -18,7 +18,7 @@ class AccessRessourceController extends Controller
      * RENVOIE A LA PAGE ENREGISTREMENT (REGISTER)
      * *************************************************************/
     public function register_page(int $user_id)
-    {
+    {            
         return view('pages.admin.access_ressource.register', [
             'user' => User::getOne($user_id),
             'ressources' => Ressource::getAll()
@@ -29,7 +29,7 @@ class AccessRessourceController extends Controller
      * RENVOIE A LA PAGE MODIFICATION (UPDATE)
      * *************************************************************/
     public function update_page(int $user_id)
-    {
+    {       
         return view('pages.admin.access_ressource.update', [
             'user' => User::getOne($user_id),
             'ressources' => Ressource::getAll()
@@ -41,11 +41,11 @@ class AccessRessourceController extends Controller
      * *************************************************************/
     public function save(Request $request)
     {
-        // L' id de l' utilisateur (user_id)
-        $user_id = $request->user_id;
+        // L' utilisateur a definir les access
+        $user = User::getOne($request->user_id);
 
         // Appel a methode privee store (enregistrement)
-        $this->store($user_id, $request);
+        $this->store($user->id, $request);
 
         // Renvoie a la page list pour users
         return redirect()->route('user.list');
@@ -58,7 +58,7 @@ class AccessRessourceController extends Controller
         // Utilisateur (avec privilegs)
         $user = User::where('id','=',$user_id)
                     ->where('status', '=', true)
-                    ->first();
+                    ->firstOrFail();
 
         // Supprime tous les instances access_ressources (privileges)            
         foreach($user->access_ressources as $item) {
