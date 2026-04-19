@@ -52,21 +52,48 @@
                                     </h2>
                                     <div id="ressource_{{ $ressource->id }}" class="accordion-collapse collapse" data-bs-parent="#ressources">
                                         <div class="accordion-body d-flex flex-wrap justify-content-center">
-                                            @if(!in_array($ressource->nom, ['contact','benevole','don']))
+                                            @if(!in_array($ressource->nom, ['contact','benevole','don','donateur']))
+
                                                 @php
                                                     $actions = ['register','delete','update'];
                                                 @endphp
+
                                                 @foreach($actions as $action)
-                                                    <div id="access_item" class="me-3 mb-2">
-                                                        <input type="checkbox" name="access_ressources[]" value="{{ json_encode(['ressource_id'=>$ressource->id,'action'=>$action]) }}" id="access_ressources_{{ $ressource->id }}_{{ $action }}">
-                                                        <label for="access_ressources_{{ $ressource->id }}_{{ $action }}">{{ ucfirst($action) }}</label>
+                                                    <div id="access_item">
+                                                        <input type="checkbox"
+                                                               name="access_ressources[]"
+                                                               id="access_{{ $ressource->id }}_{{ $action }}"
+                                                               value='@json([
+                                                                    "ressource_id" => $ressource->id,
+                                                                    "action" => $action
+                                                               ])'>
+
+                                                        <label for="access_{{ $ressource->id }}_{{ $action }}">
+                                                            {{ ucfirst($action) }}
+                                                        </label>
                                                     </div>
                                                 @endforeach
                                             @else
-                                                <div id="access_item">
-                                                    <input type="checkbox" name="access_ressources[]" value="{{ json_encode(['ressource_id'=>$ressource->id,'action'=>'authorized']) }}" id="access_ressources_{{ $ressource->id }}_authorized">
-                                                    <label for="access_ressources_{{ $ressource->id }}_authorized">Authorized</label>
-                                                </div>
+
+                                                @php
+                                                    $actions = ['authorized'];
+                                                @endphp
+
+                                                @foreach($actions as $action)
+                                                    <div id="access_item">
+                                                        <input type="checkbox"
+                                                               name="access_ressources[]"
+                                                               id="access_{{ $ressource->id }}_{{ $action }}"
+                                                               value='@json([
+                                                                    "ressource_id" => $ressource->id,
+                                                                    "action" => $action
+                                                               ])'>
+
+                                                        <label for="access_{{ $ressource->id }}_{{ $action }}">
+                                                            {{ ucfirst($action) }}
+                                                        </label>
+                                                    </div>
+                                                @endforeach
                                             @endif
                                         </div>
                                     </div>
@@ -110,7 +137,8 @@
         </div>
         <!-- fin card -->
     </form>
-</div>
 
-<script src="{{ asset('script/access_ressource/register.js') }}"></script>
+    <!-- Script externe -->
+    <script src="{{ asset('script/pages/admin/access_ressource/register.js') }}"></script>
+</div>
 @endsection
