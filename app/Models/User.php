@@ -53,7 +53,7 @@ class User extends Authenticatable
     {
         return self::where('id', $id)
                    ->where('status', true)
-                   ->first();  
+                   ->firstOrFail();  
     }
 
     /**
