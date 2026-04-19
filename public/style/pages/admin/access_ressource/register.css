@@ -131,3 +131,8 @@
         font-weight: bold;
         font-family: italic;
     }
+
+
+    label {
+        margin-right: 7px;
+    }
