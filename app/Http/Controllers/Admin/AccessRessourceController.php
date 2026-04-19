@@ -17,9 +17,9 @@ class AccessRessourceController extends Controller
     /* *************************************************************
      * RENVOIE A LA PAGE ENREGISTREMENT (REGISTER)
      * *************************************************************/
-    public function register($user_id)
+    public function register_page(int $user_id)
     {
-        return view('pages.access_ressource.register', [
+        return view('pages.admin.access_ressource.register', [
             'user' => User::getOne($user_id),
             'ressources' => Ressource::getAll()
         ]);
@@ -28,9 +28,9 @@ class AccessRessourceController extends Controller
     /* *************************************************************
      * RENVOIE A LA PAGE MODIFICATION (UPDATE)
      * *************************************************************/
-    public function update_page($user_id)
+    public function update_page(int $user_id)
     {
-        return view('pages.access_ressource.update', [
+        return view('pages.admin.access_ressource.update', [
             'user' => User::getOne($user_id),
             'ressources' => Ressource::getAll()
         ]);
@@ -41,67 +41,77 @@ class AccessRessourceController extends Controller
      * *************************************************************/
     public function save(Request $request)
     {
-        $accessItems = $request->access_ressources ?? [];
+        // Appel a methode privee store (enregistrement)
+        $this->store($request);
 
-        foreach (Ressource::getAll() as $ressource) {
-            foreach ($this->actions as $action) {
-                $mention = $this->determineMention($ressource, $action, $accessItems);
-
-                AccessRessource::create([
-                    'ressource_id' => $ressource->id,
-                    'user_id' => $request->user_id,
-                    'action' => $action,
-                    'mention' => $mention
-                ]);
-            }
-        }
-
-        return redirect()->route('user.register', ['user_id' => $request->user_id]);
+        // Renvoie a la page list pour users
+        return redirect()->route('user.list');
     }
 
     /* *************************************************************
      * TRAITE LA MODIFICATION D' UNE INSTANCE (PROCESSUS)
      * *************************************************************/
-    public function update($user_id, Request $request)
-    {
-        $accessItems = $request->access_ressources ?? [];
-
-        foreach (Ressource::getAll() as $ressource) {
-            foreach ($this->actions as $action) {
-                $mention = $this->determineMention($ressource, $action, $accessItems);
-
-                $accessRessource = AccessRessource::where('ressource_id', $ressource->id)
-                    ->where('user_id', $user_id)
-                    ->where('action', $action)
+    public function update_handler(int $user_id, Request $request) {
+        // Utilisateur (avec privilegs)
+        $user = User::where('id','=',$user_id)
+                    ->where('status', '=', true)
                     ->first();
 
-                if ($accessRessource) {
-                    $accessRessource->update(['mention' => $mention]);
-                }
-            }
-        }
+        // Supprime tous les instances access_ressources (privileges)            
+        foreach($user->access_ressources as $item) {
+            $item->delete();
+        }   
+        
+        // Appel a methode privee store (enregistrement)
+        $this->store($user_id, $request);
 
+        // Renvoie a la page de provenance
         return redirect()->route('user.list');
     }
 
     /* *************************************************************
-     * DÉTERMINE LA MENTION POUR UNE RESSOURCE ET ACTION
+     * ENREGISTRE LES INSTANCES DANS LA BASE DE DONNEES
      * *************************************************************/
-    private function determineMention($ressource, $action, array $accessItems)
-    {
-        $mention = 'denied';
+    private function store(int $user_id, Request $request) {
+        
+        // Contenant les donnees au format object json (depuis le corps de la requette) 
+        $accessObject = $request->access_ressources ?? [];
 
-        foreach ($accessItems as $item) {
-            [$resId, $act] = explode(',', $item);
-            if ($resId == $ressource->id && $act == $action) {
-                return 'allowed';
+        // Contient donnees converties en tableau array
+        $accessArray = [];
+
+        // Parcourt ensemble du tableau && convertion (decodage)
+        foreach($accessObject as $item) {
+            array_push($accessArray, json_decode($item, true));
+        }
+
+        // Ensemble de ressource
+        foreach(Ressource::getAll() as $ressource) {
+            // Cas de ressource speciale
+            if(in_array($ressource->nom, $this->specialRessources)) {
+                $this->actions = ['authorized'];
+            }  else {
+                $this->actions = ['register','delete','update'];
+            } 
+           
+            // Initialize la mention
+            $mention = null;
+
+            // Parcourt de ensemble des actions
+            foreach($this->actions as $action) {
+                $filterItem = array_filter($accessArray, function($item) use ($ressource, $action) {
+                    return $item['ressource_id'] == $ressource->id && $item['action'] == $action; 
+                });
+                
+                $mention = $filterItem ? 'allowed' : 'denied';
+                
+                AccessRessource::create([
+                    'ressource_id' => $ressource->id,
+                    'user_id' => $user_id,
+                    'action' => $action,
+                    'mention' => $mention
+                ]);
             }
         }
-
-        if (in_array($ressource->nom, $this->specialRessources)) {
-            $mention = 'not define';
-        }
-
-        return $mention;
     }
 }
