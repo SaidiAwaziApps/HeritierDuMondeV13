@@ -41,8 +41,11 @@ class AccessRessourceController extends Controller
      * *************************************************************/
     public function save(Request $request)
     {
+        // L' id de l' utilisateur (user_id)
+        $user_id = $request->user_id;
+
         // Appel a methode privee store (enregistrement)
-        $this->store($request);
+        $this->store($user_id, $request);
 
         // Renvoie a la page list pour users
         return redirect()->route('user.list');
