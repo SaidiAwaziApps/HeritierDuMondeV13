@@ -26,6 +26,9 @@
     <!-- Styles access_ressource -->
     @include('components.admin.template.access_ressource.head.styles')
 
+     <!-- Styles identite -->
+    @include('components.admin.template.identite.head.styles')
+
     <script src="{{ asset('dependance/font-awesome/font-awesome.js') }}"></script>
 
     <script src="{{ asset('dependance/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
@@ -152,7 +155,7 @@
                 </a>
                 <ul class="sous-menu" id="parameter_sous_menu">
                     <li>
-                        <a href="{{ route('identite.update',['id'=>$identite->id]) }}"><i class="fa fa-blog"></i> Identite</a>
+                        <a href="{{ route('identite.update_page',['id'=>$identite->id]) }}"><i class="fa fa-blog"></i> Identite</a>
                         <a href="{{ route('questionnement.list') }}"><i class="fas fa-question-circle"></i> Questionnement</a>
 
                         @if(auth()->id() === 1)
