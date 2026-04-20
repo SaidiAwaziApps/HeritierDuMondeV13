@@ -18,17 +18,14 @@ use App\Models\User;
 
 class IdentiteController extends Controller
 {
-    public function register(): View
+    public function register_page(): View
     {
-        return view('pages.identite.register');
+        return view('pages.admin.identite.register');
     }
 
     public function update_page(int $id): View
     {
-        return view('pages.identite.update', [
-            'admin'    => User::findOrFail(1),
-            'identite' => Identite::findOrFail($id),
-        ]);
+        return view('pages.admin.identite.update');
     }
 
     public function save(Request $request): RedirectResponse
@@ -65,7 +62,7 @@ class IdentiteController extends Controller
             ->with('success', 'Identité créée avec succès');
     }
 
-    public function update(int $id, Request $request): RedirectResponse
+    public function update_handler(int $id, Request $request): RedirectResponse
     {
         $identite = Identite::findOrFail($id);
 
