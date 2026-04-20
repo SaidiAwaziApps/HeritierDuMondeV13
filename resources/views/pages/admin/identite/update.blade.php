@@ -163,10 +163,9 @@
         <!-- fin card -->  
         
         <script type="text/javascript">
-            window.STORAGE_PATH_URL = '<?php echo(env('STORAGE_PATH_URL'));?>';
-            let identite = <?php echo($identite); ?>;
+            window.STORAGE_PATH_URL = @json(env('STORAGE_PATH_URL'));
+            let identite = @json($identite);
             let images = identite.images;
-            let vignettes = identite.vignettes;
         </script>
 
         <!-- Scripts pour image -->
