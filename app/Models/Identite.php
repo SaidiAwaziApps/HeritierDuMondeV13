@@ -82,7 +82,7 @@ class Identite extends Model
      */
     public function toArray()
     {
-        $this->loadMissing('images', 'vignettes', 'questionnements'); // évite de recharger si déjà chargé
+        $this->loadMissing('images','questionnements'); // évite de recharger si déjà chargé
         return parent::toArray();
     }
 }
