@@ -16,20 +16,20 @@ class PaymentSettingController extends Controller
     /* ********************************************
      * RENVOIE LA PAGE ENREGISTREMENT
      * ****************************************/
-    public function register(): View {
-        return view('pages.payment_setting.register');
+    public function register_page(): View {
+        return view('pages.admin.payment_setting.register');
     }
 
     /* *********************************************
     *  RENVOIE LA PAGE DE MODIFICATION (UPDATE)
     *  *********************************************/
-    public function updatePage($id): View {
+    public function update_page($id): View {
         // Instance a modifier
         $paymentSetting = PaymentSetting::where('id','=',$id)
                                         ->where('status','=',true)
                                         ->firstOrFail();        
   
-        return view('pages.payment_setting.update',[
+        return view('pages.admin.payment_setting.update',[
             'paymentSetting' => $paymentSetting
         ]);
     }
@@ -66,7 +66,7 @@ class PaymentSettingController extends Controller
     /* ************************************************
     *  MODIFIE UNE INSTANCE DE LA BASE DE DONNEES
     *  ************************************************/
-    public function update($id,Request $request): RedirectResponse {
+    public function update_handler($id,Request $request): RedirectResponse {
         // Validation  du formualaire
         $request->validate([
             'token' => ['required','string'],
