@@ -1,88 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Questionnement</title>
-
-    <style>
-        div.card .card-header span {
-            font-size: 20px;
-            font-family: italic;
-        }
-
-        div.card .card-header a {
-            float: right;
-            border: 1px solid #ccc;
-        }
-
-        div.card .card-header a:hover {
-            opacity: 0.6;
-        }
-
-        div#form_title h4 {
-            text-align: center;
-            font-family: italic;
-            padding: 10px;
-            border-bottom: 1px solid #ccc;
-            border-radius: 4px;
-            background-color: #f8f8ff;
-        }
-
-        /* div#form_content {
-            margin-top: 1px;
-        } */
-
-        div#form_content > div {
-            margin-bottom: 6px;
-        }
-
-        div#form_content > div#submit_bloc {
-            margin-top: 6px;
-        }
-
-        div#submit_bloc > div button span {
-            font-size: 18px;
-            font-weight: bold;
-            font-family: italic;
-        }
-
-        label {
-            font-size: 18px;
-            font-weight: bold;
-            font-family: italic;
-        }
-
-        label i[id="required-sign"] {
-            color: red;
-        }
-
-        input[id="question"],textarea[id="reponse"] {
-            border-bottom: 2px solid #ccc;
-        }
-
-
-
-
-        div#errors_bloc {
-            margin-top: 10px;
-        }
-
-        div#error_item {
-            text-align: center;
-        }
-
-        div#error_item span {
-            font-size: 18px;
-            font-weight: bold;
-            font-family: italic;
-            color: red;
-        }
-
-    </style>
-
-</head>
-<body>
 
     @extends('layouts.admin')
 
@@ -98,7 +13,7 @@
                 </a>
             </div>
             <div class="card-body">
-                <form method="POST" action="{{ route('questionnement.update',['id'=>$questionnement->id]) }}">
+                <form method="POST" action="{{ route('questionnement.update_handler',['id'=>$questionnement->id]) }}">
                     <div id="form_title">
                         <h4>
                             Apportez vos modifications
@@ -148,13 +63,11 @@
 
         <!-- Inclus script -->
         <script type="text/javascript">
-            let questionnement=<?php echo($questionnement); ?>
+            let questionnement = @json($questionnement);
         </script> 
 
-        <script src="{{ asset('script/questionnement/update.js') }}"></script>
+        <script src="{{ asset('script/pages/admin/questionnement/update.js') }}"></script>
 
     </div>
     @endsection
 
-</body>
-</html>
