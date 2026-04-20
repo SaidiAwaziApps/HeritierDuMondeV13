@@ -1,0 +1,52 @@
+div#globalContent .card-body {
+    padding-bottom: 100px;
+}
+
+.card-header h4 {
+    font-family: italic;
+}
+
+.accordion-item:hover {
+    opacity: 1;
+    border: 1.6px solid #ccc; 
+}
+
+.accordion-item .accordion-header {
+    font-weight: bold;
+    font-family: italic;
+}
+
+.accordion-item .accordion-body p {
+    font-size: 18px;
+    font-family: italic;
+    text-align: justify;
+}
+
+#ask_button_actions {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    z-index: 1000;
+    background-color: #f8f8ff;
+    padding: 10px 8px 10px 8px;
+    border-radius: 8px;
+    opacity: 0.8;
+}
+
+#ask_button_actions > div {
+    margin-right: 4px;
+    display: none;
+    transition: 2s;
+}
+
+#ask_button_actions > div:nth-child(1) {
+    display: block;
+}
+
+#ask_button_actions > div:nth-child(1) a {
+    border: 1px solid #ccc;
+}
+
