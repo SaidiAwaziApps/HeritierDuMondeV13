@@ -1,17 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Identite du Site</title>
-    <!-- style css pour image -->
-    <link rel="stylesheet" href="{{ asset('css/image/global/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/image/upload/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/image/vignette/style.css') }}">
-    <!-- style css pour identite -->
-    <link rel="stylesheet" href="{{ asset('css/identite/update.css') }}">
-</head>
-<body>
+    
     @extends('layouts.admin')
 
     @section('content')
@@ -26,7 +13,7 @@
                 <div id="section">
                     <div class="d-flex-center">
                         <div id="content">
-                            <form method="POST" action="{{ route('identite.update',['id' => $identite->id]) }}" enctype="multipart/form-data">
+                            <form method="POST" action="{{ route('identite.update_handler',['id' => $identite->id]) }}" enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
                                 <div id="form_content_bloc">
@@ -146,10 +133,10 @@
                                     <!-- BLOC IMAGES (INCLUS IMAGES && VIGNETTES) -->
                                     <div class="imgs-bloc">
                                         <div class="imgs-bloc-context">
-                                            @include('components.image.global.context')
+                                            @include('components.admin.image.global.context')
                                         </div>
                                         <div class="imgs-bloc-content">
-                                            @include('components.image.global.content')
+                                            @include('components.admin.image.global.content')
                                         </div>
                                     </div>
 
@@ -183,14 +170,12 @@
         </script>
 
         <!-- Scripts pour image -->
-        <script src="{{ asset('script/image/upload/update.js') }}"></script>
-        <script src="{{ asset('script/image/vignette/update.js') }}"></script>
+        <script src="{{ asset('script/components/admin/image/upload/update.js') }}"></script>
+        <script src="{{ asset('script/components/admin/image/vignette/update.js') }}"></script>
 
         <!--  Script pour update -->
-        <script src="{{ asset('script/identite/update.js') }}"></script>  
+        <script src="{{ asset('script/pages/admin/identite/update.js') }}"></script>  
     </div>
     @endsection
 
-    
-</body>
-</html>
+ 
