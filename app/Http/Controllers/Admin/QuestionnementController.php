@@ -16,8 +16,8 @@ class QuestionnementController extends Controller
     /* ***********************************************************
      * RENVOIE LA PAGE D' ENREGISTREMENT
      * ***********************************************************/
-    public function register(): View {
-        return view('pages.questionnement.register');
+    public function register_page(): View {
+        return view('pages.admin.questionnement.register');
     }
 
     /* ***********************************************************
@@ -30,7 +30,7 @@ class QuestionnementController extends Controller
                                         ->firstOrFail();
 
         // Return la page pour modification                              
-        return view('pages.questionnement.update',[
+        return view('pages.admin.questionnement.update',[
             'questionnement' => $questionnement
         ]);
     }
@@ -39,7 +39,7 @@ class QuestionnementController extends Controller
      * RENVOIE LA PAGE LIST (INSTANCES) 
      * ***********************************************************/
     public function list(): View {
-        return view('pages.questionnement.list');
+        return view('pages.admin.questionnement.list');
     }
 
     /* ***********************************************************
@@ -81,7 +81,7 @@ class QuestionnementController extends Controller
     /* ***********************************************************
      * TRAITE LA MODIFICATION D' UNE INSTANCE DANS LA B.D
      * ***********************************************************/
-    public function update($id, Request $request): RedirectResponse {
+    public function update_handler($id, Request $request): RedirectResponse {
         // Validation du formulaire
         $request->validate([
             'question' => ['required','string'],
