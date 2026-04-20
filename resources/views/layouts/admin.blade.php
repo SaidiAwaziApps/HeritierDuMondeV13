@@ -32,6 +32,9 @@
     <!-- Styles questionnement -->
     @include('components.admin.template.questionnement.head.styles')
 
+    <!-- Styles payment_setting -->
+    @include('components.admin.template.payment_setting.head.styles')
+
     <script src="{{ asset('dependance/font-awesome/font-awesome.js') }}"></script>
 
     <script src="{{ asset('dependance/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
@@ -162,7 +165,7 @@
                         <a href="{{ route('questionnement.list') }}"><i class="fas fa-question-circle"></i> Questionnement</a>
 
                         @if(auth()->id() === 1)
-                        <a href="{{ $paymentSetting ? route('paymentSetting.updatePage',['id'=>$paymentSetting->id]) : route('paymentSetting.register') }}">
+                        <a href="{{ $paymentSetting ? route('paymentSetting.update_page',['id'=>$paymentSetting->id]) : route('paymentSetting.register_page') }}">
                             <i class="fa fa-credit-card"></i> Payment
                         </a>
                         @endif
