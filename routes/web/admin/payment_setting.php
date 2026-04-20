@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PaymentSettingController;
+use App\Http\Controllers\Admin\PaymentSettingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -11,18 +11,19 @@ use App\Http\Controllers\PaymentSettingController;
 
 Route::prefix('payment-setting')
     ->as('paymentSetting.')
-    ->middleware(['isHighAdmin','trackHistoryMiddleware'])
+    ->middleware([\App\Http\Middleware\IsAdmin::class, \App\Http\Middleware\TrackHistoryMiddleware::class])
     ->group(function() {
 
-        Route::get('/register', [PaymentSettingController::class, 'register'])
-            ->name('register');
+        // View (affichange)
+        Route::get('/register', [PaymentSettingController::class, 'register_page'])
+            ->name('register_page');
+        Route::get('/update/{id}', [PaymentSettingController::class, 'update_page'])
+            ->name('update_page');    
 
+        // Actions (traitements)    
         Route::post('/save', [PaymentSettingController::class, 'save'])
             ->name('save');
 
-        Route::get('/update/{id}', [PaymentSettingController::class, 'updatePage'])
-            ->name('updatePage');
-
-        Route::put('/update/{id}', [PaymentSettingController::class, 'update'])
-            ->name('update');
+        Route::put('/update/{id}', [PaymentSettingController::class, 'update_handler'])
+            ->name('update_handler');
 });
