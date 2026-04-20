@@ -10,24 +10,22 @@ use App\Http\Controllers\Admin\IdentiteController;
 */
 
 Route::prefix('identite')
-    ->middleware(['isAdmin','trackHistoryMiddleware'])
+    ->as('identite.') 
+    ->middleware([\App\Http\Middleware\IsAdmin::class,\App\Http\Middleware\TrackHistoryMiddleware::class])
     ->group(function () {
 
-        // Pages
+        // Pages (Routes vers les pages)
         Route::get('/register', [IdentiteController::class, 'register'])
-            ->name('identite.register');
+            ->name('register_page');
 
         Route::get('/update/{id}', [IdentiteController::class, 'update_page'])
-            ->name('identite.update_page');
+            ->name('update_page');
 
-        Route::get('/questionnement', [IdentiteController::class, 'questionnement'])
-            ->name('identite.questionnement');
-
-        // Actions
+        // Actions (Routes pour traitement)
         Route::post('/save', [IdentiteController::class, 'save'])
-            ->name('identite.save');
+            ->name('save');
 
-        Route::put('/update/{id}', [IdentiteController::class, 'update'])
-            ->name('identite.update');
+        Route::put('/update/{id}', [IdentiteController::class, 'update_handler'])
+            ->name('update_handler');
 
 });
