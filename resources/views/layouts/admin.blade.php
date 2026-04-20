@@ -26,8 +26,11 @@
     <!-- Styles access_ressource -->
     @include('components.admin.template.access_ressource.head.styles')
 
-     <!-- Styles identite -->
+    <!-- Styles identite -->
     @include('components.admin.template.identite.head.styles')
+
+    <!-- Styles questionnement -->
+    @include('components.admin.template.questionnement.head.styles')
 
     <script src="{{ asset('dependance/font-awesome/font-awesome.js') }}"></script>
 
