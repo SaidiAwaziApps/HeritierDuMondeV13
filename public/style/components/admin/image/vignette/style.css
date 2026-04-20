@@ -1,0 +1,126 @@
+div#vignette_image_popup .modal-dialog .modal-content .modal-body > .card > .card-body {
+    height: 600px;
+    overflow: scroll;
+}
+
+div#vgn_imgs_content {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    /* height: 1400px;
+    overflow-y: scroll; */
+}
+
+div#vgn_imgs_content > .card {
+    width: 32%;
+    height: 200px;
+    margin-bottom: 1%;
+}
+
+@media all and (min-width: 900px) {
+    div#vgn_imgs_content > .card { 
+        margin-right: 1%;
+    }
+}
+
+@media all and (max-width: 700px) {
+    div#vgn_imgs_content > .card {
+        width: 48%;
+        margin-right: 2%;
+    }  
+}
+
+/* @media all and (max-width: 500px) {
+    div#vgn_imgs_content > .card {
+        width: 100%;
+    }  
+} */
+
+div#vgn_imgs_content > .card .card-body,
+div#vgn_imgs_content > .card .card-body .vgn-img-bloc {
+    height: 100%;
+}
+
+
+.vgn-iframe-input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+    padding: 5px;
+
+    overflow: hidden;          /* empêche l’élément de déborder */
+    overflow-wrap: break-word; /* casse les mots trop longs */
+    word-break: break-word;    /* casse les mots s'ils ne passent pas */
+    white-space: normal;       /* autorise le retour à la ligne */
+}
+
+
+div#vgn_imgs_content > .card .card-body .vgn-img-bloc .vgn-iframe-input span {
+    display: block;
+    padding: 4px 6px 4px 6px;
+    border: 2px solid #f8f8ff;
+    border-radius: 4px;
+    /* word-wrap: break-word; */
+    /*****
+    Stylisation
+     *****/
+    font-family: italic;
+}
+
+div#vgn_imgs_content > .card .card-body .vgn-img-bloc .vgn-iframe-result {
+    display: none;
+    width: 100%;
+    height: 100%;
+}
+
+
+div#vgn_imgs_content > .card .card-body .vgn-close-bloc {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    margin-top: -85%;
+    background-color: antiquewhite;
+    opacity: 0.9;
+}
+
+@media all and (max-width: 500px) {
+    div#vgn_imgs_content > .card .card-body .vgn-close-bloc {
+        margin-top: -56%;
+    } 
+}
+
+div#vgn_imgs_content > .card .card-body .vgn-close-bloc :hover {
+    opacity: 0.5;
+}
+
+
+div#vgn_actions_content {
+    position: fixed;
+    top: 76%;
+    left: 48%;
+    opacity: 0.8;
+}
+
+
+.vgn-img-bloc, 
+.vgn-iframe-result, 
+.vgn-iframe-result iframe {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;      /* empêche tout débordement */
+    display: block;        /* normalise l’affichage */
+    border: none;          /* supprime les bordures parasites */
+}
+
+
+
+@media all and (max-width: 700px) {
+    div#vgn_actions_content {
+        top: 50%;
+        left: 46%;
+    } 
+}

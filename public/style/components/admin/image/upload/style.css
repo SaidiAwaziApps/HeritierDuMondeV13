@@ -1,0 +1,131 @@
+/* Card-body scrollable */
+div#evenement_image_popup .modal-dialog .modal-content .modal-body > .card > .card-body {
+    height: 600px;
+    overflow: auto;
+}
+
+
+
+/* Conteneur des images */
+#upload_imgs_content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+@media all and (max-width: 700px) {
+    #upload_imgs_content {
+        justify-content: space-between;
+    }
+}
+
+/* Chaque carte/image */
+#upload_imgs_content .upload-img-item {
+    width: 32%;
+    height: 200px;
+    margin-bottom: 6px;
+    margin-right: 1%;
+}
+
+@media all and (max-width: 700px) {
+    #upload_imgs_content .upload-img-item {
+        width: 49%;
+        height: 100px;
+        margin-bottom: 6px;
+    }
+}
+
+/* Carte pleine hauteur */
+#upload_imgs_content .upload-img-item .card,
+#upload_imgs_content .upload-img-item .card .card-body {
+    height: 100%;
+}
+
+/* 🔧 CONTENEUR IMAGE → position relative */
+.upload-img-bloc {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* Image / vidéo bien contenue */
+.upload-img-bloc img,
+.upload-img-bloc video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Affichage au hover desktop ou si class active via JS */
+.upload-img-bloc:hover .upload-close-bloc,
+.upload-img-bloc.active .upload-close-bloc {
+    opacity: 0.5;
+    pointer-events: auto;
+}
+
+/* 🔧 OVERLAY SUPPRESSION (corrigé) */
+.upload-close-bloc {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: none; /* affiché via JS */
+    justify-content: center;
+    align-items: center;
+
+    background-color: rgba(250, 235, 215, 0.9);
+    z-index: 10;
+
+    /* 🔹 Animation */
+    /* opacity: 0; */
+    /* pointer-events: none;
+    transition: opacity 0.3s ease; */
+}
+
+/* Bloc actions (progress + boutons) */
+div#upload_actions_content {
+    position: fixed;
+    top: 70%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    max-width: 600px;
+    padding: 15px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    opacity: 0.9;
+    z-index: 100;
+}
+
+
+@media all and (max-width: 500px) {
+    div#upload_actions_content {
+       padding: 0px 40px 0px 40px; 
+    }
+}
+
+/* Barre de progression */
+#upload_actions_content .progress {
+    width: 100%;
+    height: 12px;
+    display: none;
+}
+
+/* Groupe de boutons */
+#upload_btn_group {
+    display: flex;
+    justify-content: center;
+}
+
+@media all and (max-width: 700px) {
+    div#upload_actions_content {
+        width: 95%;
+        top: 65%;
+    }
+}
