@@ -133,6 +133,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if(platformImages && platformImages.length > 0) {
         platformImages.forEach((item) => {
             vgnImgsContent.appendChild(createVgnItem(item));
+            vgnInputs.appendChild(createVgnInput());
             // vgnAddBtn.appendChild(createVgnRemoveInput(item));
         });
     } else {
@@ -216,7 +217,7 @@ document.addEventListener('DOMContentLoaded', function () {
             iframeInput.querySelector('span').textContent = `${DEFAULT_IFRAME_TEXT}`;
 
             // Definit l' index pour input
-            const inputIndex = () => platformImages ? (platformImages.length > 0 ? index - platformImages.length : index) : index;
+            const inputIndex = () => platformImages ? (platformImages.length > 3 ? index - platformImages.length : index) : index;
 
             // Definie la maniere dont se passe la suppresion au niveau des inputs
             const inputToRemove = (item,inputIndex,value) => {
@@ -277,6 +278,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         span.setAttribute('contenteditable', 'false');
 
+
         const rawHTML = span.innerText.trim(); // Mieux que textContent ici
 
         if (rawHTML.length === 0) {
@@ -284,20 +286,19 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
 
-
         // Cacher zone input
         iframeInput.style.display = 'none';
 
         // Trouver index
         const index =
             Array.from(document.querySelectorAll('.vgn-iframe-input'))
-                 .findIndex(item => item == iframeInput);
+                 .findIndex(item => item == iframeInput);         
 
         // Index input
-        const inputIndex = () => platformImages ? (platformImages.length > 0 ? index - platformImages.length : index) : index;         
+        const inputIndex = () => platformImages ? (platformImages.length > 3 ? index - platformImages.length : index) : index;          
 
         const iframeResult =
-            document.querySelectorAll('.vgn-iframe-result')[index];
+            document.querySelectorAll('.vgn-iframe-result')[index];    
 
         if (isValidIframe(rawHTML)) {
             // Affectation de element input le contenu input
@@ -319,7 +320,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Rend null le contenu input
         vgnInputs.children[inputIndex()].value = null;
-
     
         // Sinon iframe non valide
         iframeResult.style.display = 'flex';
@@ -332,6 +332,7 @@ document.addEventListener('DOMContentLoaded', function () {
         iframeResult.innerHTML = '<span style="font-weight: bold;font-family: italic;">'+
                                     'Iframe incorrect !!!'
                                  +'</span>';
+                                
 
         setTimeout(() => {
             iframeResult.style.display = 'none';
