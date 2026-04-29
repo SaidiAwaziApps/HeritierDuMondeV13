@@ -31,12 +31,14 @@ class ImageService
         // ---- Gestion des iframes ----
         $iframes = $request->iframes ?? [];
         foreach ($iframes as $iframe) {
-            $images[] = new Image([
-                'titre' => $request->titre ?? null,
-                'type' => $type,
-                'img_source' => 'vignette',
-                'iframe' => $iframe,
-            ]);
+            if($iframe) {
+                $images[] = new Image([
+                    'titre' => $request->titre ?? null,
+                    'type' => $type,
+                    'img_source' => 'vignette',
+                    'iframe' => $iframe,
+                ]);
+            }
         }
 
         // ---- Sauvegarde des images ----
