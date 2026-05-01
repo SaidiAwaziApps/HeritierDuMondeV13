@@ -21,12 +21,12 @@ class ArticleController extends Controller
     /* *************************************************************
      * PAGE ENREGISTREMENT (REGISTER)
      * *************************************************************/
-    public function register()
+    public function register_page()
     {
-        $categories = Categorie::getAll();
+        $categories = Categorie::findByCatType('article');
         $regulation = Regulation::getOne(1);
 
-        return view('pages.blog.admin.article.register', compact('categories', 'regulation'));
+        return view('pages.admin.blog.article.register', compact('categories', 'regulation'));
     }
 
     /* *************************************************************
@@ -38,7 +38,7 @@ class ArticleController extends Controller
         $categories = Categorie::where('status', true)->get();
         $regulation = Regulation::getOne(1);
 
-        return view('pages.blog.admin.article.update', compact('article', 'categories', 'regulation'));
+        return view('pages.admin.blog.article.update', compact('article', 'categories', 'regulation'));
     }
 
     /* *************************************************************
@@ -49,7 +49,7 @@ class ArticleController extends Controller
         $articles = Article::where('status', true)->get();
         $regulation = Regulation::getOne(1);
 
-        return view('pages.blog.admin.article.list', compact('articles', 'regulation'));
+        return view('pages.admin.blog.article.list', compact('articles', 'regulation'));
     }
 
     /* *************************************************************
@@ -65,7 +65,7 @@ class ArticleController extends Controller
             }])
             ->firstOrFail();
 
-        return view('pages.blog.admin.article.details', [
+        return view('pages.admin.blog.article.details', [
             'article' => $article,
             'regulation' => Regulation::getOne(1),
             'app_url' => config('app.url'),
@@ -148,13 +148,13 @@ class ArticleController extends Controller
         // Gestion des images dans le corps de l'article
         $this->handleImages($request, $article);
 
-        return redirect()->route('article.list');
+        return redirect()->route('admin.article.list');
     }
 
     /* *************************************************************
      * MODIFICATION D'UN ARTICLE
      * *************************************************************/
-    public function update($id, Request $request)
+    public function update_handler($id, Request $request)
     {
         $request->validate([
             'titre' => ['required'],
@@ -179,7 +179,7 @@ class ArticleController extends Controller
         // Gestion des images (ajout/suppression)
         $this->handleImages($request, $article);
 
-        return redirect()->route('article.list');
+        return redirect()->route('admin.article.list');
     }
 
     /* *************************************************************
