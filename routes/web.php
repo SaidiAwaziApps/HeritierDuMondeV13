@@ -46,7 +46,6 @@ $webAdminModules = [
     'objection',
     'regulation',
     'moderation',
-    'share',
     'contact',
     'message',
     'payment_setting',
@@ -56,5 +55,7 @@ $webAdminModules = [
 foreach ($webAdminModules as $module) {
     require __DIR__ . "/web/admin/{$module}.php";
 }
+
+require __DIR__ . "/web/global/share.php";
 
 require __DIR__ . "/web/auth/authentication.php";
