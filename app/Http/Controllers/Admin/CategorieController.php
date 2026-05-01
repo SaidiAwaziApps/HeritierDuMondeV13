@@ -17,8 +17,8 @@ class CategorieController extends Controller
     private function validator(Request $request): \Illuminate\Contracts\Validation\Validator
     {
         return Validator::make($request->all(), [
-            'cat_name' => ['required'],
-            'cat_type' => ['required']
+            'ctg_name' => ['required'],
+            'ctg_type' => ['required']
         ]);
     }
 
@@ -32,16 +32,16 @@ class CategorieController extends Controller
         if ($validator->fails()) {
             return response()->json([
                 'errors' => $validator->errors()
-            ], 422);
+            ], 200);
         }
 
         $categorie = Categorie::create([
-            'cat_name' => $request->cat_name, // Nom categorie
-            'cat_type' => $request->cat_type // Type categorie
+            'ctg_name' => $request->ctg_name, // Nom categorie
+            'ctg_type' => $request->ctg_type // Type categorie
         ]);
 
         return response()->json([
             'categorie' => $categorie
-        ], 201);
+        ], 200);
     }
 }
