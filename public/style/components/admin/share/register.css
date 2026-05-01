@@ -1,0 +1,78 @@
+.shares-content form label {
+    font-size: 18px;
+    font-weight: bold;
+    font-family: italic;
+    opacity: 0.8;
+}
+
+.shares-content form button,
+.shares-content form ul li button {
+    border: 2px solid #f8f8ff;
+}
+
+.shares-content form button:hover,
+.shares-content form ul li button  {
+    opacity: 0.4;
+}  
+
+.shares-content form > button[value="facebook"] {
+    color: #1877F2;
+}
+
+.shares-content form > button[value="twitter"] {
+    color: #1DA1F2;
+}
+
+.shares-content form > button[value="instagram"] {
+    color: #E4405F;
+}
+
+
+.shares-content form ul li:nth-child(1) {
+    text-align: center;
+    font-weight: bold;
+    font-family: italic;
+    opacity: 0.8;
+}
+
+
+
+.shares-content form button i[class="fa fa-spinner fa-spin"],
+.shares-content form > ul li button i[class="fa fa-spinner fa-spin"] {
+    margin-left: -14px;
+    z-index: 1000;
+    transform: scale(2);
+    opacity: 0;
+}
+
+.shares-content form > ul li button[type="submit"] {
+    font-size: 15px;
+    /* font-weight: bold; */
+    font-family: italic; 
+    opacity: 0.9;
+}
+
+.shares-content form > ul li button[value="whatsapp"] i {
+    color: #25D366;
+}
+
+.shares-content form > ul li button[value="linkedin"] i {
+    color: #0077B5;
+}
+
+.shares-content form > ul li button[value="mail"] i {
+    color: #EA4335;
+}
+
+       
+        
+.shares-content form .validator-errors {
+    margin: 0px;
+    padding: 0px;
+}
+
+.shares-content form .validator-errors > div span {
+    font-weight: bold;
+    color: red;
+}
+
