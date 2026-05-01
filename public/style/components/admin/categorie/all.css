@@ -1,0 +1,50 @@
+   
+    .categorie-content > div:nth-child(1) > div.form-group label {
+        font-size: 16px;
+    }
+
+    .categorie-content > div:nth-child(1) > div.form-group label i {
+        opacity: 0.9;
+    }
+
+       
+    .categorie-content > div:nth-child(2) {
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .categorie-content > div:nth-child(2) a {
+        font-size: 18px;
+        font-weight: bold;
+        font-family: italic;
+        text-decoration: none;
+        color: cadetblue;        
+    }
+
+    .categorie-content > div:nth-child(2) a:hover {
+        opacity: 0.5;
+    }
+
+
+    .categorie-content > div:nth-child(2) > div {
+        display: none;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+    }
+
+    .categorie-content > div:nth-child(2) > div > div:nth-child(1) {
+        width: 81%;
+    }
+
+    .categorie-content > div:nth-child(2) > div > div:nth-child(2) {
+        width: 18%;
+    }
+
+    .toggle-add-categorie-form-content {
+        display: flex;
+    }
+
+
+    button[type="button"] span i[id="add_categorie_spinner_icon"] {
+        display: none;
+    }
