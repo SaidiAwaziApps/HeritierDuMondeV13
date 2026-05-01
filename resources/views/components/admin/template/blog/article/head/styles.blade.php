@@ -39,9 +39,9 @@
 @if(Route::currentRouteName() == 'admin.article.details')
     <link rel="stylesheet" href="{{ asset('style/components/admin/blog/article/components/menu.css') }}">
     
-    <link rel="stylesheet" href="{{ asset('style/components/admin/image/global/admin_template_items.css') }}">
+    <link rel="stylesheet" href="{{ asset('style/components/admin/image/global/items.css') }}">
 
-    <link rel="stylesheet" href="{{ asset('style/components/admin/share/register.css') }}">
+    <link rel="stylesheet" href="{{ asset('style/components/global/share/register.css') }}">
    
     <link rel="stylesheet" href="{{ asset('style/pages/admin/blog/article/details.css') }}">
 
