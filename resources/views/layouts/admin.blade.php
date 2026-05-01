@@ -35,6 +35,10 @@
     <!-- Styles payment_setting -->
     @include('components.admin.template.payment_setting.head.styles')
 
+    <!-- Styles && scripts pour article (blog) -->
+    @include('components.admin.template.blog.article.head.styles')  <!-- // Ensemble de script styles destines a partie head -->
+    @include('components.admin.template.blog.article.head.scripts') <!-- // Ensemble de script scripts destines a partie head -->
+
     <script src="{{ asset('dependance/font-awesome/font-awesome.js') }}"></script>
 
     <script src="{{ asset('dependance/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
@@ -178,7 +182,7 @@
 
             <li>
                 @if($user?->hasAccessToRessource('blog','register','allowed') || $user?->hasAccessToRessource('blog','update','allowed') || $user?->hasAccessToRessource('blog','delete','allowed'))
-                <a href="{{ route('article.list') }}"><i class="fa fa-blog"></i> Blog</a>
+                <a href="{{ route('admin.article.list') }}"><i class="fa fa-blog"></i> Blog</a>
                 @else
                 <a href="#"><i class="fa fa-blog"></i> Blog</a>
                 @endif
