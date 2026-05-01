@@ -1,0 +1,132 @@
+<?php
+    function isVideo($path) {
+        $extension_array=['mp4','MP4','mpeg','MPEG','mpeg-2','MPEG-2','avi','AVI','mov','MOV','wmv','WMV','avi','AVI','avchd','AVCHD','flv','FLV','f4v','F4V','swf','SWF','mkv','MKV','webm','WEBM'];
+        if(in_array(pathinfo($path,PATHINFO_EXTENSION),$extension_array)) {
+            return true;
+        } else {
+            return false;
+        }
+    } 
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <title>Blog</title>
+
+    <link rel="stylesheet" href="{{ asset('css/blog/admin/article/components/menu.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/image/global/admin_template_items.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/global/feedback_toast.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/share/register.css') }}">
+    
+    <style>
+        
+    </style>
+</head>
+<body>
+
+    @extends('layouts.admin')
+
+    @section('content')
+    <div id="global_content">
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">
+                    <span class="card-title">
+                        <i class="fa fa-blog"></i> Details sur l'article
+                    </span>
+                </div>    
+                <!-- Menu deroulant -->
+                <div class="dropdown">
+                    @include('components.admin.blog.article.menu')
+                </div>    
+            </div>
+            <div class="card-body">
+                <div id="infos_content">
+                    <div id="header">
+                        <div id="header_title">
+                            <h5>
+                                {{ $article->titre }}
+                            </h5>
+                        </div>
+                        <div id="header_image">
+                            @if($article->header_image)
+                            <div class="header_image_content">
+                                @if(isVideo($article->header_image))
+                                <video class="rounded-thumbnail cover" alt="Image Entete" style="width: 100%;height: 100%;" controls>
+                                    <source src="{{ Storage::url($article->header_image) }}">
+                                </video>
+                                @else
+                                <a href="{{ Storage::url($article->header_image) }}" title="Afficher image d'entete">
+                                    <img src="{{ Storage::url($article->header_image) }}" class="rounded-thumbnail cover" alt="Image" style="width: 100%;height: 100%;">
+                                </a>
+                                @endif    
+                            </div>
+                            @endif
+                        </div>
+                    </div>    
+                    <div id="content_bloc">
+                        <p>
+                            {!! $article->contenu !!}
+                        </p>
+                        <p>
+                            <span>
+                                <i>Publie le</i>
+                            </span>
+                            <span>
+                                {{ $article->created_at->format('d-m-y') }}
+                            </span> 
+                            <span>
+                                <i>par</i>
+                            </span>
+                            <span>
+                                <i>{{ $article->auteur->auteable->nom }}</i>
+                            </span>    
+                        </p>
+                    </div>
+                    
+
+                    <div class="medias">
+                        @include('components.admin.image.global.items')
+                    </div>
+                
+                    
+                    <div class="shares">
+                        @include('components.admin.share.register')
+                    </div>
+                    <!-- fin shares -->
+                    
+                    <div class="comments">
+                        <div id="comment_hub">
+
+                        </div>
+                    </div>
+                    <!-- fin comments_bloc -->
+
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Inclus le FeedbackToast -->
+        @include('components.admin.global.FeedbackToast')
+        
+        <script type="text/javascript">
+            // Variable article & commentaires
+            window.article = @json($article);
+            window.APP_URL = @json($app_url);
+            window.STORAGE_PATH_URL = @json($storage_path_url);
+            window.user = @json(session('user')??session('user'));
+        </script>
+
+        <!-- Script externe -->
+        <!-- <script src="{{ asset('script/blog/admin/article/details.js') }}"></script> -->
+        <script src="{{ asset('script/components/global/share/register.js') }}"></script> 
+    </div>
+    @endsection
+
+</body>
+</html>
