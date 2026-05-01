@@ -23,8 +23,8 @@ class Categorie extends Model
     /** 
      * Recupere toutes les categories par catType 
      */
-    public static function findByCatType($catType) {
-        return self::where('cat_type','=',$catType)
+    public static function findByCatType($ctgType) {
+        return self::where('ctg_type','=',$ctgType)
                    ->where('status','=',true)
                    ->get(); 
     }
