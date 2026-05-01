@@ -20,6 +20,15 @@ class Categorie extends Model
         return $this->hasMany(Article::class);
     }
 
+    /** 
+     * Recupere toutes les categories par catType 
+     */
+    public static function findByCatType($catType) {
+        return self::where('cat_type','=',$catType)
+                   ->where('status','=',true)
+                   ->get(); 
+    }
+
     /**
      * Récupère toutes les catégories actives
      */
