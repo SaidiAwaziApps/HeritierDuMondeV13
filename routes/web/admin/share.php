@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ShareController;
+use App\Http\Controllers\Global\ShareController;
 
 /*
 |--------------------------------------------------------------------------
@@ -11,7 +11,6 @@ use App\Http\Controllers\ShareController;
 
 Route::prefix('share')
     ->as('share.')
-    ->middleware('blog.ressource.global')
     ->group(function() {
-        Route::post('/save', [ShareController::class, 'save'])->name('save');
+        Route::post('/save', [AdminShareController::class, 'save'])->name('save');
     });
