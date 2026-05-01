@@ -125,9 +125,11 @@ function createNewCategorie(ctg_name, ctg_type, addCategorieDOMObject) {
         ctg_name: ctg_name,
         ctg_type: ctg_type, 
     }).then((response) => {
+        // Au moment ou le serveur repond avec message de success
         feedback(response.data, null, addCategorieDOMObject);
     })
     .catch((error) => {
+        // Au moment ou le serveur repond avec message d' erreur
         feedback(null, error, addCategorieDOMObject);
         console.log(error);
     });
