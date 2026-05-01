@@ -13,7 +13,7 @@ function successEvent(data, addCategorieDOMObject) {
     setTimeout(function(){
         //En cas d'erreur validation formulaire
         if(data.errors) {
-            let validatorErrors = JSON.parse(data.errors);
+            let validatorErrors = data.errors;
             for(let key in validatorErrors) {
                 for(let i = 0; i < validatorErrors[key].length; i++){
                     // Creer une element span
@@ -29,8 +29,11 @@ function successEvent(data, addCategorieDOMObject) {
                     // Contenu a l'element
                     span.innerHTML = ''+validatorErrors[key][i]+'<br>';
 
+                    // Reinitialize le contenu feedback
+                    addCategorieDOMObject.feedback.innerHTML = '';
+            
                     // Ajoute l'element au bloc
-                    addCategorieDOMObject.feedback.append(span); 
+                    addCategorieDOMObject.feedback.appendChild(span); 
                 }
             }
         } 
@@ -38,7 +41,7 @@ function successEvent(data, addCategorieDOMObject) {
             // Select field
             const selectField = document.querySelector('select[id="categorie_id"]');
             // Creer un element option
-            const fieldInnerHTML = selectField.innerHTML+'<option value="'+data.categorie.id+'">'+data.categorie.cat_name+'</option>';
+            const fieldInnerHTML = selectField.innerHTML+'<option value="'+data.categorie.id+'">'+data.categorie.ctg_name+'</option>';
             // Nouveau contenu html
             selectField.innerHTML = ''+fieldInnerHTML+'';
             // Contenu du bloc
@@ -109,9 +112,9 @@ function feedback(data, error, addCategorieDOMObject) {
 /* *******************************************************************
  * CREER (ENREGISTRE) UNE NOUVELLE INSTANCE CATEGORIE 
  * *******************************************************************/
-function createNewCategorie(cat_name, cat_type, addCategorieDOMObject) {  
+function createNewCategorie(ctg_name, ctg_type, addCategorieDOMObject) {  
     /* ---- Variable crsf_token ---- */
-    const csrf_token = document.querySelector('input[name="cat_csrf_token"]').value;
+    const csrf_token = document.querySelector('input[name="ctg_csrf_token"]').value;
 
     /* ---- Attente de la reponse du serveur ---- */
     feedback(null, null, addCategorieDOMObject);
@@ -119,8 +122,8 @@ function createNewCategorie(cat_name, cat_type, addCategorieDOMObject) {
     /* ---- Envoie la requete http au serveur ---- */
     axios.post('/categorie/register', { 
         _token: csrf_token,
-        cat_name: cat_name,
-        cat_type: cat_type, 
+        ctg_name: ctg_name,
+        ctg_type: ctg_type, 
     }).then((response) => {
         feedback(response.data, null, addCategorieDOMObject);
     })
@@ -140,16 +143,16 @@ document.addEventListener('DOMContentLoaded', function() {
     const spinner_icon   = document.querySelector('i[id="add_categorie_spinner_icon"]');
     const submit_icon    = document.querySelector('i[id="add_categorie_submit_icon"]');
     const submit_button  = document.querySelector('button[id="add_categorie_submit_button"]');
-    const cat_name_input = document.querySelector('input[name="cat_name"]');
-    const cat_type_input = document.querySelector('input[name="cat_type"]');
+    const ctg_name_input = document.querySelector('input[name="ctg_name"]');
+    const ctg_type_input = document.querySelector('input[name="ctg_type"]');
 
     /* ---- Regroupement d' une partie des variables DOM au sein de seul object ---- */
     const addCategorieDOMObject = {
-        feedback, spinner_icon, submit_icon, submit_button, cat_name_input, cat_type_input 
+        feedback, spinner_icon, submit_icon, submit_button, ctg_name_input, ctg_type_input 
     }
 
     /* ---- Click sur le button submit ---- */
     submit_button.onclick = function() {
-        createNewCategorie(cat_name_input.value, cat_type_input.value, addCategorieDOMObject);     
+        createNewCategorie(ctg_name_input.value, ctg_type_input.value, addCategorieDOMObject);     
     }
 });
