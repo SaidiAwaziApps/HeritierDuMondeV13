@@ -1,10 +1,14 @@
 
 @php
     $model = null;
-    $cat_type  = null; 
-    if(Route::currentRouteName() == 'admin.article.register_page' || Route::currentRouteName() == 'admin.article.update_page') {
+    $ctg_type  = null; 
+    if(Route::currentRouteName() == 'admin.article.register_page') {
+        $ctg_type = 'article';
+    } 
+
+    if(Route::currentRouteName() == 'admin.article.update_page') {
         $model = $article;
-        $cat_type = 'article';
+        $ctg_type = 'article';
     } 
 @endphp
 
@@ -16,16 +20,25 @@
                 <i id="required-sign">*</i>
             </label>
             <select name="categorie_id" id="categorie_id" class="form-control" required>
-                <option value="{{ $model->categorie->id }}">
+                @if($model)
                     <!-- Categorie par defaut  -->
-                    {{ $model->categorie->cat_name }}
-                </option>
+                    <option value="{{ $model->categorie->id }}">
+                        {{ $model->categorie->ctg_name }}
+                    </option>
+                @endif
+                <!-- Ensemble categories -->
                 @foreach($categories as $categorie)
-                    @if($categorie->id != $model->categorie->id)
+                    @if($model)
+                        @if($categorie->id != $model->categorie->id)
+                            <option value="{{$categorie->id}}">
+                                {{ $categorie->ctg_name }}
+                             </option>
+                        @endif
+                    @else
                         <option value="{{$categorie->id}}">
-                            {{ $categorie->cat_name }}
+                            {{ $categorie->ctg_name }}
                         </option>
-                    @endif
+                    @endif                
                 @endforeach
             </select>
         </div>
@@ -38,9 +51,9 @@
         </a>
         <div id="add_categorie_form_content" class=".toggle-add-categorie-form_content">
             <div class="form-group">
-                <input type="hidden" name="cat_csrf_token" value="{{ csrf_token() }}">
-                <input type="hidden" name="cat_type" value="{{ $cat_type }}">
-                <input type="text" name="cat_name" id="cat_name" class="form-control" placeholder="Nom categorie" maxlength="30">
+                <input type="hidden" name="ctg_csrf_token" value="{{ csrf_token() }}">
+                <input type="hidden" name="ctg_type" value="{{ $ctg_type }}">
+                <input type="text" name="ctg_name" id="ctg_name" class="form-control" placeholder="Nom categorie" maxlength="30">
             </div>
             <div class="d-grid">
                 <button type="button" id="add_categorie_submit_button" class="btn btn-primary btn-sm">
