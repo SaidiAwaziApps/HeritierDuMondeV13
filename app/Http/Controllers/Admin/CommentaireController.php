@@ -23,7 +23,7 @@ class CommentaireController extends Controller
      * *****************************************************************/
     private function getAuteur(Request $request)
     {
-        return session('user')?->auteur;
+        return Auth::user()?->auteur;
     }
 
     /* ********************************************************************** 

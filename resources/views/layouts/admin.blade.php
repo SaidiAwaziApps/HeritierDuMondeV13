@@ -18,26 +18,26 @@
     <link rel="stylesheet" href="{{ asset('style\layouts\admin.css') }}">
 
     <!-- Styles dashboard -->
-    @include('components.admin.template.dashboard.admin.head.styles')
+    @include('layouts.template.admin.dashboard.admin.head.styles')
 
     <!-- Styles user -->
-    @include('components.admin.template.user.head.styles')
+    @include('layouts.template.admin.user.head.styles')
 
     <!-- Styles access_ressource -->
-    @include('components.admin.template.access_ressource.head.styles')
+    @include('layouts.template.admin.access_ressource.head.styles')
 
     <!-- Styles identite -->
-    @include('components.admin.template.identite.head.styles')
+    @include('layouts.template.admin.identite.head.styles')
 
     <!-- Styles questionnement -->
-    @include('components.admin.template.questionnement.head.styles')
+    @include('layouts.template.admin.questionnement.head.styles')
 
     <!-- Styles payment_setting -->
-    @include('components.admin.template.payment_setting.head.styles')
+    @include('layouts.template.admin.payment_setting.head.styles')
 
     <!-- Styles && scripts pour article (blog) -->
-    @include('components.admin.template.blog.article.head.styles')  <!-- // Ensemble de script styles destines a partie head -->
-    @include('components.admin.template.blog.article.head.scripts') <!-- // Ensemble de script scripts destines a partie head -->
+    @include('layouts.template.admin.blog.article.head.styles')  <!-- // Ensemble de script styles destines a partie head -->
+    @include('layouts.template.admin.blog.article.head.scripts') <!-- // Ensemble de script scripts destines a partie head -->
 
     <script src="{{ asset('dependance/font-awesome/font-awesome.js') }}"></script>
 
@@ -46,7 +46,7 @@
     <script src="{{ asset('dependance/axios/axios.min.js') }}"></script>
 
     <!-- Script dashboard -->
-    @include('components.admin.template.dashboard.admin.head.scripts')
+    @include('layouts.template.admin.dashboard.admin.head.scripts')
 
     <style>
         body { padding: 0px; margin: 0px; }
@@ -252,8 +252,8 @@
     @yield('content') 
 </div>
 
+<!-- Scripts externes -->
 <script src="{{ asset('js/app.js') }}"></script>
 <script src="{{ asset('script/layouts/admin.js') }}"></script>
-
 </body>
 </html>

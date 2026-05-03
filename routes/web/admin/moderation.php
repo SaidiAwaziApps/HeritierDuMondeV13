@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ModerationController;
+use App\Http\Controllers\Admin\ModerationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -11,6 +11,7 @@ use App\Http\Controllers\ModerationController;
 
 Route::prefix('moderation')
     ->as('moderation.')
+    ->middleware(\App\Http\Middleware\IsAdmin::class)
     ->group(function() {
 
         Route::post('/define', [ModerationController::class, 'define'])

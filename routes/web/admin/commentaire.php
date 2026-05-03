@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CommentaireController;
+use App\Http\Controllers\Admin\CommentaireController;
 
 /*
 |--------------------------------------------------------------------------
@@ -10,7 +10,6 @@ use App\Http\Controllers\CommentaireController;
 */
 
 Route::prefix('commentaire')
-    ->middleware(['commentaire.ressource.global', 'trackHistoryMiddleware'])
     ->group(function () {
 
         // Enregistrer un commentaire
