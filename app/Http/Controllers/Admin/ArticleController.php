@@ -110,14 +110,15 @@ class ArticleController extends Controller
         // Gestion des fichiers
         if ($request->hasFile('fichiers')) {
             FichierService::saveMany($request, $commentaire, 'commentaire');
+            $commentaire->load('fichiers');
         }
 
         // Modération
-        if (!empty($commentaire->fichiers)) {
-            ModerateableJob::dispatch($commentaire, null);
-        } else {
+        // if ($commentaire->fichiers && count($commentaire->fichiers) > 0) {
+        //     ModerateableJob::dispatch($commentaire, null);
+        // } else {
             $commentaire->moderate(null);
-        }
+        // }
 
         return response()->json(['commentaire' => $commentaire]);
     }
