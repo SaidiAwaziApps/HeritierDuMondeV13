@@ -12,12 +12,7 @@ class CommentaireObserver
      */
     public function created(Commentaire $commentaire): void
     {
-        // Exemple : dispatcher le job de modération si des images existent
-        if (!empty($commentaire->images) && count($commentaire->images) > 0) {
-            ModerateableJob::dispatch($commentaire, null);
-        } else {
-            $commentaire->moderate(null);
-        }
+        
     }
 
     /**
