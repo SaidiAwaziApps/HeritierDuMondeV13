@@ -46,7 +46,9 @@ Route::prefix('test')->as('test.')->group(function() {
     })->name('message_register');
 
     // Test CommentaireController
-    Route::get('/commentaire/register', [CommentaireController::class, 'register'])->name('commentaire_register');
+    Route::get('/commentaire/register', function() {
+        return view('pages.admin.test.commentaire.register');
+    })->name('commentaire_register');
 
     // Test notifications
     Route::get('/notification', function() {
