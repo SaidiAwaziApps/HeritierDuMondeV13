@@ -13,7 +13,7 @@
     <div class="global-content">
         <div class="card">
             <div class="card-body">
-                <form action="{{ route('article.addComment',['id'=>6]) }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('admin.article.addComment',['id'=>6]) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="form-group">
