@@ -7,11 +7,9 @@ class ModerationService {
        this.refComponent = refComponent;
     }
 
-
-    /**********
-     * Methode illustrant l' ensemble d' interaction
-     *  entre la requette && la response
-     *  ************/
+    /* ***********************************************************
+     * ENSEMBLE EVENEMENT ENTRE LA REQUETTE && LA REPONSE
+     * **********************************************************/
     feedback(response,error) {
         setTimeout(() => {
             this.refComponent.loading.active = false;
@@ -29,9 +27,9 @@ class ModerationService {
     }
 
 
-     /******
-     * Renvoie l' API define 
-     * ******/
+    /* ***********************************************************
+     * DEFINIT (ENREGISTRE) LA MODERATION A UN TYPE MODEL 
+     * **********************************************************/
     define() {
         return axios.post('/moderation/define',{
            moderateable_type: this?.refComponent?.type,
@@ -40,9 +38,9 @@ class ModerationService {
         });
     }
 
-    /******
-     * Renvoie l' API update 
-     * ******/
+    /* ***********************************************************
+     * MISE A JOUR (UPDATE) UNE INSTANCE MODERATION 
+     * **********************************************************/
     update() {
         return axios.put('/moderation/update/'+this?.refComponent?.moderateable?.moderation?.id,{
             mention: this?.refComponent?.mention         
@@ -50,9 +48,9 @@ class ModerationService {
     }
 
 
-    /**********
-     * Renvoie le choix de l' aPI
-     *  *****/
+    /* ***********************************************************
+     * DEFINIT TYPE API (METHODE) A APPELER 
+     * **********************************************************/
     apiDemo() {
         if(this?.refComponent?.moderateable?.moderation) {
             return this.update(this?.refComponent?.moderateable?.moderation?.id , this?.refComponent?.mention);
@@ -62,14 +60,15 @@ class ModerationService {
     }
 
 
-    /********
-     * Methode appliquant la moderation
-     *  *******/
+    /* ***********************************************************
+     * EXECUTE LA MODERATION  
+     * **********************************************************/
     moderate(mention) {
-        //Attente de la reponse http du serveur
+        // Attente de la reponse http du serveur
         this.refComponent.mention = mention;
         this.refComponent.loading.active = true;
-        //Appel a l' API pour moderation
+        
+        // Appel a l' API pour moderation
         this.apiDemo(mention).then((response) => {
             this.feedback(response,null);
             console.log(response);
