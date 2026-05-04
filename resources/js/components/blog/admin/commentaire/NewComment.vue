@@ -140,7 +140,7 @@
         components: {
             UploadProgressToastComponent           
         },
-        mounted: function() {
+        created: function() {
             window.Echo.private('App.Models.User.'+window.user.id)
                        .notification((notification) => {
                             setTimeout(() => {
