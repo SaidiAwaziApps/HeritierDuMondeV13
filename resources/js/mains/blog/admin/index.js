@@ -83,9 +83,15 @@ function mountVue() {
     });
 
     app.use(Vue3Toastify, {
-        autoClose: 5000,
-        position: 'top-right',
+        autoClose: 4000,            // durée fixe fiable
+        closeOnClick: true,
+        pauseOnHover: false,
+        pauseOnFocusLoss: false,
+        hideProgressBar: true,
+        newestOnTop: true,
+        draggable: true,
         theme: 'light',
+        limit: 3,                   // évite accumulation de toasts bloqués
     });
 
     app.config.globalProperties.$dayjs = dayjs;
