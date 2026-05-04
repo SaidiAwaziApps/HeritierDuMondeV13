@@ -174,7 +174,7 @@ trait Moderatable
         if($this->hasDeniedWords($regulation)) {
             return true;
         }
-        else if (isset($this->fichiers) && count($this->fichiers) > 0 && $regulation->denied_images) {
+        else if ($this->fichiers()->exists() > 0 && $regulation->denied_images) {
             $this->scanImageResult = $this->scanImageAnalyse($regulation);
             if ($this->scanImageResult['fails']) {
                 //Ici on suppose qu' il peut y avoir des images interdites meme si l' analyse a echoue 
@@ -224,7 +224,7 @@ trait Moderatable
     private function authNotice(Regulation $regulation, ?Moderation $moderation): void
     {
         if (!$moderation) {
-            if(isset($this->fichiers) && count($this->fichiers) > 0) {
+            if($this->fichiers()->exists()) {
                 if($this->scanImageResult['fails']) {
                     $this->message = 'Commentaire n\'a pas pu etre modere et reste en attente de modération due a l\' echec survenu lors de l\'analyse de l\'image !';
                 }
@@ -233,9 +233,9 @@ trait Moderatable
         else if (strtolower($moderation->mention) === 'approved') {
             $this->message = 'Votre commentaire a été approuvé !';
             $this->status = 'success';
-        } elseif (!empty($this->fichiers) && $this->scanImageResult && $this->scanImageResult['fails']) {
+        } elseif ($this->fichiers()->exists() && $this->scanImageResult && $this->scanImageResult['fails']) {
             $this->message = "Commentaire n\'a pas pu etre modere et reste en attente de modération due a l\' echec survenu lors de l\'analyse de l\'image !";
-        } elseif (!empty($this->fichiers) && $this->scanImageResult && !empty($this->scanImageResult['data_results'])) {
+        } elseif ($this->fichiers()->exists() && $this->scanImageResult && !empty($this->scanImageResult['data_results'])) {
             $deniedDescriptions = array_map(
                 fn($task) => $this->describeTaskName($task),
                 $this->scanImageResult['data_results']
