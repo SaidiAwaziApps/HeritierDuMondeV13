@@ -130,31 +130,50 @@ trait Moderatable
             }
 
             try {
-                $response = Http::asMultipart()->post(config('services.sightengine.api_url'), [
-                    ['name' => 'media', 'contents' => fopen($filePath, 'r'), 'filename' => basename($filePath)],
-                    ['name' => 'models', 'contents' => implode(',', $models)],
-                    ['name' => 'api_user', 'contents' => config('services.sightengine.api_user')],
-                    ['name' => 'api_secret', 'contents' => config('services.sightengine.api_secret')],
-                ]);
                 
-                if ($response->failed()) {
-                    Log::error('Erreur API de modération image', [
-                        'status' => $response->status(),
-                        'body' => $response->body(),
-                        'image' => $file->path,
+                $response = Http::timeout(120)
+                    ->connectTimeout(30)
+                    ->retry(3, 2000)
+                    ->withoutVerifying()
+                    ->asMultipart()
+                    ->post(config('services.sightengine.api_url'), [
+                        [
+                           'name' => 'media',
+                           'contents' => fopen($filePath, 'r'),
+                           'filename' => basename($filePath),
+                        ],
+                        [
+                            'name' => 'models',
+                            'contents' => implode(',', $models),
+                        ],
+                        [
+                            'name' => 'api_user',
+                            'contents' => config('services.sightengine.api_user'),
+                        ],
+                        [
+                            'name' => 'api_secret',
+                            'contents' => config('services.sightengine.api_secret'),
+                        ],
                     ]);
-                    // $responses[] = null;
-                    //Echec d' analyse d' image
+                
+                    if ($response->failed()) {
+                        Log::error('Erreur API de modération image', [
+                            'status' => $response->status(),
+                            'body' => $response->body(),
+                            'image' => $file->path,
+                        ]);
+                        // $responses[] = null;
+                        //Echec d' analyse d' image
+                        $fails = true;
+                        break;
+                    } else {
+                        $responses[] = $response->json();
+                    }
+                } catch (\Throwable $e) {
                     $fails = true;
+                    Log::error('Exception lors de la modération image : ' . $e->getMessage());
                     break;
-                } else {
-                    $responses[] = $response->json();
                 }
-            } catch (\Throwable $e) {
-                $fails = true;
-                Log::error('Exception lors de la modération image : ' . $e->getMessage());
-                break;
-            }
         }
 
         // dd($this->getDeniedTasksFounded($regulation,$responses));
