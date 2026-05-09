@@ -114,11 +114,11 @@ class ArticleController extends Controller
         }
 
         // Modération
-        // if ($commentaire->fichiers && count($commentaire->fichiers) > 0) {
-        //     ModerateableJob::dispatch($commentaire, null);
-        // } else {
+        if ($commentaire->fichiers && count($commentaire->fichiers) > 0) {
+            ModerateableJob::dispatch($commentaire, null);
+        } else {
             $commentaire->moderate(null);
-        // }
+        }
 
         return response()->json(['commentaire' => $commentaire]);
     }
