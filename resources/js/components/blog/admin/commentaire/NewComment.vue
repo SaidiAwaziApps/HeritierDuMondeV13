@@ -140,7 +140,12 @@
         components: {
             UploadProgressToastComponent           
         },
-        created: function() {
+        mounted: function() {
+            if (!window.Echo) {
+                console.error("Echo n'est pas initialisé");
+                return;
+            }
+
             window.Echo.private('App.Models.User.'+window.user.id)
                        .notification((notification) => {
                             setTimeout(() => {
@@ -159,11 +164,12 @@
                                     cancelButtonText: 'Cancel'
                                 });
                                 //Emission evenement notify
+                                alert(notification?.moderateable?.commentable_type);
                                 // if(notification?.moderateable?.commentable_type) {
-                                    this.$emit('notify', { notification });
+                                //     this.$emit('notify', { notification });
                                 // }
                             },5000);          
-                       });
+                       });  
         },
         data: function() {
             return {
