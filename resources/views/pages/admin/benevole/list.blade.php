@@ -66,6 +66,7 @@
             </div> 
         </div>
 
+        <!-- Script interne -->
         <script src="{{ asset('script/pages/admin/benevole/list.js') }}"></script>
 
     </div>
