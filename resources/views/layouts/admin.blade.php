@@ -46,6 +46,9 @@
     <!-- Styles benevole -->
     @include('layouts.template.admin.benevole.head.styles')
 
+    <!-- Styles besoin -->
+    @include('layouts.template.admin.besoin.head.styles')
+
     <script src="{{ asset('dependance/font-awesome/font-awesome.js') }}"></script>
 
     <script src="{{ asset('dependance/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
