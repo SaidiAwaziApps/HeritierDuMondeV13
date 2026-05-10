@@ -21,7 +21,7 @@
             <li>
                 <div class="d-grid">
                     <button type="button" class="btn btn-default btn-sm btn-block" data-bs-toggle="modal" data-bs-target="#vignette_image_popup" title="Cliquer pour inserer des images depuis une plateforme">
-                        <i class="fa fa-globe"></i> Vignette
+                        <i class="fa fa-globe"></i> Platform
                     </button>
                 </div>
             </li>
@@ -31,7 +31,7 @@
 
     <!-- Context image -->
     <div class="img-context">
-        <div class="upload-input">
+        <div class="upload-inputs">
             <input type="file" accept="image/*,video/*" name="images[]" id="images" multiple style="display: none;">
         </div>  
         <div class="vignette-inputs">
