@@ -1,0 +1,128 @@
+    .card-title {
+        /* text-align: center; */
+        font-weight: bold;
+        font-family: italic;
+        opacity: 0.6;
+    }
+
+    .card-title i {
+        opacity: 0.4;
+    }
+
+
+    #benevole_info {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+    }
+
+    #benevole_info > #profil_bloc {
+        width: 30%;
+    }
+
+    #benevole_info > #meta_bloc {
+        width: 69%;
+    }
+
+    @media all and (max-width: 500px) {
+        #benevole_info {
+            display: block;
+        }
+
+        #benevole_info > div {
+            margin-bottom: 6px;
+        }
+
+        #benevole_info > #profil_bloc {
+            width: 100%;
+        }
+
+        #benevole_info > #meta_bloc {
+            width: 100%;
+        }
+    }
+
+    #benevole_info > #profil_bloc > div.card .card-body {
+        height: 220px;
+    }
+
+    #benevole_info > #meta_bloc ul li span {
+        font-size: 18px;
+        font-family: italic;
+    }
+
+    #benevole_info > #meta_bloc ul li span:nth-child(1) {
+        font-weight: bold;
+        margin-right: 2px;
+    }
+
+    /* 
+        div#benevole_info > div#meta_bloc ul li:nth-child(5) {
+            text-align: center;
+            background-color: #f8f8ff;
+    } */
+
+    #benevole_info > #meta_bloc ul li:nth-child(5) span:nth-child(3n+1) {
+        font-weight: bold; 
+    }
+
+    #benevole_info > #meta_bloc ul li:nth-child(5) a {
+        text-decoration: none;
+        margin-right:8px;
+    }
+
+    #benevole_info > #meta_bloc ul li:nth-child(5) a:hover {
+        opacity: 0.4;
+    }
+
+
+    #don_info {
+        margin-top: 20px;
+    }
+
+    #don_info h5 {
+        font-size: 20px;
+        font-weight: bold;
+        font-family: italic;
+        padding-bottom: 6px;
+        border-bottom: 2px solid black;
+        text-align: center;
+        opacity: 0.6;
+    }
+
+    #sociaux_info {
+        padding: 18px 0px 6px 0px;
+        margin-top: 10px;
+        border-radius: 6px;
+        background-color: #f8f8ff;
+    }
+
+    #sociaux_info > div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #sociaux_info > div ul li {
+        float: left;
+        margin-left: 16px;
+        list-style-type: none;
+    }
+
+    #sociaux_info > div ul li span {
+        font-size: 19px;
+        font-family: italic;
+    }
+
+    @media all and (max-width: 500px) {
+        #sociaux_info > div ul li {
+            margin-left: 20px;
+        }
+        #sociaux_info > div ul li span {
+            display: none;
+        } 
+    }
+
+    #sociaux_info > div ul li a:hover {
+        opacity: 0.4;
+    }
