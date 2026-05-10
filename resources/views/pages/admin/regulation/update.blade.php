@@ -1,95 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Regulation</title>
-
-    <!-- Select2 CSS -->
-    <link href="{{ asset('dependance/select2/select2.min.css') }}" rel="stylesheet" />
-
-    <!-- jQuery (obligatoire pour Select2) -->
-    <script src="{{ asset('dependance/jquery/jquery.min.js') }}"></script>
-
-    <!-- Select2 JS -->
-    <script src="{{ asset('dependance/select2/select2.min.js') }}"></script>
-
-
-    <style>
-        .card-header span.card-title {
-            font-size: 20px;
-            font-weight: bold;
-            font-family: italic;
-            opacity: 0.6;
-        }
-
-        .card-header span.card-title i {
-            opacity: 0.3;
-        }
-
-
-        form ul li {
-            margin-bottom: 6px;
-        }
-
-        form ul li div label {
-            font-size: 20px;
-            /* font-weight: bold; */
-            font-family: italic;
-        }
-
-        form ul li div input {
-            margin: 0px 6px 0px 6px;
-            width: 20px;  
-        }
-
-        form ul li:nth-child(2) div {
-            display: flex;
-        }
-
-        form ul li:nth-child(2) div input[type="number"] {
-            width: 80px;
-            height: 32px;
-        }
-
-        form ul li div textarea[name="denied_words"],
-        form ul li div select[id="denied_images"] {
-            border-bottom: 2px solid #ccc;
-        }
-
-
-        form .submit_bloc {
-            margin-top: 2px;
-        }
-
-        form .submit-bloc .d-grid button span {
-            font-size: 17px;
-            font-weight: bold;
-            font-family: italic;
-        }
-
-
-
-        form .errors-bloc {
-            margin-top: 16px;
-        }
-
-        form .errors-bloc > div > div.error-item {
-            text-align: center;
-        }
-
-        form .errors-bloc > div > div.error-item span {
-            font-size: 18px;
-            font-weight: bold;
-            font-family: italic;
-            color: red;
-            opacity: 0.8;
-        }
-
-    </style>
-
-</head>
-<body>
 
     @extends('layouts.admin')
 
@@ -102,7 +10,7 @@
                 </span>
             </div>
             <div class="card-body">
-                <form method="post" action="{{ route('regulation.update',['id'=>$regulation->id]) }}">
+                <form method="post" action="{{ route('regulation.update_handler',['id'=>$regulation->id]) }}">
                     @csrf
                     @method('PUT')
                     <ul>
@@ -194,16 +102,13 @@
                 </form>
             </div>
         </div>
+
+        <!-- Script interne (javascript) -->
+        <script type="text/javascript">
+            let regulation = @json($regulation);
+        </script> 
+     
+        <!-- Script externe -->
+        <script src="{{ asset('script/pages/admin/regulation/update.js') }}"></script>
     </div>
-
-    <!-- Script js (javascript) -->
-    <script type="text/javascript">
-        let regulation = <?php echo($regulation);?>
-    </script> 
-
-    <script src="{{ asset('script/regulation/update.js') }}"></script>
-
     @endsection
-
-</body>
-</html>
