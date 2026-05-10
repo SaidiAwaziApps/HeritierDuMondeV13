@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
+
+use App\Services\NavigationService;
+
 use App\Models\Regulation;
 use App\Models\Identite;
 use App\Models\User;
@@ -14,35 +17,11 @@ use Exception;
 class RegulationController extends Controller
 {
     /* ********************************************
-     * RENVOIE LA PAGE DE PROVENANCE (ORIGINE)
-     * ****************************************/
-    private function getBackPageURLNavigation(): string
-    {
-        // Historique de navigation
-        $history = session('history', []);
-
-        $previousUrl = null;
-
-        if (count($history) >= 2) {
-            $previousUrl = $history[1]['url']; // page précédente (index corrigé)
-        } 
-        elseif (count($history) === 1) {
-            $previousUrl = $history[0]['url']; // fallback si seulement 1 page
-        } 
-        else {
-            $previousUrl = route('home'); // fallback si pas d'historique
-        }
-
-        // Retourne l'URL de redirection
-        return $previousUrl;
-    }
-
-    /* ********************************************
      * RENVOIE LA PAGE ENREGISTREMENT
      * ********************************************/
-    public function register()
+    public function register_page()
     {
-        return view('pages.regulation.register');
+        return view('pages.admin.regulation.register');
     }
 
     /* ********************************************
@@ -56,7 +35,7 @@ class RegulationController extends Controller
                                 ->first();
 
         // Renvoie la page
-        return view('pages.regulation.update', [
+        return view('pages.admin.regulation.update', [
             'regulation' => $regulation
         ]);                     
     }
@@ -82,7 +61,7 @@ class RegulationController extends Controller
         }
         catch (Exception $e) {
             // Renvoie à la page d'enregistrement avec message d'erreur
-            return redirect()->route('regulation.register')
+            return redirect()->route('regulation.register_page')
                              ->withErrors([
                                 'failed' => $e->getMessage()
                              ])
@@ -93,7 +72,7 @@ class RegulationController extends Controller
     /* ****************************************************
      * TRAITE LA MODIFICATION DE L' INSTANCE DANS LA B.D
      * ***************************************************/ 
-    public function update($id, Request $request): RedirectResponse
+    public function update_handler($id, Request $request): RedirectResponse
     {
         // Instance a modifier
         $regulation = Regulation::where('id', $id)
@@ -111,7 +90,7 @@ class RegulationController extends Controller
             ]);
 
             // Renvoie à la page précédente
-            return redirect($this->getBackPageURLNavigation());
+            return redirect(NavigationService::getBackPageURL());
         }
         catch (Exception $e) {
             // Renvoie à la page de modification avec message d'erreur
