@@ -74,7 +74,7 @@ function removeExistedImage(id) {
     remove_existed_files_input.value = id;
 
     /* ---- AJOUT NOUVEAU ELEMENT INPUT AU FORMULAIRE ---- */  
-    document.querySelector('form').prepend(remove_existed_files_input); 
+    document.querySelector('.upload-inputs').prepend(remove_existed_files_input); 
 }
 
 
@@ -250,8 +250,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
 
-         
-
+        /* ---- Cas image persistant (existe dans la base de donnees) ---- */
         if(foundedImage()) {
             // Inscrit le fichier existant (backend) a supprimer
             removeExistedImage(foundedImage().id);
