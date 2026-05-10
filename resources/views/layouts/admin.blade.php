@@ -39,6 +39,10 @@
     @include('layouts.template.admin.blog.article.head.styles')  <!-- // Ensemble de script styles destines a partie head -->
     @include('layouts.template.admin.blog.article.head.scripts') <!-- // Ensemble de script scripts destines a partie head -->
 
+    <!-- Styles && scripts pour regulation -->
+    @include('layouts.template.admin.regulation.head.styles')  <!-- // Ensemble de script styles destines a partie head -->
+    @include('layouts.template.admin.regulation.head.scripts') <!-- // Ensemble de script scripts destines a partie head -->
+
     <script src="{{ asset('dependance/font-awesome/font-awesome.js') }}"></script>
 
     <script src="{{ asset('dependance/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
