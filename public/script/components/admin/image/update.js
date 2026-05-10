@@ -5,7 +5,7 @@ let img_content=document.querySelectorAll('div[id="img_content"]')[0];
 let form=document.querySelectorAll('form[id="register_evenement_form"]')[0];
 
 function createImgItem(imgURL){
-    var imgItem=document.createElement('div');
+    var imgItem = document.createElement('div');
     imgItem.setAttribute('id','img_item');
     const isVideo=function(imgURL){
         if(imgURL.includes('data:video') || imgURL.endsWith('.mp4') || imgURL.endsWith('.MP4') || imgURL.endsWith('.avi') || imgURL.endsWith('.AVI') || imgURL.endsWith('.flv') || imgURL.endsWith('.FLV') || imgURL.endsWith('.mpg') || imgURL.endsWith('.MPG') || imgURL.endsWith('.mpeg') || imgURL.endsWith('.MPEG') || imgURL.endsWith('.wmv') || imgURL.endsWith('.WMV') || imgURL.endsWith('.vob') || imgURL.endsWith('.VOB') || imgURL.endsWith('.mov') || imgURL.endsWith('.MOV') || imgURL.endsWith('.AVCHD') || imgURL.endsWith('.avchd') || imgURL.endsWith('.WebM')) {
