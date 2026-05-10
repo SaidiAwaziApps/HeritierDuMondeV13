@@ -15,7 +15,7 @@ class BenevoleController extends Controller
     public function list() {
         $benevoles = Benevole::where('status', true)->get();
 
-        return view('pages.benevole.list', [
+        return view('pages.admin.benevole.list', [
             'benevoles' => $benevoles
         ]);    
     }
@@ -28,7 +28,7 @@ class BenevoleController extends Controller
                             ->where('status', true)
                             ->firstOrFail(); // 404 si non trouvé
 
-        return view('pages.benevole.details', [
+        return view('pages.admin.benevole.details', [
             'benevole' => $benevole
         ]);
     }
@@ -48,7 +48,7 @@ class BenevoleController extends Controller
         ]);
 
         // Redirection vers la liste avec message succès
-        return redirect()->route('benevole.list')
+        return redirect()->route('admin.benevole.list')
                          ->with('success', 'Bénévole ajouté avec succès !');
     }
 }
