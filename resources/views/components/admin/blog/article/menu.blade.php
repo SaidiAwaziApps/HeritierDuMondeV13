@@ -22,7 +22,7 @@
                         </a>
                     </div>    
                 </li>
-                @if(Route::currentRouteName() == 'article.update_page' && Auth::user()->hasAccessToRessource('blog','register','allowed'))
+                @if(Route::currentRouteName() == 'admin.article.update_page' && Auth::user()->hasAccessToRessource('blog','register','allowed'))
                     <li class="dropdown-divider"></li>
                     <li class="dropdown-item">
                         <div class="d-grid">
@@ -53,7 +53,7 @@
             <li class="dropdown-divider"></li>
             <li class="dropdown-item">
                 <div class="d-grid">
-                    <a href="{{ $regulation ? route('regulation.update',['id'=>1]) : route('regulation.register') }}" class="btn btn-default btn-sm" style="border: 1px solid #f8f8ff;">
+                    <a href="{{ $regulation ? route('regulation.update_page',['id'=>1]) : route('regulation.register') }}" class="btn btn-default btn-sm" style="border: 1px solid #f8f8ff;">
                         <span style="font-size: 18px;font-family: italic;">
                             <i class="fas fa-cog" style="opacity: 0.4;"></i> Moderation
                         </span>
