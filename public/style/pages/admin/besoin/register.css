@@ -1,0 +1,83 @@
+    .card-header span.card-title {
+        font-size: 20px;
+        font-weight: bold;
+        font-family: italic;
+        opacity: 0.7;
+    }
+
+    .card-header span.card-title i {
+        opacity: 0.4
+    }
+
+    .card-header a {
+        float: right;
+    }
+
+    .form-group {
+        margin-bottom: 6px;
+    }
+
+    label {
+        font-size: 17px;
+        font-weight: bold;
+        font-family: italic;
+    }
+
+    i[id="required-sign"] {
+        color: red;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    textarea[id="contenu"] {
+        border: 1px solid #ccc;
+        border-bottom: 3px solid #ccc;
+    }
+
+    #submit_bloc {
+        margin-top: 6px;
+    }
+
+    button[type="submit"] span {
+        font-size: 17px;
+        font-weight: bold;
+        font-family: italic;
+    }
+
+
+    .validator-error {
+        text-align: center;
+    }
+
+    .validator-error span {
+        font-size: 18px;
+        font-weight: bold;
+        font-family: italic;
+        color: red; 
+    }
+
+
+
+    .imgs-bloc > .imgs-bloc-context {
+        position: fixed;
+        top: 54%;
+        left: 50%;
+        z-index: 1100;
+        display: flex;
+        justify-content: center;
+        flex-wrap: nowrap;
+    }
+
+    @media all and (max-width: 500px) {
+        .imgs-bloc > .imgs-bloc-context {
+            top: 40%;
+            left: 46%;
+        }
+    }
+
+    @media all and (max-width: 400px) {
+        .imgs-bloc > .imgs-bloc-context {
+            top: 53%;
+            left: 46%;
+        }
+    }

@@ -1,0 +1,119 @@
+    .card-header span.card-title {
+        font-size: 20px;
+        font-weight: bold;
+        font-family: italic;
+        opacity: 0.7;
+    }
+
+    .card-header span.card-title i {
+        opacity: 0.4
+    }
+
+
+    .card-header a {
+        float: right;
+    }
+
+    #header_title {
+        text-align: center;
+        padding: 10px 0px 10px 0px;
+        border-radius: 4px;
+        background-color: #f8f8ff;
+    }
+
+    #header_title span {
+        font-size: 20px;
+        /* font-weight: bold; */
+        font-family: italic;
+    }
+
+    #data_content {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+        margin-top: 0.5px;
+    }
+
+    #data_content > div:nth-child(1) {
+        width: 69.6%;
+    }
+
+    #data_content > div:nth-child(2) {
+        width: 30%;
+        /* height: 200px; */
+    }
+
+    @media all and (max-width: 500px) {
+        #data_content {
+            display: block;
+        }
+        #data_content > div:nth-child(1) {
+            width: 100%;
+        }
+        #data_content > div:nth-child(2) {
+            width: 100%;
+        }  
+    }
+
+    #meta_bloc ul li span {
+        font-size: 18px;
+        font-family: italic;
+    }
+
+    #meta_bloc ul li:nth-child(1) span:nth-child(1) {
+        font-weight: bold;
+    }
+
+    #meta_bloc ul li:nth-child(2) span:nth-child(1) {
+        display: block;
+        text-align: center;
+        padding: 6px;
+        border-radius: 4px;
+        background-color: #f8f8ff;
+    }
+
+    #meta_bloc ul li:nth-child(3) h5 {
+        font-family: italic;
+    } 
+        
+        
+    .donors-talks {
+        margin-top: 10px;
+    }
+
+    .donors-talks-heading h4 {
+        text-align: center;
+        font-size: 22px;
+        font-weight: bold;
+        font-family: italic;
+        opacity: 0.8;
+    }
+
+    @media all and (max-width: 800px) {
+        .donors-talks-heading h4 {
+            font-weight: normal; 
+            padding: 6px;
+            border-radius: 4px;
+            background-color: #f8f8ff;
+            /* color: white; */
+            opacity: 0.9;
+        } 
+    }
+
+
+    .shares {
+        position: fixed;
+        left: 40%;
+        top: 86%;
+        z-index: 1000;
+        opacity: 0.8;
+        padding: 20px;
+        border-radius: 4px;
+        background-color: #f8f8ff;
+    }
+
+    @media all and (max-width: 700px) {
+        .shares { 
+            left: 14%;
+        }
+    }
