@@ -1,103 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="{{ asset('css/image/global/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/image/upload/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/image/vignette/style.css') }}">
-
-    <style>
-        div.card-header span.card-title {
-            font-size: 20px;
-            font-weight: bold;
-            font-family: italic;
-            opacity: 0.7;
-        }
-
-        div.card-header span.card-title i {
-            opacity: 0.4
-        }
-
-        div.card-header a {
-            float: right;
-        }
-
-        div.form-group {
-            margin-bottom: 6px;
-        }
-
-        label {
-            font-size: 17px;
-            font-weight: bold;
-            font-family: italic;
-        }
-
-        i[id="required-sign"] {
-            color: red;
-        }
-
-        input[type="text"],
-        input[type="number"],
-        textarea[id="contenu"] {
-            border: 1px solid #ccc;
-            border-bottom: 3px solid #ccc;
-        }
-
-        div#submit_bloc {
-            margin-top: 6px;
-        }
-
-        button[type="submit"] span {
-           font-size: 17px;
-           font-weight: bold;
-           font-family: italic;
-        }
-
-
-        div.validator-error {
-            text-align: center;
-        }
-
-        div.validator-error span {
-            font-size: 18px;
-            font-weight: bold;
-            font-family: italic;
-            color: red; 
-        }
-
-
-
-        
-        .imgs-bloc > .imgs-bloc-context {
-            position: fixed;
-            top: 54%;
-            left: 50%;
-            z-index: 1100;
-            display: flex;
-            justify-content: center;
-            flex-wrap: nowrap;
-        }
-
-        @media all and (max-width: 500px) {
-            .imgs-bloc > .imgs-bloc-context {
-                top: 40%;
-                left: 46%;
-            }
-        }
-
-        @media all and (max-width: 400px) {
-            .imgs-bloc > .imgs-bloc-context {
-                top: 53%;
-                left: 46%;
-            }
-        }
-
-    </style>
-
-</head>
-<body>
 
     @extends('layouts.admin')
 
@@ -108,12 +8,12 @@
                 <span class="card-title">
                     Gestion besoin
                 </span>
-                <a href="{{ route('besoin.list') }}" title="Tous les besoins" class="btn btn-default btn-sm active">
+                <a href="{{ route('admin.besoin.list') }}" title="Tous les besoins" class="btn btn-default btn-sm active">
                     <i class="fa fa-list"></i>
                 </a>
             </div>
             <div class="card-body">
-                <form method="POST" action="{{ route('besoin.update',['id'=>$besoin->id]) }}" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('admin.besoin.update_handler',['id'=>$besoin->id]) }}" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="form-group">
@@ -145,13 +45,13 @@
                         </div>
                     </div>
 
-                    <!-- Contenu imaga -->
+                    <!-- Contenu images -->
                     <div class="imgs-bloc">
                         <div class="imgs-bloc-context">
-                            @include('components.image.global.context')
+                            @include('components.admin.image.global.context')
                         </div>
                         <div class="imgs-bloc-content">
-                            @include('components.image.global.content')
+                            @include('components.admin.image.global.content')
                         </div>
                     </div>
 
@@ -169,21 +69,21 @@
             </div>
         </div>
 
+        <!-- Script interne -->
         <script type="text/javascript">
-             window.STORAGE_PATH_URL = '<?php echo(env('STORAGE_PATH_URL'));?>';
-            let besoin = <?php echo($besoin); ?>;
+            // Variables (gloabals)
+            window.STORAGE_PATH_URL = @json(env('STORAGE_PATH_URL'));
+            let besoin = @json($besoin);
             let images = besoin.images;
-            let vignettes = besoin.vignettes;
         </script>
 
-        <!-- Scripts pour image -->
-        <script src="{{ asset('script/image/upload/update.js') }}"></script>
-        <script src="{{ asset('script/image/vignette/update.js') }}"></script>
-        <!-- Script pour besoin--> 
-        <script src="{{ asset('script/besoin/update.js') }}"></script>
+        <!-- Scripts externes (image) -->
+        <script src="{{ asset('script/components/admin/image/upload/update.js') }}"></script>
+        <script src="{{ asset('script/components/admin/image/vignette/update.js') }}"></script> 
+
+        <!-- Scripts externes (besoin) --> 
+        <script src="{{ asset('script/pages/admin/besoin/update.js') }}"></script>
 
     </div>
     @endsection
 
-</body>
-</html>
