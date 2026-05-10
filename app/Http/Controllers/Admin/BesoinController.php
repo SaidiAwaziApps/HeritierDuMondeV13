@@ -15,20 +15,22 @@ class BesoinController extends Controller
     /* ************************************************************
      * PAGE ENREGISTREMENT (REGISTER)
      * ***********************************************************/ 
-    public function register(): View
+    public function register_page(): View
     {
-        return view('pages.besoin.register');
+        return view('pages.admin.besoin.register');
     }
 
     /* ************************************************************
      * PAGE DE MODIFICATION (UPDATE)
      * ***********************************************************/ 
-    public function update_page(Besoin $besoin): View
+    public function update_page($id): View
     {
-        // Vérifie que l'instance est active
-        abort_if(!$besoin->status, 404);
+        // Instance a modifier (update)
+        $besoin = Besoin::where('id', $id)
+                        ->where('status', true)
+                        ->firstOrFail();
 
-        return view('pages.besoin.update', compact('besoin'));
+        return view('pages.admin.besoin.update', compact('besoin'));
     }
 
     /* ************************************************************
@@ -38,17 +40,20 @@ class BesoinController extends Controller
     {
         $besoins = Besoin::where('status', true)->get();
 
-        return view('pages.besoin.list', compact('besoins'));
+        return view('pages.admin.besoin.list', compact('besoins'));
     }
 
     /* ******************************************************************
      * RENVOIE A LA PAGE DETAILLANT UNE INSTANCE
      * *****************************************************************/
-    public function details(Besoin $besoin): View
+    public function details($id): View
     {
-        abort_if(!$besoin->status, 404);
+        // Instance a afficher (detailler)
+        $besoin = Besoin::where('id', $id)
+                        ->where('status', true)
+                        ->firstOrFail();
 
-        return view('pages.besoin.details', compact('besoin'));
+        return view('pages.admin.besoin.details', compact('besoin'));
     }
 
     /* ********************************************************************
@@ -66,39 +71,45 @@ class BesoinController extends Controller
 
         $this->handleImages($request, $besoin);
 
-        return redirect()->route('besoin.list');
+        return redirect()->route('pages.admin.besoin.list');
     }
 
     /* *************************************************************
      *  MODIFIE UNE INSTANCE DANS LA BASE DE DONNEES
      * *************************************************************/
-    public function update(Request $request, Besoin $besoin): RedirectResponse
+    public function update_handler($id, Request $request): RedirectResponse
     {
-        abort_if(!$besoin->status, 404);
-
         $validated = $request->validate([
             'intitule' => 'required|string',
             'montant'  => 'required|numeric',
             'contenu'  => 'required|string',
         ]);
 
+        // Instance a modifier (update)
+        $besoin = Besoin::where('id', $id)
+                        ->where('status', true)
+                        ->firstOrFail();
+
         $besoin->update($validated);
 
         $this->handleImages($request, $besoin);
 
-        return redirect()->route('besoin.list');
+        return redirect()->route('admin.besoin.list');
     }
 
     /* ***********************************************************
      * SUPPRIME (DESACTIVE) UNE INSTANCE DE LA BASE DE DONNEES 
      * **********************************************************/
-    public function delete_one(Besoin $besoin): RedirectResponse
+    public function delete_one($id): RedirectResponse
     {
-        abort_if(!$besoin->status, 404);
+        // Instance a supprimer (desactiver)
+        $besoin = Besoin::where('id', $id)
+                        ->where('status', true)
+                        ->firstOrFail();
 
         $besoin->update(['status' => false]);
 
-        return redirect()->route('besoin.list');
+        return redirect()->route('admin.besoin.list');
     }
 
     /* *************************************************************
@@ -106,11 +117,11 @@ class BesoinController extends Controller
      * *************************************************************/
     private function handleImages(Request $request, Besoin $besoin): void
     {
-        $imageService = new ImageService();
+        $imageService = new ImageService(); 
 
         // Ajout d'images
         if (($request->hasFile('images') && count($request->file('images')) > 0) ||
-            (!empty($request->iframes) && count($request->iframes) > 0)) {
+            (!empty($request->iframes) && count($request->iframes) > 0)) {   
             $imageService->saveMany($request, $besoin, 'besoin');
         }
 
