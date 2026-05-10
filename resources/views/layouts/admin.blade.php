@@ -208,7 +208,7 @@
 
             <li>
                 @if($user?->hasAccessToRessource('besoin','register','allowed') || $user?->hasAccessToRessource('besoin','update','allowed') || $user?->hasAccessToRessource('besoin','delete','allowed'))
-                <a href="{{ route('besoin.list') }}"><i class="fa fa-blog"></i> Besoins</a>
+                <a href="{{ route('admin.besoin.list') }}"><i class="fa fa-blog"></i> Besoins</a>
                 @else
                 <a href="#"><i class="fa fa-blog"></i> Besoins</a>
                 @endif
