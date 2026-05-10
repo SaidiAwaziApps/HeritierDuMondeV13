@@ -43,6 +43,9 @@
     @include('layouts.template.admin.regulation.head.styles')  <!-- // Ensemble de script styles destines a partie head -->
     @include('layouts.template.admin.regulation.head.scripts') <!-- // Ensemble de script scripts destines a partie head -->
 
+    <!-- Styles benevole -->
+    @include('layouts.template.admin.benevole.head.styles')
+
     <script src="{{ asset('dependance/font-awesome/font-awesome.js') }}"></script>
 
     <script src="{{ asset('dependance/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
@@ -194,7 +197,7 @@
 
             <li>
                 @if($user?->hasAccessToRessource('benevole','register','allowed') || $user?->hasAccessToRessource('benevole','update','allowed') || $user?->hasAccessToRessource('benevole','delete','allowed'))
-                <a href="{{ route('benevole.list') }}"><i class="fa fa-user"></i> Benevole</a>
+                <a href="{{ route('admin.benevole.list') }}"><i class="fa fa-user"></i> Benevole</a>
                 @else
                 <a href="#"><i class="fa fa-user"></i> Benevole</a>
                 @endif
