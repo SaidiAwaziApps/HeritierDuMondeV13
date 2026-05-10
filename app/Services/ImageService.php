@@ -51,7 +51,7 @@ class ImageService
      * Supprime plusieurs images ou iframes associées à un modèle.
      */
     public static function deleteMany(Request $request, Model $model): void
-    {
+    { 
         // ---- Supprime les images uploadées ----
         $removeUploads = $request->remove_uploads_id ?? [];
         foreach ($removeUploads as $id) {
