@@ -1,7 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
+use App\Http\Middleware\TrackHistoryMiddleware;
+use App\Http\Middleware\BenevoleRessource\BenevoleRessourceGlobal;
+
 use App\Http\Controllers\Admin\BenevoleController as AdminBenevoleController;
+
 use App\Models\Benevole;
 use App\Models\Sociaux;
 
@@ -12,14 +17,15 @@ use App\Models\Sociaux;
 */
 
 Route::prefix('benevole')
-    ->middleware(['benevole.ressource.global','trackHistoryMiddleware'])
+    ->as('admin.benevole.')
+    ->middleware([BenevoleRessourceGlobal::class, BenevoleRessourceGlobal::class])
     ->group(function() {
 
         // Liste des bénévoles
-        Route::get('/list', [AdminBenevoleController::class, 'list'])->name('benevole.list');
+        Route::get('/list', [AdminBenevoleController::class, 'list'])->name('list');
 
         // Détails d’un bénévole
-        Route::get('/details/{id}', [AdminBenevoleController::class, 'details'])->name('benevole.details');
+        Route::get('/details/{id}', [AdminBenevoleController::class, 'details'])->name('details');
 
         // Génération de données bénévoles (exemple désactivé)
         Route::get('/generate', function() {
