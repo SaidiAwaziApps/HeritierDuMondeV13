@@ -1,0 +1,73 @@
+/* Carousel pointillé */
+.carousel-indicators.custom-indicators button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 1px solid cadetblue; /* contour du pointillé */
+    background-color: transparent;
+    margin: 0 4px;
+    box-shadow: none;
+    position: relative;
+}
+
+.carousel-indicators.custom-indicators button::after {
+    content: '';
+    display: block;
+    width: 4px;
+    height: 4px;
+    background-color: cadetblue;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.carousel-indicators.custom-indicators .active {
+    background-color: cadetblue;
+}
+
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: cadetblue !important;
+    opacity: 0.8;
+    transform: scale(1.1);
+}
+
+
+
+.donor-profil span {
+    font-size: 18px;
+    font-weight: bold;
+    font-family: italic;
+    display: inline-block;
+    width: 94%;
+    margin-left: 6px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid #ccc;
+}
+
+@media all and (max-width: 1200px) { 
+    .donor-profil span {
+        width: 86%;
+    }
+}
+
+@media all and (max-width: 500px) {
+    .donor-profil span {
+        width: 80%;
+    }  
+}
+
+@media all and (max-width: 400px) {
+    .donor-profil span {
+        width: 70%;
+    }  
+}
+
+.donor-talk p {
+    font-size: 20px;
+    font-family: italic;
+    text-align: justify;
+}
