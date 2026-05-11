@@ -2,6 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Middleware\TrackHistoryMiddleware;
+use App\Http\Middleware\EvenementRessource\EvenementRessourceGlobal;
+use App\Http\Middleware\EvenementRessource\EvenementRessourceCreate;
+use App\Http\Middleware\EvenementRessource\EvenementRessourceUpdate;
+use App\Http\Middleware\EvenementRessource\EvenementRessourceDelete;
+
 use App\Http\Controllers\Admin\EvenementController as AdminEvenementController;
 
 /*
@@ -11,40 +17,43 @@ use App\Http\Controllers\Admin\EvenementController as AdminEvenementController;
 */
 
 Route::prefix('evenement')
-    ->middleware(['evenement.ressource.global','trackHistoryMiddleware'])
+    ->as('admin.evenement.')
+    ->middleware([EvenementRessourceGlobal::class])
     ->group(function () {
 
         // Formulaire création
-        Route::get('/register', [AdminEvenementController::class, 'register'])
-            ->middleware('evenement.ressource.create')
-            ->name('evenement.register');
+        Route::get('/register', [AdminEvenementController::class, 'register_page'])
+            ->middleware([EvenementRessourceCreate::class, TrackHistoryMiddleware::class])
+            ->name('register_page');
 
         // Formulaire modification
         Route::get('/update/{id}', [AdminEvenementController::class, 'update_page'])
-            ->middleware('evenement.ressource.update')
-            ->name('evenement.update_page');
+            ->middleware([EvenementRessourceUpdate::class, TrackHistoryMiddleware::class])
+            ->name('update_page');
 
         // Liste
         Route::get('/list', [AdminEvenementController::class, 'list'])
-            ->name('evenement.list');
+             ->middleware(TrackHistoryMiddleware::class)
+             ->name('list');
 
         // Détails
         Route::get('/details/{id}', [AdminEvenementController::class, 'details'])
-            ->name('evenement.details');
+             ->middleware(TrackHistoryMiddleware::class)
+             ->name('details');
+
 
         // Enregistrement
         Route::post('/save', [AdminEvenementController::class, 'save'])
-            ->middleware('evenement.ressource.create')
-            ->name('evenement.save');
+            ->middleware(EvenementRessourceCreate::class)
+            ->name('save');
 
         // Mise à jour
-        Route::put('/update/{id}', [AdminEvenementController::class, 'update'])
-            ->middleware('evenement.ressource.update')
-            ->name('evenement.update');
+        Route::put('/update/{id}', [AdminEvenementController::class, 'update_handler'])
+            ->middleware(EvenementRessourceUpdate::class)
+            ->name('update_handler');
 
         // Suppression
         Route::delete('/delete-one/{id}', [AdminEvenementController::class, 'delete_one'])
-            ->middleware('evenement.ressource.delete')
-            ->name('evenement.delete_one');
-
+            ->middleware(EvenementRessourceDelete::class)
+            ->name('delete_one');
 });

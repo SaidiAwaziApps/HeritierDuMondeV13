@@ -16,19 +16,21 @@ class EvenementController extends Controller
     /* ***************************************************************
      * RENVOIE A LA PAGE D' ENREGISTREMENT (REGISTER)
      * ***************************************************************/
-    public function register(): View
+    public function register_page(): View
     {
-        return view('pages.evenement.register');
+        return view('pages.admin.evenement.register');
     }
 
     /* ***************************************************************
      * RENVOIE A LA PAGE DE MODIFICATION (UPDATE)
      * ***************************************************************/
-    public function update_page(Evenement $evenement): View
+    public function update_page($id): View
     {
-        abort_if(!$evenement->status, 404);
+        $evenement = Evenement::where('id', $id)
+                              ->where('status', true)
+                              ->firstOrFail(); 
 
-        return view('pages.evenement.update', compact('evenement'));
+        return view('pages.admin.evenement.update', compact('evenement'));
     }
 
     /* ***************************************************************
@@ -38,18 +40,22 @@ class EvenementController extends Controller
     {
         $evenements = Evenement::where('status', true)->get();
 
-        return view('pages.evenement.list', compact('evenements'));
+        return view('pages.admin.evenement.list', compact('evenements'));
     }
 
     /* ***************************************************************
      * RENVOIE A LA PAGE DETAILS
      * ***************************************************************/
-    public function details(Evenement $evenement): View
+    public function details($id): View
     {
-        abort_if(!$evenement->status, 404);
+        $evenement = Evenement::where('id', $id)
+                              ->where('status', true)
+                              ->firstOrFail(); 
 
-        return view('pages.evenement.details', compact('evenement'));
+        return view('pages.admin.evenement.details', compact('evenement'));
     }
+
+
 
     /* ***************************************************************
      * TRAITE L' ENREGISTREMENT D' UNE INSTANCE
@@ -80,15 +86,17 @@ class EvenementController extends Controller
 
         $this->handleImages($request, $evenement);
 
-        return redirect()->route('evenement.list');
+        return redirect()->route('admin.evenement.list');
     }
 
     /* ***************************************************************
      * MODIFIE UNE INSTANCE DE LA BASE DE DONNEES
      * ***************************************************************/
-    public function update(Evenement $evenement, Request $request)
+    public function update_handler($id, Request $request)
     {
-        abort_if(!$evenement->status, 404);
+        $evenement = Evenement::where('id', $id)
+                              ->where('status', true)
+                              ->firstOrFail(); 
 
         $request->validate([
             'type'               => ['required','in:journalier,periodique'],
@@ -114,7 +122,7 @@ class EvenementController extends Controller
 
         $this->handleImages($request, $evenement);
 
-        return redirect()->route('evenement.list');
+        return redirect()->route('admin.evenement.list');
     }
 
     /* ***************************************************************
@@ -122,11 +130,13 @@ class EvenementController extends Controller
      * ***************************************************************/
     public function delete_one(Evenement $evenement)
     {
-        abort_if(!$evenement->status, 404);
+        $evenement = Evenement::where('id', $id)
+                              ->where('status', true)
+                              ->firstOrFail(); 
 
         $evenement->update(['status' => false]);
 
-        return redirect()->route('evenement.list');
+        return redirect()->route('admin.evenement.list');
     }
 
     /* ***************************************************************

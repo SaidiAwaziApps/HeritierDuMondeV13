@@ -18,18 +18,19 @@ use App\Http\Controllers\Admin\OffreEmploieController as AdminOffreEmploieContro
 
 Route::prefix('offre-emploie')
     ->as('admin.offre_emploie.')
-    ->middleware([OffreEmploieRessourceGlobal::class, TrackHistoryMiddleware::class])
+    ->middleware(OffreEmploieRessourceGlobal::class)
     ->group(function() {
 
         Route::get('/register', [AdminOffreEmploieController::class, 'register_page'])
-            ->middleware(OffreEmploieRessourceCreate::class)
+            ->middleware([OffreEmploieRessourceCreate::class, TrackHistoryMiddleware::class])
             ->name('register_page');
 
         Route::get('/list', [AdminOffreEmploieController::class, 'list'])
-            ->name('list');
+             ->middleware(TrackHistoryMiddleware::class)
+             ->name('list');
 
         Route::get('/update/{id}', [AdminOffreEmploieController::class, 'update_page'])
-            ->middleware(OffreEmploieRessourceUpdate::class)
+            ->middleware([OffreEmploieRessourceUpdate::class, TrackHistoryMiddleware::class])
             ->name('update_page');
 
 

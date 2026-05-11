@@ -258,7 +258,7 @@
 
             <li>
                 @if($user?->hasAccessToRessource('evenement','register','allowed') || $user?->hasAccessToRessource('evenement','update','allowed') || $user?->hasAccessToRessource('evenement','delete','allowed'))
-                <a href="{{ route('evenement.list') }}"><i class="fa fa-calendar"></i> Evenement</a>
+                <a href="{{ route('admin.evenement.list') }}"><i class="fa fa-calendar"></i> Evenement</a>
                 @else
                 <a href="#"><i class="fa fa-calendar"></i> Evenement</a>
                 @endif
