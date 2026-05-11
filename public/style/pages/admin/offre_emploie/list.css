@@ -1,0 +1,29 @@
+    .card .card-header span {
+        font-size: 18px;
+        /* font-weight: bold; */
+        font-family: italic;
+    }
+
+    .card .card-header span i[class="fa fa-tasks"] {
+        opacity: 0.4;
+    }
+
+    .card .card-header a {
+        font-size: 18px;
+        font-weight: bold;
+        font-family: italic;
+        color: black;
+        float: right;
+        border: 1px solid #ccc;
+        border-radius: 2px;
+        padding: 2px 4px 2px 4px;
+    } 
+
+    table thead tr th,table tbody tr td {
+        font-size: 17px;
+        font-family: italic;
+    }
+
+    table thead tr th:nth-child(n+6) {
+        text-align: center;
+    }

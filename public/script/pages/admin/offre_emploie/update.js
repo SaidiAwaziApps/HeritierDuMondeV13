@@ -1,0 +1,28 @@
+/* *****************************************************************************
+ * INITIALISE LE CONTENU DU FORMULAIRE
+ * ****************************************************************************/
+function init() {
+    /* ---- Variable DOM ---- */
+    const objectTextarea = document.querySelector('textarea[name="object"]'); 
+
+    /* ---- Contenu par defaut ---- */ 
+    objectTextarea.value = offre_emploie.object;
+} 
+
+
+/* *****************************************************************************
+ * AU MOMENT DU CHARGEMENT DU DOM (DOCUMENT CHARGE)
+ * ****************************************************************************/
+document.addEventListener('DOMContentLoaded', function() {
+    /* ---- VARIABLES DOM ---- */
+    const documentInput = document.querySelector('input[id="document"]');
+    const documentFileName = document.querySelector('span[id="document_file_name"]');
+
+    /* ---- Appel a la fonction init ---- */
+    init();
+
+    /* ---- MODIFIE LA VALEUR CHAMPS DOCUMENT ---- */
+    documentInput.onchange = function(e) {
+        documentFileName.innerHTML = e.target.files[0].name;
+    }
+});

@@ -15,8 +15,8 @@ class OffreEmploieController extends Controller
     /* ***********************************************************
      * RENVOIE A LA PAGE D' ENREGISTREMENT
      * ***********************************************************/
-    public function register(): View {
-        return view('pages.offre_emploie.register');
+    public function register_page(): View {
+        return view('pages.admin.offre_emploie.register');
     }
 
     
@@ -25,7 +25,7 @@ class OffreEmploieController extends Controller
      * ***********************************************************/
     public function update_page($id): View {
         //Renvoie page
-        return view('pages.offre_emploie.update',[
+        return view('pages.admin.offre_emploie.update',[
             'offre_emploie' => OffreEmploie::getOne($id)
         ]);
     }
@@ -40,7 +40,7 @@ class OffreEmploieController extends Controller
                                     ->get();
 
         //Renvoie page 
-        return view('pages.offre_emploie.list',[
+        return view('pages.admin.offre_emploie.list',[
             'offre_emploies' => $offre_emploies
         ]);
     }
@@ -74,14 +74,14 @@ class OffreEmploieController extends Controller
         ]);
 
         //Redirige a la page list offres emploies
-        return redirect()->route('offre_emploie.list');
+        return redirect()->route('admin.offre_emploie.list');
     }
 
 
     /* ***********************************************************
      * TRAITE LA MODIFICATION (PROCESSUS)
      * ***********************************************************/
-    public function update($id,Request $request): RedirectResponse {
+    public function update_handler($id,Request $request): RedirectResponse {
         // Validation du formulaire
         $request->validate([
             'organisme'     => ['required','string'],
@@ -114,7 +114,7 @@ class OffreEmploieController extends Controller
         ]);
 
         // Redirige vers la page de list
-        return redirect()->route('offre_emploie.list');
+        return redirect()->route('admin.offre_emploie.list');
     }
 
 
@@ -127,7 +127,7 @@ class OffreEmploieController extends Controller
 
         // Sécurité (évite erreur si null)
         if(!$offre_emploie) {
-            return redirect()->route('offre_emploie.list');
+            return redirect()->route('admin.offre_emploie.list');
         }
 
         // Execute la suppresssion
@@ -136,6 +136,6 @@ class OffreEmploieController extends Controller
         ]);
 
         // Returne a la page list
-        return redirect()->route('offre_emploie.list');
+        return redirect()->route('admin.offre_emploie.list');
     }
 }

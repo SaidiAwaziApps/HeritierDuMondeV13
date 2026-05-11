@@ -43,17 +43,21 @@
     @include('layouts.template.admin.regulation.head.styles')  <!-- // Ensemble de script styles destines a partie head -->
     @include('layouts.template.admin.regulation.head.scripts') <!-- // Ensemble de script scripts destines a partie head -->
 
-    <!-- Styles benevole -->
+    <!-- Styles pour benevole -->
     @include('layouts.template.admin.benevole.head.styles')
 
-    <!-- Styles besoin -->
+    <!-- Styles pour besoin -->
     @include('layouts.template.admin.besoin.head.styles')
 
-    <!-- Styles donateur -->
+    <!-- Styles pour donateur -->
     @include('layouts.template.admin.donateur.head.styles')
 
-    <!-- Styles don -->
+    <!-- Styles pour don -->
     @include('layouts.template.admin.don.head.styles')
+
+    <!-- Ensemble de Styles && scripts destines offre  -->
+    @include('layouts.template.admin.offre_emploie.head.styles') <!-- // Ensemble de script styles destines a partie head -->
+    @include('layouts.template.admin.offre_emploie.head.scripts') <!-- // Ensemble de script styles destines a partie head -->
 
     <script src="{{ asset('dependance/font-awesome/font-awesome.js') }}"></script>
 
@@ -238,7 +242,7 @@
 
             <li>
                 @if($user?->hasAccessToRessource('offre_emploie','register','allowed') || $user?->hasAccessToRessource('offre_emploie','update','allowed') || $user?->hasAccessToRessource('offre_emploie','delete','allowed'))
-                <a href="{{ route('offre_emploie.list') }}"><i class="fa fa-tasks"></i> Offres Travails</a>
+                <a href="{{ route('admin.offre_emploie.list') }}"><i class="fa fa-tasks"></i> Offres Travails</a>
                 @else
                 <a href="#"><i class="fa fa-tasks"></i> Offres Travails</a>
                 @endif

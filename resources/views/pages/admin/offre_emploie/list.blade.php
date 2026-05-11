@@ -1,46 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Offre Emploie</title>
-    
-    <style>
-        div.card .card-header span {
-            font-size: 18px;
-            /* font-weight: bold; */
-            font-family: italic;
-        }
 
-        div.card .card-header span i {
-            opacity: 0.7;
-        }
-
-        div.card .card-header a {
-            font-size: 18px;
-            font-weight: bold;
-            font-family: italic;
-            color: black;
-            float: right;
-            border: 1px solid #ccc;
-            border-radius: 2px;
-            padding: 2px 4px 2px 4px;
-        } 
-
-        table thead tr th,table tbody tr td {
-            font-size: 17px;
-            font-family: italic;
-        }
-
-        table thead tr th:nth-child(n+6) {
-            text-align: center;
-        }
-
-
-    </style>
-
-</head>
-<body>
     @extends('layouts.admin')
 
     @section('content')
@@ -51,8 +9,8 @@
                     <i class="fa fa-tasks"></i> Offres Emploies
                 </span>
                 <!-- Autorisation acquise -->
-                @if(session('user')->hasAccessToRessource('offre_emploie','register','allowed'))
-                <a href="{{ route('offre_emploie.register') }}">
+                @if(Auth::user()->hasAccessToRessource('offre_emploie','register','allowed'))
+                <a href="{{ route('admin.offre_emploie.register_page') }}">
                     <i class="fa fa-plus"></i>
                 </a>
                 @endif
@@ -126,7 +84,7 @@
                                 @if(Auth::user()->hasAccessToRessource('offre_emploie','delete','allowed'))
                                 <td>
                                     <div class="d-grid">
-                                        <form method="POST" action="{{ route('offre_emploie.deleteOne',['id'=>$offre_emploie->id]) }}">
+                                        <form method="POST" action="{{ route('admin.offre_emploie.deleteOne',['id'=>$offre_emploie->id]) }}">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" onclick="confirm('Voulez-vous vraiment supprimer ?')" class="btn btn-danger btn-block btn-sm active">
@@ -139,7 +97,7 @@
                                 <!-- Autorisation acquise -->
                                 @if(Auth::user()->hasAccessToRessource('offre_emploie','update','allowed'))
                                 <td>
-                                    <a href="{{ route('offre_emploie.update_page',['id'=>$offre_emploie->id]) }}" title="Modifier l'offre d'emploie" class="btn btn-primary btn-sm active">
+                                    <a href="{{ route('admin.offre_emploie.update_page',['id'=>$offre_emploie->id]) }}" title="Modifier l'offre d'emploie" class="btn btn-primary btn-sm active">
                                         <i class="bi bi-pencil-square"></i>
                                     </a>
                                 </td>
@@ -151,12 +109,13 @@
                 </div>
             </div>
         </div>
-    </div>
-    <script src="{{ asset('dependance/js/dataTable.min.js') }}"></script>
-
-    <script type="text/javascript">
-        document.querySelector('table').DataTable();
-    </script>
+        
+        <!-- Script externe -->
+        <script src="{{ asset('dependance/js/dataTable.min.js') }}"></script>
+        
+        <!-- Script interne -->
+        <script type="text/javascript">
+             document.querySelector('table').DataTable();
+        </script>
+    </div>    
     @endsection
-</body>
-</html>

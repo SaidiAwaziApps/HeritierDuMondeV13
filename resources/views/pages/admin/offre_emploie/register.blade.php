@@ -1,110 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Offre Emploie</title>
-    <script src="{{ asset('dependance/js/sweetalert.min.js') }}"></script>
-    <style>
-        div.card .card-header span {
-            font-size: 18px;
-            /* font-weight: bold; */
-            font-family: italic;
-        }
 
-        div.card .card-header a {
-            font-size: 18px;
-            font-weight: bold;
-            font-family: italic;
-            color: black;
-            float: right;
-            border: 1px solid #ccc;
-            border-radius: 2px;
-            padding: 2px 4px 2px 4px;
-        } 
-
-        div#document_bloc {
-            position: fixed;
-            top:62%;
-            left: 50%;
-            z-index: 1001;
-            opacity: 0.7;
-        }
-
-        @media all and (max-width: 700px) {
-            div#document_bloc {
-               top: 36%;
-               left: 29%;
-            } 
-        }
-
-        /* div#document_bloc > div > #image_bloc {
-            width: 100%;
-            height: 120px;
-            text-align: center;
-            display: none;
-        } */
-
-        div#document_bloc > div > #input_bloc label {
-            display: block;
-            padding: 4px 14px 4px 14px;
-            border-radius: 10px;
-            text-align: center;
-            font-size: 16px;
-            /* font-weight: bold; */
-            font-family: italic;
-            color: white;
-            background-color: cadetblue;
-            cursor: pointer;
-        }
-
-        div#document_bloc > div > #input_bloc label:hover {
-            opacity: 0.6;
-        }
-
-        div#submit_bloc {
-            margin-top: 10px;
-        }
-
-        div#submit_bloc > .d-grid button span {
-            font-size: 16px;
-            font-weight: bold;
-            font-family: italic;
-        }
-
-        label {
-            font-size: 16px;
-            font-weight: bold;
-            font-family: italic;
-        }
-
-        label i[id="required-sign"] {
-            color: red;
-        }
-
-        input[type="text"],
-        input[type="date"],
-        textarea[id="object"],
-        select[id="domaine"] {
-            border-bottom: 2px solid #ccc;
-        }
-
-
-        div#validate_errors_bloc {
-            margin-top: 6px;
-            text-align: center;
-        }
-
-        div#validate_errors_bloc span {
-            font-size: 16px;
-            font-weight: bold;
-            font-family: italic;
-            color: red;
-        }
-
-    </style>
-</head>
-<body>
     @extends('layouts.admin')
 
     @section('content')
@@ -112,14 +6,14 @@
         <div class="card">
             <div class="card-header">
                 <span class="card-title">
-                    Offre d'emploie               
+                    <i class="fa fa-tasks"></i> Offre d'emploie               
                 </span>
-                <a href="{{ route('offre_emploie.list') }}" title="Afficher la liste">
+                <a href="{{ route('admin.offre_emploie.list') }}" title="Afficher la liste">
                     <i class="fa fa-list"></i>
                 </a>
             </div>
             <div class="card-body">
-                <form method="POST" action="{{ route('offre_emploie.save') }}" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('admin.offre_emploie.save') }}" enctype="multipart/form-data">
                     <div id="form_content">
                         @csrf
                         <div class="form-group">
@@ -206,12 +100,9 @@
                 </form>
             </div>
         </div>
+
+        <!-- Script externe -->
+        <script src="{{ asset('script/pages/admin/offre_emploie/register.js') }}"></script>
+
     </div>
-
-
-
-    <script src="{{ asset('script/offre_emploie/register.js') }}"></script>
-
     @endsection
-</body>
-</html>
