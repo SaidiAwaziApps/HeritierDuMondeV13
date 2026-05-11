@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Code de reinitialization</title>
     <style>
-        div#email_message_bloc {
+        #email_message_bloc {
             padding: 10px;
             font-size: 20px;
             font-family: italic;
