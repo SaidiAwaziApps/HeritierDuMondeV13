@@ -55,9 +55,13 @@
     <!-- Styles pour don -->
     @include('layouts.template.admin.don.head.styles')
 
+     <!-- Styles pour evenement -->
+    @include('layouts.template.admin.evenement.head.styles')
+
     <!-- Ensemble de Styles && scripts destines offre  -->
     @include('layouts.template.admin.offre_emploie.head.styles') <!-- // Ensemble de script styles destines a partie head -->
     @include('layouts.template.admin.offre_emploie.head.scripts') <!-- // Ensemble de script styles destines a partie head -->
+
 
     <script src="{{ asset('dependance/font-awesome/font-awesome.js') }}"></script>
 

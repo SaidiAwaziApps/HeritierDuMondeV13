@@ -1,0 +1,94 @@
+
+    #global_content {
+        margin-bottom: 20px;
+    }
+
+    .card .card-header span.card-title {
+        font-size: 22px;
+        font-weight: bold;
+        font-family: italic;
+        opacity: 0.6;
+    }
+
+    .card .card-header span.card-title i {
+        opacity: 0.4;
+    }
+
+
+    .card-header a {
+        font-size: 20px;
+        font-weight: bold;
+        color: black;
+        float: right;
+        padding-left: 4px;
+        padding-right: 4px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    #meta ul li:nth-child(1) {
+        text-align: center;
+        background-color: #f8f8ff;
+    }
+
+    #meta ul li:nth-child(1) i,
+    #meta ul li:nth-child(4) i {
+        opacity: 0.6;
+    }
+
+    #meta ul li span {
+        font-size: 18px; 
+        font-family: italic; 
+    }
+
+    #meta ul li span:nth-child(1) {
+        font-weight: bold;
+    }
+
+    #meta ul li:nth-child(4) span {
+        display: block;
+    }
+
+    #meta ul li:nth-child(4) span:nth-child(1) {
+        text-align: center;
+    }
+
+    #meta ul li:nth-child(4) span:nth-child(1) {
+        display: block;
+        padding: 6px;
+        margin-bottom: 4px;
+        text-align: center;
+        background-color: #f8f8ff;
+        border-radius: 4px;
+    }
+
+    #meta ul li:nth-child(4) span:nth-child(2) {
+        text-align: justify;
+    }
+
+    #meta ul li:nth-child(5) h5 {
+        font-size: 20px;
+        font-weight: bold;
+        font-family: italic;
+    }
+
+    #meta ul li:nth-child(5) > div#images {
+        margin-bottom: 10px;
+    }
+
+    .shares {
+        position: fixed;
+        left: 40%;
+        top: 86%;
+        z-index: 1000;
+        opacity: 0.8;
+        padding: 20px;
+        border-radius: 4px;
+        background-color: #f8f8ff;
+    }
+
+    @media all and (max-width: 700px) {
+        .shares { 
+            left: 14%;
+        }
+    }

@@ -1,144 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Evenement</title>
-    <link rel="stylesheet" href="{{ asset('css/image/global/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/image/upload/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/image/vignette/style.css') }}">
-
-    <style>
-        div.card .card-header span.card-title {
-            font-size: 20px;
-            font-weight: bold;
-            font-family: italic;
-            opacity: 0.6;
-        }
-
-        div.card .card-header span.card-title i {
-            opacity: 0.4;
-        }
-
-
-
-        div.card .card-header a {
-            float: right;
-            font-size: 21px;
-            color: black;
-            padding-left: 6px;
-            padding-right: 6px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-
-
-        div.modal-footer button {
-            border: 1px solid #ccc;
-        }
-
-        div.modal-footer button span {
-            font-size: 18px;
-            font-weight: bold;
-            font-family: italic;
-        }
-
-
-
-        div#form_content > div > div {
-            margin-bottom: 3px;
-        }
-
-
-        div#type_model_bloc {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: nowrap;
-        }
-
-        div#type_model_bloc > div {
-            width: 49.8%;
-        }
-
-
-        div#periode_date_bloc {
-            display: none;
-            justify-content: space-between;
-            flex-wrap: nowrap;
-        }
-
-        div#periode_date_bloc > div {
-            width: 49.7%;
-        }
-
-        @media all and (max-width: 700px) {
-            div#periode_date_bloc > div {
-                width: 49.2%;
-            }  
-        }
-
-
-        div#submit_bloc {
-            margin-top: 4px;
-        }
-
-        div#submit_bloc > div button span {
-            font-size: 16px;
-            font-weight: bold;
-            font-family: italic;
-        }
-
-        label {
-            font-weight: bold;
-            font-family: italic;
-        }
-
-        label i[id="required-sign"] {
-            color: red;
-        }
-
-        input[type="text"],input[type="date"],select[name="type"],select[name="model"],textarea[name="contenu"] {
-            border: 1px solid #ccc;
-            border-bottom: 3px solid #ccc;
-        }
-        
-
-        
-
-        .imgs-bloc > .imgs-bloc-context {
-            position: fixed;
-            top: 72%;
-            left: 50%;
-            z-index: 1100;
-            display: flex;
-            justify-content: center;
-            flex-wrap: nowrap;
-        }
-
-        @media all and (max-width: 500px) {
-            .imgs-bloc > .imgs-bloc-context {
-                top: 71%;
-                left: 46%;
-            }
-        }
-
-        @media all and (max-width: 400px) {
-            .imgs-bloc > .imgs-bloc-context {
-                top: 56%;
-                left: 46%;
-            }
-        }
-
-        @media all and (max-width: 450px) {
-            .imgs-bloc > .imgs-bloc-context {
-                top: 53%;
-                left: 46%;
-            }
-        }
-    </style>
-
-</head>
-<body>
 
     @extends('layouts.admin')
 
@@ -149,12 +8,12 @@
                 <span class="card-title">
                     <i class="fa fa-calendar" style="opacity: 0.4;"></i> Gestion Evenements
                 </span>
-                <a href="{{ route('evenement.list') }}" title="List d'evenements">
+                <a href="{{ route('admin.evenement.list') }}" title="List d'evenements">
                     <i class="bi bi-list"></i>
                 </a>
             </div>
             <div class="card-body">
-                <form method="POST" action="{{ route('evenement.update',['id'=>$evenement->id]) }}" enctype="multipart/form-data" id="register_evenement_form">
+                <form method="POST" action="{{ route('admin.evenement.update_handler',['id'=>$evenement->id]) }}" enctype="multipart/form-data" id="register_evenement_form">
                     <div id="form_content">
                         @csrf
                         @method('PUT')          
@@ -263,10 +122,10 @@
                         
                         <div class="imgs-bloc">
                             <div class="imgs-bloc-context">
-                                @include('components.image.global.context')
+                                @include('components.admin.image.global.context')
                             </div>
                             <div class="imgs-bloc-content">
-                                @include('components.image.global.content')
+                                @include('components.admin.image.global.content')
                             </div>
                         </div>
 
@@ -285,20 +144,20 @@
                 </form>
             </div>
         </div>
+
+        <!-- Script interne -->
+        <script type="text/javascript">
+            // Variables (gloabals)
+            window.STORAGE_PATH_URL = @json(env('STORAGE_PATH_URL'));
+            let evenement = @json($evenement);
+            let images = evenement.images;
+        </script>
+
+        <!-- Scripts externes -->
+        <script src="{{ asset('script/components/admin/image/upload/update.js') }}"></script>
+        <script src="{{ asset('script/components/admin/image/vignette/update.js') }}"></script> 
+        <script src="{{ asset('script/pages/admin/evenement/update.js') }}"></script>
+
     </div>
-
-    <script type="text/javascript">
-        window.STORAGE_PATH_URL='<?php echo(env('STORAGE_PATH_URL'));?>';
-        let evenement = <?php echo($evenement); ?>;
-        let images = evenement.images;
-        let vignettes = evenement.vignettes;
-    </script>
-
-    <!-- script -->
-    <script src="{{ asset('script/image/upload/update.js') }}"></script>
-    <script src="{{ asset('script/image/vignette/update.js') }}"></script>
-    <script src="{{ asset('script/evenement/update.js') }}"></script>
     @endsection
     
-</body>
-</html>

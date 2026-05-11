@@ -5,58 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Evenement</title>
     <style>
-        div.card .card-header span.card-title {
-            font-size: 20px;
-            font-weight: bold;
-            font-family: italic;
-            opacity: 0.6;
-        }
-
-        div.card .card-header span.card-title i {
-            opacity: 0.4;
-        }
-
-
-
-        div.card-header a {
-            font-size: 20px;
-            font-weight: bold;
-            color: black;
-            float: right;
-            padding-left: 4px;
-            padding-right: 4px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-
         
-
-        table thead tr th {
-            /* text-align: center; */
-            font-size: 18px;
-            font-family: italic;
-        }
-
-        table thead tr th:nth-child(n+4) {
-            text-align: center;
-        }
-
-        table tbody tr td {
-            font-size: 17px;
-            font-family: italic;
-        }
-
-        table tbody tr td:nth-child(4) a {
-            border: 1px solid #ccc;
-        }
-
-         table tbody tr td:nth-child(n+4) a:hover {
-            opacity: 0.6;
-         }
-
-        table tbody tr td:nth-child(4) a:hover {
-            border: 1px solid #ccc;
-        }
 
     </style>
 </head>
@@ -73,7 +22,7 @@
                 </span>
                 <!-- Autorisation acquise -->
                 @if(Auth::user()->hasAccessToRessource('evenement','register','allowed'))
-                <a href="{{ route('evenement.register') }}" class="active" title="Ajouter un evenement">
+                <a href="{{ route('admin.evenement.register_page') }}" class="active" title="Ajouter un evenement">
                     <i class="bi bi-plus"></i>
                 </a>
                 @endif
@@ -126,14 +75,14 @@
                                     {{ $evenement->titre }}
                                 </td>
                                 <td>
-                                    <a href="{{ route('evenement.details',['id'=>$evenement->id]) }}" class="btn btn-default btn-sm" title="Plus de details">
+                                    <a href="{{ route('admin.evenement.details',['id'=>$evenement->id]) }}" class="btn btn-default btn-sm" title="Plus de details">
                                         <i class="fa fa-plus"></i>
                                     </a>
                                 </td>
                                 <!-- Autorisation acquise -->
                                 @if(Auth::user()->hasAccessToRessource('evenement','delete','allowed'))
                                 <td>
-                                    <form method="POST" action="{{ route('evenement.delete_one',['id'=>$evenement->id]) }}">
+                                    <form method="POST" action="{{ route('admin.evenement.delete_one',['id'=>$evenement->id]) }}">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger btn-sm active" title="Supprimer l'evenement">
@@ -145,7 +94,7 @@
                                 <!-- Autorisation acquise -->
                                 @if(Auth::user()->hasAccessToRessource('evenement','update','allowed'))
                                 <td>
-                                    <a href="{{ route('evenement.update_page',['id'=>$evenement->id]) }}" class="btn btn-primary btn-sm active" title="Appliquer des modifications">
+                                    <a href="{{ route('admin.evenement.update_page',['id'=>$evenement->id]) }}" class="btn btn-primary btn-sm active" title="Appliquer des modifications">
                                         <i class="fa fa-edit"></i>
                                     </a>
                                 </td>

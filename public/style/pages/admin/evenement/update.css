@@ -1,0 +1,111 @@
+   
+   .card .card-header span.card-title {
+        font-size: 20px;
+        font-weight: bold;
+        font-family: italic;
+        opacity: 0.6;
+    }
+
+    .card .card-header span.card-title i {
+        opacity: 0.4;
+    }
+
+    .card .card-header a {
+        float: right;
+        font-size: 21px;
+        color: black;
+        padding-left: 6px;
+        padding-right: 6px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+
+
+    #form_content > div > div {
+        margin-bottom: 3px;
+    }
+
+
+    #type_model_bloc {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+    }
+
+    #type_model_bloc > div {
+        width: 49.8%;
+    }
+
+    #periode_date_bloc {
+        display: none;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+    }
+
+    #periode_date_bloc > div {
+        width: 49.7%;
+    }
+
+    @media all and (max-width: 700px) {
+        #periode_date_bloc > div {
+            width: 49.2%;
+        }  
+    }
+
+
+    #submit_bloc {
+        margin-top: 4px;
+    }
+
+    #submit_bloc > div button span {
+        font-size: 16px;
+        font-weight: bold;
+        font-family: italic;
+    }
+
+    label {
+        font-weight: bold;
+        font-family: italic;
+    }
+
+    label i[id="required-sign"] {
+        color: red;
+    }
+
+    input[type="text"],input[type="date"],select[name="type"],select[name="model"],textarea[name="contenu"] {
+        border: 1px solid #ccc;
+        border-bottom: 3px solid #ccc;
+    }
+        
+
+    .imgs-bloc > .imgs-bloc-context {
+        position: fixed;
+        top: 72%;
+        left: 50%;
+        z-index: 1100;
+        display: flex;
+        justify-content: center;
+        flex-wrap: nowrap;
+    }
+
+    @media all and (max-width: 500px) {
+        .imgs-bloc > .imgs-bloc-context {
+            top: 71%;
+            left: 46%;
+        }
+    }
+
+    @media all and (max-width: 400px) {
+        .imgs-bloc > .imgs-bloc-context {
+            top: 56%;
+            left: 46%;
+        }
+    }
+
+    @media all and (max-width: 450px) {
+        .imgs-bloc > .imgs-bloc-context {
+            top: 53%;
+            left: 46%;
+        }
+    }
