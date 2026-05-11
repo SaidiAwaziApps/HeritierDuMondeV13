@@ -75,7 +75,7 @@
                                     <span id="document_file_name"></span>
                                 </div>
                                 <div id="input_bloc">
-                                    <label for="document">
+                                    <label for="document" title="Inserer un document">
                                         <i class="bi bi-download"></i> Inserer Document
                                     </label>
                                     <input type="file" name="document" id="document" style="display: none;">

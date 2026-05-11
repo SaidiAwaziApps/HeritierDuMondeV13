@@ -10,7 +10,7 @@
                 </span>
                 <!-- Autorisation acquise -->
                 @if(Auth::user()->hasAccessToRessource('offre_emploie','register','allowed'))
-                <a href="{{ route('admin.offre_emploie.register_page') }}">
+                <a href="{{ route('admin.offre_emploie.register_page') }}" title="Ajouter un offre">
                     <i class="fa fa-plus"></i>
                 </a>
                 @endif
@@ -76,7 +76,7 @@
                                     {{ $offre_emploie->object }} 
                                 </td>
                                 <td>
-                                    <a href="{{ Storage::url($offre_emploie->document) }}" class="btn btn-default btn-sm" style="border: 1px solid #ccc;">
+                                    <a href="{{ Storage::url($offre_emploie->document) }}" class="btn btn-default btn-sm" title="Consulter document" style="border: 1px solid #ccc;">
                                         <i class="bi bi-download"></i>
                                     </a>
                                 </td>
@@ -87,7 +87,7 @@
                                         <form method="POST" action="{{ route('admin.offre_emploie.deleteOne',['id'=>$offre_emploie->id]) }}">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" onclick="confirm('Voulez-vous vraiment supprimer ?')" class="btn btn-danger btn-block btn-sm active">
+                                            <button type="submit" onclick="confirm('Voulez-vous vraiment supprimer ?')" class="btn btn-danger btn-block btn-sm active" title="Supprimer l'offre">
                                                 <i class="bi bi-trash"></i> 
                                             </button>
                                         </form>
