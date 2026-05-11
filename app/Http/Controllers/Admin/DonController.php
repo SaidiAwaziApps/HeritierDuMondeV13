@@ -16,17 +16,18 @@ class DonController extends Controller
     {
         $dons = Don::where('status', true)->get();
 
-        return view('pages.don.list', compact('dons'));
+        return view('pages.admin.don.list', compact('dons'));
     }
 
     /* ***************************************************************
      * TRAITE L' ENREGISTREMENT D' UNE INSTANCE COMMENTAIRE
      * ***************************************************************/
-    public function details(Don $don): View
+    public function details($id): View
     {
-        // Vérifie que le don est actif
-        abort_if(!$don->status, 404);
+        $don = Don::where('id', $id)
+                  ->where('status', true)
+                  ->firstOrFail();
 
-        return view('pages.don.details', compact('don'));
+        return view('pages.admin.don.details', compact('don'));
     }
 }

@@ -1,0 +1,118 @@
+    .card-header h4 {
+        text-align: center;
+        font-family: italic;
+        opacity: 0.8;
+    }
+
+    #info_content > div  {
+        margin-bottom: 4px;
+    }
+
+    #info_content > div > .card .card-body {
+        text-align: center;
+    }
+
+    #info_content > div > .card .card-body  span {
+        font-size: 18px;
+        font-family: italic;
+    }
+
+    #info_content > div > .card .card-body  span:nth-child(1) {
+        font-weight: bold;
+    }
+
+    #info_content > div > .card .card-body  span a.details-link {
+        border: 1px solid #ccc;
+    } 
+
+    #info_content > div > .card .card-body span a:hover {
+        opacity: 0.4;
+    }
+
+    #info_content > div:nth-child(4) > .card .card-body span {
+        text-transform: capitalize;
+    }
+
+
+    #montant_besoin_bloc {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    #montant_besoin_bloc > .card:nth-child(1) {
+        width: 30.7%;
+    }
+
+    #montant_besoin_bloc > .card:nth-child(2) {
+        width: 69%;
+    }
+
+    @media all and (max-width: 500px) {
+        #montant_besoin_bloc {
+            display: block;
+        }
+        #montant_besoin_bloc > div {
+            margin-bottom: 6px;
+        }
+        #montant_besoin_bloc > .card:nth-child(1) {
+            width: 100%;
+        }
+        #montant_besoin_bloc > .card:nth-child(2) {
+            width: 100%;
+        } 
+    }
+
+    #recu_bloc .card .card-body span:nth-child(n+2) {
+        padding: 4px 6px 4px 6px;
+        margin-left: 4px;
+        border-radius: 4px;
+        background-color: #fff;
+        opacity: 0.9;
+        /* color: white;  */
+    }
+
+    #reception_bloc .card .card-body a.btn {
+        border: 1px solid #ccc;
+    }
+
+    #reception_bloc .card .card-body a.btn:hover {
+        opacity: 0.4;
+    }
+
+    #reception_bloc .card .card-body form {
+        display: none;
+    }
+
+    #reception_bloc .card .card-body form #validate_errors {
+        margin-bottom: 6px;
+    }
+
+    #reception_bloc .card .card-body form #validate_errors > div {
+        text-align: center;
+    }
+
+    #reception_bloc .card .card-body form #validate_errors > div span {
+        font-size: 18px;
+        font-weight: bold;
+        font-family: italic;
+        color: red;
+    }
+
+
+    #reception_bloc .card .card-body form div textarea[name="texte"] {
+        border-bottom: 2px solid #ccc;
+    }
+
+    #submit_bloc {
+        margin-top: 7px;
+    }
+
+    #submit_bloc button {
+        border-radius: 8px;
+    }
+
+    #submit_bloc button span {
+        font-size: 16px;
+        font-weight: bold;
+        font-family: italic;
+    }

@@ -19,8 +19,8 @@
                                 <div id="profil_bloc">
                                     <div class="card">
                                         <div class="card-body">
-                                            <a href="{{ Storage::url($admin->photo) }}" title="Profil {{ $benevole->nom }}">
-                                                <img src="{{ Storage::url($admin->photo) }}" alt="Profil {{ $benevole->photo }}" class="rounded-thumbnail cover" style="width: 100%;height: 100%;">
+                                            <a href="{{ Storage::url($benevole->photo) }}" title="Profil {{ $benevole->nom }}">
+                                                <img src="{{ Storage::url($benevole->photo) }}" alt="Profil {{ $benevole->photo }}" class="rounded-thumbnail cover" style="width: 100%;height: 100%;">
                                             </a>    
                                         </div>
                                     </div>

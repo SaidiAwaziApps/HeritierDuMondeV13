@@ -1,7 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\DonateurController;
+
+use App\Http\Middleware\TrackHistoryMiddleware;
+use App\Http\Middleware\DonateurRessource\DonateurRessourceGlobal;
+
+use App\Http\Controllers\Admin\DonateurController as AdminDonateurController;
 
 /*
 |--------------------------------------------------------------------------
@@ -10,15 +14,16 @@ use App\Http\Controllers\DonateurController;
 */
 
 Route::prefix('donateur')
-    ->middleware(['donateur.ressource.global','trackHistoryMiddleware'])
+    ->as('admin.donateur.')
+    ->middleware([DonateurRessourceGlobal::class, TrackHistoryMiddleware::class])
     ->group(function () {
 
         // Liste des donateurs
-        Route::get('/list', [DonateurController::class, 'list'])
-            ->name('donateur.list');
+        Route::get('/list', [AdminDonateurController::class, 'list'])
+            ->name('list');
 
         // Détails d’un donateur
-        Route::get('/details/{id}', [DonateurController::class, 'details'])
-            ->name('donateur.details');
+        Route::get('/details/{id}', [AdminDonateurController::class, 'details'])
+            ->name('details');
 
 });

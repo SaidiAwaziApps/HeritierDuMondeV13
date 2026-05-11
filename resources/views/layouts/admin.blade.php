@@ -49,6 +49,12 @@
     <!-- Styles besoin -->
     @include('layouts.template.admin.besoin.head.styles')
 
+    <!-- Styles donateur -->
+    @include('layouts.template.admin.donateur.head.styles')
+
+    <!-- Styles don -->
+    @include('layouts.template.admin.don.head.styles')
+
     <script src="{{ asset('dependance/font-awesome/font-awesome.js') }}"></script>
 
     <script src="{{ asset('dependance/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
@@ -224,7 +230,7 @@
 
             <li>
                 @if($user?->hasAccessToRessource('donateur','register','allowed') || $user?->hasAccessToRessource('donateur','update','allowed') || $user?->hasAccessToRessource('donateur','delete','allowed'))
-                <a href="{{ route('donateur.list') }}"><i class="fa fa-support"></i> Donateurs</a>
+                <a href="{{ route('admin.donateur.list') }}"><i class="fa fa-support"></i> Donateurs</a>
                 @else 
                 <a href="#"><i class="fa fa-support"></i> Donateurs</a>
                 @endif
@@ -240,7 +246,7 @@
 
             <li>
                 @if($user?->hasAccessToRessource('don','register','allowed') || $user?->hasAccessToRessource('don','update','allowed') || $user?->hasAccessToRessource('don','delete','allowed'))
-                <a href="{{ route('don.list') }}"><i class="fa fa-support"></i> Dons</a>
+                <a href="{{ route('admin.don.list') }}"><i class="fa fa-support"></i> Dons</a>
                 @else
                 <a href="#"><i class="fa fa-support"></i> Dons</a>
                 @endif

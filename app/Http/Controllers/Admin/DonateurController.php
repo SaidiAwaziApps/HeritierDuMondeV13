@@ -17,14 +17,18 @@ class DonateurController extends Controller
     {
         $donateurs = Donateur::where('status', true)->get();
 
-        return view('pages.donateur.list', compact('donateurs'));
+        return view('pages.admin.donateur.list', compact('donateurs'));
     }
 
     /* ***************************************************************
      * RENVOIE LA PAGE DETAILS
      * ***************************************************************/
-    public function details(Donateur $donateur): View
+    public function details($id): View
     {
-        return view('pages.donateur.details', compact('donateur'));
+        $donateur = Donateur::where('id', $id)
+                            ->where('status', true)
+                            ->firstOrFail();
+
+        return view('pages.admin.donateur.details', compact('donateur'));
     }
 }

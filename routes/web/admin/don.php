@@ -1,7 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\DonController;
+
+use App\Http\Middleware\TrackHistoryMiddleware;
+use App\Http\Middleware\DonRessource\DonRessourceGlobal;
+
+use App\Http\Controllers\Admin\DonController as AdminDonController;
 
 /*
 |--------------------------------------------------------------------------
@@ -10,16 +14,17 @@ use App\Http\Controllers\DonController;
 */
 
 Route::prefix('don')
-    ->middleware(['don.ressource.global','trackHistoryMiddleware'])
+    ->as('admin.don.') 
+    ->middleware([DonRessourceGlobal::class, TrackHistoryMiddleware::class])
     ->group(function () {
 
         // Liste des dons
-        Route::get('/list', [DonController::class, 'list'])
-            ->name('don.list');
+        Route::get('/list', [AdminDonController::class, 'list'])
+            ->name('list');
 
         // Détails d’un don
-        Route::get('/details/{id}', [DonController::class, 'details'])
-            ->name('don.details');
+        Route::get('/details/{id}', [AdminDonController::class, 'details'])
+            ->name('details');
 
         // Génération de dons (désactivée)
         Route::get('/generate', function () {

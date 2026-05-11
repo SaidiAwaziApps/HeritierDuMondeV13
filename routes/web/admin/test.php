@@ -52,9 +52,16 @@ Route::prefix('test')->as('test.')->group(function() {
 
     // Test notifications
     Route::get('/notification', function() {
-        $user = User::getOne(1);
-        $user->notify(new ModerateableNotification("Test notification stockée."));
-        return response()->json($user->notifications);
+        $user = \App\Models\User::first();
+
+        $user->notify(
+            new \App\Notifications\ModerateableNotification(
+                'Test final',
+                'success'
+            )
+        );
+
+        return 'sent';
     })->name('notification_test');
 
     // Test ajout texte aux dons
@@ -73,5 +80,9 @@ Route::prefix('test')->as('test.')->group(function() {
 
         return response()->json(['status' => 'dons updated']);
     })->name('dons_test');
+
+    Route::get('/pusher', function() { 
+        echo gethostbyname('api-eu.pusher.com'); 
+    });
 
 });

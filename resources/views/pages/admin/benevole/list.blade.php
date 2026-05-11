@@ -18,8 +18,8 @@
                                 <ul class="list-group">
                                     <li class="list-group-item">
                                         <div id="profil_bloc">
-                                            <a href="{{ Storage::url($admin->photo) }}">
-                                                <img src="{{ Storage::url($admin->photo) }}" alt="" title="Profil {{ $benevole->nom }}" class="rounded-thumbnail cover" style="width: 100%;height: 100%;">
+                                            <a href="{{ Storage::url($benevole->photo) }}">
+                                                <img src="{{ Storage::url($benevole->photo) }}" alt="{{ $benevole->nom }}" title="Profil {{ $benevole->nom }}" class="rounded-thumbnail cover" style="width: 100%;height: 100%;">
                                             </a>    
                                         </div>
                                     </li>
