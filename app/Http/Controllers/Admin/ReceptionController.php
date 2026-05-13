@@ -9,7 +9,7 @@ use Illuminate\Http\RedirectResponse;
 use App\Models\Reception;
 use App\Models\Don;
 use App\Models\User;
-use App\Jobs\SendConfirmReceptionJob;
+use App\Jobs\SendConfirmReceptionMailJob;
 
 class ReceptionController extends Controller
 {
@@ -59,7 +59,7 @@ class ReceptionController extends Controller
         ]);
         
         // Envoie du email d'accuse de reception au donateur
-        SendConfirmReceptionJob::dispatch($reception);  
+        SendConfirmReceptionMailJob::dispatch($reception);  
 
         // Renvoie a la page precedente
         return redirect($this->getBackPageURLNavigation());

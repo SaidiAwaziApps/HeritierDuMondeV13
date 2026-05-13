@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Services\NavigationService;
 
-use App\Jobs\SendResetCodeEmailJob;
+use App\Jobs\SendResetCodeMailJob;
 
 use App\Models\Payment;
 use App\Models\User;
@@ -142,7 +142,7 @@ class AuthenticationController extends Controller
         $reset_code = rand(100000, 999999);
 
         // Envoie code reinitialization via email
-        SendResetCodeEmailJob::dispatch($user->email, $reset_code);
+        SendResetCodeMailJob::dispatch($user->email, $reset_code);
 
         // Redirection vers la page reset_code
         return redirect()->route('authentication.reset_code_page', [

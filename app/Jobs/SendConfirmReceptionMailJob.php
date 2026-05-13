@@ -8,22 +8,21 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Mail;
-use App\Mail\ResetCodeEmail;
 
-class SendResetCodeEmailJob implements ShouldQueue
+use App\Mail\ConfirmReceptionMail;
+
+class SendConfirmReceptionMailJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    protected string $email;
-    protected string $reset_code;
+    protected mixed $reception;
 
     /**
      * Create a new job instance.
      */
-    public function __construct(string $email, string $reset_code)
+    public function __construct(mixed $reception)
     {
-        $this->email = $email;
-        $this->reset_code = $reset_code;
+        $this->reception = $reception;
     }
 
     /**
@@ -31,11 +30,12 @@ class SendResetCodeEmailJob implements ShouldQueue
      */
     public function handle(): void
     {
-        if (!$this->email) {
+        $email = $this->reception->don->donateur->email ?? null;
+
+        if (!$email) {
             return; // Pas d'email valide
         }
 
-        // Envoi via queue pour Laravel 13 moderne
-        Mail::to($this->email)->queue(new ResetCodeEmail($this->reset_code));
+        Mail::to($email)->send(new ConfirmReceptionMail($this->reception->texte));
     }
 }

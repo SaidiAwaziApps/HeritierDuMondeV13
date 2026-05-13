@@ -6,40 +6,41 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Storage;
+
 use App\Models\Message;
 
 class ContactMessageMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public Message $contactMessage;
+    public $contactMessage;
 
-    /**
-     * Create a new message instance.
-     */
     public function __construct(Message $contactMessage)
     {
         $this->contactMessage = $contactMessage;
     }
 
-    /**
-     * Build the message.
-     */
-    public function build(): static
+    public function build()
     {
         $this->from(config('mail.from.address'))
              ->subject('Message de ' . config('app.name'))
-             ->view('pages.email.contact_message');
+             ->view('emails.contact_message')
+             ->with([
+                 'contactMessage' => $this->contactMessage
+             ]);
 
-        // Ajout des fichiers si existants
-        if (!empty($this->contactMessage->fichiers) && count($this->contactMessage->fichiers) > 0) {
+        // Pièces jointes
+        if ($this->contactMessage->fichiers && count($this->contactMessage->fichiers)) {
             foreach ($this->contactMessage->fichiers as $fichier) {
                 if (Storage::disk('public')->exists($fichier->path)) {
+
                     $this->attachFromStorageDisk(
                         'public',
                         $fichier->path,
                         basename($fichier->path),
-                        ['mime' => Storage::disk('public')->mimeType($fichier->path)]
+                        [
+                            'mime' => Storage::disk('public')->mimeType($fichier->path)
+                        ]
                     );
                 }
             }

@@ -9,10 +9,11 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use App\Events\ContactMessageEvent;
-use App\Jobs\ContactMessageMailJob;
+use App\Jobs\SendContactMessageMailJob;
 use App\Models\Message;
 use App\Models\Auteur;
 use App\Models\Fichier;
+
 use Illuminate\Support\Facades\Validator;
 
 class MessageController extends Controller
@@ -118,7 +119,7 @@ class MessageController extends Controller
         // event(new ContactMessageEvent($message));
 
         // En cas d'utilisateur connecte  
-        ContactMessageMailJob::dispatch($message);
+        SendContactMessageMailJob::dispatch($message);
         
         // Renvoie la reponse HTTP au client
         return response()->json(array('message' => $message));
