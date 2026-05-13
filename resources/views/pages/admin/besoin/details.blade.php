@@ -109,10 +109,10 @@
             let besoin = @json($besoin);
         </script>
 
-        <!-- <script type="text/javascript">
+       
+ <script type="text/javascript">
             window.paymentSetting = @json($paymentSetting);
-        </script> -->
-
+        </script>
         <!-- Inclus script (externe) --> 
         <script src="{{ asset('script/components/admin/share/register.js') }}"></script> 
         <script src="{{ asset('script/pages/admin/besoin/details.js') }}"></script>
