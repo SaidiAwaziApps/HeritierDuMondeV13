@@ -1,7 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ContactController;
+
+use App\Http\Middleware\TrackHistoryMiddleware;
+use App\Http\Middleware\ContactRessource\ContactAdminRessource;
+
+use App\Http\Controllers\Admin\ContactController as AdminContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -10,9 +14,10 @@ use App\Http\Controllers\ContactController;
 */
 
 Route::prefix('contact')
-    ->middleware(['contact.ressource.admin','trackHistoryMiddleware'])
+    ->as('admin.contact.')
+    ->middleware([ContactAdminRessource::class, TrackHistoryMiddleware::class])
     ->group(function () {
         // Page d'index des contacts
-        Route::get('/index', [ContactController::class, 'index'])
-            ->name('contact.index');
+        Route::get('/index', [AdminContactController::class, 'index'])
+            ->name('index');
     });

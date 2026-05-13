@@ -1,0 +1,12 @@
+    h4 {
+        padding: 20px;
+        border-radius: 4px;
+        background-color: #f8f8f8;
+        font-family: italic;
+        opacity: 0.8;
+    }
+
+    h4 i {
+        font-size: 22px;
+        opacity: 0.3; 
+    }

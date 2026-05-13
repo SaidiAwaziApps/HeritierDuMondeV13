@@ -77,20 +77,11 @@ class MessageController extends Controller
         $destinateur = null; // Initialization de la varianle destinareur
 
         // En cas d' utilisateur connecte
-        if(Auth::check()) {
-            $expediteur = Auth::user()?->auteur;
+        $expediteur = Auth::user()?->auteur;
 
-            if($request->filled('destinateur')) {
-                $destinateur = json_decode($request->destinateur,true);   
-            }                         
-        } //else { pour visiteur }
-
-        // Sécurité ajoutée (évite crash Laravel 13)
-        if(!$expediteur) {
-            return response()->json([
-                'error' => 'Utilisateur non authentifié'
-            ], 401);
-        }
+        if($request->filled('destinateur')) {
+            $destinateur = json_decode($request->destinateur,true);   
+        }                         
 
         // Creer une instance message
         $message = Message::create([
@@ -124,12 +115,10 @@ class MessageController extends Controller
         }
 
         // Emet evenement ContactMessageEvent
-        event(new ContactMessageEvent($message));
+        // event(new ContactMessageEvent($message));
 
-        // En cas d'utilisateur connecte
-        if(Auth::check()) {
-            ContactMessageMailJob::dispatch($message);
-        }
+        // En cas d'utilisateur connecte  
+        ContactMessageMailJob::dispatch($message);
         
         // Renvoie la reponse HTTP au client
         return response()->json(array('message' => $message));

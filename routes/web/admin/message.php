@@ -1,7 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\MessageController;
+
+use App\Http\Middleware\ContactRessource\ContactAdminRessource;
+
+use App\Http\Controllers\Admin\MessageController as AdminMessageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -10,14 +13,14 @@ use App\Http\Controllers\MessageController;
 */
 
 Route::prefix('message')
-    ->as('message.')
-    ->middleware('contact.ressource.admin')
+    ->as('admin.message.')
+    ->middleware(ContactAdminRessource::class)
     ->group(function() {
 
-        Route::get('/get-all', [MessageController::class, 'getAll'])
+        Route::get('/get-all', [AdminMessageController::class, 'getAll'])
             ->name('getAll');
 
-        Route::post('/save', [MessageController::class, 'save'])
+        Route::post('/save', [AdminMessageController::class, 'save'])
             ->name('save');
 
         Route::put('/set-auth-readed-group-messages/{auth_serial_code}', [MessageController::class, 'setAuthReadedGroupMessage'])

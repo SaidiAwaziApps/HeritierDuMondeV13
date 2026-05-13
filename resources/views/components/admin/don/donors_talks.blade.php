@@ -2,16 +2,21 @@
     $data = null;
 
     if(isset($besoin) && !empty($besoin)) {
-        $data = [];
+
+        $data = collect();
+
         foreach($besoin->besoinDons as $item) {
-           array_push($data, $item->don);
+            $data->push($item->don);
         }
-        $data->toJson();
+
     } 
     else if(isset($donateur) && !empty($donateur)) {
+
         $data = $donateur->dons;
+
     } 
     else {
+
         $data = $dons;
     }
 @endphp

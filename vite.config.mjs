@@ -8,6 +8,7 @@ export default defineConfig({
         laravel({
             input: [
                 'resources/js/mains/blog/admin/index.js',
+                'resources/js/mains/contact/admin/index.js'
             ],
             refresh: true,
         }),

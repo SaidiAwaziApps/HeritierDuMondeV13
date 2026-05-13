@@ -100,7 +100,7 @@
         window.article = @json($article);
         window.APP_URL = @json($app_url);
         window.STORAGE_PATH_URL = @json($storage_path_url);
-        window.user = @json(Auth::user());
+        window.user = @json(optional(Auth::user()));
 
     </script>
 

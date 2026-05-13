@@ -35,6 +35,9 @@
     <!-- Styles payment_setting -->
     @include('layouts.template.admin.payment_setting.head.styles')
 
+    <!-- Styles contact -->
+    @include('layouts.template.admin.contact.head.styles')
+
     <!-- Styles && scripts pour article (blog) -->
     @include('layouts.template.admin.blog.article.head.styles')  <!-- // Ensemble de script styles destines a partie head -->
     @include('layouts.template.admin.blog.article.head.scripts') <!-- // Ensemble de script scripts destines a partie head -->
@@ -230,7 +233,7 @@
 
             <li>
                 @if($user?->hasAccessToRessource('contact','register','allowed') || $user?->hasAccessToRessource('contact','update','allowed') || $user?->hasAccessToRessource('contact','delete','allowed'))
-                <a href="{{ route('contact.index') }}"><i class="fa fa-envelope"></i> Contact</a>
+                <a href="{{ route('admin.contact.index') }}"><i class="fa fa-envelope"></i> Contact</a>
                 @else
                 <a href="#"><i class="fa fa-envelope"></i> Contact</a>
                 @endif

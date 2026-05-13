@@ -18,7 +18,7 @@ class ContactController extends Controller
         // Instances à afficher
         $messages = Message::where('status', true)->get();
 
-        return view('pages.contact.admin.index', [
+        return view('pages.admin.contact.index', [
             'app_url' => config('app.url'),
             'storage_path_url' => config('app.storage_path_url'),
             'messages' => $messages
