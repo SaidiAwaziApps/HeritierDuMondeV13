@@ -127,22 +127,22 @@
                         </li>
                         <li class="dropdown-divider"></li>
                         <li class="dropdown-item">
-                            <a href="#"><i class="bi bi-person-fill-gear"></i> My Profil</a>
+                            <a href="#"><i class="bi bi-person-fill-gear" style="opacity: 0.5;"></i> My Profil</a>
                         </li>
                         <li class="dropdown-divider"></li>
                         <li class="dropdown-item">
-                            <a href="#"><i class="bi bi-lock-fill"></i> Password</a>
+                            <a href="#"><i class="bi bi-lock-fill" style="opacity: 0.5;"></i> Password</a>
                         </li>
                         <li class="dropdown-divider"></li>
                         <li class="dropdown-item">
-                            <div class="d-grid">
-                                <form method="POST" action="#">
-                                    @csrf
-                                    <button type="submit" class="btn btn-default active btn-sm">
-                                        <i class="bi bi-box-arrow-right"></i> Logout
+                            <form method="POST" action="#">
+                                @csrf
+                                <div class="d-grid">
+                                    <button type="submit" class="btn btn-default btn-sm btn-block">
+                                        <i class="bi bi-box-arrow-right" style="opacity: 0.6;"></i> Logout
                                     </button>
-                                </form>
-                            </div>
+                                </div>
+                            </form>
                         </li>
                     </ul>
                 </li>
