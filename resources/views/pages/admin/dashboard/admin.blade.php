@@ -244,31 +244,31 @@
         </script> -->
 
         <script type="text/javascript">
-            window.APP_URL = <?php echo(env('APP_URL'));?>;
+            window.APP_URL = @json(env('APP_URL'));
         </script>
          
          <script type="text/javascript">
-            let benevoles = <?php echo($benevoles);?>;
+            let benevoles = @json($benevoles);
         </script>
 
         <script type="text/javascript">
-            let besoins = <?php echo($besoins);?>;
+            let besoins = @json($besoins);
         </script>
 
         <script type="text/javascript">
-            let dons = <?php echo($dons);?>;
+            let dons = @json($dons);
         </script>
 
         <script type="text/javascript">
-            let offre_emploies = <?php echo($offre_emploies);?>;
+            let offre_emploies = @json($offre_emploies);
         </script>
 
         <script type="text/javascript">
-            let evenements = <?php echo($evenements);?>;
+            let evenements = @json($evenements);
         </script>
 
         <script type="text/javascript">
-            window.paymentSetting = <?php echo($paymentSetting);?>;
+            window.paymentSetting = @json($paymentSetting);
         </script>
 
         <script type="text/javascript">
