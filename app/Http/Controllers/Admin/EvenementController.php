@@ -128,7 +128,7 @@ class EvenementController extends Controller
     /* ***************************************************************
      * SUPPRIME (DESACTIVE) UNE INSTANCE DE LA BASE DE DONNEES
      * ***************************************************************/
-    public function delete_one(Evenement $evenement)
+    public function delete_one($id)
     {
         $evenement = Evenement::where('id', $id)
                               ->where('status', true)
