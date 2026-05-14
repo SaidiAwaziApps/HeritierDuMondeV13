@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
+use App\Http\Middleware\IsAdmin;
+use App\Http\Middleware\TrackHistoryMiddleware;
+
 use App\Http\Controllers\Admin\PaymentSettingController;
 
 /*
@@ -11,13 +15,15 @@ use App\Http\Controllers\Admin\PaymentSettingController;
 
 Route::prefix('payment-setting')
     ->as('paymentSetting.')
-    ->middleware([\App\Http\Middleware\IsAdmin::class, \App\Http\Middleware\TrackHistoryMiddleware::class])
+    ->middleware(IsAdmin::class)
     ->group(function() {
 
         // View (affichange)
         Route::get('/register', [PaymentSettingController::class, 'register_page'])
+            ->middleware(TrackHistoryMiddleware::class)
             ->name('register_page');
         Route::get('/update/{id}', [PaymentSettingController::class, 'update_page'])
+            ->middleware(TrackHistoryMiddleware::class)
             ->name('update_page');    
 
         // Actions (traitements)    
