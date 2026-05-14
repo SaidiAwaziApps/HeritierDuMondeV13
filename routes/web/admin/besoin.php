@@ -18,23 +18,27 @@ use App\Http\Controllers\Admin\BesoinController as AdminBesoinController;
 
 Route::prefix('besoin')
     ->as('admin.besoin.')
-    ->middleware([BesoinRessourceGlobal::class, TrackHistoryMiddleware::class])
+    ->middleware(BesoinRessourceGlobal::class)
     ->group(function() {
 
         // Page d'enregistrement
         Route::get('/register', [AdminBesoinController::class, 'register_page'])
-            ->middleware(BesoinRessourceCreate::class)
+            ->middleware([BesoinRessourceCreate::class, TrackHistoryMiddleware::class])
             ->name('register_page');
 
         // Liste des besoins
-        Route::get('/list', [AdminBesoinController::class, 'list'])->name('list');
+        Route::get('/list', [AdminBesoinController::class, 'list'])
+             ->middleware(TrackHistoryMiddleware::class)
+             ->name('list');
 
         // Détails d'un besoin
-        Route::get('/details/{id}', [AdminBesoinController::class, 'details'])->name('details');
+        Route::get('/details/{id}', [AdminBesoinController::class, 'details'])
+                ->middleware(TrackHistoryMiddleware::class)
+                ->name('details');
 
         // Page de mise à jour
         Route::get('/update/{id}', [AdminBesoinController::class, 'update_page'])
-            ->middleware(BesoinRessourceUpdate::class)
+            ->middleware([BesoinRessourceUpdate::class, TrackHistoryMiddleware::class])
             ->name('update_page');
 
         // Enregistrement

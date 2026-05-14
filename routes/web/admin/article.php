@@ -41,10 +41,12 @@ Route::middleware([BlogRessourceGlobal::class])
 
     // Liste des articles
     Route::get('/list', [AdminArticleController::class, 'list'])
+        ->middleware(TrackHistoryMiddleware::class)
         ->name('list');
 
     // Détails d'un article
     Route::get('/details/{id}', [AdminArticleController::class, 'details'])
+        ->middleware(TrackHistoryMiddleware::class) 
         ->name('details');
 
     // Récupérer les commentaires d'un article

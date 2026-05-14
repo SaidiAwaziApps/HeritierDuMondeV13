@@ -22,10 +22,14 @@ Route::prefix('benevole')
     ->group(function() {
 
         // Liste des bénévoles
-        Route::get('/list', [AdminBenevoleController::class, 'list'])->name('list');
+        Route::get('/list', [AdminBenevoleController::class, 'list'])
+            ->middleware(TrackHistoryMiddleware::class)
+            ->name('list');
 
         // Détails d’un bénévole
-        Route::get('/details/{id}', [AdminBenevoleController::class, 'details'])->name('details');
+        Route::get('/details/{id}', [AdminBenevoleController::class, 'details'])
+             ->middleware(TrackHistoryMiddleware::class)
+             ->name('details');
 
         // Génération de données bénévoles (exemple désactivé)
         Route::get('/generate', function() {

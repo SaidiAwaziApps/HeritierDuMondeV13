@@ -18,36 +18,36 @@ use App\Http\Controllers\Admin\EvenementController as AdminEvenementController;
 
 Route::prefix('evenement')
     ->as('admin.evenement.')
-    ->middleware([EvenementRessourceGlobal::class])
+    ->middleware(EvenementRessourceGlobal::class)
     ->group(function () {
 
-        // Formulaire création
+        // Page enregistrement
         Route::get('/register', [AdminEvenementController::class, 'register_page'])
             ->middleware([EvenementRessourceCreate::class, TrackHistoryMiddleware::class])
             ->name('register_page');
 
-        // Formulaire modification
+        // Page modification
         Route::get('/update/{id}', [AdminEvenementController::class, 'update_page'])
             ->middleware([EvenementRessourceUpdate::class, TrackHistoryMiddleware::class])
             ->name('update_page');
 
-        // Liste
+        // Page liste
         Route::get('/list', [AdminEvenementController::class, 'list'])
              ->middleware(TrackHistoryMiddleware::class)
              ->name('list');
 
-        // Détails
+        // Page détails
         Route::get('/details/{id}', [AdminEvenementController::class, 'details'])
              ->middleware(TrackHistoryMiddleware::class)
              ->name('details');
 
 
-        // Enregistrement
+        // Traitement Enregistrement (sauvegarde)
         Route::post('/save', [AdminEvenementController::class, 'save'])
             ->middleware(EvenementRessourceCreate::class)
             ->name('save');
 
-        // Mise à jour
+        // Mise à jour (update)
         Route::put('/update/{id}', [AdminEvenementController::class, 'update_handler'])
             ->middleware(EvenementRessourceUpdate::class)
             ->name('update_handler');

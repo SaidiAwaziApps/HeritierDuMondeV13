@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
+use App\Http\Middleware\IsAdmin;
+use App\Http\Middleware\TrackHistoryMiddleware;
+
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 
 /*
@@ -10,7 +14,7 @@ use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 */
 
 Route::prefix('dashboard')
-    ->middleware([\App\Http\Middleware\IsAdmin::class,\App\Http\Middleware\TrackHistoryMiddleware::class])
+    ->middleware([IsAdmin::class, TrackHistoryMiddleware::class])
     ->group(function () {
         Route::get('/admin', [AdminDashboardController::class, 'admin'])
             ->name('dashboard.admin');
