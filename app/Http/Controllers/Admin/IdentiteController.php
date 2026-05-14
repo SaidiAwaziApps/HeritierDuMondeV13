@@ -18,16 +18,26 @@ use App\Models\User;
 
 class IdentiteController extends Controller
 {
+    /* *******************************************************************
+     * RENVOIE A LA PAGE ENREGISTREMENT (REGISTER)
+     * *******************************************************************/
     public function register_page(): View
     {
         return view('pages.admin.identite.register');
     }
 
+    /* *******************************************************************
+     * RENVOIE A LA PAGE MODIFICATION (UPDATE)
+     * *******************************************************************/
     public function update_page(int $id): View
     {
         return view('pages.admin.identite.update');
     }
 
+
+    /* *******************************************************************
+     * ENREGISTRE UNE INSTANCE DANS LA B.D (SAVE)
+     * *******************************************************************/
     public function save(Request $request): RedirectResponse
     {
         $validated = $request->validate([
@@ -62,6 +72,9 @@ class IdentiteController extends Controller
             ->with('success', 'Identité créée avec succès');
     }
 
+    /* *******************************************************************
+     * MODIFIE UNE INSTANCE DE LA B.D (UPDATE)
+     * *******************************************************************/
     public function update_handler(int $id, Request $request): RedirectResponse
     {
         $identite = Identite::findOrFail($id);
@@ -128,6 +141,9 @@ class IdentiteController extends Controller
             ->with('success', 'Identité mise à jour');
     }
 
+    /* *******************************************************************
+     * GESTION IMAGES (TRAITE LES CAS IMAGES)
+     * *******************************************************************/
     private function handleImages(Request $request, Identite $identite): void
     {
         $imageService = app(ImageService::class);
