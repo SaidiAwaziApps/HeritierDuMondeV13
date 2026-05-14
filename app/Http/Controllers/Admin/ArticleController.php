@@ -191,7 +191,7 @@ class ArticleController extends Controller
         $article = Article::where('id', $id)->where('status', true)->firstOrFail();
         $article->update(['status' => false]);
 
-        return redirect()->route('article.list');
+        return redirect()->route('admin.article.list');
     }
 
     /* *************************************************************

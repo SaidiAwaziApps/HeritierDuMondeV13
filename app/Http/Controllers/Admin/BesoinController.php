@@ -71,7 +71,7 @@ class BesoinController extends Controller
 
         $this->handleImages($request, $besoin);
 
-        return redirect()->route('pages.admin.besoin.list');
+        return redirect()->route('admin.besoin.list');
     }
 
     /* *************************************************************

@@ -141,7 +141,7 @@
                                                 @if($ressource->nom == 'benevole' || $ressource->nom == 'contact' || $ressource->nom == 'don' || $ressource->nom == 'donateur')
                                                 <span>
                                                     @if(getMention($ressource,$user,'authorized') == 'allowed')
-                                                    <i style="display: inline-block;padding: 2px 8px 2px 8px;border-radius: 16px;background-color: pink;color: white;opacity: 0.9;">
+                                                    <i style="display: inline-block;padding: 2px 8px 2px 8px;border-radius: 16px;background-color: cadetblue;color: white;opacity: 0.9;">
                                                         Authorized
                                                     </i>
                                                     @else

@@ -62,12 +62,12 @@ Route::middleware([BlogRessourceGlobal::class])
 
     // Mettre à jour un article existant
     Route::put('/update/{id}', [AdminArticleController::class, 'update_handler'])
-        ->middleware([BlogRessourceCreate::class])
+        ->middleware(BlogRessourceCreate::class)
         ->name('update_handler');
 
     // Supprimer un article
     Route::delete('/delete-one/{id}', [AdminArticleController::class, 'delete_one'])
-        ->middleware('blog.ressource.delete')
+        ->middleware(BlogRessourceDelete::class)
         ->name('delete_one');
 
 });
