@@ -22,8 +22,8 @@ return new class extends Migration
             $table->string('tel')->nullable();
             $table->string('email')->nullable();
             $table->string('adresse')->nullable();
-            $table->float('coord_lat', 10, 6)->nullable(); // précision GPS
-            $table->float('coord_long', 10, 6)->nullable(); // précision GPS
+            $table->float('adresse_coord_lat', 10, 6)->nullable(); // précision GPS
+            $table->float('adresse_coord_long', 10, 6)->nullable(); // précision GPS
             $table->string('logo')->nullable();
             $table->boolean('status')->default(true); // booléen plutôt que string
         });
