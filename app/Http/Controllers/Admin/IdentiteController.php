@@ -10,8 +10,12 @@ use Illuminate\View\View;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
+
+use App\Jobs\GeolocateIdentityAdresseJob;
+
 use App\Services\NavigationService;
 use App\Services\ImageService;
+
 use App\Models\Identite;
 use App\Models\Sociaux;
 use App\Models\User;
@@ -66,7 +70,11 @@ class IdentiteController extends Controller
             'instagram' => $request->instagram,
         ]);
 
+        // Gestion images
         $this->handleImages($request, $identite);
+
+        // Geolocalisation
+        GeolocateIdentityAdresseJob::dispatch($identite);
 
         return redirect()->route('user.list')
             ->with('success', 'Identité créée avec succès');
@@ -75,7 +83,7 @@ class IdentiteController extends Controller
     /* *******************************************************************
      * MODIFIE UNE INSTANCE DE LA B.D (UPDATE)
      * *******************************************************************/
-    public function update_handler(int $id, Request $request): RedirectResponse
+    public function update_handler(int $id, Request $request)
     {
         $identite = Identite::findOrFail($id);
 
@@ -109,34 +117,13 @@ class IdentiteController extends Controller
             ]);
         }
 
+        // Gesion Images
         $this->handleImages($request, $identite);
+        
+        // Geolocalisation
+        GeolocateIdentityAdresseJob::dispatch($identite);
 
-        // Géocodage sécurisé
-        try {
-            $response = Http::retry(3, 300)
-                ->timeout(10)
-                ->get('https://photon.komoot.io/api/', [
-                    'q' => $identite->adresse
-                ]);
-
-            if ($response->successful()) {
-                $data = $response->json();
-
-                if (!empty($data['features'])) {
-                    $coords = $data['features'][0]['geometry']['coordinates'];
-
-                    $identite->update([
-                        'coord_lat'  => $coords[1],
-                        'coord_long' => $coords[0],
-                    ]);
-                } else {
-                    Log::warning("Adresse introuvable : {$identite->adresse}");
-                }
-            }
-        } catch (\Exception $e) {
-            Log::error('Erreur API géocodage : ' . $e->getMessage());
-        }
-
+        // Retour a la page de provenance
         return redirect(NavigationService::getBackPageURL())
             ->with('success', 'Identité mise à jour');
     }
