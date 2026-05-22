@@ -45,4 +45,14 @@ return [
         'api_secret' => env('SIGHTENGINE_API_SECRET', ''),
     ],
 
+    'nominatim' => [
+        'api_url' => env('GEOCODER_API_URL'),
+        'user_agent' => env('GEOCODER_USER_AGENT'),
+    ],
+
+    'opencage' => [
+        'api_url' => env('OPENCAGE_API_URL'),
+        'api_key' => env('OPENCAGE_API_KEY'),
+    ],
+
 ];
