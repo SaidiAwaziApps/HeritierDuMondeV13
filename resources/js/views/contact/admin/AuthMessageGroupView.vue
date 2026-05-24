@@ -8,7 +8,7 @@
                     <i v-if="getNotReadMessages()?.length > 0"> {{ getNotReadMessages()?.length }} </i>
                 </h5>
             </div>
-            <div class="header-search-container" v-if="formattedMessages && formattedMessages.length > 0">
+            <div class="header-search-container">
                 <input
                     @input="search"
                     type="search"
@@ -160,6 +160,9 @@
         computed: {
             formattedMessages: function() {
                 return GetMessageService.formatData(this.messages);
+            },
+            getNotReadMessages: function() {
+                return this.messages.filter(item => item.readed == false);
             }
         },
         methods: {
@@ -184,9 +187,6 @@
 
                 // Navigation SPA sans rechargement de page
                 this.$router.push({ name: 'AuthMessageListView' });
-            },
-            getNotReadMessages: function() {
-                return this.messages.filter(item => item.readed == false);
             }
         }
     }
