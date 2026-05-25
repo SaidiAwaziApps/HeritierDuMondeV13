@@ -20,14 +20,14 @@ class TrackHistoryMiddleware
         $history = session()->get('history', []);
 
         // Ajoute la nouvelle page visitée au début
-        array_unshift($history, [
+        array_push($history, [
             'url' => url()->current(),
             'method' => $request->method(),
             'visited_at' => now()->toDateTimeString(),
         ]);
 
         // Conserve uniquement les 10 dernières URLs
-        $history = array_slice($history, 0, 10);
+        // $history = array_slice($history, 0, 10);
 
         // Met à jour la session
         session()->put('history', $history);
