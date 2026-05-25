@@ -167,12 +167,12 @@ class UserController extends Controller
         }
 
         // Vérifie username et email uniques
-        if(User::where('username', $request->username)->where('id', '!=', $user->id)->where('status', true)->first()){
+        if(User::where('username', $request->username)->where('id', '!=', $user->id)->first()){
             $route = $user->id == 1 ? 'user.my_profil' : 'user.update_page';
             return redirect()->route($route, $user->id == 1 ? [] : ['id'=>$user->id])
                              ->withErrors(['username_existed' => 'Username "'.$request->username.'" déjà attribué !!!'])
                              ->withInput();
-        } elseif(User::where('email', $request->email)->where('id', '!=', $user->id)->where('status', true)->first()){
+        } elseif(User::where('email', $request->email)->where('id', '!=', $user->id)->first()){
             $route = $user->id == 1 ? 'user.my_profil' : 'user.update_page';
             return redirect()->route($route, $user->id == 1 ? [] : ['id'=>$user->id])
                              ->withErrors(['email_existed' => 'Email "'.$request->email.'" déjà attribué !!!'])
