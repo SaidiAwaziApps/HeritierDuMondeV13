@@ -5,7 +5,7 @@
             <div class="header-title-container">
                 <h5>
                     <i class="fa fa-envelope"></i> Boite de messageries 
-                    <i v-if="getNotReadMessages()?.length > 0"> {{ getNotReadMessages()?.length }} </i>
+                    <i v-if="getNotReadMessages?.length > 0"> {{  getNotReadMessages?.length }} </i>
                 </h5>
             </div>
             <div class="header-search-container">
