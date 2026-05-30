@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Middleware\TrackHistoryMiddleware;
+use App\Http\Middleware\TerminalGeolocateMiddleware;
+
 use App\Http\Middleware\BesoinRessource\BesoinRessourceGlobal;
 use App\Http\Middleware\BesoinRessource\BesoinRessourceCreate;
 use App\Http\Middleware\BesoinRessource\BesoinRessourceUpdate;
@@ -23,22 +25,22 @@ Route::prefix('besoin')
 
         // Page d'enregistrement
         Route::get('/register', [AdminBesoinController::class, 'register_page'])
-            ->middleware([BesoinRessourceCreate::class, TrackHistoryMiddleware::class])
+            ->middleware([BesoinRessourceCreate::class, TrackHistoryMiddleware::class, TerminalGeolocateMiddleware::class])
             ->name('register_page');
 
         // Liste des besoins
         Route::get('/list', [AdminBesoinController::class, 'list'])
-             ->middleware(TrackHistoryMiddleware::class)
+             ->middleware([TrackHistoryMiddleware::class, TerminalGeolocateMiddleware::class])
              ->name('list');
 
         // Détails d'un besoin
         Route::get('/details/{id}', [AdminBesoinController::class, 'details'])
-                ->middleware(TrackHistoryMiddleware::class)
+                ->middleware([TrackHistoryMiddleware::class, TerminalGeolocateMiddleware::class])
                 ->name('details');
 
         // Page de mise à jour
         Route::get('/update/{id}', [AdminBesoinController::class, 'update_page'])
-            ->middleware([BesoinRessourceUpdate::class, TrackHistoryMiddleware::class])
+            ->middleware([BesoinRessourceUpdate::class, TrackHistoryMiddleware::class, TerminalGeolocateMiddleware::class])
             ->name('update_page');
 
         // Enregistrement
