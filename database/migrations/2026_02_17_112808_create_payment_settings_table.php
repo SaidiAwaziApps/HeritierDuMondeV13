@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string('token');
-            $table->string('display_device_model')->nullable();
             $table->string('currency');
+            $table->string('currency_display_mode')->default('current');
             $table->boolean('status')->default(true);
         });
     }

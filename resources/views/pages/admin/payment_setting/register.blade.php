@@ -12,23 +12,38 @@
                             <i class="fa fa-cog"></i> Payment Settings
                         </h4>
                         <!-- Inputs -->
-                        <div class="payment-setting-inputs">
-                            <input type="text" name="token" id="token" class="form-control" placeholder="Entrer le token paiement" required>
-                            <input type="hidden" name="currency" id="currency" value="USD" required>
-                            <div class="dropdown">
-                                <button type="button" id="currency_button" required class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown">
-                                    <span>
-                                        USD
-                                    </span>
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li class="dropdown-item currency-item" data-value="EURO">
-                                        EURO
-                                    </li>
-                                </ul>
+                        <div class="payment-setting-fields">
+                            <div class="display-device-model-inputs">
+                                <div class="form-group">
+                                    <label for="#">
+                                        Appliquer les devises initiale 
+                                    </label>
+                                    <input type="checkbox" name="currency_display_mode" id="currency_display_mode" value="initial">
+                                </div>
                             </div>
+                            <div class="token-currency-inputs">
+                                <!-- <h6 class="token-currency-inputs-header">
+                                    Token && device (currency)
+                                </h6> -->
+                                <div class="token-currency-inputs-content">
+                                    <input type="text" name="token" id="token" class="form-control" placeholder="Entrer le token paiement" required>
+                                    <input type="hidden" name="currency" id="currency" value="USD" required>
+                                    <div class="dropdown">
+                                        <button type="button" id="currency_button" required class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown">
+                                            <span>
+                                                USD 
+                                            </span>
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li class="dropdown-item currency-item" data-value="EURO">
+                                                EURO
+                                            </li>
+                                        </ul>
+                                    </div>  
+                                </div>
+                            </div>
+                            <!-- fin token-currency-inputs -->
                         </div>
-
                         <div class="submit-content">
                             <button type="submit" class="btn btn-primary btn-sm btn-block" id="payment_setting_submit_button">
                                 <span>
@@ -58,7 +73,7 @@
         <!-- script externe -->
         <script src="{{ asset('script/pages/admin/payment_setting/register.js') }}"></script>
 
-    </div>
+    </div>  
     @endsection
     
 

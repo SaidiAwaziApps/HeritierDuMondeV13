@@ -4,9 +4,6 @@
         font-family: italic;
     }
 
-    /* .payment-setting-form {
-        width: 60px;
-    } */
 
     .payment-setting-form {
         display: flex;
@@ -25,7 +22,7 @@
         } 
     }
 
-    .payment-setting-title {
+    .payment-setting-form-content .payment-setting-title {
         text-align: center;
         font-weight: bold;
         font-family: italic;
@@ -33,56 +30,81 @@
     }
 
     @media all and (min-width: 800px) {
-        .payment-setting-title {
+        .payment-setting-form-content .payment-setting-title {
             padding: 10px;
             border-radius: 4px;
             background-color: #f8f8f8;
         }
     }
 
-    .payment-setting-title i {
-        opacity: 0.5;
+    
+
+    .payment-setting-form-content .payment-setting-fields {
+        margin-top: 16px;
     }
 
-    .payment-setting-inputs {
+
+
+    .payment-setting-fields .display-device-model-inputs {
+        display: flex;
+        justify-content: center;
+        flex-wrap: nowrap;
+    }
+
+    .display-device-model-inputs .form-group label {
+        font-size: 18px;
+        font-family: italic;
+        opacity: 0.8;
+    }
+
+    .display-device-model-inputs .form-group input {
+        cursor: pointer;
+    }
+
+
+
+    .payment-setting-fields .token-currency-inputs {
+        margin-top: 4px;
+    }
+
+    .token-currency-inputs div {
         display: flex;
         justify-content: space-between;
         flex-wrap: nowrap;
-        margin-top: 36px;
     }
 
-    .payment-setting-inputs input:nth-child(1) {
+    .token-currency-inputs div input[type="text"] {
         width: 88%;
     }
 
-    .payment-setting-inputs .dropdown {
+    .token-currency-inputs div .dropdown {
         width: 11%;
     }
 
     @media all and (max-width: 800px) {
-        .payment-setting-inputs input:nth-child(1) {
+        .token-currency-inputs div input:nth-child(1) {
             width: 76%;
         } 
-        .payment-setting-inputs .dropdown {
+        .token-currency-inputs div .dropdown {
             width: 22%;
         }
     }
 
-    .payment-setting-inputs .dropdown button span {
+    .token-currency-inputs .dropdown button span {
         /* font-weight: bold; */
         font-family: italic;
     }
 
-    .payment-setting-inputs .dropdown ul {
+    .token-currency-inputs .dropdown ul {
         padding: 4px 4px 4px 10px;
     }
 
-    .payment-setting-inputs .dropdown ul li {
+    .token-currency-inputs .dropdown ul li {
         /* font-weight: bold; */
         font-family: italic;
     }
 
-    .payment-setting-inputs .dropdown ul li:hover {
+    .token-currency-inputs .dropdown ul li:hover {
         background-color: #f8f8ff;
         cursor: pointer;
     } 

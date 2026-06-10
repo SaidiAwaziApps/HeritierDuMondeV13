@@ -55,7 +55,8 @@ class PaymentSettingController extends Controller
         PaymentSetting::create([
             'identite_id' => $identite->id,
             'token' => $request->token,
-            'currency' => $request->currency
+            'currency' => $request->currency,
+            'currency_display_mode' => $request->currency_display_mode && $request->currency_display_mode != '' ? 'initial' : 'current'
         ]);
 
         // Redirection vers la page d' origine
@@ -81,7 +82,8 @@ class PaymentSettingController extends Controller
         // Applique la modification
         $paymentSetting->update([
             'token' => $request->token,
-            'currency' => $request->currency
+            'currency' => $request->currency,
+            'currency_display_mode' => $request->currency_display_mode && $request->currency_display_mode != '' ? 'initial' : 'current'
         ]);                               
         
         // Redirection vers la page d' origine
