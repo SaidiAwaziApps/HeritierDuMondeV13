@@ -56,7 +56,7 @@ class PaymentSettingController extends Controller
             'identite_id' => $identite->id,
             'token' => $request->token,
             'currency' => $request->currency,
-            'currency_display_mode' => $request->currency_display_mode && $request->currency_display_mode != '' ? 'initial' : 'current'
+            'currency_display_mode' => $request->currency_display_mode && $request->currency_display_mode != '' ? 'current' : 'initial'
         ]);
 
         // Redirection vers la page d' origine
@@ -83,7 +83,7 @@ class PaymentSettingController extends Controller
         $paymentSetting->update([
             'token' => $request->token,
             'currency' => $request->currency,
-            'currency_display_mode' => $request->currency_display_mode && $request->currency_display_mode != '' ? 'initial' : 'current'
+            'currency_display_mode' => $request->currency_display_mode && $request->currency_display_mode != '' ? 'current' : 'initial'
         ]);                               
         
         // Redirection vers la page d' origine
