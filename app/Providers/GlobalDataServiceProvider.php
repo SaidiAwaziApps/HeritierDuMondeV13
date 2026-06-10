@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Cache;
 
 use Illuminate\Support\Facades\Http;
 
-use App\Services\TerminalGeolocalisationService;
+use App\Services\CurrencyRateService;
 
 use App\Models\Identite;
 use App\Models\PaymentSetting;
@@ -41,15 +41,15 @@ class GlobalDataServiceProvider extends ServiceProvider
         });
 
         // Specifiques a certaines pages (views)
-        // View::composer('pages.admin.payment_setting.*', function ($view) {
+        View::composer('pages.admin.payment_setting.*', function ($view) {
 
-        //     $ip = request()->ip();
+            // Taux d'echange (USD - EURO)
+            $currency_exchange_rate = Cache::remember('currency_exchange_rate', now()->addDay(), function() {
+                return CurrencyRateService::getRate();
+            });   
 
-        //     $terminal_geolocate_info = TerminalGeolocalisationService::get($ip);
-
-        //     $view->with([
-        //         'terminal_geolocate_info' => $terminal_geolocate_info
-        //     ]);
-        // });
+            // Passe la donnee taux d'echange (USD - EURO) a la vue
+            $view->with(compact('currency_exchange_rate'));
+        });
     }
 }
