@@ -16,9 +16,9 @@
                             <div class="display-device-model-inputs">
                                 <div class="form-group">
                                     <label for="#">
-                                        Appliquer les devises initiale 
+                                        Appliquer la divise courante 
                                     </label>
-                                    <input type="checkbox" name="currency_display_mode" id="currency_display_mode" value="initial">
+                                    <input type="checkbox" name="currency_display_mode" id="currency_display_mode" value="current">
                                 </div>
                             </div>
                             <div class="token-currency-inputs">
