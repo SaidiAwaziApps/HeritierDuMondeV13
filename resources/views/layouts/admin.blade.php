@@ -279,6 +279,11 @@
     @yield('content') 
 </div>
 
+<!-- Scripts internes -->
+<script type="text/javascript">
+    window.paymentSetting = @json($paymentSetting);
+</script>
+
 <!-- Scripts externes -->
 <script src="{{ asset('js/app.js') }}"></script>
 <script src="{{ asset('script/layouts/admin.js') }}"></script>
