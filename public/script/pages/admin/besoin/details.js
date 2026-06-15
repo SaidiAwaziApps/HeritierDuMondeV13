@@ -46,11 +46,51 @@ function besoinChartFormatData(){
     return data_chart;
 }
 
+/* ********************************************************************************
+ * CONVERSION MONTANT (USD - EURO)
+ * *******************************************************************************/ 
+function convertAmount() {
+    if(window.paymentSetting.currency_display_mode.toLowerCase() != 'current' && besoin.currency != window.paymentSetting.currency) {
+        return besoin.currency === 'USD' ? besoin.montant * currency_exchange_rate : besoin.montant / currency_exchange_rate;
+    } else {
+        return besoin.montant;
+    }
+}
+
+/* *********************************************************************
+ * RENVOIE LA MONAIE 
+ * **********************************************************************/
+function getDisplayCurrency() {
+    return (window.paymentSetting.currency_display_mode.toLowerCase() === 'current')
+        ? window.paymentSetting.currency
+        : besoin.currency;
+}
+
+/* ********************************************************************************
+ * ICONES DE LA MONNAIE (USD // EURO)
+ * *******************************************************************************/ 
+function getCurrencyIcon(currency) {
+    const icons = {
+        USD: '$',
+        EUR: '€'
+    };
+
+    return icons[currency];
+}
+
 
 
 /* ******************************************************************
  * ILLUSTRATION GRAPHIQUE (CHART GRAPH)
  * ******************************************************************/
+// if(strtolower($paymentSetting->currency_display_mode) != 'current' && $besoin->currency != $paymentSetting->currency) {
+//                                 if($besoin->currency == 'USD') {
+//                                     $defaultAmount = $besoin->montant * $currency_exchange_rate;
+//                                 }
+//                                 else {
+//                                     $defaultAmount = $besoin->montant / $currency_exchange_rate;
+//                                 }
+//                             }
 function buildChartGraph() {
     Highcharts.chart('besoin_chart_graph', {
         chart: {
@@ -63,10 +103,11 @@ function buildChartGraph() {
                             let customLabel = chart.options.chart.custom.label;
 
                             if (!customLabel) {
+                                console.log(currency_icons.USD);
                                 customLabel = chart.options.chart.custom.label =
                                 chart.renderer.label(
                                     'S. necessaire<br/>' +
-                                    '<strong>'+besoin.montant+'</strong> '+window.paymentSetting.currency
+                                    '<strong>'+convertAmount()+''+getCurrencyIcon(getDisplayCurrency())+'</strong>'
                                 )
                                 .css({
                                     color: '#000',
