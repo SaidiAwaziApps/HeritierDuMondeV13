@@ -38,7 +38,15 @@
                                     Montant:
                                 </span>
                                 <span>
-                                    {{ $besoin->montant }} {{ $paymentSetting->currency }}
+                                    @if(strtolower($paymentSetting->currency_display_mode) != 'current' && $besoin->currency != $paymentSetting->currency)
+                                        @if($besoin->currency == 'USD')
+                                            {{ $besoin->montant * $currency_exchange_rate }} <b>{!! $currency_icons[$besoin->currency] ?? '' !!}</b>
+                                        @else
+                                            {{ $besoin->montant / $currency_exchange_rate }} <b>{!! $currency_icons[$besoin->currency] ?? '' !!}</b>
+                                        @endif
+                                    @else
+                                       {{ $besoin->montant }} <b>{!! $currency_icons[$besoin->currency] ?? '' !!}</b>
+                                    @endif
                                 </span>
                             </li>
                             <li class="list-group-item">
@@ -107,12 +115,10 @@
         <!-- Script interne -->
         <script type="text/javascript">
             let besoin = @json($besoin);
+            let currency_exchange_rate = @json($currency_exchange_rate);
+            let currency_icons = @json($currency_icons);
         </script>
 
-       
- <script type="text/javascript">
-            window.paymentSetting = @json($paymentSetting);
-        </script>
         <!-- Inclus script (externe) --> 
         <script src="{{ asset('script/components/admin/share/register.js') }}"></script> 
         <script src="{{ asset('script/pages/admin/besoin/details.js') }}"></script>
