@@ -23,9 +23,9 @@
                     </div>
                     <div class="form-group">
                         <label for="montant">
-                            Montant:<i id="required-sign">*</i>
+                            Montant<span style="opacity: 0.7;"> ({!!$currency_icons[$paymentSetting->currency]!!})</span>:<i id="required-sign">*</i>
                         </label>
-                        <input type="number" name="montant" id="montant" class="form-control" placeholder="Entrer le montant en Dollard US" required>
+                        <input type="number" name="montant" id="montant" class="form-control" placeholder="Entrer le montant en {{ $paymentSetting->currency == 'USD' ? 'dollard US' : 'Euro' }}" required>
                     </div>
                     <div class="form-group">
                         <label for="contenu">
