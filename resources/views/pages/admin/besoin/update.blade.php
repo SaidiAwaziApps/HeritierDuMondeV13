@@ -23,10 +23,25 @@
                         <input type="text" name="intitule" id="intitule" class="form-control" placeholder="Entrer l'intitule du besoin" maxlength="60" value="{{ $besoin->intitule }}" required>
                     </div>
                     <div class="form-group">
+                        @php
+                            $defaultAmount = $besoin->montant;
+
+                            if(strtolower($paymentSetting->currency_display_mode) != 'current' && $besoin->currency != $paymentSetting->currency) {
+                                if($besoin->currency == 'USD') {
+                                    $defaultAmount = $besoin->montant * $currency_exchange_rate;
+                                }
+                                else {
+                                    $defaultAmount = $besoin->montant / $currency_exchange_rate;
+                                }
+                            }
+
+                        @endphp
+                          
                         <label for="montant">
-                            Montant:<i id="required-sign">*</i>
+                            Montant <span style="opacity: 0.7;"> ({!!$currency_icons[$paymentSetting->currency]!!})</span>:<i id="required-sign">*</i>
                         </label>
-                        <input type="number" name="montant" id="montant" class="form-control" placeholder="Entrer le montant en Dollard US"  value="{{ $besoin->montant }}" required>
+
+                        <input type="number" name="montant" id="montant" class="form-control" placeholder="Entrer le montant en {{ $paymentSetting->currency == 'USD' ? 'dollard US' : 'Euro' }}"  value="{{  $defaultAmount }}" required>
                     </div>
                     <div class="form-group">
                         <label for="contenu">
