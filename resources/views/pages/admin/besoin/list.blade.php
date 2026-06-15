@@ -27,7 +27,7 @@
                                     Intitule
                                 </th>
                                 <th>
-                                    Montant ({{ $paymentSetting->currency }})
+                                    Montant 
                                 </th>
                                 <th>
                                     Contenu
@@ -51,7 +51,7 @@
                         </thead>
                         <tbody>
                             <?php
-                               $index=0;
+                               $index = 0;
                             ?>
                             @foreach($besoins as $besoin)
                             <?php $index++; ?>
@@ -63,7 +63,15 @@
                                     {{ $besoin->intitule }}
                                 </td>
                                 <td>
-                                    {{ $besoin->montant }}
+                                    @if(strtolower($paymentSetting->currency_display_mode) != 'current' && $besoin->currency != $paymentSetting->currency)
+                                        @if($besoin->currency == 'USD')
+                                            {{ $besoin->montant * $currency_exchange_rate }} <b>{!! $currency_icons[$besoin->currency] ?? '' !!}</b>
+                                        @else
+                                            {{ $besoin->montant / $currency_exchange_rate }} <b>{!! $currency_icons[$besoin->currency] ?? '' !!}</b>
+                                        @endif
+                                    @else
+                                       {{ $besoin->montant }} <b>{!! $currency_icons[$besoin->currency] ?? '' !!}</b>
+                                    @endif
                                 </td>
                                 <td>
                                     {{ $besoin->contenu }} 
