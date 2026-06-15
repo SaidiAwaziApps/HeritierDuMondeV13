@@ -41,15 +41,21 @@ class GlobalDataServiceProvider extends ServiceProvider
         });
 
         // Specifiques a certaines pages (views)
-        View::composer('pages.admin.payment_setting.*', function ($view) {
-
+        View::composer(['pages.admin.payment_setting.*','pages.admin.besoin.*','pages.admin.don.*','pages.admin.dashboard.*'], function ($view) {
             // Taux d'echange (USD - EURO)
             $currency_exchange_rate = Cache::remember('currency_exchange_rate', now()->addDay(), function() {
                 return CurrencyRateService::getRate();
             });   
 
+            // Icones monnaies
+            $currency_icons = [
+                'USD' => '<i class="fa-solid fa-dollar-sign"></i>',
+                'EUR' => '<i class="fa-solid fa-euro-sign"></i>',
+                'BIF' => 'FBU'
+            ];
+
             // Passe la donnee taux d'echange (USD - EURO) a la vue
-            $view->with(compact('currency_exchange_rate'));
+            $view->with(compact('currency_exchange_rate','currency_icons'));
         });
     }
 }
