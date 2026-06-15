@@ -268,10 +268,6 @@
         </script>
 
         <script type="text/javascript">
-            window.paymentSetting = @json($paymentSetting);
-        </script>
-
-        <script type="text/javascript">
             window.chartGraph = {
                 annee: null,
                 dataType: null
