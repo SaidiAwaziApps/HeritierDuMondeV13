@@ -1,3 +1,37 @@
+/* ********************************************************************************
+ * CONVERSION MONTANT (USD - EURO)
+ * *******************************************************************************/
+function convertDonateurAmount(amount, amountCurrency) {
+    if (amountCurrency != window.paymentSetting.currency) {
+        return amountCurrency === 'USD'
+            ? amount * currency_exchange_rate
+            : amount / currency_exchange_rate;
+    } else {
+        return amount;
+    }
+}
+
+/* *********************************************************************
+ * RENVOIE LA MONAIE
+ * **********************************************************************/
+function getDonateurDisplayCurrency() {
+    return window.paymentSetting.currency;
+}
+
+/* ********************************************************************************
+ * ICONES DE LA MONNAIE (USD // EURO)
+ * *******************************************************************************/
+function getDonateurCurrencyIcon(currency) {
+    const icons = {
+        USD: '$',
+        EUR: '€'
+    };
+
+    return icons[currency];
+}
+
+
+
 /* ***********************************************************************
  * FORMATTE LES DONNEES DESTINEES AU GRAPHIQUE
  * **********************************************************************/
@@ -14,18 +48,14 @@ function donateursChartFormatData(dons){
 
     /* ---- Fonction calculant le montant total en rapport avec un donateur ---- */
     const getTotalMontant = function(dons){
-        var montant = 0;
-        dons.forEach((value) => {
-           montant = montant + value.montant;
-        });
-        return montant;
+        return dons.reduce((accumulator, current) => accumulator + convertDonateurAmount(current.montant, current.currency), 0);
     }
 
     /* ---- Parcourt de l'ensemble de donateurs ---- */
-    donateurs.forEach((value) => { 
+    donateurs.forEach((item) => { 
         chart_data_object.push({
-            donateur: '<a href="/donateur/details/'+value.id+'" style="text-decoration: none;color: blue;opacity: 0.6;font-size: 19px;font-weight: bold;font-family: italic;" class="btn btn-default btn-sm" title="Details sur le donateur">'+value.nom+' '+value.prenom+'</a>',
-            montant:  value.dons ? getTotalMontant(value.dons) : 0
+            donateur: '<a href="/donateur/details/'+item.id+'" style="text-decoration: none;color: blue;opacity: 0.6;font-size: 19px;font-weight: bold;font-family: italic;" class="btn btn-default btn-sm" title="Details sur le donateur">'+item.nom+' '+item.prenom+'</a>',
+            montant:  item.dons ? getTotalMontant(item.dons) : 0
         }); 
     });
 
@@ -34,17 +64,17 @@ function donateursChartFormatData(dons){
 
     /* ---- Filtre les donnnees ---- */ 
     const filter_data = chart_data_object.filter((item)=>{
-        return item.montant>0;
+        return item.montant > 0;
     });
 
     /* ---- Range les donnees filtrees ---- */
-    var sort_data = filter_data.sort((a,b) => b.montant - a.montant);
+    const sort_data = filter_data.sort((a,b) => b.montant - a.montant);
 
     /* ---- Remplissage de donnee a renvoyer(Graphiques) ---- */
-    sort_data.forEach((value) => {
+    sort_data.forEach((item) => {
         chart_data_array.push([
-            value.donateur,
-            value.montant       
+            item.donateur,
+            item.montant       
         ]); 
     });
 
@@ -93,12 +123,12 @@ function buildDonateursChartGraph(dons){
         },
         yAxis: {
             title: {
-                text: 'Montant (Dollard US)',
+                //text: 'Montant (Dollard US)',
                 margin: 20
             }
         },
         tooltip: {
-            valueSuffix: '$ (Dollard US)'
+            valueSuffix: ' '+getDonateurCurrencyIcon(getDonateurDisplayCurrency())
         },
         series: [{
             name: 'Total pourcentage',

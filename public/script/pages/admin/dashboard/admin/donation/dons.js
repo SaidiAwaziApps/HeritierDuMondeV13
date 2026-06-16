@@ -1,3 +1,36 @@
+/* ********************************************************************************
+ * CONVERSION MONTANT (USD - EURO)
+ * *******************************************************************************/
+function convertDonAmount(amount, amountCurrency) {
+    if (amountCurrency != window.paymentSetting.currency) {
+        return amountCurrency === 'USD'
+            ? amount * currency_exchange_rate
+            : amount / currency_exchange_rate;
+    } else {
+        return amount;
+    }
+}
+
+/* *********************************************************************
+ * RENVOIE LA MONAIE
+ * **********************************************************************/
+function getDonDisplayCurrency() {
+    return window.paymentSetting.currency;
+}
+
+/* ********************************************************************************
+ * ICONES DE LA MONNAIE (USD // EURO)
+ * *******************************************************************************/
+function getDonCurrencyIcon(currency) {
+    const icons = {
+        USD: '$',
+        EUR: '€'
+    };
+
+    return icons[currency];
+}
+
+
 /* ***********************************************************************
  * FORMATTE LES DONNEES DESTINEES AU GRAPHIQUE
  * **********************************************************************/
@@ -9,7 +42,15 @@ function donsChartFormatData(besoins) {
     /* ---- Parcourt des donnees besoins ---- */
     besoins.forEach(function(item){
         if(item.besoin_dons){
-            const totalMontant = item.besoin_dons.reduce((accumulator,current) => accumulator + current.don.montant,0);
+            const totalMontant = item.besoin_dons.reduce(
+                (accumulator, current) =>
+                    accumulator + convertDonAmount(
+                        current.don.montant,
+                        current.don.currency
+                    ),
+                0
+            );
+
             data_chart_obj.push({
                besoin: '<a href="/besoin/details/'+item.id+'" style="font-size: 16px;font-family: italic;color: black;opacity: 0.8;text-decoration: none;">'+item.intitule+'</a>',
                montant: totalMontant
@@ -21,25 +62,25 @@ function donsChartFormatData(besoins) {
     data_chart_obj = data_chart_obj.sort((a,b) => b.montant - a.montant);
 
     /* ---- Fixe les nombres d'item a 10 ---- */
-    data_chart_obj.length = 10;
+    data_chart_obj = data_chart_obj.slice(0, 10);
 
     /* ---- Remplissage du tableau data_chart_array ---- */
-    data_chart_obj.forEach(function(value,index){
+    data_chart_obj.forEach(function(item,index){
         data_chart_array.push([
-            value.besoin,
-            value.montant,
+            item.besoin,
+            item.montant,
             false,
             false
         ]);
 
         //Cas index=0(Active element(s)) du graphique
         if(index == 0){
-            if(value.montant >= data_chart_obj[index + 1].montant){
+            if(data_chart_obj[index + 1] && item.montant >= data_chart_obj[index + 1].montant){
                data_chart_array[index][2] = true;
                data_chart_array[index][3] = true; 
             }
         }else {
-            if(value.montant == data_chart_obj[index - 1].montant){
+            if(item.montant == data_chart_obj[index - 1].montant){
                 data_chart_array[index][2] = true;
                 data_chart_array[index][3] = true; 
             }
@@ -69,6 +110,9 @@ function buildDonsChartGraph(besoins) {
         },
         subtitle: {
             text: 'Source: <a href="/don/list" target="_blank">H.M</a>'
+        },
+        tooltip: {
+            pointFormat: '<b>{point.y} ' + getDonCurrencyIcon(getDonDisplayCurrency()) + '</b>'
         },
         series: [{
             type: 'pie',

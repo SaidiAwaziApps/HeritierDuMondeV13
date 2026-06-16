@@ -1,9 +1,41 @@
+/* ********************************************************************************
+ * CONVERSION MONTANT (USD - EURO)
+ * *******************************************************************************/
+function convertBesoinAmount(amount, amountCurrency) {
+    if (amountCurrency != window.paymentSetting.currency) {
+        return amountCurrency === 'USD'
+            ? amount * currency_exchange_rate
+            : amount / currency_exchange_rate;
+    } else {
+        return amount;
+    }
+}
+
+/* *********************************************************************
+ * RENVOIE LA MONAIE
+ * **********************************************************************/
+function getBesoinDisplayCurrency() {
+    return window.paymentSetting.currency;
+}
+
+/* ********************************************************************************
+ * ICONES DE LA MONNAIE (USD // EURO)
+ * *******************************************************************************/
+function getBesoinCurrencyIcon(currency) {
+    const icons = {
+        USD: '$',
+        EUR: '€'
+    };
+
+    return icons[currency];
+}
+
 /* ***********************************************************************
  * CALCULE LE MONTANT TOTAL POUR L' ENSEMBLE DE BESOIN
  * **********************************************************************/
 function getTotalBesoinMontant(besoins) {
     /* ---- Renvoie le montant total ---- */
-    return besoins.reduce((accumulator,current) => accumulator + current.montant, 0);
+    return besoins.reduce((accumulator,current) => accumulator + convertBesoinAmount(current.montant, current.currency), 0);
 }
 
 
@@ -19,7 +51,7 @@ function getTotalMontantRecu(besoins){
         if(item.besoin_dons){
             item.besoin_dons.forEach((bd) => { // "bd" d' ou besoin_don
                 if(bd.don.reception){
-                    montant += bd.don.montant; 
+                    montant += convertBesoinAmount(bd.don.montant, bd.don.currency); 
                 }   
             });
         } 
@@ -86,7 +118,7 @@ function buildBesoinsChartGraph(besoins){
                         customLabel = chart.options.chart.custom.label =
                         chart.renderer.label(
                             'S. necessaire<br/>' +
-                            '<strong>'+getTotalBesoinMontant(besoins)+' '+window.paymentSetting.currency+'</strong>'
+                            '<strong>'+getTotalBesoinMontant(besoins)+' '+getBesoinCurrencyIcon(getBesoinDisplayCurrency())+'</strong>'
                         )
                         .css({
                             color: '#000',
