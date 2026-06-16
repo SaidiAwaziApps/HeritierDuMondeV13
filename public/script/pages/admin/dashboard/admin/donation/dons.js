@@ -98,7 +98,7 @@ function donsChartFormatData(besoins) {
  * **********************************************************************/
 function buildDonsChartGraph(besoins) {
     /* ---- Initialize le texte ---- */
-    const initialText = 'Illustration graphique des besoins largement statisfaits';
+    const initialText = 'Illustration des motivations des dons, avec ou sans besoin identifié';
 
     /* ---- Build the chart ---- */ 
     Highcharts.chart('dons_chart_graph', {
