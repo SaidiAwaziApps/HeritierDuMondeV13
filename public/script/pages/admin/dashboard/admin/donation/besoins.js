@@ -101,7 +101,7 @@ function besoinsChartFormatData(besoins){
  * **********************************************************************/
 function buildBesoinsChartGraph(besoins){
     /* ---- Initialize le texte ---- */
-    const initialText = 'Illustration Montant attribué aux besoins';
+    const initialText = 'Illustration des montants reçus ou non en fonction des besoins';
 
     /* ---- Construit le graphique ---- */
     Highcharts.chart('besoins_chart_graph', {

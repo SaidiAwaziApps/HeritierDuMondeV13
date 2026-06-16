@@ -155,7 +155,7 @@ function buildChartGraph() {
             }
         },
         title: {
-            text: 'Illustration Montant attribué au besoin'
+            text: 'Illustration des montants reçus ou non en fonction du besoin'
         },
         subtitle: {
             text: 'Source: <a href="/besoin/list" target="_blank">H.M</a>'
