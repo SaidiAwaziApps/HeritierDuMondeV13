@@ -31,7 +31,7 @@ class DashboardController extends Controller
         $besoins = Besoin::where('status', true)->get();
 
         // Instances Dons avec donateur
-        $dons = Don::where('status', true)->with('donateur')->get();
+        $dons = Don::where('status', true)->with(['donateur','besoinDons'])->get();
 
         // Instances Evenements
         $evenements = Evenement::where('status', true)->get();
