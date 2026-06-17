@@ -3,8 +3,8 @@
  * *******************************************************************************/
 function convertAmount(amount, amountCurrency) {
     if (
-        window.paymentSetting.currency_display_mode.toLowerCase() != 'current' &&
-        amountCurrency != window.paymentSetting.currency
+        window.paymentSetting.currency_display_mode.toLowerCase() != 'current'
+        && amountCurrency != window.paymentSetting.currency
         && currency_exchange_rate
     ) {
         return amountCurrency === 'USD'
