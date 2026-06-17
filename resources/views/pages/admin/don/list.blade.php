@@ -21,7 +21,7 @@
                                     Date
                                 </th>
                                 <th>
-                                    Montant($)
+                                    Montant
                                 </th>
                                 <th>
                                     Donateur
@@ -49,7 +49,15 @@
                                     {{ $don->created_at->format('d-m-y') }}
                                 </td>
                                 <td>
-                                    {{ $don->montant }}
+                                    @if(strtolower($paymentSetting->currency_display_mode) != 'current' && $don->currency != $paymentSetting->currency)
+                                        @if($don->currency == 'USD')
+                                            {{ $don->montant * $currency_exchange_rate }} <b>{!! $currency_icons[$don->currency] ?? '' !!}</b>
+                                        @else
+                                            {{ $don->montant / $currency_exchange_rate }} <b>{!! $currency_icons[$don->currency] ?? '' !!}</b>
+                                        @endif
+                                    @else
+                                       {{ $don->montant }} <b>{!! $currency_icons[$don->currency] ?? '' !!}</b>
+                                    @endif
                                 </td>
                                 <td>
                                     <a href="{{ route('admin.donateur.details',['id'=>$don->donateur->id]) }}" title="Plus infos sur le donateur" class="btn btn-default btn-sm">
