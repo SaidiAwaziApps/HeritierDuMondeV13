@@ -40,8 +40,8 @@
                                             </span>
                                         </button>
                                         <ul class="dropdown-menu">
-                                            <li class="dropdown-item currency-item" data-value="EURO">
-                                                {{ $paymentSetting->currency == 'EURO' ? 'USD' : 'EURO' }}
+                                            <li class="dropdown-item currency-item" data-value="EUR">
+                                                {{ $paymentSetting->currency == 'EUR' ? 'USD' : 'EUR' }}
                                             </li>
                                         </ul>
                                     </div>  
