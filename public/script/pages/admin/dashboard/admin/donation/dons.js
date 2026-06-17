@@ -39,8 +39,22 @@ function donsChartFormatData(besoins) {
     var data_chart_obj = [];
     var data_chart_array = [];
 
+    /* ---- Dons sans but specifique ---- */
+    const no_specify_don_length = dons.filter(item => !item.besoin_dons).length;
+    const no_specify_dons_amount = dons.filter(item => !item.besoin_dons).reduce((accumulator, current) => accumulator + convertDonAmount(current.montant, current.currency), 0);
+
+    /* --- -----*/
+    if(no_specify_don_length > 0) {
+        data_chart_array.push([
+            'Pas specifie',
+            no_specify_dons_amount,
+            false,
+            false
+        ]); 
+    }
+
     /* ---- Parcourt des donnees besoins ---- */
-    besoins.forEach(function(item){
+    besoins.forEach((item) => {
         if(item.besoin_dons){
             const totalMontant = item.besoin_dons.reduce(
                 (accumulator, current) =>
@@ -57,6 +71,7 @@ function donsChartFormatData(besoins) {
             });
         }
     });
+
 
     /* ---- Organise le donnee en fonction de montant(Decroissant) ---- */
     data_chart_obj = data_chart_obj.sort((a,b) => b.montant - a.montant);
