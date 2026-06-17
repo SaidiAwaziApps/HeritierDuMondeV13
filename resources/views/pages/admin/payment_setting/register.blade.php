@@ -35,8 +35,8 @@
                                             </span>
                                         </button>
                                         <ul class="dropdown-menu">
-                                            <li class="dropdown-item currency-item" data-value="EURO">
-                                                EURO
+                                            <li class="dropdown-item currency-item" data-value="EUR">
+                                                EUR
                                             </li>
                                         </ul>
                                     </div>  
