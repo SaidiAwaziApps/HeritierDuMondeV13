@@ -122,7 +122,7 @@ function buildChartGraph() {
                             chart.renderer.label(
                                 'S. necessaire<br/>' +
                                 '<strong>' +
-                                convertAmount(besoin.montant, besoin.currency) +
+                                convertAmount(besoin.montant, besoin.currency)+' '+
                                 getCurrencyIcon(getDisplayCurrency()) +
                                 '</strong>'
                             )
