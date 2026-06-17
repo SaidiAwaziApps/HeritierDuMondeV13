@@ -38,7 +38,7 @@
                                     Montant:
                                 </span>
                                 <span>
-                                    @if(strtolower($paymentSetting->currency_display_mode) != 'current' && $besoin->currency != $paymentSetting->currency)
+                                    @if(strtolower($paymentSetting->currency_display_mode) != 'current' && $besoin->currency != $paymentSetting->currency && $currency_exchange_rate)
                                         @if($besoin->currency == 'USD')
                                             {{ $besoin->montant * $currency_exchange_rate }} <b>{!! $currency_icons[$besoin->currency] ?? '' !!}</b>
                                         @else

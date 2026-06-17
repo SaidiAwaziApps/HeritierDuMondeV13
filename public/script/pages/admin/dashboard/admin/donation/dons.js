@@ -2,7 +2,7 @@
  * CONVERSION MONTANT (USD - EURO)
  * *******************************************************************************/
 function convertDonAmount(amount, amountCurrency) {
-    if (amountCurrency != window.paymentSetting.currency) {
+    if (amountCurrency != window.paymentSetting.currency && currency_exchange_rate) {
         return amountCurrency === 'USD'
             ? amount * currency_exchange_rate
             : amount / currency_exchange_rate;

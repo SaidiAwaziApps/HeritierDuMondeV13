@@ -26,7 +26,7 @@
                         @php
                             $defaultAmount = $besoin->montant;
 
-                            if(strtolower($paymentSetting->currency_display_mode) != 'current' && $besoin->currency != $paymentSetting->currency) {
+                            if(strtolower($paymentSetting->currency_display_mode) != 'current' && $besoin->currency != $paymentSetting->currency && $currency_exchange_rate) {
                                 if($besoin->currency == 'USD') {
                                     $defaultAmount = $besoin->montant * $currency_exchange_rate;
                                 }
