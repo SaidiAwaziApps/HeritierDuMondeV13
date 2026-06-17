@@ -268,6 +268,10 @@
         </script>
 
         <script type="text/javascript">
+            currency_exchange_rate = @json($currency_exchange_rate); 
+        </script>
+
+        <script type="text/javascript">
             window.chartGraph = {
                 annee: null,
                 dataType: null
