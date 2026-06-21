@@ -45,7 +45,7 @@
                                             {{ $besoin->montant / $currency_exchange_rate }} <b>{!! $currency_icons[$besoin->currency] ?? '' !!}</b>
                                         @endif
                                     @else
-                                       {{ $besoin->montant }} <b>{!! $currency_icons[$besoin->currency] ?? '' !!}</b>
+                                        {{ $besoin->montant }} <b>{!! $currency_icons[$besoin->currency] ?? '' !!}</b>
                                     @endif
                                 </span>
                             </li>

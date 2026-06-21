@@ -8,18 +8,19 @@ function convertAmount(amount, amountCurrency) {
         && currency_exchange_rate
     ) {
         return amountCurrency === 'USD'
-            ? amount * currency_exchange_rate
-            : amount / currency_exchange_rate;
+            ? Number((amount * currency_exchange_rate).toFixed(2))
+            : Number((amount / currency_exchange_rate).toFixed(2));
     } else {
-        return amount;
+        return Number(amount.toFixed(2));
     }
 }
+
 
 /* *********************************************************************
  * RENVOIE LA MONAIE
  * **********************************************************************/
 function getDisplayCurrency() {
-    return (window.paymentSetting.currency_display_mode.toLowerCase() === 'current')
+    return (window.paymentSetting.currency_display_mode.toLowerCase() === 'current' && currency_exchange_rate)
         ? window.paymentSetting.currency
         : besoin.currency;
 }
@@ -81,7 +82,9 @@ function besoinChartFormatData() {
 }
 
 
-/* ********************************************************************************
+/* *******************************************************************
+ * RENVOIE L' ICON A AFFICHER
+ * *******************************************************************
  * ICONES DE LA MONNAIE (USD // EURO)
  * *******************************************************************************/
 function getCurrencyIcon(currency) {
@@ -200,9 +203,9 @@ function buildChartGraph() {
 }
 
 
-/*  ******************************************************************
- *  LORSQUE LE DOM EST CHARGE (DISPONIBLE)
- *  ******************************************************************/
+/* ******************************************************************
+ * LORSQUE LE DOM EST CHARGE (DISPONIBLE)
+ * ******************************************************************/
 document.addEventListener('DOMContentLoaded', function () {
     // Variables icones
     const imagesIcon = document.querySelector('i[class="fa fa-images"]');
