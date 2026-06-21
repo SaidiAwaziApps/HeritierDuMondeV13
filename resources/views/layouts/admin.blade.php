@@ -184,7 +184,7 @@
 
             @if($user?->hasRole('admin')) 
             <li>
-                <a href="{{ route('dashboard.admin') }}" id="dashboard_menu_link">
+                <a href="{{ route('admin.dashboard.admin') }}" id="dashboard_menu_link">
                     <i class="fa fa-signal"></i> Dashboard
                 </a>
             </li>

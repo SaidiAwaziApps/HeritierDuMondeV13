@@ -19,8 +19,8 @@ Route::prefix('dashboard')
     ->group(function () {
         Route::get('/admin', [AdminDashboardController::class, 'admin'])
             ->middleware(TerminalGeolocateMiddleware::class)
-            ->name('dashboard.admin');
+            ->name('admin.dashboard.admin');
 
         Route::get('/user', [AdminDashboardController::class, 'user'])
-            ->name('dashboard.user');
+            ->name('admin.dashboard.user');
     });

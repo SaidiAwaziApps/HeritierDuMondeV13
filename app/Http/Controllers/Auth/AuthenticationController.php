@@ -118,8 +118,8 @@ class AuthenticationController extends Controller
 
         // Redirection page avec restriction
         return $user->hasRole('admin') && $this->credibleToDashboard()
-            ? redirect()->route('dashboard.admin')
-            : redirect()->route('home.admin');
+            ? redirect()->route('admin.dashboard.admin')
+            : redirect()->route('admin.home.admin');
     }
 
     /* *****************************************************************
@@ -212,8 +212,8 @@ class AuthenticationController extends Controller
 
         // Redirection vers la page via une contition
         return $user->hasRole('admin') && $this->credibleToDashboard()
-            ? redirect()->route('dashboard.admin')
-            : redirect()->route('home.admin');
+            ? redirect()->route('admin.dashboard.admin')
+            : redirect()->route('admin.home.admin');
     }
 
 
