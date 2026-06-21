@@ -137,9 +137,9 @@ class UserController extends Controller
 
         // Redirection selon rôle
         if(in_array('admin', $request->roles)) {
-            return redirect()->route('user.list');
+            return redirect()->route('admin.user.list');
         } else {
-            return redirect()->route('access_ressource.register_page', [
+            return redirect()->route('admin.access_ressource.register_page', [
                 'user_id' => $user->id
             ]);
         }
@@ -168,12 +168,12 @@ class UserController extends Controller
 
         // Vérifie username et email uniques
         if(User::where('username', $request->username)->where('id', '!=', $user->id)->first()){
-            $route = $user->id == 1 ? 'user.my_profil' : 'user.update_page';
+            $route = $user->id == 1 ? 'admin.user.my_profil' : 'admin.user.update_page';
             return redirect()->route($route, $user->id == 1 ? [] : ['id'=>$user->id])
                              ->withErrors(['username_existed' => 'Username "'.$request->username.'" déjà attribué !!!'])
                              ->withInput();
         } elseif(User::where('email', $request->email)->where('id', '!=', $user->id)->first()){
-            $route = $user->id == 1 ? 'user.my_profil' : 'user.update_page';
+            $route = $user->id == 1 ? 'admin.user.my_profil' : 'admin.user.update_page';
             return redirect()->route($route, $user->id == 1 ? [] : ['id'=>$user->id])
                              ->withErrors(['email_existed' => 'Email "'.$request->email.'" déjà attribué !!!'])
                              ->withInput();
@@ -205,7 +205,7 @@ class UserController extends Controller
 
         // Mots de passe non identique
         if($request->new_password != $request->confirm_password) {
-            return redirect()->route('user.reset_password_page', [
+            return redirect()->route('admin.user.reset_password_page', [
                 'id' => $id
             ])->withErrors([
                 'passwords_not_equals' => 'Mots de passe non identiques !!!'
@@ -223,7 +223,7 @@ class UserController extends Controller
         ]);
 
         // Renvoie a la page update
-        return redirect()->route('user.update_page', ['id' => $id]);
+        return redirect()->route('admin.user.update_page', ['id' => $id]);
     }
 
     /* ************************************************************
@@ -235,6 +235,6 @@ class UserController extends Controller
         // Applique la suppression (desactive)
         $user->update(['status' => false]);
         // Redirection vers la page list de users
-        return redirect()->route('user.list');
+        return redirect()->route('admin.user.list');
     }
 }

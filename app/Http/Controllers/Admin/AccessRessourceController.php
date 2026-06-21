@@ -48,7 +48,7 @@ class AccessRessourceController extends Controller
         $this->store($user->id, $request);
 
         // Renvoie a la page list pour users
-        return redirect()->route('user.list');
+        return redirect()->route('admin.user.list');
     }
 
     /* *************************************************************
@@ -69,7 +69,7 @@ class AccessRessourceController extends Controller
         $this->store($user_id, $request);
 
         // Renvoie a la page de provenance
-        return redirect()->route('user.list');
+        return redirect()->route('admin.user.list');
     }
 
     /* *************************************************************

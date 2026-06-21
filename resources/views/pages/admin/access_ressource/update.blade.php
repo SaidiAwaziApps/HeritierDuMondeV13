@@ -3,7 +3,7 @@
 @section('content')
 <div id="globalContent">
 
-    <form method="POST" action="{{ route('access_ressource.update_handler', ['user_id' => $user->id]) }}">
+    <form method="POST" action="{{ route('admin.access_ressource.update_handler', ['user_id' => $user->id]) }}">
         @csrf
         @method('PUT')
 

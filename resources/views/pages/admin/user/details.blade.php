@@ -4,11 +4,11 @@
 @section('content')
     @php
         // Definit la mention
-        function getMention($ressource,$user,$action){
-            $mention='';
+        function getMention($ressource, $user, $action){
+            $mention = '';
             foreach($user->access_ressources as $item) {
-                if($item->ressource->id==$ressource->id && $item->action==$action) {
-                    $mention=$item->mention;
+                if($item->ressource->id == $ressource->id && $item->action == $action) {
+                    $mention = $item->mention;
                 } 
             }
             return $mention;
@@ -23,7 +23,7 @@
             <span class="card-title">
                 <i class="fa fa-users"></i> Gestion utilisateurs
             </span>   
-            <a href="{{ route('user.list') }}" class="btn btn-default btn-sm active">
+            <a href="{{ route('admin.user.list') }}" class="btn btn-default btn-sm active">
                <span>
                   <i class="fa fa-list"></i>
                </span>
@@ -127,9 +127,9 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php $index=0; ?>
+                                        <?php $index = 0; ?>
                                         @foreach($ressources as $ressource)
-                                        <?php $index=$index+1;?>
+                                        <?php $index = $index+1;?>
                                         <tr>
                                             <td>
                                                 {{ $index }}
@@ -167,7 +167,7 @@
                                                 @if(strtolower(getMention($ressource,$user,'delete')) == 'allowed')
                                                 <span style="color:white;display: block;border-radius: 4px;background-color: green;width: 20px;height: 20px;"> </span>
                                                 @else 
-                                                    @if($ressource->nom=='benevole' || $ressource->nom == 'contact' || $ressource->nom=='don' || $ressource->nom=='donateur')
+                                                    @if($ressource->nom == 'benevole' || $ressource->nom == 'contact' || $ressource->nom == 'don' || $ressource->nom == 'donateur')
                                                     <span style="color:white;display: block;border-radius: 4px;background-color: pink;width: 20px;height: 20px;"> </span>
                                                     @else
                                                     <span style="color:white;display: block;border-radius: 4px;background-color: red;width: 20px;height: 20px;"> </span>                                                                                                                                         
@@ -178,7 +178,7 @@
                                                 @if(strtolower(getMention($ressource,$user,'update')) == 'allowed')
                                                 <span style="color:white;display: block;border-radius: 4px;background-color: green;width: 20px;height: 20px;"> </span>
                                                 @else 
-                                                    @if($ressource->nom=='benevole' || $ressource->nom == 'contact' || $ressource->nom=='don' || $ressource->nom=='donateur')
+                                                    @if($ressource->nom == 'benevole' || $ressource->nom == 'contact' || $ressource->nom == 'don' || $ressource->nom == 'donateur')
                                                     <span style="color:white;display: block;border-radius: 4px;background-color: pink;width: 20px;height: 20px;"> </span>
                                                     @else
                                                     <span style="color:white;display: block;border-radius: 4px;background-color: red;width: 20px;height: 20px;"> </span>                                                                                                                                         

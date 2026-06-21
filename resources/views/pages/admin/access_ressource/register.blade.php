@@ -2,7 +2,7 @@
 
 @section('content')
 <div id="globalContent">
-    <form method="POST" action="{{ route('access_ressource.save') }}">
+    <form method="POST" action="{{ route('admin.access_ressource.save') }}">
         @csrf
         <input type="hidden" name="user_id" id="user_id" value="{{ $user->id }}">
 

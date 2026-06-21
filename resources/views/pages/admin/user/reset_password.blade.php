@@ -6,7 +6,7 @@
         <div class="card">
             <div class="card-body">
                 <!-- form -->
-                <form method="POST" action="{{ route('user.reset_password_handler', ['id' => $user->id]) }}" id="reset_password_form">                    
+                <form method="POST" action="{{ route('admin.user.reset_password_handler', ['id' => $user->id]) }}" id="reset_password_form">                    
                     @csrf
                     @method('PUT')
                     <div id="reset_password_form_content">

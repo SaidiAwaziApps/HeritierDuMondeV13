@@ -9,7 +9,7 @@
             <span class="card-title">
                <i class="fa fa-users"></i> Gestion utilisateurs
             </span>   
-            <a href="{{ route('user.register_page') }}" class="btn btn-default btn-sm active">
+            <a href="{{ route('admin.user.register_page') }}" class="btn btn-default btn-sm active">
                <span>
                   <i class="fa fa-plus"></i>
                </span>
@@ -65,17 +65,17 @@
                                  </td>
                                  <td>
                                     <div class="d-grid">
-                                       <a href="{{ route('user.details',['id'=>$user->id]) }}" class="btn btn-default btn-block btn-sm">
+                                       <a href="{{ route('admin.user.details',['id'=>$user->id]) }}" class="btn btn-default btn-block btn-sm">
                                           <i class="bi bi-plus"></i>
                                        </a>
                                     </div>
                                  </td>
                                  <td>
-                                    <form action="{{ route('user.delete_one',['id'=>$user->id]) }}" method="post">
+                                    <form action="{{ route('admin.user.delete_one',['id' => $user->id]) }}" method="post">
                                        @csrf
                                        @method('DELETE')
                                        <div class="d-grid">
-                                          <button onclick="confirm('Voulez-vous supprimer {{ $user->nom }} ?')" type="submit" href="{{ route('user.delete_one',['id'=>$user->id]) }}" class="btn btn-danger btn-block btn-sm" style="border: 1px solid #ccc;">
+                                          <button onclick="confirm('Voulez-vous supprimer {{ $user->nom }} ?')" type="submit" href="{{ route('admin.user.delete_one',['id'=>$user->id]) }}" class="btn btn-danger btn-block btn-sm" style="border: 1px solid #ccc;">
                                              <i class="bi bi-trash"></i>
                                           </button>
                                        </div>   
@@ -97,7 +97,7 @@
                                              <li class="dropdown-divider"></li>
                                              <li class="dropdown-item">
                                                 <div class="d-grid">
-                                                   <a href="{{ route('user.update_page',['id' => $user->id]) }}" title="Utilisateur" class="btn btn-default btn-block btn-sm">
+                                                   <a href="{{ route('admin.user.update_page',['id' => $user->id]) }}" title="Utilisateur" class="btn btn-default btn-block btn-sm">
                                                       <i class="fa fa-user"></i> User
                                                    </a>
                                                 </div>
@@ -105,7 +105,7 @@
                                              <li class="dropdown-divider"></li>
                                              <li class="dropdown-item">
                                                 <div class="d-grid">
-                                                   <a href="{{ route('access_ressource.update_page',['user_id' => $user->id]) }}" title="Privileges" class="btn btn-default btn-block btn-sm">
+                                                   <a href="{{ route('admin.access_ressource.update_page',['user_id' => $user->id]) }}" title="Privileges" class="btn btn-default btn-block btn-sm">
                                                       <i class="fa fa-shield"></i> Privilegies
                                                    </a>
                                                 </div>

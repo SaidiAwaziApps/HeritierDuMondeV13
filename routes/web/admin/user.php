@@ -20,7 +20,7 @@ Route::middleware([\App\Http\Middleware\IsAdmin::class,\App\Http\Middleware\Trac
             ->name('my_profil');
 
         Route::post('/save', [UserController::class, 'save'])->name('save');
-        Route::put('/update/{id}', [UserController::class, 'update_handler'])->name('update');
+        Route::put('/update/{id}', [UserController::class, 'update_handler'])->name('update_handler');
         Route::put('/reset-password/{id}', [UserController::class, 'reset_password_handler'])->name('reset_password_handler');
         Route::delete('/delete-one/{id}', [UserController::class, 'delete_one'])->name('delete_one');
     });
