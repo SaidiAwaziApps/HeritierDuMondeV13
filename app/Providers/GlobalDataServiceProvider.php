@@ -41,7 +41,7 @@ class GlobalDataServiceProvider extends ServiceProvider
         });
 
         // Specifiques a certaines pages (views)
-        View::composer(['pages.admin.payment_setting.*','pages.admin.besoin.*','pages.admin.don.*','pages.admin.dashboard.*'], function ($view) {
+        View::composer(['pages.admin.payment_setting.*','pages.admin.besoin.*','pages.admin.don.*','pages.admin.donateur.*','pages.admin.dashboard.*'], function ($view) {
             // Taux d'echange (USD - EURO)
             $currency_exchange_rate = Cache::remember('currency_exchange_rate', now()->addDay(), function() {
                 return CurrencyRateService::getRate();
