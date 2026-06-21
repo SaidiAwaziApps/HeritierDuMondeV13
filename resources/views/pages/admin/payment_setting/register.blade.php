@@ -5,7 +5,7 @@
     <div id="globalContent">
         <div class="card">
             <div class="card-body">
-                <form method="POST" action="{{ route('paymentSetting.save') }}" class="payment-setting-form">
+                <form method="POST" action="{{ route('admin.paymentSetting.save') }}" class="payment-setting-form">
                     @csrf
                     <div class="payment-setting-form-content">
                         <h4 class="payment-setting-title">
