@@ -5,7 +5,7 @@
     <div id="globalContent">
         <div class="card">
             <div class="card-body">
-                <form method="POST" action="{{ route('paymentSetting.update_handler',['id' => $paymentSetting->id]) }}" class="payment-setting-form">
+                <form method="POST" action="{{ route('admin.paymentSetting.update_handler',['id' => $paymentSetting->id]) }}" class="payment-setting-form">
                     @csrf
                     @method('PUT')
                     <div class="payment-setting-form-content">
