@@ -20,9 +20,11 @@ function convertAmount(amount, amountCurrency) {
  * RENVOIE LA MONAIE
  * **********************************************************************/
 function getDisplayCurrency() {
-    return (window.paymentSetting.currency_display_mode.toLowerCase() === 'current' && currency_exchange_rate)
-        ? window.paymentSetting.currency
-        : besoin.currency;
+    if(window.paymentSetting.currency_display_mode.toLowerCase() != 'current' && currency_exchange_rate) {
+        return besoin.currency != window.paymentSetting.currency ? paymentSetting.currency : besoin.currency; 
+    } else {
+        return besoin.currency;
+    }
 }
 
 
@@ -123,7 +125,7 @@ function buildChartGraph() {
                     if (!customLabel) {
                         customLabel = chart.options.chart.custom.label =
                             chart.renderer.label(
-                                'S. necessaire<br/>' +
+                                'Montant sollicite<br/>' +
                                 '<strong>' +
                                 convertAmount(besoin.montant, besoin.currency)+' '+
                                 getCurrencyIcon(getDisplayCurrency()) +

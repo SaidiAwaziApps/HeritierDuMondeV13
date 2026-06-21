@@ -117,7 +117,7 @@ function buildBesoinsChartGraph(besoins){
                     if (!customLabel) {
                         customLabel = chart.options.chart.custom.label =
                         chart.renderer.label(
-                            'S. necessaire<br/>' +
+                            'Montant sollicite<br/>' +
                             '<strong>'+getTotalBesoinMontant(besoins)+' '+getBesoinCurrencyIcon(getBesoinDisplayCurrency())+'</strong>'
                         )
                         .css({

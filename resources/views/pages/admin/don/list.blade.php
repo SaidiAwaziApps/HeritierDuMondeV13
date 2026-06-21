@@ -51,9 +51,9 @@
                                 <td>
                                     @if(strtolower($paymentSetting->currency_display_mode) != 'current' && $don->currency != $paymentSetting->currency && $currency_exchange_rate)
                                         @if($don->currency == 'USD')
-                                            {{ $don->montant * $currency_exchange_rate }} <b>{!! $currency_icons[$don->currency] ?? '' !!}</b>
+                                            {{ $don->montant * $currency_exchange_rate }} <b>{!! $currency_icons[$paymentSetting->currency] ?? '' !!}</b>
                                         @else
-                                            {{ $don->montant / $currency_exchange_rate }} <b>{!! $currency_icons[$don->currency] ?? '' !!}</b>
+                                            {{ $don->montant / $currency_exchange_rate }} <b>{!! $currency_icons[$paymentSetting->currency] ?? '' !!}</b>
                                         @endif
                                     @else
                                        {{ $don->montant }} <b>{!! $currency_icons[$don->currency] ?? '' !!}</b>

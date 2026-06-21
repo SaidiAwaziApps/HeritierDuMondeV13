@@ -65,12 +65,12 @@
                                 <td>
                                     @if(strtolower($paymentSetting->currency_display_mode) != 'current' && $besoin->currency != $paymentSetting->currency && $currency_exchange_rate)
                                         @if($besoin->currency == 'USD')
-                                            {{ $besoin->montant * $currency_exchange_rate }} <b>{!! $currency_icons[$besoin->currency] ?? '' !!}</b>
+                                            {{ $besoin->montant * $currency_exchange_rate }} <b style="opacity: 0.7;">{!! $currency_icons[$paymentSetting->currency] ?? '' !!}</b>
                                         @else
-                                            {{ $besoin->montant / $currency_exchange_rate }} <b>{!! $currency_icons[$besoin->currency] ?? '' !!}</b>
+                                            {{ $besoin->montant / $currency_exchange_rate }} <b style="opacity: 0.7;">{!! $currency_icons[$paymentSetting->currency] ?? '' !!}</b>
                                         @endif
                                     @else
-                                       {{ $besoin->montant }} <b>{!! $currency_icons[$besoin->currency] ?? '' !!}</b>
+                                       {{ $besoin->montant }} <b style="opacity: 0.7;">{!! $currency_icons[$besoin->currency] ?? '' !!}</b>
                                     @endif
                                 </td>
                                 <td>

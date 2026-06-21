@@ -65,7 +65,7 @@
                                                     Date
                                                 </th>
                                                 <th>
-                                                    Somme($)
+                                                    Somme
                                                 </th>
                                                 <th>
                                                     mode payment
@@ -90,7 +90,15 @@
                                                     {{ $don->created_at->format('d-m-y') }}
                                                 </td>
                                                 <td>
-                                                    {{ $don->montant }}
+                                                    @if(strtolower($paymentSetting->currency_display_mode) != 'current' && $don->currency != $paymentSetting->currency && $currency_exchange_rate)
+                                                        @if($don->currency == 'USD')
+                                                            {{ $don->montant * $currency_exchange_rate }} <b style="opacity: 0.7;">{!! $currency_icons[$paymentSetting->currency] ?? '' !!}</b>
+                                                        @else
+                                                            {{ $don->montant / $currency_exchange_rate }} <b style="opacity: 0.7;">{!! $currency_icons[$paymentSetting->currency] ?? '' !!}</b>
+                                                        @endif
+                                                    @else
+                                                        {{ $don->montant }} <b style="opacity: 0.7;">{!! $currency_icons[$don->currency] ?? '' !!}</b>
+                                                    @endif
                                                 </td>
                                                 <td>
                                                     {{ $don->mode_paiement }}
