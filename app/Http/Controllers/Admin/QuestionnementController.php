@@ -56,7 +56,7 @@ class QuestionnementController extends Controller
         if(Questionnement::where('question','=',$request->question)
                          ->where('status','=',true)
                          ->exists()) {
-            return redirect()->route('questionnement.register')
+            return redirect()->route('admin.questionnement.register_page')
                              ->withErrors([
                                 'reponse_existant' => 'La question "'.$request->question.'" a deja ete posee.'
                              ])
@@ -75,7 +75,7 @@ class QuestionnementController extends Controller
         }
 
         // Renvoie a la page de list
-        return redirect()->route('questionnement.list');
+        return redirect()->route('admin.questionnement.list');
     }
 
     /* ***********************************************************
@@ -99,7 +99,7 @@ class QuestionnementController extends Controller
             if(Questionnement::where('question','=',$request->question)
                              ->where('status','=',true)
                              ->exists()) {
-                return redirect()->route('questionnement.update_page',['id'=>$id])
+                return redirect()->route('admin.questionnement.update_page',['id'=>$id])
                                  ->withErrors([
                                     'reponse_existant'=>'La question "'.$request->question.'" a deja ete posee.'
                                  ])
@@ -114,7 +114,7 @@ class QuestionnementController extends Controller
         ]);
 
         // Renvoie a la page list
-        return redirect()->route('questionnement.list');                              
+        return redirect()->route('admin.questionnement.list');                              
     }
 
     /* ***********************************************************
@@ -133,7 +133,7 @@ class QuestionnementController extends Controller
 
         // En cas de l'existance des instances
         if(Questionnement::where('status','=',true)->exists()){
-            return redirect()->route('questionnement.list');
+            return redirect()->route('admin.questionnement.list');
         } 
         else {
             return redirect(NavigationService::getBackPageURL());
