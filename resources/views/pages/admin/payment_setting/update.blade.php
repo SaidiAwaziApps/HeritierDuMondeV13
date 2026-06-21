@@ -17,7 +17,7 @@
                             <div class="display-device-model-inputs">
                                 <div class="form-group">
                                     <label for="#">
-                                        Appliquer la divise courante 
+                                        Uniformiser la devise d'affichage 
                                     </label>
                                     <input type="checkbox" name="currency_display_mode" id="currency_display_mode" value="current" 
                                         @if(strtolower($paymentSetting->currency_display_mode) == 'current')
