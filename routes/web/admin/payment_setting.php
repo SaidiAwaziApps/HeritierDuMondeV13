@@ -14,7 +14,7 @@ use App\Http\Controllers\Admin\PaymentSettingController;
 */
 
 Route::prefix('payment-setting')
-    ->as('paymentSetting.')
+    ->as('admin.paymentSetting.')
     ->middleware(IsAdmin::class)
     ->group(function() {
 

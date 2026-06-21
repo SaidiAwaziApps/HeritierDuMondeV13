@@ -152,7 +152,6 @@
     </div>
 
     <div id="sidebar">
-
         <div id="sidebar_logo_dismiss">
             <div id="sidebar_logo_title">
                 <img src="{{ $identite->logo ? Storage::url($identite->logo) : '' }}">
@@ -184,7 +183,11 @@
         <div id="sidebar_menu">
 
             @if($user?->hasRole('admin')) 
-            <li><a href="{{ route('dashboard.admin') }}"><i class="fa fa-signal"></i> Dashboard</a></li>
+            <li>
+                <a href="{{ route('dashboard.admin') }}" id="dashboard_menu_link">
+                    <i class="fa fa-signal"></i> Dashboard
+                </a>
+            </li>
 
             <li class="parameter-menu">
                 <a href="#" id="parameter_menu_link">
@@ -192,82 +195,120 @@
                 </a>
                 <ul class="sous-menu" id="parameter_sous_menu">
                     <li>
-                        <a href="{{ route('identite.update_page',['id'=>$identite->id]) }}"><i class="fa fa-blog"></i> Identite</a>
-                        <a href="{{ route('questionnement.list') }}"><i class="fas fa-question-circle"></i> Questionnement</a>
-
+                        <a href="{{ route('identite.update_page',['id'=>$identite->id]) }}" id="identite_sub_menu_link">
+                            <i class="fa fa-blog"></i> Identite
+                        </a>
+                        <a href="{{ route('admin.questionnement.list') }}" id="questionnement_sub_menu_link">
+                            <i class="fas fa-question-circle"></i> Questionnement
+                        </a>
                         @if(auth()->id() === 1)
-                        <a href="{{ $paymentSetting ? route('paymentSetting.update_page',['id'=>$paymentSetting->id]) : route('paymentSetting.register_page') }}">
+                        <a href="{{ $paymentSetting ? route('admin.paymentSetting.update_page',['id'=>$paymentSetting->id]) : route('admin.paymentSetting.register_page') }}" id="payment_setting_sub_menu_link">
                             <i class="fa fa-credit-card"></i> Payment
                         </a>
                         @endif
                     </li>
                 </ul>
             </li>
-
-            <li><a href="{{ route('user.list') }}"><i class="fa fa-users"></i> Utilisateurs</a></li>
+            <li>
+                <a href="{{ route('admin.user.list') }}" id="user_menu_link">
+                    <i class="fa fa-users"></i> Utilisateurs
+                </a>
+            </li>
             @endif
 
             <li>
                 @if($user?->hasAccessToRessource('blog','register','allowed') || $user?->hasAccessToRessource('blog','update','allowed') || $user?->hasAccessToRessource('blog','delete','allowed'))
-                <a href="{{ route('admin.article.list') }}"><i class="fa fa-blog"></i> Blog</a>
+                <a href="{{ route('admin.article.list') }}" id="blog_menu_link">
+                    <i class="fa fa-blog"></i> Blog
+                </a>
                 @else
-                <a href="#"><i class="fa fa-blog"></i> Blog</a>
+                <a href="#">
+                    <i class="fa fa-blog"></i> Blog
+                </a>
                 @endif
             </li>
 
             <li>
                 @if($user?->hasAccessToRessource('benevole','register','allowed') || $user?->hasAccessToRessource('benevole','update','allowed') || $user?->hasAccessToRessource('benevole','delete','allowed'))
-                <a href="{{ route('admin.benevole.list') }}"><i class="fa fa-user"></i> Benevole</a>
+                <a href="{{ route('admin.benevole.list') }}" id="benevole_menu_link">
+                    <i class="fa fa-user"></i> Benevole
+                </a>
                 @else
-                <a href="#"><i class="fa fa-user"></i> Benevole</a>
+                <a href="#">
+                    <i class="fa fa-user"></i> Benevole
+                </a>
                 @endif
             </li>
 
             <li>
                 @if($user?->hasAccessToRessource('besoin','register','allowed') || $user?->hasAccessToRessource('besoin','update','allowed') || $user?->hasAccessToRessource('besoin','delete','allowed'))
-                <a href="{{ route('admin.besoin.list') }}"><i class="fa fa-blog"></i> Besoins</a>
+                <a href="{{ route('admin.besoin.list') }}" id="besoin_menu_link">
+                    <i class="fa fa-blog"></i> Besoins
+                </a>
                 @else
-                <a href="#"><i class="fa fa-blog"></i> Besoins</a>
+                <a href="#">
+                    <i class="fa fa-blog"></i> Besoins
+                </a>
                 @endif
             </li>
 
             <li>
                 @if($user?->hasAccessToRessource('contact','register','allowed') || $user?->hasAccessToRessource('contact','update','allowed') || $user?->hasAccessToRessource('contact','delete','allowed'))
-                <a href="{{ route('admin.contact.index') }}"><i class="fa fa-envelope"></i> Contact</a>
+                <a href="{{ route('admin.contact.index') }}" id="contact_menu_link">
+                    <i class="fa fa-envelope"></i> Contact
+                </a>
                 @else
-                <a href="#"><i class="fa fa-envelope"></i> Contact</a>
+                <a href="#">
+                    <i class="fa fa-envelope"></i> Contact
+                </a>
                 @endif
             </li>
 
             <li>
                 @if($user?->hasAccessToRessource('donateur','register','allowed') || $user?->hasAccessToRessource('donateur','update','allowed') || $user?->hasAccessToRessource('donateur','delete','allowed'))
-                <a href="{{ route('admin.donateur.list') }}"><i class="fa fa-support"></i> Donateurs</a>
+                <a href="{{ route('admin.donateur.list') }}" id="donateur_menu_link">
+                    <i class="fa fa-support"></i> Donateurs
+                </a>
                 @else 
-                <a href="#"><i class="fa fa-support"></i> Donateurs</a>
+                <a href="#">
+                    <i class="fa fa-support"></i> Donateurs
+                </a>
                 @endif
             </li>
 
             <li>
                 @if($user?->hasAccessToRessource('offre_emploie','register','allowed') || $user?->hasAccessToRessource('offre_emploie','update','allowed') || $user?->hasAccessToRessource('offre_emploie','delete','allowed'))
-                <a href="{{ route('admin.offre_emploie.list') }}"><i class="fa fa-tasks"></i> Offres Travails</a>
+                <a href="{{ route('admin.offre_emploie.list') }}" id="offre_emploie_menu_link">
+                    <i class="fa fa-tasks"></i> Offres Travails
+                </a>
                 @else
-                <a href="#"><i class="fa fa-tasks"></i> Offres Travails</a>
+                <a href="#">
+                    <i class="fa fa-tasks"></i> Offres Travails
+                </a>
                 @endif
             </li>
 
             <li>
                 @if($user?->hasAccessToRessource('don','register','allowed') || $user?->hasAccessToRessource('don','update','allowed') || $user?->hasAccessToRessource('don','delete','allowed'))
-                <a href="{{ route('admin.don.list') }}"><i class="fa fa-support"></i> Dons</a>
+                <a href="{{ route('admin.don.list') }}" id="don_menu_link">
+                    <i class="fa fa-support"></i> Dons
+                </a>
                 @else
-                <a href="#"><i class="fa fa-support"></i> Dons</a>
+                <a href="#">
+                    <i class="fa fa-support"></i> Dons
+                </a>
                 @endif
             </li>
 
             <li>
                 @if($user?->hasAccessToRessource('evenement','register','allowed') || $user?->hasAccessToRessource('evenement','update','allowed') || $user?->hasAccessToRessource('evenement','delete','allowed'))
-                <a href="{{ route('admin.evenement.list') }}"><i class="fa fa-calendar"></i> Evenement</a>
+                <a href="{{ route('admin.evenement.list') }}" id="evenement_menu_link">
+                    <i class="fa fa-calendar"></i> Evenement
+                </a>
                 @else
-                <a href="#"><i class="fa fa-calendar"></i> Evenement</a>
+                <a href="#">
+                    <i class="fa fa-calendar"></i> Evenement
+                </a>
                 @endif
             </li>
 
@@ -281,6 +322,7 @@
 
 <!-- Scripts internes -->
 <script type="text/javascript">
+    window.routeName = @json(Route::currentRouteName());
     window.paymentSetting = @json($paymentSetting);
 </script>
 

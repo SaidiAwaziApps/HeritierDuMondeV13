@@ -41,7 +41,7 @@
                     <!-- fin existed_items -->
                     <div id="ask_button_actions">
                         <div id="add_bloc">
-                            <a href="{{ route('questionnement.register_page') }}" class="btn btn-default btn-sm" title="Ajouter(+) un questionnement">
+                            <a href="{{ route('admin.questionnement.register_page') }}" class="btn btn-default btn-sm" title="Ajouter(+) un questionnement">
                                 <i class="fa fa-plus"></i>
                             </a>
                         </div>

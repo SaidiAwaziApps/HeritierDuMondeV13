@@ -8,12 +8,12 @@
                 <span class="card-title">
                     Questionnement
                 </span>
-                <a href="{{ route('questionnement.list') }}" class="btn btn-default btn-sm" title="Ajouter un questionnement">
+                <a href="{{ route('admin.questionnement.list') }}" class="btn btn-default btn-sm" title="Ajouter un questionnement">
                     <i class="fa fa-list"></i>
                 </a>
             </div>
             <div class="card-body">
-                <form method="POST" action="{{ route('questionnement.save') }}">
+                <form method="POST" action="{{ route('admin.questionnement.save') }}">
                     <div id="form_title">
                         <h4>
                             Nouvelle questionnement
