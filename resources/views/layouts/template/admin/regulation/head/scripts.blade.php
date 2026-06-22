@@ -1,4 +1,4 @@
-@if(Route::currentRouteName() == 'regulation.register_page' || Route::currentRouteName() == 'regulation.update_page')
+@if(Route::currentRouteName() == 'admin.regulation.register_page' || Route::currentRouteName() == 'admin.regulation.update_page')
     <!-- jQuery (obligatoire pour Select2) -->
     <script src="{{ asset('dependance/jquery/jquery.min.js') }}"></script>
 

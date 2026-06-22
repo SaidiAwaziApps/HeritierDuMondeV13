@@ -6,7 +6,7 @@
         <div class="card">
             <div class="card-header">
                 <span class="card-title">
-                    Questionnement
+                    <i class="fas fa-question-circle" style="opacity: 0.4;"></i> Questionnement
                 </span>
                 <a href="{{ route('admin.questionnement.list') }}" class="btn btn-default btn-sm" title="Ajouter un questionnement">
                     <i class="fa fa-list"></i>

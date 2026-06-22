@@ -10,7 +10,7 @@
                 </span>
             </div>
             <div class="card-body">
-                <form method="post" action="{{ route('regulation.save') }}">
+                <form method="post" action="{{ route('admin.regulation.save') }}">
                     @csrf
                     <ul>
                         <li>

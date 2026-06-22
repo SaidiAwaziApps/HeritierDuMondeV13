@@ -14,7 +14,7 @@ use App\Http\Controllers\Admin\RegulationController;
 */
 
 Route::prefix('regulation')
-    ->as('regulation.')
+    ->as('admin.regulation.')
     ->middleware(IsAdmin::class)
     ->group(function() {
 

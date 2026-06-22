@@ -8,10 +8,10 @@ function convertAmount(amount, amountCurrency) {
         && currency_exchange_rate
     ) {
         return amountCurrency === 'USD'
-            ? amount * currency_exchange_rate
-            : amount / currency_exchange_rate;
+            ? Number((amount * currency_exchange_rate).toFixed(2))
+            : Number((amount / currency_exchange_rate).toFixed(2));
     } else {
-        return amount;
+        return Number(amount.toFixed(2));
     }
 }
 

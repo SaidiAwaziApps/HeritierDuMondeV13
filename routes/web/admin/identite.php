@@ -14,7 +14,7 @@ use App\Http\Controllers\Admin\IdentiteController;
 */
 
 Route::prefix('identite')
-    ->as('identite.') 
+    ->as('admin.identite.') 
     ->middleware(IsAdmin::class)
     ->group(function () {
 

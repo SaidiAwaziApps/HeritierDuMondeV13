@@ -61,7 +61,7 @@ class RegulationController extends Controller
         }
         catch (Exception $e) {
             // Renvoie à la page d'enregistrement avec message d'erreur
-            return redirect()->route('regulation.register_page')
+            return redirect()->route('admin.regulation.register_page')
                              ->withErrors([
                                 'failed' => $e->getMessage()
                              ])
@@ -94,7 +94,7 @@ class RegulationController extends Controller
         }
         catch (Exception $e) {
             // Renvoie à la page de modification avec message d'erreur
-            return redirect()->route('regulation.update_page', ['id' => $id])
+            return redirect()->route('admin.regulation.update_page', ['id' => $id])
                              ->withErrors([
                                 'failed' => $e->getMessage()
                              ])

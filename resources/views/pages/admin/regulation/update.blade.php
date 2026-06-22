@@ -10,7 +10,7 @@
                 </span>
             </div>
             <div class="card-body">
-                <form method="post" action="{{ route('regulation.update_handler',['id'=>$regulation->id]) }}">
+                <form method="post" action="{{ route('admin.regulation.update_handler',['id'=>$regulation->id]) }}">
                     @csrf
                     @method('PUT')
                     <ul>

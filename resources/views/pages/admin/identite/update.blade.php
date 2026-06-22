@@ -6,14 +6,14 @@
         <div class="card">
             <div class="card-header">
                 <span class="card-title"> 
-                    <i class="fa fa-globe" style="color: cadetblue;"></i> Identite du site web 
+                    <i class="fa fa-globe" style="color: cadetblue; opacity: 0.5;"></i> Information en rapport avec platform 
                 </span>
             </div> 
             <div class="card-body">
                 <div id="section">
                     <div class="d-flex-center">
                         <div id="content">
-                            <form method="POST" action="{{ route('identite.update_handler',['id' => $identite->id]) }}" enctype="multipart/form-data">
+                            <form method="POST" action="{{ route('admin.identite.update_handler',['id' => $identite->id]) }}" enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
                                 <div id="form_content_bloc">
@@ -54,13 +54,13 @@
                                             <div id="tel_email_bloc">
                                                 <div class="form-group">
                                                     <label for="tel">
-                                                        Tel:<i id="required-sign">*</i>
+                                                       <i class="fa fa-phone" style="opacity: 0.6; color: cadetblue;"></i> Tel:<i id="required-sign">*</i>
                                                     </label>
                                                     <input type="tel" name="tel" id="tel" class="form-control" placeholder="Numero telephone" maxlength="20" value="{{ $identite->tel }}" required>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="tel">
-                                                        Email:<i id="required-sign">*</i>
+                                                        <i class="fa fa-envelope" style="opacity: 0.6; color: red;"></i> Email:<i id="required-sign">*</i>
                                                     </label>
                                                     <input type="email" name="email" id="email" class="form-control" placeholder="Adresse @ email" maxlength="60" value="{{ $identite->email }}" required>
                                                 </div>
@@ -68,7 +68,7 @@
                                             <div id="adresse_bloc">
                                                 <div class="form-group">
                                                     <label for="adresse">
-                                                        Adresse:<i id="required-sign">*</i>
+                                                       <i class="fa fa-home" style="opacity: 0.6; color: blue;"></i> Adresse:<i id="required-sign">*</i>
                                                     </label>
                                                     <input type="text" name="adresse" id="adresse" class="form-control" placeholder="Entrer le siege (adresse)" maxlength="100" value="{{ $identite->adresse }}" required>
                                                 </div>

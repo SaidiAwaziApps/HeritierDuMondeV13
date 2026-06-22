@@ -184,25 +184,40 @@
 
             @if($user?->hasRole('admin')) 
             <li>
-                <a href="{{ route('admin.dashboard.admin') }}" id="dashboard_menu_link">
+                <a href="{{ route('admin.dashboard.admin') }}" id="dashboard_menu_link" 
+                    @if(Route::is('admin.dashboard.admin'))
+                       style="background-color: cadetblue; color: white;"
+                    @endif>
                     <i class="fa fa-signal"></i> Dashboard
                 </a>
             </li>
 
             <li class="parameter-menu">
-                <a href="#" id="parameter_menu_link">
+                <a href="#" id="parameter_menu_link"
+                    @if(Route::is('admin.identite.*') || Route::is('admin.questionnement.*') || Route::is('admin.paymentSetting.*'))
+                       style="background-color: cadetblue; color: white;"
+                    @endif>
                     <i class="fa fa-cog"></i> Parametre <i class="fa fa-angle-down" style="float: right;"></i>
                 </a>
                 <ul class="sous-menu" id="parameter_sous_menu">
                     <li>
-                        <a href="{{ route('identite.update_page',['id'=>$identite->id]) }}" id="identite_sub_menu_link">
+                        <a href="{{ route('admin.identite.update_page',['id'=>$identite->id]) }}" id="identite_sub_menu_link"
+                            @if(Route::is('admin.identite.*'))
+                                style="opacity: 0.9;background-color: #f0f8f8; color: cadetblue;"
+                            @endif>
                             <i class="fa fa-blog"></i> Identite
                         </a>
-                        <a href="{{ route('admin.questionnement.list') }}" id="questionnement_sub_menu_link">
+                        <a href="{{ route('admin.questionnement.list') }}" id="questionnement_sub_menu_link"
+                            @if(Route::is('admin.questionnement.*'))
+                                style="opacity: 0.9;background-color: #f0f8f8; color: cadetblue;"
+                            @endif>
                             <i class="fas fa-question-circle"></i> Questionnement
                         </a>
                         @if(auth()->id() === 1)
-                        <a href="{{ $paymentSetting ? route('admin.paymentSetting.update_page',['id'=>$paymentSetting->id]) : route('admin.paymentSetting.register_page') }}" id="payment_setting_sub_menu_link">
+                        <a href="{{ $paymentSetting ? route('admin.paymentSetting.update_page',['id'=>$paymentSetting->id]) : route('admin.paymentSetting.register_page') }}" id="payment_setting_sub_menu_link"
+                            @if(Route::is('admin.paymentSetting.*'))
+                                style="opacity: 0.9;background-color: #f0f8f8; color: cadetblue;"
+                            @endif>
                             <i class="fa fa-credit-card"></i> Payment
                         </a>
                         @endif
@@ -210,7 +225,10 @@
                 </ul>
             </li>
             <li>
-                <a href="{{ route('admin.user.list') }}" id="user_menu_link">
+                <a href="{{ route('admin.user.list') }}" id="user_menu_link"
+                    @if(Route::is('admin.user.*') || Route::is('admin.access_ressource.*'))
+                       style="background-color: cadetblue; color: white;"
+                    @endif>
                     <i class="fa fa-users"></i> Utilisateurs
                 </a>
             </li>
@@ -218,7 +236,10 @@
 
             <li>
                 @if($user?->hasAccessToRessource('blog','register','allowed') || $user?->hasAccessToRessource('blog','update','allowed') || $user?->hasAccessToRessource('blog','delete','allowed'))
-                <a href="{{ route('admin.article.list') }}" id="blog_menu_link">
+                <a href="{{ route('admin.article.list') }}" id="blog_menu_link"
+                    @if(Route::is('admin.article.*') || Route::is('admin.regulation.*'))
+                       style="background-color: cadetblue; color: white;"
+                    @endif>
                     <i class="fa fa-blog"></i> Blog
                 </a>
                 @else
@@ -230,7 +251,10 @@
 
             <li>
                 @if($user?->hasAccessToRessource('benevole','register','allowed') || $user?->hasAccessToRessource('benevole','update','allowed') || $user?->hasAccessToRessource('benevole','delete','allowed'))
-                <a href="{{ route('admin.benevole.list') }}" id="benevole_menu_link">
+                <a href="{{ route('admin.benevole.list') }}" id="benevole_menu_link"
+                    @if(Route::is('admin.benevole.*'))
+                       style="background-color: cadetblue; color: white;"
+                    @endif>
                     <i class="fa fa-user"></i> Benevole
                 </a>
                 @else
@@ -242,7 +266,10 @@
 
             <li>
                 @if($user?->hasAccessToRessource('besoin','register','allowed') || $user?->hasAccessToRessource('besoin','update','allowed') || $user?->hasAccessToRessource('besoin','delete','allowed'))
-                <a href="{{ route('admin.besoin.list') }}" id="besoin_menu_link">
+                <a href="{{ route('admin.besoin.list') }}"
+                    @if(Route::is('admin.besoin.*'))
+                       style="background-color: cadetblue; color: white;"
+                    @endif>
                     <i class="fa fa-blog"></i> Besoins
                 </a>
                 @else
@@ -254,7 +281,10 @@
 
             <li>
                 @if($user?->hasAccessToRessource('contact','register','allowed') || $user?->hasAccessToRessource('contact','update','allowed') || $user?->hasAccessToRessource('contact','delete','allowed'))
-                <a href="{{ route('admin.contact.index') }}" id="contact_menu_link">
+                <a href="{{ route('admin.contact.index') }}"
+                    @if(Route::is('admin.contact.*'))
+                       style="background-color: cadetblue; color: white;"
+                    @endif>
                     <i class="fa fa-envelope"></i> Contact
                 </a>
                 @else
@@ -266,7 +296,10 @@
 
             <li>
                 @if($user?->hasAccessToRessource('donateur','register','allowed') || $user?->hasAccessToRessource('donateur','update','allowed') || $user?->hasAccessToRessource('donateur','delete','allowed'))
-                <a href="{{ route('admin.donateur.list') }}" id="donateur_menu_link">
+                <a href="{{ route('admin.donateur.list') }}" id="donateur_menu_link"
+                    @if(Route::is('admin.donateur.*'))
+                       style="background-color: cadetblue; color: white;"
+                    @endif>
                     <i class="fa fa-support"></i> Donateurs
                 </a>
                 @else 
@@ -278,7 +311,10 @@
 
             <li>
                 @if($user?->hasAccessToRessource('offre_emploie','register','allowed') || $user?->hasAccessToRessource('offre_emploie','update','allowed') || $user?->hasAccessToRessource('offre_emploie','delete','allowed'))
-                <a href="{{ route('admin.offre_emploie.list') }}" id="offre_emploie_menu_link">
+                <a href="{{ route('admin.offre_emploie.list') }}"
+                    @if(Route::is('admin.offre_emploie.*'))
+                       style="background-color: cadetblue; color: white;"
+                    @endif>
                     <i class="fa fa-tasks"></i> Offres Travails
                 </a>
                 @else
@@ -290,7 +326,10 @@
 
             <li>
                 @if($user?->hasAccessToRessource('don','register','allowed') || $user?->hasAccessToRessource('don','update','allowed') || $user?->hasAccessToRessource('don','delete','allowed'))
-                <a href="{{ route('admin.don.list') }}" id="don_menu_link">
+                <a href="{{ route('admin.don.list') }}"
+                    @if(Route::is('admin.don.*'))
+                       style="background-color: cadetblue; color: white;"
+                    @endif>
                     <i class="fa fa-support"></i> Dons
                 </a>
                 @else
@@ -302,7 +341,10 @@
 
             <li>
                 @if($user?->hasAccessToRessource('evenement','register','allowed') || $user?->hasAccessToRessource('evenement','update','allowed') || $user?->hasAccessToRessource('evenement','delete','allowed'))
-                <a href="{{ route('admin.evenement.list') }}" id="evenement_menu_link">
+                <a href="{{ route('admin.evenement.list') }}"
+                    @if(Route::is('admin.evenement.*'))
+                       style="background-color: cadetblue; color: white;"
+                    @endif>
                     <i class="fa fa-calendar"></i> Evenement
                 </a>
                 @else

@@ -6,7 +6,7 @@
         <div class="card">
             <div class="card-header">
                 <h4 class="card-title">
-                    Questionnement 
+                    <i class="fas fa-question-circle" style="opacity: 0.4;"></i> Questionnement 
                 </h4>
             </div>
             <div class="card-body">

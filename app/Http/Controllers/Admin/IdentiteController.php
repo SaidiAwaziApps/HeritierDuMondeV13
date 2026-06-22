@@ -76,7 +76,7 @@ class IdentiteController extends Controller
         // Geolocalisation
         GeolocateIdentityAdresseJob::dispatch($identite);
 
-        return redirect()->route('user.list')
+        return redirect()->route('admin.user.list')
             ->with('success', 'Identité créée avec succès');
     }
 

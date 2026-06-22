@@ -10,7 +10,7 @@
                     @method('PUT')
                     <div class="payment-setting-form-content">
                         <h4 class="payment-setting-title">
-                            <i class="fa fa-cog"></i> Payment Settings 
+                            <i class="fa fa-cog" style="opacity: 0.5;"></i> Payment Settings 
                         </h4>
                         <!-- Inputs -->
                         <div class="payment-setting-fields">
