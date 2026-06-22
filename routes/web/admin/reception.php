@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ReceptionController;
 
+use \App\Http\Middleware\DonRessourceRecept;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes - Reception
@@ -10,8 +12,8 @@ use App\Http\Controllers\ReceptionController;
 */
 
 Route::prefix('reception')
-    ->as('reception.')
-    ->middleware(['don.ressource.recept'])
+    ->as('admin.reception.')
+    ->middleware(DonRessourceRecept::class)
     ->group(function() {
         Route::post('/save', [ReceptionController::class, 'save'])->name('save');
     });
