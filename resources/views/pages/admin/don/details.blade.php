@@ -115,7 +115,7 @@
                                         Accuser la reception <i class="fa fa-angle-down"></i>
                                     </span>
                                 </a>
-                                <form action="{{ route('reception.save') }}" method="POST" id="reception_form">
+                                <form action="{{ route('admin.reception.save') }}" method="POST" id="reception_form">
                                     @if($errors->any())
                                     <div id="validate_errors">
                                         @foreach($errors->all() as $error)
