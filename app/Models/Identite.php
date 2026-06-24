@@ -22,6 +22,10 @@ class Identite extends Model
             Cache::forget('identite');
         });
 
+        static::updated(function () {
+            Cache::forget('identite');
+        });
+
         static::deleted(function () {
             Cache::forget('identite');
         });
