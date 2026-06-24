@@ -17,10 +17,10 @@
     @endif
 
     @if(Route::currentRouteName() == 'admin.besoin.details')
-    <link rel="stylesheet" href="{{ asset('style/components/admin/image/global/items.css') }}">
-    <link rel="stylesheet" href="{{ asset('style/components/admin/feedback_toast.css') }}">
-    <link rel="stylesheet" href="{{ asset('style/components/admin/don/donors_talks.css') }}">
-    <link rel="stylesheet" href="{{ asset('style/components/admin/share/register.css') }}">
+        <link rel="stylesheet" href="{{ asset('style/components/admin/image/global/items.css') }}">
+        <link rel="stylesheet" href="{{ asset('style/components/admin/feedback_toast.css') }}">
+        <link rel="stylesheet" href="{{ asset('style/components/admin/don/donors_talks.css') }}">
+        <link rel="stylesheet" href="{{ asset('style/components/admin/share/register.css') }}">
 
-    <link rel="stylesheet" href="{{ asset('style/pages/admin/besoin/details.css') }}">
+        <link rel="stylesheet" href="{{ asset('style/pages/admin/besoin/details.css') }}">
     @endif
