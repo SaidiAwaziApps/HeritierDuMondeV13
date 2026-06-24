@@ -41,6 +41,10 @@ class User extends Authenticatable
             Cache::forget('admin');
         });
 
+        static::updated(function() {
+            Cache::forget('admin');
+        });
+
         static::deleted(function () {
             Cache::forget('admin');
         });
