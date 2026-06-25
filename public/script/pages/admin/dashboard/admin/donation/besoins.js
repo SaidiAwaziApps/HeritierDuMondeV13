@@ -96,6 +96,7 @@ function besoinsChartFormatData(besoins){
 }
 
 
+
 /* ***********************************************************************
  * ILLUSTRATION GRAPHIQUE (BESOIN CHART GRAPH)
  * **********************************************************************/
@@ -186,3 +187,4 @@ function buildBesoinsChartGraph(besoins){
         }]
     });   
 }
+
