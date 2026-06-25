@@ -165,7 +165,7 @@ class RegisterReplyService {
             console.log(response);
         })
         .catch((error)=>{
-            this.feedback(null,response);
+            this.feedback(null,error);
             console.log(error.response); 
         });
     }
