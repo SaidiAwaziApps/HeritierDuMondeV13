@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('token');
             $table->string('currency');
             $table->string('currency_display_mode')->default('current');
+            $table->float('last_currency_rate')->nullable();
             $table->boolean('status')->default(true);
         });
     }
