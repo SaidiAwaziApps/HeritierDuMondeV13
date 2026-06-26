@@ -9,7 +9,7 @@ use App\Http\Controllers\ObjectionController;
 |--------------------------------------------------------------------------
 */
 
-Route::prefix('objection')
+Route::prefix('/objection')
     ->as('objection.')
     ->group(function() {
 
