@@ -65,7 +65,7 @@
 </style>
 
 <script>
-import GetMessageService from '../../../services/contact/admin/get';
+import GetMessageService from '../../../services/admin/contact/get';
 
     export default {
         name: 'AuthMessageGroupItemComponent',

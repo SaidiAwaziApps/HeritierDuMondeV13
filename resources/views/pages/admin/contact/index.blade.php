@@ -24,7 +24,7 @@
         </script>
 
         <!-- Script interne -->
-        @vite('resources/js/mains/contact/admin/index.js')
+        @vite('resources/js/mains/admin/contact/index.js')
     </div>
     @endsection
 

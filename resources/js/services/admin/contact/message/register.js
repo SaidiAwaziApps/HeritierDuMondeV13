@@ -2,7 +2,7 @@ import axios from "axios";
 
 import { toast } from "vue3-toastify";
 
-import useExpediteurStore from "../../../../store/contact/expediteur";
+import useExpediteurStore from "../../../../store/admin/contact/expediteur";
 
 class RegisterMessageService {
     constructor(refComp) {

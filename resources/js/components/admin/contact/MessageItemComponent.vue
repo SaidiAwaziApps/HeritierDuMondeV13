@@ -120,7 +120,7 @@
 
 <script>
    
-    import GetMessageService from '../../../services/contact/admin/message/get';
+    import GetMessageService from '../../../services/admin/contact/message/get';
 
     import dayjs from 'dayjs';
 

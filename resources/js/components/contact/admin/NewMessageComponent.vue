@@ -140,7 +140,7 @@
 
     import UploadProgressToastComponent from '../../global/UploadProgressToastComponent.vue';
 
-    import RegisterMessageService from '../../../services/contact/admin/message/register';
+    import RegisterMessageService from '../../../services/admin/contact/message/register';
 
     export default {
         name: 'NewMessageComponent',

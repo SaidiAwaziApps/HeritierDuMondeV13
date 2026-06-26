@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import useMessageStore from "../../../../store/contact/message";
+import useMessageStore from "../../../../store/admin/contact/message";
 
 class UpdateMessageService {
     constructor(refComponent) {

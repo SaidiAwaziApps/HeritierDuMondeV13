@@ -135,12 +135,12 @@
 
 
 <script>
-    import AuthMessageGroupItemComponent from '../../../components/contact/admin/AuthMessageGroupItemComponent.vue';
+    import AuthMessageGroupItemComponent from '../../../components/admin/contact/AuthMessageGroupItemComponent.vue';
 
-    import GetMessageService from '../../../services/contact/admin/message/get';
+    import GetMessageService from '../../../services/admin/contact/message/get';
 
-    import useExpediteurStore from '../../../store/contact/expediteur';
-    import useMessageStore from '../../../store/contact/message';
+    import useExpediteurStore from '../../../store/admin/contact/expediteur';
+    import useMessageStore from '../../../store/admin/contact/message';
   
     export default {
         name: 'AuthMessageGroupView',

@@ -120,13 +120,13 @@
 
 <script>
 
-import MessageItemComponent from '../../../components/contact/admin/MessageItemComponent.vue';
-import NewMessageComponent from '../../../components/contact/admin/NewMessageComponent.vue';
+import MessageItemComponent from '../../../components/admin/contact/MessageItemComponent.vue';
+import NewMessageComponent from '../../../components/admin/contact/NewMessageComponent.vue';
 
-import UpdateMessageService from '../../../services/contact/admin/message/update';
+import UpdateMessageService from '../../../services/admin/contact/message/update';
 
-import useExpediteurStore from '../../../store/contact/expediteur';
-import useMessageStore from '../../../store/contact/message';
+import useExpediteurStore from '../../../store/admin/contact/expediteur';
+import useMessageStore from '../../../store/admin/contact/message';
 
 export default {
     name: 'AuthMessageListView',
