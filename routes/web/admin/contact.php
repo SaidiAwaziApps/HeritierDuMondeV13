@@ -20,4 +20,8 @@ Route::prefix('contact')
         // Page d'index des contacts
         Route::get('/index', [AdminContactController::class, 'index'])
             ->name('index');
+        
+        Route::get('/list', function() {
+            return redirect()->route('admin.contact.index');
+        });    
     });
