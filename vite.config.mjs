@@ -7,6 +7,7 @@ export default defineConfig({
         vue(),
         laravel({
             input: [
+                'resources/js/app.js',
                 'resources/js/mains/admin/blog/index.js',
                 'resources/js/mains/admin/contact/index.js'
             ],
