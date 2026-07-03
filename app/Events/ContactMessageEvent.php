@@ -23,7 +23,14 @@ class ContactMessageEvent implements ShouldBroadcast
      */
     public function __construct($message)
     {
-        $this->message = $message;
+        $this->message = [
+            'id' => $message->id,
+            'created_at' => $message->created_at,
+            'updated_at' => $message->updated_at,
+            'expediteur_id' => $message->expediteur_id,
+            'texte' => $message->texte,
+            'fichiers' => $message->fichiers
+        ];
     }
 
     /**
