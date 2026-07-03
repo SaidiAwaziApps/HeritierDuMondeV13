@@ -71,9 +71,13 @@
     <script src="{{ asset('dependance/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('dependance/highcharts/highcharts.js') }}"></script>
     <script src="{{ asset('dependance/axios/axios.min.js') }}"></script>
+    <script src="{{ asset('dependance/sweetalert2/swal.js') }}"></script>
 
     <!-- Script dashboard -->
     @include('layouts.template.admin.dashboard.admin.head.scripts')
+
+    <!-- Scripts externes (vite) -->
+    @vite('resources/js/app.js')
 
     <style>
         body { padding: 0px; margin: 0px; }
@@ -362,14 +366,15 @@
     @yield('content') 
 </div>
 
-<!-- Scripts internes -->
+<!-- Script interne -->
 <script type="text/javascript">
-    window.routeName = @json(Route::currentRouteName());
+    window.user = @json(Auth::user());
+    window.currentRouteName = @json(Route::currentRouteName());
     window.paymentSetting = @json($paymentSetting);
 </script>
 
-<!-- Scripts externes -->
-<script src="{{ asset('js/app.js') }}"></script>
+<!-- Script externe -->
 <script src="{{ asset('script/layouts/admin.js') }}"></script>
+
 </body>
 </html>

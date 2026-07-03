@@ -30,6 +30,29 @@ function toggleParameterSubMenu(parameterMenuLink, parameterSubMenu) {
 }
 
 
+/* ******************************************************************
+ * METHODE QUI AFFICHE LE MESSAGE DE MODERATION DE COMMENTAIRE
+ * ******************************************************************/
+function modrationMessage(notification) {
+    setTimeout(() => {
+        Swal.fire({
+        title: 'Moderation de commentaire',
+        text: notification.message,
+        icon: notification.status.toLowerCase() == 'success' ? 'success' : 'warning',
+        background: '#222', 
+        color: 'white',   
+        showConfirmButton: false,      
+        // confirmButtonColor: '#41b883', 
+        cancelButtonColor: '#ff5555',
+        position: 'center',         
+        showCancelButton: true,
+        // confirmButtonText: 'OK',
+        cancelButtonText: 'Cancel'
+        });
+        // Emission evenement notify
+    },2000);
+}
+
 /* *****************************************************************
  * AU MOMENT DU CHARGEMENT DU DOM
  * *****************************************************************/
@@ -60,6 +83,16 @@ document.addEventListener('DOMContentLoaded',function() {
         // Appel a la methode function
         toggleParameterSubMenu(parameterMenuLink, parameterSubMenu)
     }
+
+    /********** Ecouteur d'evenement (Pusher) ***********/       
+    window.Echo
+        .private('App.Models.User.'+window.user.id)
+        .notification((notification) => {
+            // Notification pour moderation && page different de details pour blog article
+            if(notification?.moderateable && window.currentRouteName != 'admin.article.details') {
+                modrationMessage(notification); 
+            }  
+        });
 });
 
 
