@@ -46,22 +46,22 @@ if (token) {
  * ECHO SAFE INIT
  * =========================
  */
-try {
-    window.Pusher = Pusher;
+// try {
+//     window.Pusher = Pusher;
 
-    window.Echo = new Echo({
-        broadcaster: 'pusher',
-        key: import.meta.env.VITE_PUSHER_APP_KEY,
-        cluster: import.meta.env.VITE_PUSHER_APP_CLUSTER,
-        forceTLS: true,
-        withCredentials: true,
-    });
+//     window.Echo = new Echo({
+//         broadcaster: 'pusher',
+//         key: import.meta.env.VITE_PUSHER_APP_KEY,
+//         cluster: import.meta.env.VITE_PUSHER_APP_CLUSTER,
+//         forceTLS: true,
+//         withCredentials: true,
+//     });
 
-    console.log('[Echo] OK');
+//     console.log('[Echo] OK');
 
-} catch (error) {
-    console.error('[Echo ERROR]', error);
-}
+// } catch (error) {
+//     console.error('[Echo ERROR]', error);
+// }
 
 /**
  * =========================
