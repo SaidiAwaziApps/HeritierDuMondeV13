@@ -128,7 +128,7 @@
 
 <script>
 
-    import UploadProgressToastComponent from '../../../global/UploadProgressToastComponent.vue';
+    import UploadProgressToastComponent from '../../../admin/global/UploadProgressToastComponent.vue';
 
     import RegisterCommentService from '../../../../services/admin/blog/commentaire/register';
 

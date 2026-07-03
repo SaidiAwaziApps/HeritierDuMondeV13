@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
-import AuthMessageGroupView from "../../../views/contact/admin/AuthMessageGroupView.vue";
-import AuthMessageListView from "../../../views/contact/admin/AuthMessageListView.vue";
+import AuthMessageGroupView from "../../../views/admin/contact/AuthMessageGroupView.vue";
+import AuthMessageListView from "../../../views/admin/contact/AuthMessageListView.vue";
 
 const routes = [
     {
