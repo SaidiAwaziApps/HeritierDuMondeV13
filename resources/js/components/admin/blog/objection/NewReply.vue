@@ -237,7 +237,7 @@
             FileItem,
             ReplyAddForm,        
         },
-        mounted: function() {
+        mounted: function() { 
             window.Echo.private('App.Models.User.'+window.user.id)
                         .notification((notification) => {
                             setTimeout(() => {
@@ -255,7 +255,7 @@
                                     // confirmButtonText: 'OK',
                                     cancelButtonText: 'Cancel'
                                 });
-                            },5000);          
+                            },2000);          
                         });
         },
         data: function() {
