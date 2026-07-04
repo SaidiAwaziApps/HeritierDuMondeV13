@@ -89,7 +89,7 @@
                                     <form action="{{ route('admin.besoin.delete_one',['id'=>$besoin->id]) }}" method="post">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" onclick="confirm('Voulez vous vraiment supprimer ?')" class="btn btn-danger btn-sm active">
+                                        <button type="submit" onclick="return confirm('Voulez vous vraiment supprimer ?')" class="btn btn-danger btn-sm active">
                                             <span>
                                                 <i class="fa fa-trash"></i>
                                             </span>

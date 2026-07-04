@@ -87,7 +87,7 @@
                                         <form method="POST" action="{{ route('admin.offre_emploie.deleteOne',['id'=>$offre_emploie->id]) }}">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" onclick="confirm('Voulez-vous vraiment supprimer ?')" class="btn btn-danger btn-block btn-sm active" title="Supprimer l'offre">
+                                            <button type="submit" onclick="return confirm('Voulez-vous vraiment supprimer ?')" class="btn btn-danger btn-block btn-sm active" title="Supprimer l'offre">
                                                 <i class="bi bi-trash"></i> 
                                             </button>
                                         </form>

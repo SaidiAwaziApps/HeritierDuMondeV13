@@ -73,7 +73,7 @@
                                     <form method="POST" action="{{ route('admin.evenement.delete_one',['id'=>$evenement->id]) }}">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-danger btn-sm active" title="Supprimer l'evenement">
+                                        <button type="submit" onclick="return confirm('Voulez vous supprimer ?')" class="btn btn-danger btn-sm active" title="Supprimer l'evenement">
                                             <i class="fa fa-trash"></i>
                                         </button>
                                     </form>

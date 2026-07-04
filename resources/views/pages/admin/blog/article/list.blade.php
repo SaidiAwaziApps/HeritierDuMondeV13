@@ -87,7 +87,7 @@
                                         @csrf
                                         @method('DELETE')
                                         <div class="d-grid">
-                                            <button type="submit" onclick="confirm('Voulez vous supprimer ?')" title="Click pour supprimer" class="btn btn-danger btn-sm">
+                                            <button type="submit" onclick="return confirm('Voulez vous supprimer ?')" title="Click pour supprimer" class="btn btn-danger btn-sm">
                                                 <span>
                                                     <i class="fa fa-trash"></i>
                                                 </span>
