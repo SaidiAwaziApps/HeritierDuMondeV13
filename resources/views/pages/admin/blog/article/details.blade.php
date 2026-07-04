@@ -15,15 +15,12 @@
 <div id="global_content">
     <div class="card">
         <div class="card-header">
-            <div class="card-title">
-                <span class="card-title">
-                    <i class="fa fa-blog"></i> Details sur l'article
-                </span>
-            </div>    
-            <!-- Menu deroulant -->
-            <div class="dropdown">
-                @include('components.admin.blog.article.menu')
-            </div>    
+            <span class="card-title">
+                <i class="fa fa-blog"></i> Details sur l'article
+            </span>
+            <a href="{{ route('admin.article.register_page') }}" title="Nouveau article" class="btn btn-default btn-sm">
+                <i class="fa fa-plus"></i>
+            </a>      
         </div>
         <div class="card-body">
             <div id="infos_content">

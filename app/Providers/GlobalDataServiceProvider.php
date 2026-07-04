@@ -12,6 +12,7 @@ use App\Services\CurrencyRateService;
 
 use App\Models\Identite;
 use App\Models\PaymentSetting;
+use App\Models\Regulation;
 use App\Models\User;
 
 class GlobalDataServiceProvider extends ServiceProvider
@@ -32,12 +33,16 @@ class GlobalDataServiceProvider extends ServiceProvider
             $paymentSettingData = Cache::rememberForever('payment_setting', fn() => PaymentSetting::first()?->toArray());
             $paymentSetting = $paymentSettingData ? PaymentSetting::hydrate([$paymentSettingData])->first() : null;
 
+            // Parametre regulation (cache indéfini)
+            $regulationData = Cache::rememberForever('admin', fn() => Regulation::first()?->toArray());
+            $regulation = $regulationData ? User::hydrate([$regulationData])->first() : null;
+
             // Premier utilisateur = admin principal (cache indéfini)
             $adminData = Cache::rememberForever('admin', fn() => User::first()?->toArray());
             $admin = $adminData ? User::hydrate([$adminData])->first() : null;
 
             // Passe les données à toutes les vues
-            $view->with(compact('identite', 'paymentSetting', 'admin'));
+            $view->with(compact('identite', 'paymentSetting','regulation','admin'));
         });
 
         // Specifiques a certaines pages (views)

@@ -1,16 +1,22 @@
-    .card-header {
+    /* .card-header {
         display: flex;
         justify-content: space-between;
         flex-wrap: nowrap;
-    }
+    } */
 
-    .card-header div:nth-child(1) span {
+    .card-header span {
         font-size: 20px;
         font-family: italic;
     }
 
-    .card-header div:nth-child(1)  span i {
+    .card-header span i {
         opacity: 0.6;
+    }
+
+    .card-header a {
+        float: right;
+        border: 1px solid #ccc;
+        padding: 4px 14px 4px 14px;
     }
 
 

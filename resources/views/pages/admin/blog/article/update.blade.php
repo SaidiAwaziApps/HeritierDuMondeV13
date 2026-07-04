@@ -5,15 +5,12 @@
     <div id="global_content">
         <div class="card">
             <div class="card-header">
-                <div class="card-title">
-                    <span class="card-title">
-                        <i class="fa fa-blog"></i> Apportez vos modifications
-                    </span>
-                </div>    
-                <!-- Menu deroulant -->
-                <div class="dropdown">
-                    @include('components.admin.blog.article.menu')
-                </div> 
+                <span class="card-title">
+                    <i class="fa fa-blog"></i> Apportez vos modifications
+                </span> 
+                <a href="{{ route('admin.article.list') }}" title="Tous les articles" class="btn btn-default btn-sm">
+                    <i class="fa fa-list"></i>
+                </a>     
             </div>
             <div class="card-body">
                 <form action="{{ route('admin.article.update_handler',['id' => $article->id]) }}" method="POST" enctype="multipart/form-data">

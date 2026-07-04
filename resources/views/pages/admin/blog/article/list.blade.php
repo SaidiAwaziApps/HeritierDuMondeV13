@@ -5,15 +5,12 @@
     <div id="global_content">
         <div class="card">
             <div class="card-header">
-                <div class="card-title">
-                    <span class="card-title" style="font-weight: bold;opacity: 0.5;">
-                        <i class="fa fa-blog" style="opacity: 0.4"></i> Tous les articles
-                    </span>
-                </div>    
-                <!-- Menu deroulant -->
-                <div class="dropdown">
-                    @include('components.admin.blog.article.menu')
-                </div> 
+                <span class="card-title" style="font-weight: bold;opacity: 0.5;">
+                    <i class="fa fa-blog" style="opacity: 0.4"></i> Tous les articles
+                </span>
+                <a href="{{ route('admin.article.register_page') }}" title="Nouveau article" class="btn btn-default btn-sm">
+                    <i class="fa fa-plus"></i>
+                </a>  
             </div>
             <div class="card-body">
                 <div class="table-responsive">

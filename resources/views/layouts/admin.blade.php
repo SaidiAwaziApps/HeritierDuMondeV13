@@ -10,12 +10,23 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <link href="{{ asset('dependance/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('dependance/dataTable/css/buttons.bootstrap5.css') }}">
-    <link rel="stylesheet" href="{{ asset('dependance/dataTable/css/dataTables.bootstrap5.css') }}">
+    <link rel="stylesheet" href="{{ asset('dependance/dataTable/dataTables.bootstrap5.css') }}">
     <link rel="stylesheet" href="{{ asset('dependance/bootstrap-icons-1.11.3/font/bootstrap-icons.css')}}">
     <link rel="stylesheet" href="{{ asset('dependance/font-awesome/font-awesome.min.css') }}">
 
-    <link rel="stylesheet" href="{{ asset('style\layouts\admin.css') }}">
+    <link rel="stylesheet" href="{{ asset('style/layouts/admin.css') }}">
+
+    <script src="{{ asset('dependance/jquery/jquery-3.7.1.min.js') }}"></script>
+
+    <script src="{{ asset('dependance/dataTable/dataTables.js') }}"></script>
+    <script src="{{ asset('dependance/dataTable/dataTables.bootstrap5.js') }}"></script>
+
+    <script src="{{ asset('dependance/font-awesome/font-awesome.js') }}"></script>
+    <script src="{{ asset('dependance/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
+
+    <script src="{{ asset('dependance/highcharts/highcharts.js') }}"></script>
+    <script src="{{ asset('dependance/axios/axios.min.js') }}"></script>
+    <script src="{{ asset('dependance/sweetalert2/swal.js') }}"></script>
 
     <!-- Styles dashboard -->
     @include('layouts.template.admin.dashboard.admin.head.styles')
@@ -64,14 +75,6 @@
     <!-- Ensemble de Styles && scripts destines offre  -->
     @include('layouts.template.admin.offre_emploie.head.styles') <!-- // Ensemble de script styles destines a partie head -->
     @include('layouts.template.admin.offre_emploie.head.scripts') <!-- // Ensemble de script styles destines a partie head -->
-
-
-    <script src="{{ asset('dependance/font-awesome/font-awesome.js') }}"></script>
-
-    <script src="{{ asset('dependance/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('dependance/highcharts/highcharts.js') }}"></script>
-    <script src="{{ asset('dependance/axios/axios.min.js') }}"></script>
-    <script src="{{ asset('dependance/sweetalert2/swal.js') }}"></script>
 
     <!-- Script dashboard -->
     @include('layouts.template.admin.dashboard.admin.head.scripts')
@@ -211,20 +214,34 @@
                             @endif>
                             <i class="fa fa-blog"></i> Identite
                         </a>
+                    </li>
+                    <li>    
                         <a href="{{ route('admin.questionnement.list') }}" id="questionnement_sub_menu_link"
                             @if(Route::is('admin.questionnement.*'))
                                 style="opacity: 0.9;background-color: #f0f8f8; color: cadetblue;"
                             @endif>
                             <i class="fas fa-question-circle"></i> Questionnement
                         </a>
-                        @if(auth()->id() === 1)
+                    </li>
+                    <!-- Admin principale -->
+                    @if(auth()->id() === 1)
+                    <li>   
                         <a href="{{ $paymentSetting ? route('admin.paymentSetting.update_page',['id'=>$paymentSetting->id]) : route('admin.paymentSetting.register_page') }}" id="payment_setting_sub_menu_link"
                             @if(Route::is('admin.paymentSetting.*'))
                                 style="opacity: 0.9;background-color: #f0f8f8; color: cadetblue;"
                             @endif>
                             <i class="fa fa-credit-card"></i> Payment
                         </a>
-                        @endif
+                    </li>
+                    @endif
+                    <!-- Moderation de commentaire -->
+                    <li>    
+                        <a href="{{ $regulation ? route('admin.regulation.update_page', ['id' => $regulation->id]) : route('admin.regulation.register_page') }}" id="questionnement_sub_menu_link"
+                            @if(Route::is('admin.regulation.*'))
+                                style="opacity: 0.9;background-color: #f0f8f8; color: cadetblue;"
+                            @endif>
+                            <i class="fas fa-envelope"></i> Commentaire
+                        </a>
                     </li>
                 </ul>
             </li>
