@@ -11,7 +11,7 @@
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-condensed table-striped">
+                    <table class="table table-condensed table-striped" id="donateurs_list_table">
                         <thead>
                             <tr>
                                 <th>
@@ -74,6 +74,10 @@
                 </div>
             </div>
         </div>
+
+        <!-- Scripts externes -->
+        <script src="{{ asset('script/pages/admin/donateur/list.js') }}"></script> 
+
     </div>
     @endsection
 

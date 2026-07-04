@@ -17,7 +17,7 @@
             </div>
             <div class="card-body">
                 <div class="table-responsvive">
-                    <table class="table table condensed">
+                    <table class="table table condensed" id="besoins_list_table">
                         <thead>
                             <tr>
                                 <th>
@@ -114,5 +114,9 @@
                 </div>
             </div>
         </div>
+
+        <!-- Scripts externes -->
+        <script src="{{ asset('script/pages/admin/besoin/list.js') }}"></script> 
+
     </div>
     @endsection

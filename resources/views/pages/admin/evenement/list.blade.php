@@ -1,15 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Evenement</title>
-    <style>
-        
-
-    </style>
-</head>
-<body>
 
     @extends('layouts.admin')
 
@@ -29,7 +17,7 @@
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table condensed table-striped">
+                    <table class="table table condensed table-striped" id="evenements_list_table">
                         <thead>
                             <tr>
                                 <th> # </th>
@@ -106,8 +94,10 @@
                 </div>
             </div>
         </div>
+
+        <!-- Scripts externes -->
+        <script src="{{ asset('script/pages/admin/evenement/list.js') }}"></script>
+
     </div>
     @endsection
     
-</body>
-</html>

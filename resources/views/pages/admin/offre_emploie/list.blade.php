@@ -17,7 +17,7 @@
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-condensed table-striped">
+                    <table class="table table-condensed table-striped" id="offre_emploies_list_table">
                         <thead>
                             <tr>
                                 <th>
@@ -110,12 +110,8 @@
             </div>
         </div>
         
-        <!-- Script externe -->
-        <script src="{{ asset('dependance/js/dataTable.min.js') }}"></script>
-        
-        <!-- Script interne -->
-        <script type="text/javascript">
-             document.querySelector('table').DataTable();
-        </script>
+        <!-- Scripts externes -->
+        <script src="{{ asset('script/pages/admin/offre_emploie/list.js') }}"></script>
+
     </div>    
     @endsection

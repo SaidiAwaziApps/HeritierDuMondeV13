@@ -55,7 +55,7 @@
                                    </h5>
                                 </div>
                                 <div class="table-responsive">
-                                    <table class="table table-condensed table-striped">
+                                    <table class="table table-condensed table-striped" id="dons_list_table">
                                         <thead>
                                            <tr>
                                                 <th>
@@ -126,5 +126,9 @@
                 <!-- Fin card --> 
             </div>
         </div>
+
+        <!-- Scripts externes -->
+        <script src="{{ asset('script/pages/admin/don/list.js') }}"></script> 
+
     </div>
     @endsection

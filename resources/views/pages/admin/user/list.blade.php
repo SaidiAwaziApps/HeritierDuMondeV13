@@ -129,17 +129,6 @@
          <!-- fin card-body -->
       </div>
       <!-- fin card -->
-      
-      <!-- Scripts internes -->
-      <script>
-         new DataTable('#example', {
-            layout: {
-               topStart: {
-                  buttons: ['copy', 'excel', 'pdf', 'colvis']
-               }
-            }    
-         });
-      </script>
    </div>      
    @endsection
 
