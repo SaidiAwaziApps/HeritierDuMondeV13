@@ -19,7 +19,7 @@
             <div class="card">
                <div class="card-body">  
                   <div class="table-responsive">
-                     <table class="table table-condensed table-striped" id="example">
+                     <table class="table table-condensed table-striped" id="users_list_table">
                         <thead>
                            <tr>
                               <th scope="col">#</th>
@@ -129,6 +129,10 @@
          <!-- fin card-body -->
       </div>
       <!-- fin card -->
+
+      <!-- Scripts externes -->
+      <script src="{{ asset('script/pages/admin/user/list.js') }}"></script> 
+
    </div>      
    @endsection
 
