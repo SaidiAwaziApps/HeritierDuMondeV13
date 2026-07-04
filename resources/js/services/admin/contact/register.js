@@ -169,7 +169,7 @@ class RegisterMessageService {
         this.refComponent.refTemplate.submitButton.disabled = true;
 
         //Appel a l'API
-        axios.post('/message/register', this.dataFormat()).then((response)=>{
+        axios.post('/admin/message/register', this.dataFormat()).then((response)=>{
             this.feedback(response,null);
             console.log(response);
         })

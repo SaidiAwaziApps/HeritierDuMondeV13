@@ -13,7 +13,7 @@ use App\Http\Controllers\Admin\DonateurController as AdminDonateurController;
 |--------------------------------------------------------------------------
 */
 
-Route::prefix('donateur')
+Route::prefix('admin/donateur')
     ->as('admin.donateur.')
     ->middleware([DonateurRessourceGlobal::class, TrackHistoryMiddleware::class])
     ->group(function () {

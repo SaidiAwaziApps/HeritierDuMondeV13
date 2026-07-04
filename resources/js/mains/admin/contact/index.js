@@ -10,8 +10,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import * as bootstrap from 'bootstrap';
 window.bootstrap = bootstrap;
 
-import Echo from 'laravel-echo';
-import Pusher from 'pusher-js';
 import axios from 'axios';
 
 import router from '../../../router/admin/contact';
@@ -36,18 +34,6 @@ if (token) {
     console.error('❌ CSRF token introuvable');
 }
 
-// ----------------------
-// Echo (Vite correct)
-// ----------------------
-window.Pusher = Pusher;
-
-window.Echo = new Echo({
-    broadcaster: 'pusher',
-    key: import.meta.env.VITE_PUSHER_APP_KEY,
-    cluster: import.meta.env.VITE_PUSHER_APP_CLUSTER,
-    forceTLS: true,
-    withCredentials: true
-});
 
 // ----------------------
 // Mount Vue

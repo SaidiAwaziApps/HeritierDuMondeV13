@@ -13,7 +13,7 @@ use App\Http\Controllers\Admin\PaymentSettingController;
 |--------------------------------------------------------------------------
 */
 
-Route::prefix('payment-setting')
+Route::prefix('admin/payment-setting')
     ->as('admin.paymentSetting.')
     ->middleware(IsAdmin::class)
     ->group(function() {

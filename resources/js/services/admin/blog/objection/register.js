@@ -160,7 +160,7 @@ class RegisterReplyService {
         this.refComponent.submitDisabled = true;
 
         // Appel a l'API
-        axios.post('/commentaire/'+this.refComponent.commentaire.id+'/add-objection',this.dataFormat()).then((response)=>{
+        axios.post('/admin/commentaire/'+this.refComponent.commentaire.id+'/add-objection',this.dataFormat()).then((response)=>{
             this.feedback(response,null);
             console.log(response);
         })

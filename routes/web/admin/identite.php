@@ -13,7 +13,7 @@ use App\Http\Controllers\Admin\IdentiteController;
 |--------------------------------------------------------------------------
 */
 
-Route::prefix('identite')
+Route::prefix('admin/identite')
     ->as('admin.identite.') 
     ->middleware(IsAdmin::class)
     ->group(function () {

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\UserController;
 
 Route::middleware([\App\Http\Middleware\IsAdmin::class,\App\Http\Middleware\TrackHistoryMiddleware::class])
-    ->prefix('user')
+    ->prefix('admin/user')
     ->as('admin.user.')
     ->group(function() {
 

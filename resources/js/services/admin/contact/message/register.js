@@ -172,7 +172,7 @@ class RegisterMessageService {
         this.refComponent.submitDisabled = true;
 
         // Appel a l'API
-        await axios.post('/message/save', this.dataFormat()).then((response) => {
+        await axios.post('/admin/message/save', this.dataFormat()).then((response) => {
             this.feedback(response,null);
             console.log(response);
         })

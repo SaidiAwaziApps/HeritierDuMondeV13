@@ -9,7 +9,7 @@ use App\Http\Controllers\Admin\CategorieController;
 |--------------------------------------------------------------------------
 */
 
-Route::prefix('categorie')
+Route::prefix('admin/categorie')
     ->as('categorie.')
     ->middleware([\App\Http\Middleware\IsAuthenticate::class])
     ->group(function() {

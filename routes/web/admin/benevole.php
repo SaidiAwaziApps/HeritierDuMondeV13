@@ -16,7 +16,7 @@ use App\Models\Sociaux;
 |--------------------------------------------------------------------------
 */
 
-Route::prefix('benevole')
+Route::prefix('admin/benevole')
     ->as('admin.benevole.')
     ->middleware([BenevoleRessourceGlobal::class, BenevoleRessourceGlobal::class])
     ->group(function() {

@@ -13,7 +13,7 @@ use App\Http\Controllers\Admin\DonController as AdminDonController;
 |--------------------------------------------------------------------------
 */
 
-Route::prefix('don')
+Route::prefix('admin/don')
     ->as('admin.don.') 
     ->middleware([DonRessourceGlobal::class, TrackHistoryMiddleware::class])
     ->group(function () {

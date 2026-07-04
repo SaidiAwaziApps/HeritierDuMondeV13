@@ -11,7 +11,7 @@ use \App\Http\Middleware\DonRessourceRecept;
 |--------------------------------------------------------------------------
 */
 
-Route::prefix('reception')
+Route::prefix('admin/reception')
     ->as('admin.reception.')
     ->middleware(DonRessourceRecept::class)
     ->group(function() {

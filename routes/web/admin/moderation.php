@@ -9,7 +9,7 @@ use App\Http\Controllers\Admin\ModerationController;
 |--------------------------------------------------------------------------
 */
 
-Route::prefix('moderation')
+Route::prefix('admin/moderation')
     ->as('moderation.')
     ->middleware(\App\Http\Middleware\IsAdmin::class)
     ->group(function() {

@@ -101,7 +101,7 @@
 
     <!-- Script externe -->
     <!-- <script src="{{ asset('script/blog/admin/article/details.js') }}"></script> -->
-    <script src="{{ asset('script/components/global/share/register.js') }}"></script>
+    <script src="{{ asset('script/components/admin/share/register.js') }}"></script>
 
     @vite('resources/js/mains/admin/blog/index.js')
 

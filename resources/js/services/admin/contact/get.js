@@ -6,7 +6,7 @@ class GetMessageService {
      * RECUPERE UNE INSTANCE DEPUIS LE BACKEND  
      * ****************************************/
     static async getOne(id) {
-        return await axios.get('/message/get-one/'+id);
+        return await axios.get('/admin/message/get-one/'+id);
     }
 
 
@@ -14,7 +14,7 @@ class GetMessageService {
      * RECUPERE PLUSIEURS INSTANCES DEPUIS LE BACKEND  
      * ****************************************/
     static async getAll() {
-        return await axios.get('/message/get-all');
+        return await axios.get('/admin/message/get-all');
     }
 
 

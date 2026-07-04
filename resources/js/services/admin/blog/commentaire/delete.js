@@ -44,7 +44,7 @@ class DeleteCommentService {
         //Attente de la reponse du serveur (active le loader)
         this.refComponent.loading.active=true;
         //Appel a l'API delete-one
-        axios.delete('/commentaire/delete-one/'+id).then((response) => {
+        axios.delete('/admin/commentaire/delete-one/'+id).then((response) => {
             this.feedback(response,null);
             console.log(response);
         })

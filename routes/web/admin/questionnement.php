@@ -9,7 +9,7 @@ use App\Http\Controllers\Admin\QuestionnementController;
 |--------------------------------------------------------------------------
 */
 
-Route::prefix('questionnement')
+Route::prefix('admin/questionnement')
     ->as('admin.questionnement.')
     ->middleware([\App\Http\Middleware\IsAdmin::class, \App\Http\Middleware\TrackHistoryMiddleware::class])
     ->group(function() {

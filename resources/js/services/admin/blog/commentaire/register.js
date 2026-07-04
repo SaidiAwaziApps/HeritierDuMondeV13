@@ -154,7 +154,7 @@ class RegisterCommentService {
         //Attente de la reponse du serveur
         this.refComponent.loading.active = true;
         //Appel a l'API
-        axios.post('/article/'+this.refComponent.article.id+'/add-comment',this.dataFormat()).then((response) => {
+        axios.post('/admin/article/'+this.refComponent.article.id+'/add-comment',this.dataFormat()).then((response) => {
             this.feedback(response,null);
             console.log(response);
         })

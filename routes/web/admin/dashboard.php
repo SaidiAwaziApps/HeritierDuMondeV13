@@ -14,13 +14,13 @@ use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 |--------------------------------------------------------------------------
 */
 
-Route::prefix('dashboard')
+Route::prefix('admin/')
     ->middleware([IsAdmin::class, TrackHistoryMiddleware::class])
     ->group(function () {
-        Route::get('/admin', [AdminDashboardController::class, 'admin'])
+        Route::get('dashboard/admin', [AdminDashboardController::class, 'admin'])
             ->middleware(TerminalGeolocateMiddleware::class)
             ->name('admin.dashboard.admin');
 
-        Route::get('/user', [AdminDashboardController::class, 'user'])
+        Route::get('dashboard/user', [AdminDashboardController::class, 'user'])
             ->name('admin.dashboard.user');
     });

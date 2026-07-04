@@ -16,7 +16,7 @@ use App\Http\Controllers\Admin\OffreEmploieController as AdminOffreEmploieContro
 |--------------------------------------------------------------------------
 */
 
-Route::prefix('offre-emploie')
+Route::prefix('admin/offre-emploie')
     ->as('admin.offre_emploie.')
     ->middleware(OffreEmploieRessourceGlobal::class)
     ->group(function() {

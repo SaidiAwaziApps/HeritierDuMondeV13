@@ -18,7 +18,7 @@ use App\Http\Controllers\Admin\BesoinController as AdminBesoinController;
 |--------------------------------------------------------------------------
 */
 
-Route::prefix('besoin')
+Route::prefix('admin/besoin')
     ->as('admin.besoin.')
     ->middleware(BesoinRessourceGlobal::class)
     ->group(function() {

@@ -54,7 +54,7 @@ function uploadHeaderImage(file){
             header_image_progress.style.display = 'block';
             // Calcul & affichage pourcentage
             const total = document.querySelector('input[id="header_image"]').files[0].size;
-            const pourcentage = Math.round((e.loaded*total)/100);
+            const pourcentage = Math.round((e.loaded * total) / 100);
             header_image_progressbar.style.width = ''+pourcentage+'%';
             header_image_progressbar.innerText = ''+pourcentage+'%';
             //Cache la bar de progression

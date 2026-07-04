@@ -13,7 +13,7 @@ use App\Http\Controllers\Admin\RegulationController;
 |--------------------------------------------------------------------------
 */
 
-Route::prefix('regulation')
+Route::prefix('admin/regulation')
     ->as('admin.regulation.')
     ->middleware(IsAdmin::class)
     ->group(function() {

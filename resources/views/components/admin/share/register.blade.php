@@ -15,7 +15,7 @@
 
 <div class="shares-component">
     <div class="shares-content">
-        <form method="POST" action="{{ route('share.save') }}" class="dropdown" id="share_form">
+        <form method="POST" action="{{ route('admin.share.save') }}" class="dropdown" id="share_form">
             @csrf
             <label>
                 <i class="fa fa-share"></i> Partager(<i class="share-length">{{ $model->shares ? $model->shares->count() : 0 }}</i>):

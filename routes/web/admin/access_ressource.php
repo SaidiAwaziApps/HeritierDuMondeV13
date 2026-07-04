@@ -14,7 +14,7 @@ use App\Http\Controllers\Admin\AccessRessourceController;
 */
 
 Route::middleware([\App\Http\Middleware\IsAdmin::class, \App\Http\Middleware\TrackHistoryMiddleware::class])
-->prefix('access-ressource')
+->prefix('admin/access-ressource')
 ->as('admin.access_ressource.')->group(function () {
 
     // Page d'enregistrement d'accès pour un utilisateur

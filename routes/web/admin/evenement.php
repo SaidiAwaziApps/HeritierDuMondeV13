@@ -16,7 +16,7 @@ use App\Http\Controllers\Admin\EvenementController as AdminEvenementController;
 |--------------------------------------------------------------------------
 */
 
-Route::prefix('evenement')
+Route::prefix('admin/evenement')
     ->as('admin.evenement.')
     ->middleware(EvenementRessourceGlobal::class)
     ->group(function () {

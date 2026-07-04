@@ -13,7 +13,7 @@ use App\Http\Controllers\Admin\ContactController as AdminContactController;
 |--------------------------------------------------------------------------
 */
 
-Route::prefix('contact')
+Route::prefix('admin/contact')
     ->as('admin.contact.')
     ->middleware([ContactAdminRessource::class, TrackHistoryMiddleware::class])
     ->group(function () {

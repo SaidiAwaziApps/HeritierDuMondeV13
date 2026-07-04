@@ -12,7 +12,7 @@ class UpdateMessageService {
         const auth_serial_code = this.refComponent.messages[this.refComponent.messages.length - 1].auth_serial_code;
 
         // Appel a l' API (modifie la methion readed (lecture) de l' ensemble de groupe de message destinee a un destinateur)
-        await axios.put('/message/set-auth-readed-group-messages/'+auth_serial_code, {
+        await axios.put('/admin/message/set-auth-readed-group-messages/'+auth_serial_code, {
             readed
         })
         .then((response) => {

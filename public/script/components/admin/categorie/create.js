@@ -120,7 +120,7 @@ function createNewCategorie(ctg_name, ctg_type, addCategorieDOMObject) {
     feedback(null, null, addCategorieDOMObject);
 
     /* ---- Envoie la requete http au serveur ---- */
-    axios.post('/categorie/register', { 
+    axios.post('/admin/categorie/register', { 
         _token: csrf_token,
         ctg_name: ctg_name,
         ctg_type: ctg_type, 

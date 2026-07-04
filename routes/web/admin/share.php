@@ -9,8 +9,8 @@ use App\Http\Controllers\Global\ShareController;
 |--------------------------------------------------------------------------
 */
 
-Route::prefix('share')
-    ->as('share.')
+Route::prefix('admin/share')
+    ->as('admin.share.')
     ->group(function() {
         Route::post('/save', [AdminShareController::class, 'save'])->name('save');
     });

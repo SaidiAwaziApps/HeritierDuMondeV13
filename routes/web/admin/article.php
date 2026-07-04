@@ -25,7 +25,7 @@ use App\Http\Controllers\Admin\ArticleController as AdminArticleController;
 */
 
 Route::middleware([BlogRessourceGlobal::class])
-    ->prefix('article')
+    ->prefix('admin/article')
     ->as('admin.article.')
     ->group(function () {
 

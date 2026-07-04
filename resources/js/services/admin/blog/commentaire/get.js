@@ -2,7 +2,7 @@ import axios from "axios";
 
 class GetCommentService {
     static getAll(article_id) {
-        return axios.get('/article/'+article_id+'/get-comments');
+        return axios.get('/admin/article/'+article_id+'/get-comments');
     }
 }
 

@@ -9,7 +9,7 @@ use App\Http\Controllers\HomeController;
 |--------------------------------------------------------------------------
 */
 
-Route::prefix('home')
+Route::prefix('admin/home')
     ->middleware(['isAuthenticate','trackHistoryMiddleware'])
     ->group(function () {
 

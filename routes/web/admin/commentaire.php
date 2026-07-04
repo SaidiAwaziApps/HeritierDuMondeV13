@@ -9,7 +9,7 @@ use App\Http\Controllers\Admin\CommentaireController as AdminCommentController;
 |--------------------------------------------------------------------------
 */
 
-Route::prefix('commentaire')
+Route::prefix('admin/commentaire')
     ->as('admin.commentaire.')
     ->group(function () {
 

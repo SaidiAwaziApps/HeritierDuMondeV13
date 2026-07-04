@@ -31,7 +31,7 @@ class ModerationService {
      * DEFINIT (ENREGISTRE) LA MODERATION A UN TYPE MODEL 
      * **********************************************************/
     define() {
-        return axios.post('/moderation/define',{
+        return axios.post('/admin/moderation/define',{
            moderateable_type: this?.refComponent?.type,
            moderateable_id: this?.refComponent?.moderateable.id,
            mention: this?.refComponent?.mention
@@ -42,7 +42,7 @@ class ModerationService {
      * MISE A JOUR (UPDATE) UNE INSTANCE MODERATION 
      * **********************************************************/
     update() {
-        return axios.put('/moderation/update/'+this?.refComponent?.moderateable?.moderation?.id,{
+        return axios.put('/admin/moderation/update/'+this?.refComponent?.moderateable?.moderation?.id,{
             mention: this?.refComponent?.mention         
         });
     }

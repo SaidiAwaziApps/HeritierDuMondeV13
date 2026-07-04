@@ -74,7 +74,7 @@ class RegisterReplyService {
         //Desactive le button submit
         this.refComponent.refTemplate.replySubmitButton.disabled=true;
         //Appel a l'API
-        axios.post('/objection/'+this.refComponent.objection.id+'/moderate',this.dataFormat()).then((response)=>{
+        axios.post('/admin/objection/'+this.refComponent.objection.id+'/moderate',this.dataFormat()).then((response)=>{
             this.feedback(response,null);
             console.log(response);
         })

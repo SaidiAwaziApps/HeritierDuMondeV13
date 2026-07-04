@@ -5,12 +5,12 @@ import AuthMessageListView from "../../../views/admin/contact/AuthMessageListVie
 const routes = [
     {
         name: 'AuthMessageGroupView',
-        path: '/contact/index',
+        path: '/admin/contact/index',
         component: AuthMessageGroupView,
     },
     {
         name: 'AuthMessageListView',
-        path: '/contact/list', // pas de :expediteur
+        path: '/admin/contact/list', // pas de :expediteur
         component: AuthMessageListView,
     }
 ];

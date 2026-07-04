@@ -45,7 +45,7 @@ class DeleteReplyService {
         this.refComponent.loading.active=true;
         this.refComponent.loading.task = 'delete';
         //Appel a l'API delete-one
-        axios.delete('/objection/delete-one/'+id).then((response) => {
+        axios.delete('/admin/objection/delete-one/'+id).then((response) => {
             this.feedback(response,null);
             console.log(response);
         })

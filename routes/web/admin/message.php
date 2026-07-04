@@ -12,7 +12,7 @@ use App\Http\Controllers\Admin\MessageController as AdminMessageController;
 |--------------------------------------------------------------------------
 */
 
-Route::prefix('message')
+Route::prefix('admin/message')
     ->as('admin.message.')
     ->middleware(ContactAdminRessource::class)
     ->group(function() {
@@ -23,7 +23,7 @@ Route::prefix('message')
         Route::post('/save', [AdminMessageController::class, 'save'])
             ->name('save');
 
-        Route::put('/set-auth-readed-group-messages/{auth_serial_code}', [MessageController::class, 'setAuthReadedGroupMessage'])
+        Route::put('/set-auth-readed-group-messages/{auth_serial_code}', [AdminMessageController::class, 'setAuthReadedGroupMessage'])
             ->name('setAuthReadedGroupMessage');
 
 });
