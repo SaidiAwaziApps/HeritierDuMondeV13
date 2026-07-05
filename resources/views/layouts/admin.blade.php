@@ -124,28 +124,35 @@
             <ul>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown">
-                        <img src="{{ $admin->photo ? Storage::url($admin->photo) : '' }}" class="rounded-circle" style="width: 40px;height: 40px;">
-                        <span> {{ $admin->nom }} </span>
+                        <img src="{{ $user->photo ? Storage::url($user->photo) : '' }}" class="rounded-circle" style="width: 40px;height: 40px;">
+                        <span> {{ $user->nom }} </span>
                     </a>
                     <ul class="dropdown-menu">
                         <li class="dropdown-item">
-                            <img src="{{ $admin->photo ? Storage::url($admin->photo) : '' }}" class="rounded-circle" style="width: 24px;height: 24px;">
+                            <img src="{{ $user->photo ? Storage::url($user->photo) : '' }}" class="rounded-circle" style="width: 24px;height: 24px;">
                             Options <i class="bi bi-chevron-down"></i>
                         </li>
+                        <!-- Admistrateur du site -->
+                        @if($user?->hasRole('admin'))
                         <li class="dropdown-divider"></li>
                         <li class="dropdown-item">
-                            <a href="#"><i class="bi bi-person-fill-gear" style="opacity: 0.5;"></i> My Profil</a>
+                            <div class="d-grid">
+                                <a href="#" class="btn btn-default btn-sm">
+                                    <i class="bi bi-person-fill-gear" style="opacity: 0.5;"></i> My Profil
+                                </a>
+                            </div>
                         </li>
-                        <li class="dropdown-divider"></li>
+                       @endif 
+                        <!-- <li class="dropdown-divider"></li>
                         <li class="dropdown-item">
                             <a href="#"><i class="bi bi-lock-fill" style="opacity: 0.5;"></i> Password</a>
-                        </li>
+                        </li> -->
                         <li class="dropdown-divider"></li>
                         <li class="dropdown-item">
                             <form method="POST" action="#">
                                 @csrf
                                 <div class="d-grid">
-                                    <button type="submit" class="btn btn-default btn-sm btn-block">
+                                    <button type="submit" class="btn btn-warning btn-sm btn-block">
                                         <i class="bi bi-box-arrow-right" style="opacity: 0.6;"></i> Logout
                                     </button>
                                 </div>
@@ -256,125 +263,72 @@
             @endif
 
             <li>
-                @if($user?->hasAccessToRessource('blog','register','allowed') || $user?->hasAccessToRessource('blog','update','allowed') || $user?->hasAccessToRessource('blog','delete','allowed'))
                 <a href="{{ route('admin.article.list') }}" id="blog_menu_link"
                     @if(Route::is('admin.article.*') || Route::is('admin.regulation.*'))
                        style="background-color: cadetblue; color: white;"
                     @endif>
                     <i class="fa fa-blog"></i> Blog
                 </a>
-                @else
-                <a href="#">
-                    <i class="fa fa-blog"></i> Blog
-                </a>
-                @endif
             </li>
-
             <li>
-                @if($user?->hasAccessToRessource('benevole','register','allowed') || $user?->hasAccessToRessource('benevole','update','allowed') || $user?->hasAccessToRessource('benevole','delete','allowed'))
                 <a href="{{ route('admin.benevole.list') }}" id="benevole_menu_link"
                     @if(Route::is('admin.benevole.*'))
                        style="background-color: cadetblue; color: white;"
                     @endif>
                     <i class="fa fa-user"></i> Benevole
                 </a>
-                @else
-                <a href="#">
-                    <i class="fa fa-user"></i> Benevole
-                </a>
-                @endif
             </li>
-
             <li>
-                @if($user?->hasAccessToRessource('besoin','register','allowed') || $user?->hasAccessToRessource('besoin','update','allowed') || $user?->hasAccessToRessource('besoin','delete','allowed'))
                 <a href="{{ route('admin.besoin.list') }}"
                     @if(Route::is('admin.besoin.*'))
                        style="background-color: cadetblue; color: white;"
                     @endif>
                     <i class="fa fa-blog"></i> Besoins
                 </a>
-                @else
-                <a href="#">
-                    <i class="fa fa-blog"></i> Besoins
-                </a>
-                @endif
             </li>
 
             <li>
-                @if($user?->hasAccessToRessource('contact','register','allowed') || $user?->hasAccessToRessource('contact','update','allowed') || $user?->hasAccessToRessource('contact','delete','allowed'))
                 <a href="{{ route('admin.contact.index') }}"
                     @if(Route::is('admin.contact.*'))
                        style="background-color: cadetblue; color: white;"
                     @endif>
                     <i class="fa fa-envelope"></i> Contact
                 </a>
-                @else
-                <a href="#">
-                    <i class="fa fa-envelope"></i> Contact
-                </a>
-                @endif
             </li>
 
             <li>
-                @if($user?->hasAccessToRessource('donateur','register','allowed') || $user?->hasAccessToRessource('donateur','update','allowed') || $user?->hasAccessToRessource('donateur','delete','allowed'))
                 <a href="{{ route('admin.donateur.list') }}" id="donateur_menu_link"
                     @if(Route::is('admin.donateur.*'))
                        style="background-color: cadetblue; color: white;"
                     @endif>
                     <i class="fa fa-support"></i> Donateurs
                 </a>
-                @else 
-                <a href="#">
-                    <i class="fa fa-support"></i> Donateurs
-                </a>
-                @endif
             </li>
 
             <li>
-                @if($user?->hasAccessToRessource('offre_emploie','register','allowed') || $user?->hasAccessToRessource('offre_emploie','update','allowed') || $user?->hasAccessToRessource('offre_emploie','delete','allowed'))
                 <a href="{{ route('admin.offre_emploie.list') }}"
                     @if(Route::is('admin.offre_emploie.*'))
                        style="background-color: cadetblue; color: white;"
                     @endif>
                     <i class="fa fa-tasks"></i> Offres Travails
                 </a>
-                @else
-                <a href="#">
-                    <i class="fa fa-tasks"></i> Offres Travails
-                </a>
-                @endif
             </li>
-
             <li>
-                @if($user?->hasAccessToRessource('don','register','allowed') || $user?->hasAccessToRessource('don','update','allowed') || $user?->hasAccessToRessource('don','delete','allowed'))
                 <a href="{{ route('admin.don.list') }}"
                     @if(Route::is('admin.don.*'))
                        style="background-color: cadetblue; color: white;"
                     @endif>
                     <i class="fa fa-support"></i> Dons
                 </a>
-                @else
-                <a href="#">
-                    <i class="fa fa-support"></i> Dons
-                </a>
-                @endif
             </li>
-
             <li>
-                @if($user?->hasAccessToRessource('evenement','register','allowed') || $user?->hasAccessToRessource('evenement','update','allowed') || $user?->hasAccessToRessource('evenement','delete','allowed'))
                 <a href="{{ route('admin.evenement.list') }}"
                     @if(Route::is('admin.evenement.*'))
                        style="background-color: cadetblue; color: white;"
                     @endif>
                     <i class="fa fa-calendar"></i> Evenement
                 </a>
-                @else
-                <a href="#">
-                    <i class="fa fa-calendar"></i> Evenement
-                </a>
-                @endif
             </li>
-
         </div>
     </div>
 </div>
