@@ -1,7 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
+use App\Http\Middleware\TrackHistoryMiddleware;
+use App\Http\Middleware\IsAuthenticate;
+
+use App\Http\Controllers\Admin\HomeController as AdminHomeController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -10,10 +14,10 @@ use App\Http\Controllers\HomeController;
 */
 
 Route::prefix('admin/home')
-    ->middleware(['isAuthenticate','trackHistoryMiddleware'])
+    ->middleware([IsAuthenticate::class, TrackHistoryMiddleware::class])
     ->group(function () {
 
-        Route::get('/admin', [HomeController::class, 'admin'])
-            ->name('home.admin');
+        Route::get('/admin', [AdminHomeController::class, 'admin'])
+            ->name('admin.home.admin');
 
 });

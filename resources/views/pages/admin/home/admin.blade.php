@@ -102,13 +102,13 @@
     <!-- Section contenu (images && menus) -->
     <section class="content">
         <div class="global-content">
+            <div class="home-title">
+                <h4>
+                    <i class="fa fa-home" style="opacity: 0.6;"></i> Accueil
+                </h4>
+            </div>
             <!-- Images du site -->
             <div class="img-site">
-                <div class="img-site-title">
-                    <h2>
-                        <i class="fa fa-globe" style="opacity: 0.6;"></i> Images du sites
-                    </h2>
-                </div>
                 <div id="carousel_imgs" class="carousel slide" data-bs-ride="carousel">
                     <!-- Les pointillés -->
                     <div class="carousel-indicators">
@@ -124,7 +124,7 @@
                         @foreach($identite->images as $index => $image)
                         <div class="carousel-item @if($index == 1) active  @endif">
                             @if(strtolower($image['img_source']) == 'upload')
-                                <img src="{{ Storage::url($image['path']) }}" class="d-block w-100" alt="Image">
+                                <img src="{{ Storage::url($image['path']) }}" class="cover" style="width: 100%; height: 100%;" alt="Image">
                             @else
                                 {!! $image['iframe'] !!}
                             @endif    
@@ -142,144 +142,224 @@
                     </span>    
                 </div>
                 <div class="options-content">
-                    <a class="content-item" href="{{ route('admin.dashboard.admin') }}" title="Cliquer pour acceder au menu">
-                        <div class="card">
-                            <div class="card-body">
-                                <span>
-                                    <i class="fa fa-signal">
+                    
+                    <!-- Menu dashboard && utilisateurs (users) -->
+                    <div class="dashboard-users-menu">
+                        <div class="dashboard-users-menu-content"> 
+                            <a href="{{ route('admin.dashboard.admin') }}" title="Cliquer pour acceder au menu">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <span>
+                                            <i class="fa fa-signal">
 
-                                    </i><br>
-                                    Dashboard
-                                </span>
-                            </div>
-                        </div>
-                    </a>  
-                    <a class="content-item" href="{{ route('admin.identite.update_page',['id' => 1]) }}" title="Cliquer pour acceder au menu">
-                        <div class="card">
-                            <div class="card-body">
-                                <span>
-                                    <i class="fa fa-globe">
+                                            </i><br>
+                                            Dashboard
+                                        </span>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="{{ route('admin.user.list') }}" title="Cliquer pour acceder au menu">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <span>
+                                            <i class="fa fa-users">
 
-                                    </i><br>
-                                    Identite
-                                </span>
-                            </div>
-                        </div>
-                    </a>  
-                    <a class="content-item" href="{{ route('admin.user.list') }}" title="Cliquer pour acceder au menu">
-                        <div class="card">
-                            <div class="card-body">
-                                <span>
-                                    <i class="fa fa-users">
+                                            </i><br>
+                                            Utilisateurs
+                                        </span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>              
+                    </div>
+                    <!-- Menu Parametres -->
+                    <div class="parameters-menu">
+                        <h6>
+                            <i class="fa fa-cog"> </i> Parametres
+                        </h6>
+                        <div class="parameters-menu-content">
+                            <!-- Identite -->
+                            <a href="{{ route('admin.identite.update_page', ['id' => $identite->id]) }}" title="Cliquer pour acceder au menu">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <span>
+                                            <i class="fa fa-globe">
 
-                                    </i><br>
-                                    Utilisateurs
-                                </span>
-                            </div>
-                        </div>
-                    </a>  
-                    <a class="content-item" href="{{ route('admin.article.list') }}" title="Cliquer pour acceder au menu">
-                        <div class="card">
-                            <div class="card-body">
-                                <span>
-                                    <i class="fa fa-blog">
+                                            </i><br>
+                                            Identite
+                                        </span>
+                                    </div>
+                                </div>
+                            </a>  
+                            <!-- Questionnement -->
+                            <a href="{{ route('admin.questionnement.list') }}" title="Cliquer pour acceder au menu">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <span>
+                                            <i class="fas fa-question-circle">
 
-                                    </i><br>
-                                    Blog
-                                </span>
-                            </div>
-                        </div>
-                    </a> 
-                    <a class="content-item" href="{{ route('admin.benevole.list') }}" title="Cliquer pour acceder au menu">
-                        <div class="card">
-                            <div class="card-body">
-                                <span>
-                                    <i class="fa fa-users">
+                                            </i><br>
+                                            Questionnement
+                                        </span>
+                                    </div>
+                                </div>
+                            </a>  
+                            <!-- Payment --> 
+                            <a href="{{ $paymentSetting ? route('admin.paymentSetting.update_page',['id' => $paymentSetting->id]) : route('admin.paymentSetting.register_page') }}" title="Cliquer pour acceder au menu">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <span>
+                                            <i class="fa fa-credit-card">
 
-                                    </i><br>
-                                    Benevoles
-                                </span>
-                            </div>
-                        </div>
-                    </a> 
-                    <a class="content-item" href="{{ route('admin.besoin.list') }}" title="Cliquer pour acceder au menu">
-                        <div class="card">
-                            <div class="card-body">
-                                <span>
-                                    <i class="fa fa-blog">
+                                            </i><br>
+                                            Payment
+                                        </span>
+                                    </div>
+                                </div>
+                            </a>  
+                            <!-- Commentaire (Regulation) --> 
+                            <a href="{{ $regulation ? route('admin.regulation.update_page', ['id' => $regulation->id]) : route('admin.regulation.register_page') }}" title="Cliquer pour acceder au menu">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <span>
+                                            <i class="fa fa-envelope">
 
-                                    </i><br>
-                                    Besoins
-                                </span>
-                            </div>
+                                            </i><br>
+                                            Commentaire
+                                        </span>
+                                    </div>
+                                </div>
+                            </a>  
                         </div>
-                    </a>  
-                    <a class="content-item" href="{{ route('admin.contact.index') }}" title="Cliquer pour acceder au menu">
-                        <div class="card">
-                            <div class="card-body">
-                                <span>
-                                    <i class="fa fa-envelope">
+                    </div> 
+                    <!-- Autres menu -->
+                    <div class="benevole-donation-menu">
+                        <h6>
+                            <i class="fa fa-plus"></i> Donation & Benevole
+                        </h6>
+                        <div class="benevole-donation-content">
+                            <!-- Benevole --> 
+                            <a href="{{ route('admin.benevole.list') }}" title="Cliquer pour acceder au menu">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <span>
+                                            <i class="fa fa-users">
 
-                                    </i><br>
-                                    Contact
-                                </span>
-                            </div>
-                        </div>
-                    </a> 
-                    <a class="content-item" href="{{ route('admin.donateur.list') }}" title="Cliquer pour acceder au menu">
-                        <div class="card">
-                            <div class="card-body">
-                                <span>
-                                    <i class="fa fa-support">
+                                            </i><br>
+                                            Benevoles
+                                        </span>
+                                    </div>
+                                </div>
+                            </a>
+                            <!-- Besoin -->
+                            <a href="{{ route('admin.besoin.list') }}" title="Cliquer pour acceder au menu">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <span>
+                                            <i class="fa fa-blog">
 
-                                    </i><br>
-                                    Donateurs
-                                </span>
-                            </div>
-                        </div>
-                    </a> 
-                    <a class="content-item" href="{{ route('admin.offre_emploie.list') }}" title="Cliquer pour acceder au menu">
-                        <div class="card">
-                            <div class="card-body">
-                                <span>
-                                    <i class="fa fa-tasks">
+                                            </i><br>
+                                            Besoins
+                                        </span>
+                                    </div>
+                                </div>
+                            </a>
+                            <!-- Donateurs -->
+                            <a href="{{ route('admin.donateur.list') }}" title="Cliquer pour acceder au menu">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <span>
+                                            <i class="fa fa-support">
 
-                                    </i><br>
-                                    Offres emploies
-                                </span>
-                            </div>
-                        </div>
-                    </a> 
-                    <a class="content-item" href="{{ route('admin.don.list') }}" title="Cliquer pour acceder au menu">
-                        <div class="card">
-                            <div class="card-body">
-                                <span>
-                                    <i class="fa fa-support">
+                                            </i><br>
+                                            Donateurs
+                                        </span>
+                                    </div>
+                                </div>
+                            </a>   
+                            <!-- Dons -->
+                            <a  href="{{ route('admin.don.list') }}" title="Cliquer pour acceder au menu">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <span>
+                                            <i class="fa fa-support">
 
-                                    </i><br>
-                                    Dons
-                                </span>
-                            </div>
+                                            </i><br>
+                                            Dons
+                                        </span>
+                                   </div>
+                                </div>
+                            </a>   
                         </div>
-                    </a>    
-                    <a class="content-item" href="{{ route('admin.evenement.list') }}" title="Cliquer pour acceder au menu">
-                        <div class="card">
-                            <div class="card-body">
-                                <span>
-                                    <i class="fa fa-calendar">
+                    </div> 
+                    <!-- Others menu -->
+                    <div class="others-menu">
+                        <h6>
+                            <i class="fa fa-plus"></i> Autres
+                        </h6>
+                        <div class="others-menu-content">
+                            <!-- Blog -->
+                            <a  href="{{ route('admin.article.list') }}" title="Cliquer pour acceder au menu">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <span>
+                                            <i class="fa fa-blog">
 
-                                    </i><br>
-                                    Evenements
-                                </span>
-                            </div>
+                                            </i><br>
+                                            Blog
+                                        </span>
+                                    </div>
+                                </div>
+                            </a>
+                            <!-- Contact -->
+                            <a href="{{ route('admin.contact.index') }}" title="Cliquer pour acceder au menu">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <span>
+                                            <i class="fa fa-envelope">
+
+                                            </i><br>
+                                            Contact
+                                        </span>
+                                    </div>
+                                </div>
+                            </a>  
+                            <!-- Evenement -->
+                            <a href="{{ route('admin.evenement.list') }}" title="Cliquer pour acceder au menu">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <span>
+                                            <i class="fa fa-calendar">
+
+                                            </i><br>
+                                            Evenements
+                                        </span>
+                                    </div>
+                                </div>
+                            </a> 
+                            <!-- Offre Emploies --> 
+                            <a class="content-item" href="{{ route('admin.offre_emploie.list') }}" title="Cliquer pour acceder au menu">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <span>
+                                            <i class="fa fa-tasks">
+
+                                            </i><br>
+                                            Offres emploies
+                                        </span>
+                                    </div>
+                                </div>
+                            </a> 
                         </div>
-                    </a> 
+                    </div> 
+                    
                 </div>
+                <!-- Fin options-content -->
             </div>
         </div>
     </section>
 
     <!-- Script externe -->
-    <script src="{{ asset('script/layout/admin.js') }}"> </script>
+    <!-- <script src="{{ asset('script/layout/admin.js') }}"> </script> -->
 </body>
 </html>

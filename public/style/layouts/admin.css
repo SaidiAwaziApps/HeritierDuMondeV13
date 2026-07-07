@@ -3,7 +3,7 @@ body {
     margin: 0px;
 }
 
-div#navigation {
+#navigation {
     padding: 10px 10px 10px 10px;
     height: 60px;
     width: 100%;
@@ -16,7 +16,7 @@ div#navigation {
     /* box-shadow: 0px 0px 0px 0px #f8f8ff; */
 } 
 
-div#navigation #navbar {
+#navigation #navbar {
     display: flex;
     justify-content: space-between;
     flex-wrap: nowrap;
@@ -26,22 +26,26 @@ div#navigation #navbar {
 }
 
 @media all and (max-width: 700px) { 
-    div#navigation #navbar{
+    #navigation #navbar {
         padding-left: 6px;
     }
 }
 
-div#navbar #navbar_logo_collapse_button {
+
+/* **********************************************************
+ * COLLAPSED MENU (Button)
+ * **********************************************************/
+#navbar #navbar_logo_collapse_button {
     display: flex;
     justify-content: space-between;
     flex-wrap: nowrap;        
 }
 
-div#navbar #navbar_logo_collapse_button > div {
+#navbar #navbar_logo_collapse_button > div {
     margin-left: 4px;
 }
 
-div#navbar_logo_collapse_button #navbar_logo {
+#navbar_logo_collapse_button #navbar_logo {
     display: flex;
     justify-content: space-between;
     height: 40px; 
@@ -49,31 +53,31 @@ div#navbar_logo_collapse_button #navbar_logo {
     border-radius: 14px;    
 }
 
-div#navbar_logo_collapse_button #navbar_logo img {
+#navbar_logo_collapse_button #navbar_logo img {
     width: auto;
 }
 
-div#navbar_logo_collapse_button #navbar_text {
+#navbar_logo_collapse_button #navbar_text {
     line-height: 40px;
 }
 
-div#navbar_logo_collapse_button #navbar_text span {
+#navbar_logo_collapse_button #navbar_text span {
     font-size: 16px;
     font-weight: bold;
     font-family: italic;
     color: white;
 }
 
-div#navbar_logo_collapse_button #navbar_logo img {
+#navbar_logo_collapse_button #navbar_logo img {
     border-radius: 5px;
 }
 
 
-div#navbar_logo_collapse_button #navbar_collapse {
+#navbar_logo_collapse_button #navbar_collapse {
     display: none;
 }
 
-div#navbar_logo_collapse_button #navbar_collapse button  {
+#navbar_logo_collapse_button #navbar_collapse button  {
     color: white;
     font-size: 22px;
     font-weight: bold;
@@ -81,104 +85,121 @@ div#navbar_logo_collapse_button #navbar_collapse button  {
 }
 
 
-div#navbar #navbar_social_menu {
+/* **********************************************************
+ * MENU DU MILIEU (Icones reseaux sociaux)
+ * **********************************************************/
+#navbar #navbar_social_menu {
     margin-left: -40px;
 }
 
 @media all and (max-width: 700px) {
-    div#navbar_logo_collapse_button #navbar_logo,
-    div#navbar_logo_collapse_button #navbar_text {
+    #navbar_logo_collapse_button #navbar_logo,
+    #navbar_logo_collapse_button #navbar_text {
         display: none;
     }
 
-    div#navbar_logo_collapse_button #navbar_collapse {
+    #navbar_logo_collapse_button #navbar_collapse {
         display: block;
     }   
 }
 
-
-
-div#navbar #navbar_social_menu ul li {
+#navbar #navbar_social_menu ul li {
    float: left;
    margin-left: 20px; 
    list-style-type: none;
    line-height: 40px;
 }
 
-div#navbar_social_menu ul li a:hover {
+#navbar_social_menu ul li a:hover {
    opacity: 0.4;    
 }
 
 
-
-div#navbar_user_menu ul > li {
+/* **********************************************************
+ * MENU UTILISATEURS (My profil, Logout)
+ * **********************************************************/
+#navbar_user_menu ul > li {
     /* padding: 4px; */
     line-height: 34px;
     list-style-type: none;
 }
 
-div#navbar_user_menu ul > li a {
+#navbar_user_menu ul > li a {
     text-decoration: none;
-    color: white;
-}
-
-div#navbar_user_menu ul:nth-child(1) > li:nth-child(1) a span {
-    font-size: 17px;
+    font-size: 16px;
+    font-weight: bold;
     font-family: italic;
+    color: white;
 }
 
 /* div#navbar_user_menu ul  li > ul {
     margin-right: 120px;
 } */
 
-div#navbar_user_menu ul  li > ul  li:nth-child(1) {
+/* #navbar_user_menu ul > li  ul li a {
     font-weight: bold; 
-}
+} */
 
-div#navbar_user_menu ul  li > ul  li:nth-child(2n+3) {
+/* #navbar_user_menu ul  li > ul  li:nth-child(2n+3) {
     margin-left: 6px;
     margin-right: 6px;
     font-weight: normal;
+} */ 
+
+#navbar_user_menu ul > li > ul li {
+    font-weight: bold;
+    font-family: italic;  
 }
 
-div#navbar_user_menu ul > li > ul li a {
+#navbar_user_menu ul > li > ul li:nth-child(1) {
+    opacity: 0.6;  
+}
+
+#navbar_user_menu ul > li > ul li a {
    font-size: 14px;
    font-family: italic;
    color: black;  
    cursor: pointer;
+   opacity: 0.8;
 }
 
-div#navbar_user_menu ul > li > ul li:nth-child(1),
-div#navbar_user_menu ul > li > ul li:nth-child(7) {
+
+#navbar_user_menu ul > li > ul li {
     text-align: center;
     padding: 1px;
 }
 
-div#navbar_user_menu ul > li > ul li:nth-child(7) {
+#navbar_user_menu ul > li > ul li {
     padding-left: 6px;
     padding-right: 18px;
 }
 
-div#navbar_user_menu ul > li > ul li:nth-child(7) form .d-grid button {
+#navbar_user_menu ul > li > ul li .d-grid a,
+#navbar_user_menu ul > li > ul li form .d-grid button {
     border: 1px solid #ccc;
     font-family: italic;
-    font-size: 18px;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: italic;
+    opacity: 0.6;
 }
 
-div#navbar_user_menu ul > li > ul li:nth-child(7) form .d-grid button i {
+#navbar_user_menu ul > li > ul li .d-grid a i,
+#navbar_user_menu ul > li > ul li form .d-grid button i {
     opacity: 0.6;
 }
 
 @media all and (max-width: 700px) {
-    div#navbar_user_menu > ul:nth-child(1) > li:nth-child(1) > a:nth-child(1) span {
+    #navbar_user_menu > ul:nth-child(1) > li:nth-child(1) > a:nth-child(1) span {
         display: none;
     }
 }
 
 
-
-/********** Sidebar ***********/
-div#sidebar {
+/* ***********************************************************************
+ * MENU LATERALE (GAUCHE)
+ * ************************************************************************/
+#sidebar {
     position: relative;
     top: 2px;
     left: 0px;
@@ -199,7 +220,7 @@ div#sidebar {
 } */
 
 @media all and (max-width: 700px) {
-    div#sidebar {
+    #sidebar {
         position: fixed;
         top: 2px;
         left: 0px;
@@ -213,31 +234,31 @@ div#sidebar {
 }
 
 
-div#sidebar_logo_dismiss {
+#sidebar_logo_dismiss {
     display: none;
 }
 
-div#sidebar_logo_title {
+#sidebar_logo_title {
     text-align: center;
 }
 
-div#sidebar_logo_title img {
+#sidebar_logo_title img {
     width: 60px;
     height: 60px;
 }
 
-div#sidebar_logo_title span {
+#sidebar_logo_title span {
     font-size: 20px;
     font-family: italic;
 }
 
-div#sidebar_dismiss {
+#sidebar_dismiss {
     padding: 0px 6px 0px 24px;
     margin-bottom: 0px;
 }
 
 @media all and (max-width: 700px) {
-    div#sidebar_logo_dismiss {
+    #sidebar_logo_dismiss {
         display: flex;
         justify-content: space-between;
         flex-wrap: nowrap;
@@ -245,26 +266,25 @@ div#sidebar_dismiss {
     }
 }
 
-div#sidebar_dismiss button {
+#sidebar_dismiss button {
     float: right;
     margin-right: 2px;
 }
 
-div#sidebar_dismiss button span {
+#sidebar_dismiss button span {
     font-size: 20px;
     font-weight: bold;
     font-family: italic;
 }
 
 
-
-div#sidebar_admin {
+#sidebar_admin {
     margin-top: 0px;
     padding-top: 0px;
 }
 
 @media all and (max-width: 700px) {
-    div#sidebar_admin {
+    #sidebar_admin {
         margin-top: 6px;
         padding-top: 10px;
         padding-left: 24px;
@@ -273,36 +293,36 @@ div#sidebar_admin {
     }
 }
 
-div#sidebar_admin > div div#profil_img,
-div#sidebar_admin > div div#profil_nom,
-div#sidebar_admin > div div#profil_qualification {
+#sidebar_admin > div #profil_img,
+#sidebar_admin > div #profil_nom,
+#sidebar_admin > div #profil_qualification {
     text-align: center;
 }
 
-div#sidebar_admin > div div#profil_img img {
+#sidebar_admin > div #profil_img img {
     width: 111px;
     height: 111px;
 }
 
 @media all and (max-width: 700px) {
-    div#sidebar_admin > div div#profil_img img {
+    #sidebar_admin > div #profil_img img {
         width: 120px;
         height: 120px;
     }
 }
 
-div#profil_nom span {
+#profil_nom span {
     font-size: 20px;
     font-weight: bold;
     font-family: italic;
 }
 
-div#profil_qualification {
+#profil_qualification {
     padding-top: 2px;
     border-top: 1px solid #f8f8ff;
 }
 
-div#profil_qualification span {
+#profil_qualification span {
    display: block;
    padding: 6px;
    text-align: center;
@@ -315,13 +335,13 @@ div#profil_qualification span {
 }
 
 @media all and (max-width: 700px) {
-    div#profil_qualification {
+    #profil_qualification {
         margin-top: 6px;
     }  
 }
 
 
-div#sidebar_menu {
+#sidebar_menu {
     margin-top: 16px;
     padding-left: 24px;
     padding-right: 24px;
@@ -329,19 +349,19 @@ div#sidebar_menu {
 
 
 @media all and (max-width: 700px) {
-    div#sidebar_menu {
+    #sidebar_menu {
         margin-top: 16px;
         padding-left: 44px;
         padding-right: 44px;
     }  
 } 
 
-div#sidebar_menu li {
+#sidebar_menu li {
     display: block;
     margin-top: 6px;
 }
 
-div#sidebar_menu li a {
+#sidebar_menu li a {
     display: block;
     text-decoration: none;
     font-size: 16px;
@@ -355,35 +375,35 @@ div#sidebar_menu li a {
 
 
 @media all and (max-width: 700px) {
-    div#sidebar_menu li a {
+    #sidebar_menu li a {
         padding: 10px 10px 6px 20px;
     }
 }
 
-div#sidebar_menu li a:hover {
+#sidebar_menu li a:hover {
     background-color: cadetblue;
     color: white;
     border-radius: 2px;
 }
 
-div#sidebar_menu li a i {
+#sidebar_menu li a i {
     opacity: 0.5;
 }
 
-div#sidebar_menu li a span {
+#sidebar_menu li a span {
     font-size: 20px;
     font-weight: bold;
     font-family: italic;
     color: black;
 }
 
-ul#parameter_sous_menu {
+
+#parameter_sous_menu {
     display: none;
 }
 
 
-
-div#content_wrapper {
+#content_wrapper {
     position: absolute;
     left: 26%;
     width: 73%;
@@ -391,7 +411,7 @@ div#content_wrapper {
 }
 
 @media all and (max-width: 700px) {
-    div#content_wrapper {
+    #content_wrapper {
         position: relative;
         left: 0px;
         padding: 4px 14px 10px 14px;

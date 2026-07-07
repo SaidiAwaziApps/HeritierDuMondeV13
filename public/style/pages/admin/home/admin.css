@@ -1,0 +1,417 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+
+
+/* **********************************************************
+ * BAR DE NAVIGATION
+ * **********************************************************/
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    align-items: center;
+    background-color: #1e293b;
+    color: white;
+    padding: 2px 14px;
+}
+
+
+/* **********************************************************
+ * LOGO DU SITE (.NAVBAR .LOGO)
+ * **********************************************************/
+.navbar .logo {
+    display: flex;
+    align-items: center;
+}
+
+.navbar .logo img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.navbar .logo span {
+    font-size: 18px;
+    font-weight: bold;
+    font-family: italic;
+}
+
+@media all and (max-width: 500px) {
+    .navbar .logo span {
+        display: none;
+    } 
+}
+
+
+
+/* **************************************************************
+ * MENUS RESEAUX SOCIAUX (iCOMES
+ * ***************************************************************/
+.navbar .social-icons ul li {
+    float: left;
+    margin: 0 10px;
+    list-style-type: none;
+}
+
+.navbar .social-icons i {
+    color: white;
+    opacity: 0.8;
+    transition: color 0.3s;
+}
+
+.navbar .social-icons i:hover {
+    opacity: 0.4;
+}
+
+/* **********************************************************
+ * MENU UTILISATEURS (My profil, Logout)
+ * **********************************************************/
+.navbar .user-infos {
+    padding-top: 14px;
+    margin-right: 10px;
+}
+
+.navbar .user-infos ul > li {
+    /* padding: 4px; */
+    line-height: 34px;
+    list-style-type: none;
+}
+
+.navbar .user-infos ul > li a {
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: italic;
+    color: white;
+}
+
+/* div#navbar_user_menu ul  li > ul {
+    margin-right: 120px;
+} */
+
+/* #navbar_user_menu ul > li  ul li a {
+    font-weight: bold; 
+} */
+
+/* #navbar_user_menu ul  li > ul  li:nth-child(2n+3) {
+    margin-left: 6px;
+    margin-right: 6px;
+    font-weight: normal;
+} */ 
+
+.navbar .user-infos ul > li > ul li {
+    font-weight: bold;
+    font-family: italic;
+}
+
+.navbar .user-infos ul > li > ul li:nth-child(1) {
+    opacity: 0.6;  
+}
+
+.navbar .user-infos ul > li > ul li a {
+   font-size: 14px;
+   font-family: italic;
+   color: black;  
+   cursor: pointer;
+   opacity: 0.8;
+}
+
+.navbar .user-infos ul > li > ul li {
+    text-align: center;
+    padding: 1px;
+}
+
+.navbar .user-infos ul > li > ul li {
+    padding-left: 6px;
+    padding-right: 18px;
+}
+
+.navbar .user-infos ul > li > ul li .d-grid a,
+.navbar .user-infos ul > li > ul li form .d-grid button {
+    border: 1px solid #ccc;
+    font-family: italic;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: italic;
+    opacity: 0.6;
+}
+
+.navbar .user-infos ul > li > ul li .d-grid a i,
+.navbar .user-infos ul > li > ul li form .d-grid button i {
+    opacity: 0.6;
+}
+
+@media all and (max-width: 700px) {
+    .navbar .user-infos > ul:nth-child(1) > li:nth-child(1) > a:nth-child(1) span {
+        display: none;
+    }
+}
+
+
+/* **********************************************************
+ * CONTENU (IMAGES && MENUS(OPTIONS))
+ * **********************************************************/
+section.content {
+    margin-top: 10px;
+    padding-bottom: 40px;
+}
+
+.global-content {
+    width: 80%;
+    margin: 0 auto;
+}
+
+@media all and (max-width: 500px) {
+    .global-content {
+        width: 100%;
+        padding: 20px;
+    }
+}
+
+.content .home-title {
+    width: 100%;
+}
+
+.content .home-title {
+    padding-bottom: 1px;
+    margin-bottom: 6px;
+    border-bottom: 1px solid #ccc;
+}
+
+.home-title h4 {
+    text-align: center;
+    /* font-size: 20px; */
+    font-weight: bold;
+    font-family: italic;
+    padding: 6px;
+    border-radius: 4px;
+    background-color: #f8f8ff;
+}
+
+
+
+/* *****************************************************************
+ * B. IMAGES DU SITE (Platform)
+ * ******************************************************************/
+.content .img-site {
+    margin: 0px;
+    padding: 0px;
+}
+
+.carousel-item {
+    height: 320px;
+}
+
+.carousel-item img {
+    border-radius: 4px;
+}
+
+
+/* ******************************************************************
+ * B. OPTIONS || MENUS (Fonctionnalites de la platforme)
+ * ******************************************************************/
+.options {
+    margin-top: 10px;
+}
+
+.options-text {
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.options-text i {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.options-text::before,
+.options-text::after {
+    content: "";
+    flex: 1;
+    border-top: 2px solid #ccc;
+    margin: 0 2px;        
+}
+
+.options-text span {
+    font-size: 20px;
+    font-weight: bold;
+    font-family: italic;
+    opacity: 0.7;
+}
+
+
+
+.options-content {
+    margin-top: 14px;
+}
+
+.options-content > div h6 {
+    font-size: 18px;
+    font-weight: bold;
+    font-family: italic;
+    opacity: 0.3;
+}
+
+.options-content > div h6 i {
+    opacity: 0.2;
+}
+
+.options-content > div > div a {
+    text-decoration: none;
+}
+
+.options-content > div > div a .card .card-body {
+    text-align: center;
+}
+
+.options-content > div > div a .card .card-body span {
+    font-size: 17px;
+    font-weight: bold;
+    font-family: italic;
+}
+
+.options-content > div > div a .card .card-body span i {
+    opacity: 0.6;
+}
+
+
+
+/* *************************************************
+ * 1. OPTION DASHBOARD && UTILISATEURS (USERS)
+ * *************************************************/
+.options-content .dashboard-users-menu {
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+}
+
+@media all and (max-width: 500px) {
+    .options-content .dashboard-users-menu {
+       display: block;
+    } 
+}
+
+.dashboard-users-menu-content  {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    width: 50%;
+}
+
+@media all and (max-width: 500px) {
+    .dashboard-users-menu-content  {
+        flex-direction: column;
+        width: 100%;      
+    }
+}
+
+.dashboard-users-menu-content a {
+    width: 49.6%;
+}
+
+@media all and (max-width: 500px) {
+    .dashboard-users-menu-content a {
+        width: 100%;
+        margin-bottom: 4px;
+    }   
+}
+
+
+/* *************************************************
+ * 2. OPTION PARAMETRE
+ * *************************************************/
+.options-content .parameters-menu {
+    margin-top: 10px;
+}
+
+.parameters-menu .parameters-menu-content {
+    display: flex; 
+    justify-content: space-between;
+    flex-wrap: nowrap;
+}
+
+@media all and (max-width: 500px) {
+    .parameters-menu .parameters-menu-content {
+        flex-direction: column;
+    } 
+}
+
+.parameters-menu .parameters-menu-content a {
+    width: 24.70%;
+}
+
+@media all and (max-width: 500px) {
+    .parameters-menu .parameters-menu-content a {
+        width: 100%;
+        margin: 0px 0px 4px 0px;
+    }  
+}
+
+
+/* *************************************************
+ * 3. OPTION BENEVOLE && DONATION
+ * *************************************************/
+.options-content .benevole-donation-menu {
+    margin-top: 6px;
+}
+
+.benevole-donation-menu .benevole-donation-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+}
+
+@media all and (max-width: 500px) {
+    .benevole-donation-menu .benevole-donation-content {
+        flex-direction: column;
+    }
+}
+
+.benevole-donation-content a {
+    width: 24.7%;
+}
+
+@media all and (max-width: 500px) {
+    .benevole-donation-content a {
+        width: 100%;  
+        margin-bottom: 4px;
+    }
+}
+
+
+/* *************************************************
+ * 3. OPTION PARAMETRE
+ * *************************************************/
+.others-menu {
+    margin-top: 6px;
+}
+
+.others-menu .others-menu-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+}
+
+@media all and (max-width: 500px) {
+    .others-menu .others-menu-content {
+        flex-direction: column;
+    }  
+}
+
+.others-menu-content a {
+    width: 24.7%;
+}
+
+@media all and (max-width: 500px) {
+    .others-menu-content a {
+        width: 100%;
+    }
+}
