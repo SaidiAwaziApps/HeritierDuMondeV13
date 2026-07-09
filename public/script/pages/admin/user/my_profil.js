@@ -4,7 +4,7 @@
 function onSelectFile(e){
     const fileReader = new FileReader();
     fileReader.onload = function(e){
-        const image = document.querySelector('img[id="user_profil_img"]');
+        const image = document.querySelectorAll('img[id="user_profil_img"]')[0];
         image.setAttribute('src',e.target.result);
     }
     fileReader.readAsDataURL(e.target.files[0]);
@@ -14,13 +14,13 @@ function onSelectFile(e){
 /* **************************************************************************
  * LORSQUE LE DOM EST CHARGE (PRES)
  * *************************************************************************/
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded',function() {
     /* ---- Variables DOM ---- */
-    const inputFile = document.querySelectorAll('input[type="file"]');
+    const inputFile = document.querySelector('input[type="file"]');
 
-    /* ---- Au moment de chargement du fichier (IMAGE) ---- */
-    inputFile.onchange = function(e) {
-        onSelectFile(e);
+    /* ---- Au moment du chargement du fichier ---- */
+    inputFile.onchange = function(e){
+       onSelectFile(e);
     };
 });
 
