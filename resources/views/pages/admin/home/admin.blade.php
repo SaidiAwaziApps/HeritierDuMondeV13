@@ -243,7 +243,7 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <span>
-                                            <i class="fa fa-users">
+                                            <i class="fas fa-hands-helping">
 
                                             </i><br>
                                             Benevoles
@@ -256,7 +256,7 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <span>
-                                            <i class="fa fa-blog">
+                                            <i class="fas fa-hands-helping">
 
                                             </i><br>
                                             Besoins
@@ -269,7 +269,7 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <span>
-                                            <i class="fa fa-support">
+                                            <i class="fas fa-hand-holding-heart">
 
                                             </i><br>
                                             Donateurs
@@ -282,7 +282,7 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <span>
-                                            <i class="fa fa-support">
+                                            <i class="fas fa-donate">
 
                                             </i><br>
                                             Dons

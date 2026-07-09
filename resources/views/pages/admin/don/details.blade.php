@@ -6,7 +6,7 @@
         <div class="card">
             <div class="card-header">
                 <h4 class="card-title">
-                    <i class="fa fa-plus"></i> Infos Detailler sur le don
+                    <i class="fas fa-donate" style="opacity: 0.5;"></i> Infos Detailler sur le don
                 </h4>
             </div>
             <div class="card-body">

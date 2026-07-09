@@ -6,7 +6,7 @@
         <div class="card">
             <div class="card-header">
                 <span class="card-title">
-                    Gestion besoin
+                    <i class="fas fa-clipboard-list"></i> Gestion besoin
                 </span>
                 <a href="{{ route('admin.besoin.list') }}" title="Tous les besoins" class="btn btn-default btn-sm active">
                     <i class="fa fa-list"></i>

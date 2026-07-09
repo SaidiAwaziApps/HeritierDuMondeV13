@@ -6,7 +6,7 @@
         <div class="card">
             <div class="card-header">
                 <h5 class="card-title">
-                    <i class="fa fa-plus"></i> Details sur le benevole
+                    <i class="fas fa-hands-helping"></i> Details sur le benevole
                 </h5>
             </div>
             <div class="card-body">

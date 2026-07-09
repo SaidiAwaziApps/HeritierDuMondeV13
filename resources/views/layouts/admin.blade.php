@@ -275,7 +275,7 @@
                     @if(Route::is('admin.benevole.*'))
                        style="background-color: cadetblue; color: white;"
                     @endif>
-                    <i class="fa fa-user"></i> Benevole
+                    <i class="fas fa-hands-helping"></i> Benevole
                 </a>
             </li>
             <li>
@@ -283,7 +283,7 @@
                     @if(Route::is('admin.besoin.*'))
                        style="background-color: cadetblue; color: white;"
                     @endif>
-                    <i class="fa fa-blog"></i> Besoins
+                    <i class="fas fa-clipboard-list"></i> Besoins
                 </a>
             </li>
 
@@ -301,7 +301,7 @@
                     @if(Route::is('admin.donateur.*'))
                        style="background-color: cadetblue; color: white;"
                     @endif>
-                    <i class="fa fa-support"></i> Donateurs
+                    <i class="fas fa-hand-holding-heart"></i> Donateurs
                 </a>
             </li>
 
@@ -318,7 +318,7 @@
                     @if(Route::is('admin.don.*'))
                        style="background-color: cadetblue; color: white;"
                     @endif>
-                    <i class="fa fa-support"></i> Dons
+                    <i class="fas fa-donate"></i> Dons
                 </a>
             </li>
             <li>

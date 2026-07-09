@@ -6,7 +6,7 @@
         <div class="card">
             <div class="card-header">
                 <h4 class="card-title">
-                   <i class="fa fa-people-group"></i>  Nos Benevoles
+                   <i class="fas fa-hands-helping"></i>  Nos Benevoles
                 </h4>
             </div>
             <div class="card-body">

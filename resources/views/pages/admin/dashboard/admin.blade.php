@@ -15,7 +15,7 @@
                                 <div class="card-body">
                                     <p>
                                         <span>
-                                           <i class="fa fa-users"></i><br>
+                                           <i class="fas fa-hands-helping"></i><br>
                                         </span>
                                         <span>
                                             Benevoles<br>
@@ -49,7 +49,7 @@
                                 <div class="card-body">
                                     <p>
                                         <span>
-                                           <i class="fa fa-support"></i><br>
+                                           <i class="fas fa-hand-holding-heart"></i><br>
                                         </span>
                                         <span> 
                                             Donateurs<br> 
@@ -123,7 +123,7 @@
                             <!-- fin evenements_bloc -->
                             <div id="donation_bloc">
                                 <h6>
-                                    Dons & Donateurs
+                                    <i class="fas fa-gift"></i> Dons & Donateurs
                                 </h6>
                                 <div id="donation_bloc_content">
                                     <div class="card">
@@ -152,7 +152,7 @@
                             <!-- Fin donation_bloc -->
                             <div id="offre_emploie_bloc">
                                 <h6>
-                                    Offre emploie
+                                    <i class="fa fa-tasks"></i> Offre emploie
                                 </h6>
                                 <div id="offre_emploie_bloc_content">
                                     <div class="card">
@@ -204,7 +204,7 @@
                                                     <li class="dropdown-divider"></li>
                                                     <li class="chart-option-item" id="benevole">
                                                         <span>
-                                                            <i class="fa fa-users"></i> Benevoles
+                                                            <i class="fas fa-hands-helping"></i> Benevoles
                                                         </span>    
                                                     </li> 
                                                     <li class="dropdown-divider"></li>

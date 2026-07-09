@@ -6,7 +6,7 @@
         <div class="card">
             <div class="card-header">
                 <span class="card-title">
-                    <i class="fa fa-blog"></i> Gestion besoins
+                    <i class="fas fa-clipboard-list"></i> Gestion besoins
                 </span>
                 <!-- Autorisation acquise -->
                 @if(Auth::user()->hasAccessToRessource('blog','register','allowed'))
