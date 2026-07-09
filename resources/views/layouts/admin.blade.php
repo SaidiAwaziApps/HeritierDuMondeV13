@@ -211,7 +211,7 @@
                     @if(Route::is('admin.identite.*') || Route::is('admin.questionnement.*') || Route::is('admin.paymentSetting.*'))
                        style="background-color: cadetblue; color: white;"
                     @endif>
-                    <i class="fa fa-cog"></i> Parametre <i class="fa fa-angle-down" style="float: right;"></i>
+                    <i class="fa fa-cog"></i> Parametres <i class="fa fa-angle-down" style="float: right;"></i>
                 </a>
                 <ul class="sous-menu" id="parameter_sous_menu">
                     <li>
@@ -275,7 +275,7 @@
                     @if(Route::is('admin.benevole.*'))
                        style="background-color: cadetblue; color: white;"
                     @endif>
-                    <i class="fas fa-hands-helping"></i> Benevole
+                    <i class="fas fa-hands-helping"></i> Benevoles
                 </a>
             </li>
             <li>
@@ -326,7 +326,7 @@
                     @if(Route::is('admin.evenement.*'))
                        style="background-color: cadetblue; color: white;"
                     @endif>
-                    <i class="fa fa-calendar"></i> Evenement
+                    <i class="fa fa-calendar"></i> Evenements
                 </a>
             </li>
         </div>
