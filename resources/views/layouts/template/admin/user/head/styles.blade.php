@@ -18,6 +18,6 @@
    <link rel="stylesheet" href="{{ asset('style/pages/admin/user/details.css') }}">
 @endif
 
-@if(Route::currentRouteName() == 'user.my_profil')
+@if(Route::currentRouteName() == 'admin.user.my_profil')
    <link rel="stylesheet" href="{{ asset('style/pages/admin/user/my_profil.css') }}">
 @endif
