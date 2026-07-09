@@ -4,8 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 
-use Illuminate\Contracts\Encryption\DecryptException;
-use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 
@@ -59,17 +58,6 @@ class UserController extends Controller
         // Instance a modifier
         $user = User::getOne($id);
 
-        // Rend visible le champ password
-        // $user->makeVisible(['password']);
-
-        // Decrypt le mot de passe 
-        // try {
-        //     $user->password = Crypt::decryptString($user->password);
-        // }
-        // catch(DecryptException $e){
-        //     die($e->getMessage());
-        // }
-
         // Renvoie la page update
         return view('pages.admin.user.update', [
             'user' => $user,
@@ -96,7 +84,6 @@ class UserController extends Controller
     }
 
 
-    
     /* ************************************************************
      * TRAITE ENREGISTREMENT INSTANCE
      * ************************************************************/
@@ -113,6 +100,8 @@ class UserController extends Controller
 
         // Initialise photo
         $photo = 'profils/user_icone.png';
+
+        // Presence d'une photo (file)
         if($request->photo != null && $request->photo != 'null'){
             $photo = Storage::disk('public')->put('profils', $request->photo);
         }
@@ -123,7 +112,7 @@ class UserController extends Controller
             'prenom'   => $request->prenom,
             'email'    => $request->email,
             'username' => $request->username,
-            'password' => Crypt::encryptString($request->password),
+            'password' => Hash::make($request->password),
             'photo'    => $photo
         ]);
 
@@ -145,6 +134,7 @@ class UserController extends Controller
         }
     }
 
+
     /* ************************************************************
      * TRAITE LA MODIFICATION D' UNE INSTANCE
      * ************************************************************/
@@ -162,6 +152,8 @@ class UserController extends Controller
 
         // Initialise photo
         $photo = $user->photo;
+
+        // En cas d' upload d' image
         if($request->photo != null && $request->photo != 'null'){
             $photo = Storage::disk('public')->put('profils', $request->photo);
         }
@@ -185,13 +177,13 @@ class UserController extends Controller
             'prenom'   => $request->prenom,
             'email'    => $request->email,
             'username' => $request->username,
-            'password' => Crypt::encryptString($request->password),
             'photo'    => $photo
         ]);
 
         // Redirection
-        return $user->id == 1 ? redirect(NavigationService::getBackPageURL()) : redirect()->route('user.list');
+        return redirect(NavigationService::getBackPageURL());
     }
+
 
     /* ************************************************************
      * TRAITE LA REINITIALISATION DE MOT DE PASSE
@@ -219,12 +211,13 @@ class UserController extends Controller
         
         // Applique la reinitialisation
         $user->update([
-            'password' => Crypt::encryptString($request->password)
+            'password' => Hash::make($request->new_password)
         ]);
 
         // Renvoie a la page update
         return redirect()->route('admin.user.update_page', ['id' => $id]);
     }
+
 
     /* ************************************************************
      * SUPPRIME (DESACTIVE) UNE INSTANCE
@@ -232,8 +225,10 @@ class UserController extends Controller
     public function delete_one(int $id) {
         // Instance a supprimer
         $user = User::getOne($id);
+
         // Applique la suppression (desactive)
         $user->update(['status' => false]);
+
         // Redirection vers la page list de users
         return redirect()->route('admin.user.list');
     }
