@@ -50,9 +50,9 @@
 
                             <div id="don_info">
                                 <div id="title_content">
-                                   <h5>
-                                       Dons realises
-                                   </h5>
+                                    <h5>
+                                        <i class="fa fa-donate"></i> Dons realises
+                                    </h5>
                                 </div>
                                 <div class="table-responsive">
                                     <table class="table table-condensed table-striped" id="dons_list_table">
