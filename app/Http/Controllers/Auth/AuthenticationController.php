@@ -12,13 +12,11 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Services\NavigationService;
 
+use App\Services\DashboardService;
+
 use App\Jobs\SendResetCodeMailJob;
 
-use App\Models\Payment;
 use App\Models\User;
-use App\Models\Evenement;
-use App\Models\Don;
-use App\Models\OffreEmploie;
 
 
 class AuthenticationController extends Controller
@@ -28,10 +26,22 @@ class AuthenticationController extends Controller
      * ****************************************************************/
     private function credibleToDashboard(): bool
     {
-        return Evenement::where('status', true)->exists()
-            && Don::where('status', true)->exists()
-            && OffreEmploie::where('status', true)->exists();
+        return DashboardService::isCredible();        
     }
+
+
+    /* *****************************************************************
+     * DECRYPT UN CARACTERE CRYPTE AVEC Crypt::encryptString
+     * ****************************************************************/
+    private function decrypt($string) {
+        try {
+            return Crypt::decryptString($string);
+        }
+        catch(DecryptException $e) {
+            die($e->getMessage());
+        }
+    }
+
 
     /* *****************************************************************
      * RENVOIE LA PAGE (VIEW) LOGIN (CONNEXTION)
@@ -52,6 +62,7 @@ class AuthenticationController extends Controller
      * RENVOIE LA PAGE (VIEW) CODE DE REINITIALIZATION
      * ****************************************************************/
     public function resetCodePage($reset_email, $send_code) {
+        // Renvoie a la page reset_code avec de donnees reset_email && send_code cryptees
         return view('pages.auth.reset_code', [
             'reset_email' => $reset_email,
             'send_code' => $send_code
@@ -63,6 +74,7 @@ class AuthenticationController extends Controller
      * ****************************************************************/
     public function resetPasswordPage($reset_email)
     {
+        // Renvoie a la page reset_password avec reset_email crypte
         return view('pages.auth.reset_password', [
             'reset_email' => $reset_email
         ]);
@@ -102,15 +114,10 @@ class AuthenticationController extends Controller
                     ->where('status', true)
                     ->first();
 
-        try {
-            if (!$user || !Hash::check($request->password, $user->password)) {
-                return redirect()->back()->withErrors([
-                    'failed_connection' => 'Username ou Password incorrect !!!'
-                ])->withInput();
-            }
-        }                 
-        catch(DecryptException $e) {
-            die($e->getMessage());
+        if (!$user || !Hash::check($request->password, $user->password)) {
+            return redirect()->back()->withErrors([
+                'failed_connection' => 'Username ou Password incorrect !!!'
+            ])->withInput();
         }
 
         // Authentifie (connecte) l' utilisateur
@@ -146,9 +153,10 @@ class AuthenticationController extends Controller
 
         // Redirection vers la page reset_code
         return redirect()->route('authentication.reset_code_page', [
-            'reset_email' => encrypt($user->email),
-            'send_code' => encrypt($reset_code)
-        ]);
+            'reset_email' => Crypt::encryptString($user->email),
+            'send_code' => Crypt::encryptString($reset_code)
+        ]);   
+       
     }
 
     /* *****************************************************************
@@ -163,7 +171,7 @@ class AuthenticationController extends Controller
         ]);
 
         // Decriptage du code
-        $send_code = decrypt($request->send_code);
+        $send_code = $this->decrypt($request->send_code);
 
         // Condition d' equivalence entre code renvoye via email a celle contenu dans le corps de la requette
         if ($send_code != $request->reset_code) {
@@ -198,7 +206,7 @@ class AuthenticationController extends Controller
         }
 
         // Utilisateur a modifier (mot de passe)
-        $user = User::where('email', decrypt($request->reset_email))
+        $user = User::where('email', $this->decrypt($request->reset_email))
                     ->where('status', true)
                     ->firstOrFail();
 
