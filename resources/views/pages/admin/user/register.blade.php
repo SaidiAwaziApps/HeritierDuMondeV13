@@ -8,7 +8,7 @@
                 <span class="card-title">
                    <i class="fa fa-users"></i> Gestion utilisateurs
                 </span>   
-                <a href="{{ route('user.list') }}" class="btn btn-default btn-sm active">
+                <a href="{{ route('admin.user.list') }}" class="btn btn-default btn-sm active">
                     <span>
                         <i class="fa fa-list"></i>
                     </span>
@@ -16,7 +16,7 @@
             </div>
             <div class="card-body">
                 <!-- form -->
-                <form method="POST" action="{{ route('user.save') }}" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('admin.user.save') }}" enctype="multipart/form-data">
                     @csrf
                     <div id="profil_meta_bloc">
                         <div id="profil_bloc">
