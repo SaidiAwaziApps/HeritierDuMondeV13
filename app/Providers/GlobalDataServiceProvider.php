@@ -34,7 +34,7 @@ class GlobalDataServiceProvider extends ServiceProvider
             $paymentSetting = $paymentSettingData ? PaymentSetting::hydrate([$paymentSettingData])->first() : null;
 
             // Parametre regulation (cache indéfini)
-            $regulationData = Cache::rememberForever('admin', fn() => Regulation::first()?->toArray());
+            $regulationData = Cache::rememberForever('regulation', fn() => Regulation::first()?->toArray());
             $regulation = $regulationData ? User::hydrate([$regulationData])->first() : null;
 
             // Premier utilisateur = admin principal (cache indéfini)
@@ -42,7 +42,7 @@ class GlobalDataServiceProvider extends ServiceProvider
             $admin = $adminData ? User::hydrate([$adminData])->first() : null;
 
             // Passe les données à toutes les vues
-            $view->with(compact('identite', 'paymentSetting','regulation','admin'));
+            $view->with(compact('identite', 'admin', 'paymentSetting', 'regulation'));
         });
 
         // Specifiques a certaines pages (views)
