@@ -76,7 +76,7 @@
                         <li class="dropdown-divider"></li>
                         <li class="dropdown-item">
                             <div class="d-grid">
-                                <a href="#" class="btn btn-default btn-sm" title="Mon profil">
+                                <a href="{{ route('admin.user.my_profil') }}" class="btn btn-default btn-sm" title="Mon profil">
                                     <i class="bi bi-person-fill-gear" style="opacity: 0.5;"></i> My Profil
                                 </a>
                             </div>
