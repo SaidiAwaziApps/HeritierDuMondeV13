@@ -12,7 +12,7 @@
             </div> -->
             <div class="card-body">
                 <!-- form -->
-                <form method="POST" action="#" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('admin.user.update_handler',['id' => Auth::user()->id]) }}" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div id="form_bloc_content">
@@ -70,7 +70,7 @@
                                         </div>
                                     </div>
                                     <div id="password_bloc">
-                                        <a href="{{ route('user.reset_password_page', ['id' => Auth::user()->id]) }}" title="Cliquer pour reinitializer le mot de passe">
+                                        <a href="{{ route('admin.user.reset_password_page', ['id' => Auth::user()->id]) }}" title="Cliquer pour reinitializer le mot de passe">
                                             Reset password ?
                                         </a>
                                     </div>
