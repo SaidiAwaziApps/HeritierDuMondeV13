@@ -137,7 +137,7 @@
                         <li class="dropdown-divider"></li>
                         <li class="dropdown-item">
                             <div class="d-grid">
-                                <a href="#" class="btn btn-default btn-sm">
+                                <a href="{{ route('admin.user.my_profil') }}" class="btn btn-default btn-sm">
                                     <i class="bi bi-person-fill-gear" style="opacity: 0.5;"></i> My Profil
                                 </a>
                             </div>
@@ -233,7 +233,7 @@
                     <!-- Admin principale -->
                     @if(auth()->id() === 1)
                     <li>   
-                        <a href="{{ $paymentSetting ? route('admin.paymentSetting.update_page',['id'=>$paymentSetting->id]) : route('admin.paymentSetting.register_page') }}" id="payment_setting_sub_menu_link"
+                        <a href="{{ $paymentSetting ? route('admin.paymentSetting.update_page',['id' => $paymentSetting->id]) : route('admin.paymentSetting.register_page') }}" id="payment_setting_sub_menu_link"
                             @if(Route::is('admin.paymentSetting.*'))
                                 style="opacity: 0.9;background-color: #f0f8f8; color: cadetblue;"
                             @endif>
