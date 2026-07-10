@@ -17,7 +17,7 @@
 
     @media all and (max-width: 500px) {
         #item_data_content {
-            display: block;
+            flex-direction: column-reverse;
         }  
     }
 
