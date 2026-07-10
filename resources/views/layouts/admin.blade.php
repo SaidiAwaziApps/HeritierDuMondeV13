@@ -4,6 +4,7 @@
 
     @php
         $headTitle = '';
+        
         // Dashboard 
         if(Route::is('admin.dashboard.*')) {
             $headTitle = 'Dashboard';
