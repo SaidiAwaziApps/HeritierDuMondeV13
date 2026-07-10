@@ -149,7 +149,7 @@
                         </li> -->
                         <li class="dropdown-divider"></li>
                         <li class="dropdown-item">
-                            <form method="POST" action="#">
+                            <form method="POST" action="{{ route('authentication.logout_handler') }}">
                                 @csrf
                                 <div class="d-grid">
                                     <button type="submit" class="btn btn-warning btn-sm btn-block">

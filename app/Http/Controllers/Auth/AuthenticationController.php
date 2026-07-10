@@ -129,6 +129,16 @@ class AuthenticationController extends Controller
             : redirect()->route('admin.home.admin');
     }
 
+
+    /* *****************************************************************
+     * TRAITE LA DECONNECTION
+     * ****************************************************************/
+    public function logoutHandler() {
+        Auth::logout();
+        return redirect()->route('authentication.login_page');
+    }
+
+
     /* *****************************************************************
      * TRAITEMENT EMAIL REINITIALIZATION(MOT DE PASSE OUBLIE)
      * ****************************************************************/
