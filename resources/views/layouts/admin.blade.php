@@ -18,37 +18,37 @@
         if(Route::is('admin.user.*')) {
             $headTitle = 'Utilisateurs';
         }
-        // Access Ressource (privilege)
+        // Access Ressources (privileges)
         if(Route::is('admin.article.*')) {
             $headTitle = 'Blog';
         }
-        // Benevole
+        // Benevoles
         if(Route::is('admin.benevole.*')) {
-            $headTitle = 'Benevole';
+            $headTitle = 'Benevoles';
         }
-        // Besoin
+        // Besoins
         if(Route::is('admin.besoin.*')) {
-            $headTitle = 'Besoin';
+            $headTitle = 'Besoins';
         }
         // Contact
         if(Route::is('admin.contact.*')) {
             $headTitle = 'Contact';
         }
-        // Donateur
+        // Donateurs
         if(Route::is('admin.donateur.*')) {
-            $headTitle = 'Donateur';
+            $headTitle = 'Donateurs';
         }
-        // Offre Emploie
+        // Offres Emploies
         if(Route::is('admin.offre_emploie.*')) {
-            $headTitle = 'Offre Emploie';
+            $headTitle = 'Offres Emploies';
         }
         // Dons
         if(Route::is('admin.don.*')) {
-            $headTitle = 'Don';
+            $headTitle = 'Dons';
         }
-        // Evenement
+        // Evenements
         if(Route::is('admin.evenement.*')) {
-            $headTitle = 'Evenement';
+            $headTitle = 'Evenements';
         }
     @endphp
     
