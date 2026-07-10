@@ -1,7 +1,57 @@
-<?php $headTitle = '';?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+    @php
+        $headTitle = '';
+        // Dashboard 
+        if(Route::is('admin.dashboard.*')) {
+            $headTitle = 'Dashboard';
+        }
+
+        // Parametre
+        if(Route::is('admin.identite.*') || Route::is('admin.questionnement.*') || Route::is('admin.payment_setting.*') || Route::is('admin.regulation.*')) {
+            $headTitle = 'Parametres';
+        }
+
+        // Utilisateurs
+        if(Route::is('admin.user.*')) {
+            $headTitle = 'Utilisateurs';
+        }
+        // Access Ressource (privilege)
+        if(Route::is('admin.article.*')) {
+            $headTitle = 'Blog';
+        }
+        // Benevole
+        if(Route::is('admin.benevole.*')) {
+            $headTitle = 'Benevole';
+        }
+        // Besoin
+        if(Route::is('admin.besoin.*')) {
+            $headTitle = 'Besoin';
+        }
+        // Contact
+        if(Route::is('admin.contact.*')) {
+            $headTitle = 'Contact';
+        }
+        // Donateur
+        if(Route::is('admin.donateur.*')) {
+            $headTitle = 'Donateur';
+        }
+        // Offre Emploie
+        if(Route::is('admin.offre_emploie.*')) {
+            $headTitle = 'Offre Emploie';
+        }
+        // Dons
+        if(Route::is('admin.don.*')) {
+            $headTitle = 'Don';
+        }
+        // Evenement
+        if(Route::is('admin.evenement.*')) {
+            $headTitle = 'Evenement';
+        }
+    @endphp
+    
 
     <title>{{ $headTitle }}</title>
 
@@ -102,7 +152,7 @@
                 <img src="{{ $identite->logo ? Storage::url($identite->logo) : '' }}" style="width: 100%;height: 100%;">
             </div>
             <div id="navbar_text">
-                <span>Heritiers du Monde</span>
+                <span>{{ $identite->nom }}</span>
             </div>
             <div id="navbar_collapse">
                 <button type="button" class="btn btn-default btn-sm" id="collapse_button">
@@ -169,7 +219,9 @@
         <div id="sidebar_logo_dismiss">
             <div id="sidebar_logo_title">
                 <img src="{{ $identite->logo ? Storage::url($identite->logo) : '' }}">
-                <span><i>Heritiers du Monde</i></span>
+                <span>
+                    <i>{{ $identite->nom }}</i>
+                </span>
             </div>
             <div id="sidebar_dismiss">
                 <button type="button" class="btn btn-default btn-sm active" id="dismiss_button">
