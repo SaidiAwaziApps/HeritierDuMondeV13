@@ -10,6 +10,17 @@ use App\Models\Benevole;
 class BenevoleController extends Controller
 {
     /* ************************************************************
+     * RENVOIE LE RESULTAT DE LA RECHERCHE
+     * ***********************************************************/
+    public function search($search) {
+        $benevoles = Benevole::where('nom','LIKE','%'.$search.'%')
+                             ->orWhere('prenom','LIKE','%'.$search.'%')
+                             ->get();
+        
+        return response()->json(array('benevoles' => $benevoles));
+    }
+
+    /* ************************************************************
      * RENVOIE LA PAGE LIST (BENEVOLES)
      * ***********************************************************/
     public function list() {
