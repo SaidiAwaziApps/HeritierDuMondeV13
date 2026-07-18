@@ -393,6 +393,7 @@
 <!-- Script interne -->
 <script type="text/javascript">
     window.user = @json(Auth::user());
+    window.STORAGE_PATH_URL = @json(env('STORAGE_PATH_URL'));
     window.currentRouteName = @json(Route::currentRouteName());
     window.paymentSetting = @json($paymentSetting);
 </script>
