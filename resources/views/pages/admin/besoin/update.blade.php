@@ -87,7 +87,6 @@
         <!-- Script interne -->
         <script type="text/javascript">
             // Variables (gloabals)
-            window.STORAGE_PATH_URL = @json(env('STORAGE_PATH_URL'));
             let besoin = @json($besoin);
             let images = besoin.images;
         </script>
