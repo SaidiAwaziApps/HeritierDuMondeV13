@@ -10,6 +10,18 @@
                 </h4>
             </div>
             <div class="card-body">
+                <!-- Presence de instances benevoles -->
+                @if($benevoles && count($benevoles) > 0)
+                <div class="autocomplete" >
+                    <input
+                        type="text"
+                        id="search"
+                        placeholder="Rechercher un benevole"
+                        autocomplete="off" class="form-control">
+
+                    <div id="suggestions"></div>
+                </div>
+
                 <div id="item_data_content">
                     @foreach($benevoles as $benevole)
                     <div class="card">
@@ -62,7 +74,13 @@
                         </div>
                     </div>
                     @endforeach
-                </div>
+                </div> 
+                <!-- Aucune instance trouvee (liste vide) -->  
+                @else   
+                <div class="not-found-items">
+                    <span>Aucun resultat trouve !!!</span>
+                </div 
+                @endif    
             </div> 
         </div>
 
