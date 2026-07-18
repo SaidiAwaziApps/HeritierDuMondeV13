@@ -272,7 +272,7 @@
                             @if(Route::is('admin.identite.*'))
                                 style="opacity: 0.9;background-color: #f0f8f8; color: cadetblue;"
                             @endif>
-                            <i class="fa fa-blog"></i> Identite
+                            <i class="fa fa-globe"></i> Identite
                         </a>
                     </li>
                     <li>    

@@ -60,7 +60,7 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="tel">
-                                                        <i class="fa fa-envelope" style="opacity: 0.6; color: red;"></i> Email:<i id="required-sign">*</i>
+                                                        <i class="fa fa-envelope" style="opacity: 0.6; color: #db4a39;"></i> Email:<i id="required-sign">*</i>
                                                     </label>
                                                     <input type="email" name="email" id="email" class="form-control" placeholder="Adresse @ email" maxlength="60" value="{{ $identite->email }}" required>
                                                 </div>
