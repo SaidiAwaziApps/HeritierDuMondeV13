@@ -18,8 +18,12 @@ use App\Models\Sociaux;
 
 Route::prefix('admin/benevole')
     ->as('admin.benevole.')
-    ->middleware([BenevoleRessourceGlobal::class, BenevoleRessourceGlobal::class])
+    ->middleware([BenevoleRessourceGlobal::class])
     ->group(function() {
+
+        // Recherches benevoles
+        Route::get('/search/{search}',[AdminBenevoleController::class, 'search'])
+             ->name('search');
 
         // Liste des bénévoles
         Route::get('/list', [AdminBenevoleController::class, 'list'])
