@@ -188,7 +188,7 @@
                         <li class="dropdown-divider"></li>
                         <li class="dropdown-item">
                             <div class="d-grid">
-                                <a href="{{ route('admin.user.my_profil') }}" class="btn btn-default btn-sm">
+                                <a href="{{ route('admin.user.my_profil') }}" class="btn btn-default btn-sm" title="Aller sur mon profil">
                                     <i class="bi bi-person-fill-gear" style="opacity: 0.5;"></i> My Profil
                                 </a>
                             </div>
@@ -203,7 +203,7 @@
                             <form method="POST" action="{{ route('authentication.logout_handler') }}">
                                 @csrf
                                 <div class="d-grid">
-                                    <button type="submit" class="btn btn-warning btn-sm btn-block">
+                                    <button type="submit" class="btn btn-warning btn-sm btn-block" title="Se deconnecter">
                                         <i class="bi bi-box-arrow-right" style="opacity: 0.6;"></i> Logout
                                     </button>
                                 </div>
