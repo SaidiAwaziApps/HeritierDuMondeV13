@@ -360,6 +360,6 @@
     </section>
 
     <!-- Script externe -->
-    <!-- <script src="{{ asset('script/layout/admin.js') }}"> </script> -->
+    <script src="{{ asset('script/pages/admin/home/admin.js') }}"> </script>
 </body>
 </html>
