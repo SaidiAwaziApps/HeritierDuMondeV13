@@ -49,7 +49,7 @@
                             <form action="#" method="post" id="delete_ask_form">
                                 @csrf
                                 @method('DELETE')
-                                <button onclick="confirm('Voulez-vous vraiment supprimer ?')" type="submit" class="btn btn-danger btn-sm">
+                                <button onclick="return confirm('Voulez-vous vraiment supprimer ?')" type="submit" class="btn btn-danger btn-sm">
                                     <i class="fa fa-trash"></i>
                                 </button>
                             </form>    

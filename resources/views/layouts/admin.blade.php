@@ -123,10 +123,13 @@
      <!-- Styles pour evenement -->
     @include('layouts.admin.evenement.head.styles')
 
-    <!-- Ensemble de Styles && scripts destines offre  -->
+    <!-- Ensemble de Styles && scripts destines offre emploie -->
     @include('layouts.admin.offre_emploie.head.styles') <!-- // Ensemble de script styles destines a partie head -->
     @include('layouts.admin.offre_emploie.head.scripts') <!-- // Ensemble de script styles destines a partie head -->
 
+    <!-- Ensemble de Styles && scripts destines service  -->
+    @include('layouts.admin.offre_service.head.styles')
+    
     <!-- Script dashboard -->
     @include('layouts.admin.dashboard.admin.head.scripts')
 

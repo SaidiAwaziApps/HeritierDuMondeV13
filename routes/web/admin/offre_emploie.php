@@ -21,6 +21,10 @@ Route::prefix('admin/offre-emploie')
     ->middleware(OffreEmploieRessourceGlobal::class)
     ->group(function() {
 
+        
+        /* ************************************************************************
+         * Routes retournant les pages (enregistrement, modification && list)
+         * ***********************************************************************/ 
         Route::get('/register', [AdminOffreEmploieController::class, 'register_page'])
             ->middleware([OffreEmploieRessourceCreate::class, TrackHistoryMiddleware::class])
             ->name('register_page');
@@ -34,7 +38,9 @@ Route::prefix('admin/offre-emploie')
             ->name('update_page');
 
 
-
+        /* ************************************************************************
+         * Routes pour traitement (Sauvegarde, Modification && Suppression)
+         * ***********************************************************************/ 
         Route::post('/save', [AdminOffreEmploieController::class, 'save'])
             ->middleware(OffreEmploieRessourceCreate::class)
             ->name('save');

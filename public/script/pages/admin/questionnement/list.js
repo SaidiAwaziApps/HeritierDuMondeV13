@@ -20,9 +20,9 @@ function onCollapsedAccordion(element) {
         delete_bloc.style.display='block';
         update_bloc.style.display='block';
         // Modifie l'attribut action du formulaire
-        delete_bloc.querySelector('form').setAttribute('action','/questionnement/delete-one/'+questionnement.id); 
+        delete_bloc.querySelector('form').setAttribute('action','/admin/questionnement/delete-one/'+questionnement.id); 
         // Modifie l'url du lien ajouter
-        update_bloc.querySelector('a').setAttribute('href','/questionnement/update/'+questionnement.id);             
+        update_bloc.querySelector('a').setAttribute('href','/admin/questionnement/update/'+questionnement.id);             
     } 
     else {
         // Cache le bloc ajouter

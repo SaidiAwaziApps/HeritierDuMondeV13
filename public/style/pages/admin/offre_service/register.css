@@ -1,0 +1,54 @@
+.card .card-header span {
+    font-size: 20px;
+    /* font-weight: bold; */
+    font-family: italic;
+}
+
+.card .card-header span i[class="fa fa-tasks"] {
+    opacity: 0.4;
+}
+
+.card .card-header a {
+    font-size: 18px;
+    font-weight: bold;
+    font-family: italic;
+    color: black;
+    float: right;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 4px 10px 4px 10px;
+} 
+
+.card .card-header a:hover {
+    opacity: 0.4;
+}
+
+
+.form-group {
+    margin-bottom: 4px;
+}
+
+input[type="text"], textarea[id="description"] {
+    border-bottom: 2px solid #ccc;
+}
+
+label {
+    font-size: 20px;
+    font-weight: bold;
+    font-family: italic;
+}
+
+i[id="required-sign"] {
+    color: red;
+}
+
+
+#submit_bloc {
+    margin-top: 10px;
+}
+
+#submit_bloc .d-grid button span {
+    font-size: 20px;
+    font-weight: bold;
+    font-family: italic;
+}

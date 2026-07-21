@@ -29,6 +29,10 @@
         font-family: italic;
     }
 
-    table thead tr th:nth-child(n+6) {
+    table thead tr th,table tbody tr td:nth-child(3) {
+        text-align: justify;
+    }
+
+    table thead tr th:nth-child(4) {
         text-align: center;
     }

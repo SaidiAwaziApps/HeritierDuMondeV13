@@ -32,6 +32,7 @@ $webAdminModules = [
     'user',
     'access_ressource',
     'offre_emploie',
+    'offre_service',
     'evenement',
     'benevole',
     'besoin',
