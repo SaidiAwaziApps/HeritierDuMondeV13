@@ -3,10 +3,10 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Middleware\TrackHistoryMiddleware;
-use App\Http\Middleware\OffreEmploieRessource\OffreEmploieRessourceGlobal;
-use App\Http\Middleware\OffreEmploieRessource\OffreEmploieRessourceCreate;
-use App\Http\Middleware\OffreEmploieRessource\OffreEmploieRessourceUpdate;
-use App\Http\Middleware\OffreEmploieRessource\OffreEmploieRessourceDelete;
+use App\Http\Middleware\OffreServiceRessource\OffreServiceRessourceGlobal;
+use App\Http\Middleware\OffreServiceRessource\OffreServiceRessourceCreate;
+use App\Http\Middleware\OffreServiceRessource\OffreServiceRessourceUpdate;
+use App\Http\Middleware\OffreServiceRessource\OffreServiceRessourceDelete;
 
 use App\Http\Controllers\Admin\OffreServiceController as AdminOffreServiceController;
 
@@ -19,18 +19,18 @@ use App\Http\Controllers\Admin\OffreServiceController as AdminOffreServiceContro
 
 Route::prefix('admin/offre-service')
     ->as('admin.offre_service.')
-    // ->middleware(OffreServiceRessourceGlobal::class)
+    ->middleware(OffreServiceRessourceGlobal::class)
     ->group(function() {
 
         /* ************************************************************************
          * Routes retournant les pages (enregistrement, modification && list)
          * ***********************************************************************/ 
         Route::get('/register', [AdminOffreServiceController::class, 'register_page'])
-            ->middleware([TrackHistoryMiddleware::class])
+            ->middleware([OffreServiceRessourceCreate::class, TrackHistoryMiddleware::class])
             ->name('register_page');
 
         Route::get('/update/{id}', [AdminOffreServiceController::class, 'update_page'])
-            ->middleware([TrackHistoryMiddleware::class])
+            ->middleware([OffreServiceRessourceUpdate::class, TrackHistoryMiddleware::class])
             ->name('update_page');
 
         Route::get('/list', [AdminOffreServiceController::class, 'list'])
@@ -42,10 +42,15 @@ Route::prefix('admin/offre-service')
         /* ************************************************************************
          * Routes pour traitement (Sauvegarde, Modification && Suppression)
          * ***********************************************************************/     
-        Route::post('/save', [AdminOffreServiceController::class, 'save'])->name('save');     
+        Route::post('/save', [AdminOffreServiceController::class, 'save'])
+             ->middleware(OffreServiceRessourceCreate::class)
+             ->name('save');     
 
-        Route::put('/update/{id}', [AdminOffreServiceController::class, 'update_handler'])->name('update_handler');
+        Route::put('/update/{id}', [AdminOffreServiceController::class, 'update_handler'])
+             ->middleware(OffreServiceRessourceUpdate::class)
+             ->name('update_handler');
 
-         Route::delete('/delete-one/{id}', [AdminOffreServiceController::class, 'deleteOne'])
-              ->name('deleteOne');
+        Route::delete('/delete-one/{id}', [AdminOffreServiceController::class, 'deleteOne'])
+             ->middleware(OffreServiceRessourceDelete::class)
+             ->name('deleteOne');
 });

@@ -9,9 +9,11 @@
                     <i class="fa fa-tasks"></i> Offres Services
                 </span>
                 <!-- Autorisation acquise -->
+                @if(Auth::user()->hasAccessToRessource('offre_service','register','allowed'))
                 <a href="{{ route('admin.offre_service.register_page') }}" title="Ajouter un offre">
                     <i class="fa fa-plus"></i>
                 </a>
+                @endif
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -28,13 +30,13 @@
                                     Description
                                 </th>
                                 <!-- Autorisation acquise -->
-                                @if(Auth::user()->hasAccessToRessource('offre_emploie','delete','allowed'))
+                                @if(Auth::user()->hasAccessToRessource('offre_service','delete','allowed'))
                                 <th>
                                     <i class="fa fa-trash"></i>
                                 </th>
                                 @endif
                                 <!-- Autorisation acquise -->
-                                @if(Auth::user()->hasAccessToRessource('offre_emploie','update','allowed'))
+                                @if(Auth::user()->hasAccessToRessource('offre_service','update','allowed'))
                                 <th>
                                     <i class="fa fa-pencil-square"></i>
                                 </th>
@@ -56,7 +58,7 @@
                                     {{ $offre_service->description }} 
                                 </td>
                                 <!-- Autorisation acquise -->
-                                @if(Auth::user()->hasAccessToRessource('offre_emploie','delete','allowed'))
+                                @if(Auth::user()->hasAccessToRessource('offre_service','delete','allowed'))
                                 <td>
                                     <div class="d-grid">
                                         <form method="POST" action="{{ route('admin.offre_service.deleteOne',['id' => $offre_service->id]) }}">
@@ -70,7 +72,7 @@
                                 </td>
                                 @endif
                                 <!-- Autorisation acquise -->
-                                @if(Auth::user()->hasAccessToRessource('offre_emploie','update','allowed'))
+                                @if(Auth::user()->hasAccessToRessource('offre_service','update','allowed'))
                                 <td>
                                     <a href="{{ route('admin.offre_service.update_page',['id' => $offre_service->id]) }}" title="Modifier l'offre d'emploie" class="btn btn-primary btn-sm active">
                                         <i class="bi bi-pencil-square"></i>
