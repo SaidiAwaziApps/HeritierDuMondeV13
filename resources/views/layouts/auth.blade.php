@@ -12,60 +12,15 @@
     <link rel="stylesheet" href="{{ asset('dependance/bootstrap-icons-1.11.3/font/bootstrap-icons.css')}}">
     <link rel="stylesheet" href="{{ asset('dependance/font-awesome/font-awesome.min.css') }}">
 
+    <!-- Style layouts auth -->
+    <link rel="stylesheet" href="{{ asset('style\layouts\auth.css') }}">
+
     <!-- Style template pour auth -->
     @include('layouts.auth.authentication.head.styles')
 
     <script src="{{ asset('dependance/font-awesome/font-awesome.js') }}"></script>
     <!-- Latest compiled JavaScript -->
     <script src="{{ asset('dependance/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
-
-    <style>
-        
-        body {
-            background-color:rgb(243, 243, 251);
-        }
-
-        
-        div#sociaux_info {
-            padding: 18px 0px 6px 0px;
-            margin-top: 10px;
-            border-radius: 6px;
-            background-color: #ccc;
-        }
-
-        div#sociaux_info > div {
-           display: flex;
-           justify-content: center;
-           align-items: center;
-        }
-
-        div#sociaux_info > div ul li {
-            float: left;
-            margin-left: 16px;
-            list-style-type: none;
-        }
-
-        div#sociaux_info > div ul li span {
-            font-size: 19px;
-            font-family: italic;
-        }
-
-        @media all and (max-width: 500px) {
-            div#sociaux_info > div ul li {
-                margin-left: 20px;
-            }
-            div#sociaux_info > div ul li span {
-              display: none;
-            } 
-        }
-
-        div#sociaux_info > div ul li a:hover {
-            opacity: 0.4;
-        }
-
-
-    </style>
-
 </head>
 <body>
     <div id="global_content">
