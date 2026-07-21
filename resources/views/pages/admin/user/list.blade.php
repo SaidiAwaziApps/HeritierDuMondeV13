@@ -75,7 +75,7 @@
                                        @csrf
                                        @method('DELETE')
                                        <div class="d-grid">
-                                          <button onclick="confirm('Voulez-vous supprimer {{ $user->nom }} ?')" type="submit" href="{{ route('admin.user.delete_one',['id'=>$user->id]) }}" class="btn btn-danger btn-block btn-sm" style="border: 1px solid #ccc;">
+                                          <button onclick="return confirm('Voulez vous supprimer ?')" type="submit" href="{{ route('admin.user.delete_one',['id'=>$user->id]) }}" class="btn btn-danger btn-block btn-sm" style="border: 1px solid #ccc;">
                                              <i class="bi bi-trash"></i>
                                           </button>
                                        </div>   
