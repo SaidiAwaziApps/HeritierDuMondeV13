@@ -80,55 +80,55 @@
     <script src="{{ asset('dependance/sweetalert2/swal.js') }}"></script>
 
     <!-- Styles dashboard -->
-    @include('layouts.template.admin.dashboard.admin.head.styles')
+    @include('layouts.admin.dashboard.admin.head.styles')
 
     <!-- Styles user -->
-    @include('layouts.template.admin.user.head.styles')
+    @include('layouts.admin.user.head.styles')
 
     <!-- Styles access_ressource -->
-    @include('layouts.template.admin.access_ressource.head.styles')
+    @include('layouts.admin.access_ressource.head.styles')
 
     <!-- Styles identite -->
-    @include('layouts.template.admin.identite.head.styles')
+    @include('layouts.admin.identite.head.styles')
 
     <!-- Styles questionnement -->
-    @include('layouts.template.admin.questionnement.head.styles')
+    @include('layouts.admin.questionnement.head.styles')
 
     <!-- Styles payment_setting -->
-    @include('layouts.template.admin.payment_setting.head.styles')
+    @include('layouts.admin.payment_setting.head.styles')
 
     <!-- Styles contact -->
-    @include('layouts.template.admin.contact.head.styles')
+    @include('layouts.admin.contact.head.styles')
 
     <!-- Styles && scripts pour article (blog) -->
-    @include('layouts.template.admin.blog.article.head.styles')  <!-- // Ensemble de script styles destines a partie head -->
-    @include('layouts.template.admin.blog.article.head.scripts') <!-- // Ensemble de script scripts destines a partie head -->
+    @include('layouts.admin.blog.article.head.styles')  <!-- // Ensemble de script styles destines a partie head -->
+    @include('layouts.admin.blog.article.head.scripts') <!-- // Ensemble de script scripts destines a partie head -->
 
     <!-- Styles && scripts pour regulation -->
-    @include('layouts.template.admin.regulation.head.styles')  <!-- // Ensemble de script styles destines a partie head -->
-    @include('layouts.template.admin.regulation.head.scripts') <!-- // Ensemble de script scripts destines a partie head -->
+    @include('layouts.admin.regulation.head.styles')  <!-- // Ensemble de script styles destines a partie head -->
+    @include('layouts.admin.regulation.head.scripts') <!-- // Ensemble de script scripts destines a partie head -->
 
     <!-- Styles pour benevole -->
-    @include('layouts.template.admin.benevole.head.styles')
+    @include('layouts.admin.benevole.head.styles')
 
     <!-- Styles pour besoin -->
-    @include('layouts.template.admin.besoin.head.styles')
+    @include('layouts.admin.besoin.head.styles')
 
     <!-- Styles pour donateur -->
-    @include('layouts.template.admin.donateur.head.styles')
+    @include('layouts.admin.donateur.head.styles')
 
     <!-- Styles pour don -->
-    @include('layouts.template.admin.don.head.styles')
+    @include('layouts.admin.don.head.styles')
 
      <!-- Styles pour evenement -->
-    @include('layouts.template.admin.evenement.head.styles')
+    @include('layouts.admin.evenement.head.styles')
 
     <!-- Ensemble de Styles && scripts destines offre  -->
-    @include('layouts.template.admin.offre_emploie.head.styles') <!-- // Ensemble de script styles destines a partie head -->
-    @include('layouts.template.admin.offre_emploie.head.scripts') <!-- // Ensemble de script styles destines a partie head -->
+    @include('layouts.admin.offre_emploie.head.styles') <!-- // Ensemble de script styles destines a partie head -->
+    @include('layouts.admin.offre_emploie.head.scripts') <!-- // Ensemble de script styles destines a partie head -->
 
     <!-- Script dashboard -->
-    @include('layouts.template.admin.dashboard.admin.head.scripts')
+    @include('layouts.admin.dashboard.admin.head.scripts')
 
     <!-- Scripts externes (vite) -->
     @vite('resources/js/app.js')

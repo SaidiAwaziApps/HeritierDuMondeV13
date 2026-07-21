@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="{{ asset('dependance/font-awesome/font-awesome.min.css') }}">
 
     <!-- Style template pour auth -->
-    @include('components.auth.template.head.styles')
+    @include('layouts.auth.authentication.head.styles')
 
     <script src="{{ asset('dependance/font-awesome/font-awesome.js') }}"></script>
     <!-- Latest compiled JavaScript -->
