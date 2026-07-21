@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // * ---- Au moment ou l' on clique sur chacun des elements ---- * 
     mediaButtons.forEach((item) => {
-        item.onclick = function(event) {
+        item.onclick = async function(event) {
             // Previent comportement par defaut && propagation 
             event.preventDefault();
             event.stopPropagation();
@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', function () {
             item.children[1].style.opacity = '1';
 
             // Appel a la methode http 
-            axios.post('/share/save', {
+            await axios.post('/share/save', {
                     shareable_type: document.querySelector('input[name="shareable_type"]').value,
                     shareable_id: document.querySelector('input[name="shareable_id"]').value,
                     media: this.value

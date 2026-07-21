@@ -112,7 +112,7 @@ function feedback(data, error, addCategorieDOMObject) {
 /* *******************************************************************
  * CREER (ENREGISTRE) UNE NOUVELLE INSTANCE CATEGORIE 
  * *******************************************************************/
-function createNewCategorie(ctg_name, ctg_type, addCategorieDOMObject) {  
+async function createNewCategorie(ctg_name, ctg_type, addCategorieDOMObject) {  
     /* ---- Variable crsf_token ---- */
     const csrf_token = document.querySelector('input[name="ctg_csrf_token"]').value;
 
@@ -120,7 +120,7 @@ function createNewCategorie(ctg_name, ctg_type, addCategorieDOMObject) {
     feedback(null, null, addCategorieDOMObject);
 
     /* ---- Envoie la requete http au serveur ---- */
-    axios.post('/admin/categorie/register', { 
+    await axios.post('/admin/categorie/register', { 
         _token: csrf_token,
         ctg_name: ctg_name,
         ctg_type: ctg_type, 
