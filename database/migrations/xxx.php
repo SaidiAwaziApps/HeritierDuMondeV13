@@ -109,7 +109,7 @@ return new class extends Migration
         Identite::where('id', 1)->delete();
         User::where('email', 'staphanebanyanga@gmail.com')->delete();
         Role::whereIn('rolename', ['admin', 'blogeur', 'auteur'])->delete();
-        Ressource::whereIn('nom', ['blog', 'contact', 'offre_service', 'offre_travail', 'besoin', 'benevole', 'evenement', 'don', 'donateur'])->delete();
+        Ressource::whereIn('nom', ['blog', 'contact', 'offre_service', 'offre_emploie', 'besoin', 'benevole', 'evenement', 'don', 'donateur'])->delete();
         Categorie::where('nom', 'non classe')->delete();
     }
 };
