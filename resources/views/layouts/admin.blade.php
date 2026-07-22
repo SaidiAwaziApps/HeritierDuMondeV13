@@ -361,14 +361,33 @@
                 </a>
             </li>
 
-            <li>
-                <a href="{{ route('admin.offre_emploie.list') }}"
-                    @if(Route::is('admin.offre_emploie.*'))
+            <li class="offer-menu">
+                <a href="#" id="offer_menu_link"
+                    @if(Route::is('admin.offre_emploie.*') || Route::is('admin.offre_service.*'))
                        style="background-color: cadetblue; color: white;"
                     @endif>
-                    <i class="fa fa-tasks"></i> Offres Travails
+                    <i class="fa fa-tasks"></i> Offres <i class="fa fa-angle-down" style="float: right;"></i>
                 </a>
+                <ul class="sous-tasks" id="offer_sous_menu">
+                    <li>
+                        <a href="{{ route('admin.offre_emploie.list') }}" id="emploie_sub_menu_link"
+                            @if(Route::is('admin.offre_emploie.*'))
+                                style="opacity: 0.9;background-color: #f0f8f8; color: cadetblue;"
+                            @endif>
+                            <i class="fas fa-tasks"></i> Emploies
+                        </a>
+                    </li>
+                    <li>    
+                        <a href="{{ route('admin.offre_service.list') }}" id="service_sub_menu_link"
+                            @if(Route::is('admin.offre_service.*'))
+                                style="opacity: 0.9;background-color: #f0f8f8; color: cadetblue;"
+                            @endif>
+                            <i class="fas fa-tasks"></i> Services
+                        </a>
+                    </li>
+                </ul>    
             </li>
+
             <li>
                 <a href="{{ route('admin.don.list') }}"
                     @if(Route::is('admin.don.*'))
