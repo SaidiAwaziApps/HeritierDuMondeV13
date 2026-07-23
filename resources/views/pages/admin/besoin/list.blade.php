@@ -17,7 +17,7 @@
             </div>
             <div class="card-body">
                 <div class="table-responsvive">
-                    <table class="table table condensed" id="besoins_list_table">
+                    <table class="table table condensed table-striped" id="besoins_list_table">
                         <thead>
                             <tr>
                                 <th>

@@ -17,7 +17,7 @@
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-condensed table-striped" id="offre_emploies_list_table">
+                    <table class="table table-bordered table-condensed table-striped" id="offre_emploies_list_table">
                         <thead>
                             <tr>
                                 <th>
