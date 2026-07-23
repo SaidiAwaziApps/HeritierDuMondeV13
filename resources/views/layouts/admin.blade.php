@@ -43,6 +43,10 @@
         if(Route::is('admin.offre_emploie.*')) {
             $headTitle = 'Offres Emploies';
         }
+        // Offres Services
+        if(Route::is('admin.offre_service.*')) {
+            $headTitle = 'Offres Services';
+        }
         // Dons
         if(Route::is('admin.don.*')) {
             $headTitle = 'Dons';
