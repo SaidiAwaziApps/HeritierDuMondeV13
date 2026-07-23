@@ -20,6 +20,17 @@
 </head>
 
 @php
+    /* ---- Verifie si l'image s'agit d'une video ---- */
+    function isVideo($path) {
+        $extension_array = ['mp4','MP4','mpeg','MPEG','mpeg-2','MPEG-2','avi','AVI','mov','MOV','wmv','WMV','avi','AVI','avchd','AVCHD','flv','FLV','f4v','F4V','swf','SWF','mkv','MKV','webm','WEBM'];
+        if(in_array(pathinfo($path,PATHINFO_EXTENSION),$extension_array)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /* ---- Utilisateur connecte ---- */
     $user = auth()->user();
 @endphp
 
@@ -123,7 +134,11 @@
                     <div class="carousel-inner">
                         @foreach($identite->images as $index => $image)
                         <div class="carousel-item @if($index == 1) active  @endif">
-                            @if(strtolower($image['img_source']) == 'upload')
+                            @if(strtolower($image['img_source']) == 'upload' && isVideo($image['path']))
+                                <video class="rounded-thumbnail cover" alt="Image media" style="width: 100%;height: 100%;" controls>
+                                    <source src="{{ Storage::url($image['path']) }}">
+                                </video> 
+                            @elseif(strtolower($image['img_source']) == 'upload')       
                                 <img src="{{ Storage::url($image['path']) }}" class="cover" style="width: 100%; height: 100%;" alt="Image">
                             @else
                                 {!! $image['iframe'] !!}
@@ -235,7 +250,7 @@
                     <!-- Autres menu -->
                     <div class="benevole-donation-menu">
                         <h6>
-                            <i class="fa fa-plus"></i> Donation & Benevole
+                            <i class="fa fa-hands"></i> Donation & Benevole
                         </h6>
                         <div class="benevole-donation-content">
                             <!-- Benevole --> 
@@ -256,7 +271,7 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <span>
-                                            <i class="fas fa-hands-helping">
+                                            <i class="fas fa-clipboard-list">
 
                                             </i><br>
                                             Besoins
@@ -338,18 +353,34 @@
                                 </div>
                             </a> 
                             <!-- Offre Emploies --> 
-                            <a class="content-item" href="{{ route('admin.offre_emploie.list') }}" title="Cliquer pour acceder au menu">
+                            <div class="content-item offres-menu" title="Cliquer sur l'icone pour acceder au menu">
                                 <div class="card">
-                                    <div class="card-body">
-                                        <span>
-                                            <i class="fa fa-tasks">
-
-                                            </i><br>
-                                            Offres emploies
+                                    <div class="card-body dropdown">
+                                        <span class="dropdown-toggle" data-bs-toggle="dropdown">
+                                            <i class="fa fa-tasks"></i><br>
+                                            Offres
                                         </span>
+                                        <!-- Sous-menu -->
+                                        <ul class="dropdown-menu">
+                                            <li class="dropdown-item">
+                                                Options <i class="fa fa-angle-down"></i>
+                                            </li>
+                                            <li class="dropdown-divider"></li>
+                                            <li class="dropdown-item">
+                                                <a class="dropdown-item" href="{{ route('admin.offre_emploie.list') }}" title="Offres d'emploies">
+                                                    <i class="fa fa-briefcase"></i> Emploies
+                                                </a>
+                                            </li>
+                                            <li class="dropdown-divider"></li>
+                                            <li class="dropdown-item">
+                                                <a class="dropdown-item" href="{{ route('admin.offre_service.list') }}" title="Offres de services">
+                                                   <i class="fa fa-tools"></i> Services
+                                                </a>
+                                            </li>
+                                        </ul>
                                     </div>
                                 </div>
-                            </a> 
+                            </div>
                         </div>
                     </div> 
                     
