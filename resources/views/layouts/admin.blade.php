@@ -374,7 +374,7 @@
                             @if(Route::is('admin.offre_emploie.*'))
                                 style="opacity: 0.9;background-color: #f0f8f8; color: cadetblue;"
                             @endif>
-                            <i class="fas fa-tasks"></i> Emploies
+                            <i class="fa fa-briefcase"></i> Emploies
                         </a>
                     </li>
                     <li>    
@@ -382,7 +382,7 @@
                             @if(Route::is('admin.offre_service.*'))
                                 style="opacity: 0.9;background-color: #f0f8f8; color: cadetblue;"
                             @endif>
-                            <i class="fas fa-tasks"></i> Services
+                            <i class="fa fa-tools"></i> Services
                         </a>
                     </li>
                 </ul>    
