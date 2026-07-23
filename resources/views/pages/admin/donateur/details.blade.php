@@ -55,7 +55,7 @@
                                     </h5>
                                 </div>
                                 <div class="table-responsive">
-                                    <table class="table table-condensed table-striped" id="dons_list_table">
+                                    <table class="table table-bordered  table-condensed table-striped" id="dons_list_table">
                                         <thead>
                                            <tr>
                                                 <th>
@@ -79,12 +79,10 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <?php $index=0; ?>
-                                            @foreach($donateur->dons as $don)
-                                            <?php $index++;?>
+                                            @foreach($donateur->dons as $index => $don)
                                             <tr>
                                                 <td>
-                                                    {{ $index }}
+                                                    {{ $index + 1 }}
                                                 </td>
                                                 <td>
                                                     {{ $don->created_at->format('d-m-y') }}
@@ -92,12 +90,12 @@
                                                 <td>
                                                     @if(strtolower($paymentSetting->currency_display_mode) != 'current' && $don->currency != $paymentSetting->currency && $currency_exchange_rate)
                                                         @if($don->currency == 'USD')
-                                                            {{ $don->montant * $currency_exchange_rate }} <b style="opacity: 0.7;">{!! $currency_icons[$paymentSetting->currency] ?? '' !!}</b>
+                                                            {{ $don->montant * $currency_exchange_rate }} <b style="opacity: 0.7;"> {!! $currency_icons[$paymentSetting->currency] ?? '' !!} </b>
                                                         @else
-                                                            {{ $don->montant / $currency_exchange_rate }} <b style="opacity: 0.7;">{!! $currency_icons[$paymentSetting->currency] ?? '' !!}</b>
+                                                            {{ $don->montant / $currency_exchange_rate }} <b style="opacity: 0.7;"> {!! $currency_icons[$paymentSetting->currency] ?? '' !!} </b>
                                                         @endif
                                                     @else
-                                                        {{ $don->montant }} <b style="opacity: 0.7;">{!! $currency_icons[$don->currency] ?? '' !!}</b>
+                                                        {{ $don->montant }} <b style="opacity: 0.7;"> {!! $currency_icons[$don->currency] ?? '' !!} </b>
                                                     @endif
                                                 </td>
                                                 <td>
@@ -107,9 +105,11 @@
                                                     {{ isset($don->reception) ? 'Oui' : 'Non' }}
                                                 </td>
                                                 <td>
-                                                    <a href="{{ route('admin.don.details',['id'=>$don->id]) }}" title="Details sur le don"  class="btn btn-default btn-sm">
-                                                        <i class="fa fa-plus"></i> Plus
-                                                    </a>
+                                                    <div class="d-grid">
+                                                        <a href="{{ route('admin.don.details',['id' => $don->id]) }}" title="Cliquer pour plus de details sur le don"  class="btn btn-default btn-sm btn-block">
+                                                            <i class="fa fa-plus"></i> Plus
+                                                        </a>
+                                                    </div>
                                                 </td>
                                             </tr>
                                             @endforeach

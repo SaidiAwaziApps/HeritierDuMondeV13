@@ -17,7 +17,7 @@
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table condensed table-striped" id="evenements_list_table">
+                    <table class="table table-bordered table condensed table-striped" id="evenements_list_table">
                         <thead>
                             <tr>
                                 <th> # </th>
@@ -42,18 +42,14 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php $index=0; ?>
-                            @foreach($evenements as $evenement)
-                            <?php $index++ ?>
+                            
+                            @foreach($evenements as $index => $evenement)
                             <tr>
                                 <td> 
-                                    {{ $index }} 
+                                    {{ $index+1 }} 
                                 </td>
-                                <!-- <td>
-                                    {{ $evenement->type }}
-                                </td> -->
                                 <td> 
-                                    @if($evenement->type=='journalier')
+                                    @if($evenement->type == 'journalier')
                                     {{ $evenement->date_du_jour }}
                                     @else
                                     {{ $evenement->periode_date_debut }} au {{ $evenement->periode_date_fin }}
@@ -63,9 +59,11 @@
                                     {{ $evenement->titre }}
                                 </td>
                                 <td>
-                                    <a href="{{ route('admin.evenement.details',['id'=>$evenement->id]) }}" class="btn btn-default btn-sm" title="Plus de details">
-                                        <i class="fa fa-plus"></i>
-                                    </a>
+                                    <div class="d-grid">
+                                        <a href="{{ route('admin.evenement.details',['id'=>$evenement->id]) }}" class="btn btn-default btn-sm btn-block" title="Cliquer pour de details sur l'evenement">
+                                            <i class="fa fa-plus"></i>
+                                        </a>
+                                    </div>
                                 </td>
                                 <!-- Autorisation acquise -->
                                 @if(Auth::user()->hasAccessToRessource('evenement','delete','allowed'))
@@ -73,18 +71,22 @@
                                     <form method="POST" action="{{ route('admin.evenement.delete_one',['id'=>$evenement->id]) }}">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" onclick="return confirm('Voulez vous supprimer ?')" class="btn btn-danger btn-sm active" title="Supprimer l'evenement">
-                                            <i class="fa fa-trash"></i>
-                                        </button>
+                                        <div class="d-grid">
+                                            <button type="submit" onclick="return confirm('Voulez vous supprimer ?')" class="btn btn-danger btn-sm btn-block" title="Cliquer pour supprimer">
+                                                <i class="fa fa-trash"></i>
+                                            </button>
+                                        </div>
                                     </form>
                                 </td>
                                 @endif
                                 <!-- Autorisation acquise -->
                                 @if(Auth::user()->hasAccessToRessource('evenement','update','allowed'))
                                 <td>
-                                    <a href="{{ route('admin.evenement.update_page',['id'=>$evenement->id]) }}" class="btn btn-primary btn-sm active" title="Appliquer des modifications">
-                                        <i class="fa fa-edit"></i>
-                                    </a>
+                                    <div class="d-grid">
+                                        <a href="{{ route('admin.evenement.update_page',['id'=>$evenement->id]) }}" class="btn btn-primary btn-sm btn-block active" title="Cliquer pour modifications">
+                                            <i class="fa fa-edit"></i>
+                                        </a>
+                                    </div>
                                 </td>
                                 @endif
                             </tr>

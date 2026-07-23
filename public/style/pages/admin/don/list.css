@@ -10,23 +10,25 @@
         opacity: 0.4;
     }
 
+
+
     table thead tr th ,
     table tbody tr td {
         font-family: italic;
         text-transform: capitalize;
     }
 
+    table thead tr th:nth-child(4),
     table thead tr th:nth-child(7) {
         text-align: center;
     }
 
-    table tbody tr td:nth-child(4) a ,
-    table tbody tr td:nth-child(7) a {
+    table tbody tr td .d-grid a {
+        font-family: italic;
         border: 1px solid #ccc;
     }
 
-    table tbody tr td a:hover {
-        border: 1px solid #ccc;
+    table tbody tr td .d-grid a:hover {
         opacity: 0.8; 
     }
 

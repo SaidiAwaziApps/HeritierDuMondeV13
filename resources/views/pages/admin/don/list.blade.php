@@ -60,9 +60,11 @@
                                     @endif
                                 </td>
                                 <td>
-                                    <a href="{{ route('admin.donateur.details',['id'=>$don->donateur->id]) }}" title="Plus infos sur le donateur" class="btn btn-default btn-sm">
-                                        {{ $don->donateur->nom }}
-                                    </a>
+                                    <div class="d-grid">
+                                        <a href="{{ route('admin.donateur.details',['id'=>$don->donateur->id]) }}" class="btn btn-default btn-sm btn-block" title="Cliquer pour plus de details sur le donateur">
+                                            {{ $don->donateur->nom }}
+                                        </a> 
+                                    </div>
                                 </td>
                                 <td>
                                     {{ $don->mode_paiement }}
@@ -71,9 +73,11 @@
                                     {{ isset($don->reception) ? 'Oui' : 'Non' }}
                                 </td>
                                 <td>
-                                    <a href="{{ route('admin.don.details',['id'=>$don->id]) }}" title="Details sur le don"  class="btn btn-default btn-sm">
-                                        <i class="fa fa-plus"></i> Plus
-                                    </a>
+                                    <div class="d-grid">
+                                        <a href="{{ route('admin.don.details',['id'=>$don->id]) }}" class="btn btn-default btn-sm btn-block" title="Cliquer pour plus de details sur le don">
+                                            <i class="fa fa-plus"></i> Plus
+                                        </a>
+                                    </div>
                                 </td>
                             </tr>
                             @endforeach

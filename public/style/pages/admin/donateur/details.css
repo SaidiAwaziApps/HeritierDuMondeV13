@@ -93,6 +93,15 @@
         text-transform: capitalize;
     }
 
-    #don_info > div table tbody tr td a {
+    #don_info > div table thead tr th:nth-child(6) {
+        text-align: center;
+    }
+
+    #don_info > div table tbody tr td .d-grid a {
+        font-family: italic;
         border: 1px solid #ccc;
+    }
+
+    #don_info > div table tbody tr td .d-grid a:hover {
+        opacity: 0.5;
     }

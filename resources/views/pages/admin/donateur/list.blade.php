@@ -47,11 +47,11 @@
                                     {{ $index }}
                                 </td>
                                 <td>
-                                    <a href="{{ Storage::url($donateur->photo) }}" title="Afficher profil {{ $donateur->nom }}">
-                                        <div>
-                                            <img src="{{ Storage::url($donateur->photo) }}" alt="Profil {{ $donateur->nom }}" class="cover rounded-thumbnail" style="width: 100%;height: 100%;">
-                                        </div>        
-                                    </a>
+                                    <div class="d-grid">
+                                        <a href="{{ Storage::url($donateur->photo) }}" class="btn btn-default btn-sm btn-block" title="Cliquer pour afficher profil">
+                                            <img src="{{ Storage::url($donateur->photo) }}" alt="Profil {{ $donateur->nom }}" class="rounded-circle">       
+                                        </a>
+                                    </div> 
                                 </td>
                                 <td>
                                     {{ $donateur->nom }}
@@ -64,7 +64,7 @@
                                 </td>
                                 <td>
                                     <div class="d-grid">
-                                        <a href="{{ route('admin.donateur.details',['id'=>$donateur->id]) }}" title="Afficher infos detaillees de {{ $donateur->nom }}" class="btn btn-default btn-sm btn-block">
+                                        <a href="{{ route('admin.donateur.details',['id' => $donateur->id]) }}" class="btn btn-default btn-sm btn-block" title="Afficher infos detaillees de {{ $donateur->nom }}">
                                             <i class="fa fa-plus"></i> Plus
                                         </a>
                                     </div>

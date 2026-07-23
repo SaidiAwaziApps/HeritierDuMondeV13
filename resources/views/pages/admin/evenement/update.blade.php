@@ -34,11 +34,11 @@
                                     </label>
                                     <select name="type" id="type" class="form-control" required>
                                         @if($evenement->type=='journalier')
-                                        <option value="journalier">Journalier</option>
-                                        <option value="periodique">Periodique</option>
+                                           <option value="journalier">Journalier</option>
+                                           <option value="periodique">Periodique</option>
                                         @else 
-                                        <option value="periodique">Periodique</option>
-                                        <option value="journalier">Journalier</option>
+                                           <option value="periodique">Periodique</option>
+                                           <option value="journalier">Journalier</option>
                                         @endif
                                     </select>
                                 </div>
@@ -50,20 +50,25 @@
                                         <option value="{{ $evenement->model }}">
                                             {{ ucfirst($evenement->model) }}
                                         </option>
+                                        
                                         @if($evenement->model != 'caricature')
-                                        <option value="caricature">Caricature</option>
+                                           <option value="caricature">Caricature</option>
                                         @endif
+
                                         @if($evenement->model != 'culturelle')
-                                        <option value="culturelle">Culturelle</option>
+                                            <option value="culturelle">Culturelle</option>
                                         @endif
+
                                         @if($evenement->model != 'sportive')
-                                        <option value="sportive">Sportive</option>
+                                            <option value="sportive">Sportive</option>
                                         @endif
+
                                         @if($evenement->model != 'mixed')
-                                        <option value="mixed">Mixed</option>
+                                            <option value="mixed">Mixed</option>
                                         @endif
+
                                         @if($evenement->model != 'non defini')
-                                        <option value="non defini">Non defini</option>
+                                            <option value="non defini">Non defini</option>
                                         @endif
                                     </select>
                                 </div>
