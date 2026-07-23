@@ -168,6 +168,7 @@ section.content {
     margin: 0 auto;
 }
 
+
 @media all and (max-width: 500px) {
     .global-content {
         width: 100%;
@@ -268,17 +269,31 @@ section.content {
     text-decoration: none;
 }
 
-.options-content > div > div a .card .card-body {
+.options-content > div > div a .card,
+.options-content > div > div .offres-menu .card {
+    transition: .3s;
+}
+
+.options-content > div > div a .card:hover,
+.options-content > div > div .offres-menu .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,.15);
+}
+
+.options-content > div > div a .card .card-body,
+.options-content > div > div .offres-menu .card .card-body {
     text-align: center;
 }
 
-.options-content > div > div a .card .card-body span {
+.options-content > div > div a .card .card-body span,
+.options-content > div > div .offres-menu .card .card-body span {
     font-size: 17px;
     font-weight: bold;
     font-family: italic;
 }
 
-.options-content > div > div a .card .card-body span i {
+.options-content > div > div a .card .card-body span i,
+.options-content > div > div .offres-menu .card .card-body span i {
     opacity: 0.6;
 }
 
@@ -406,12 +421,45 @@ section.content {
     }  
 }
 
-.others-menu-content a {
-    width: 24.7%;
+.others-menu-content > a,
+.others-menu-content > .content-item {
+    width:24.7%;
 }
 
 @media all and (max-width: 500px) {
-    .others-menu-content a {
+    .others-menu-content > a, 
+    .others-menu-content > .content-item {
         width: 100%;
     }
+}
+
+
+/* .others-menu-content > .offres-menu .card .card-body {
+    text-align: center;
+}
+
+.others-menu-content > .offres-menu .card .card-body span {
+    font-size: 18px;
+    font-weight: bold;
+    font-family: italic;
+} */
+
+.others-menu-content > .offres-menu .card .card-body ul li {
+    font-size: 18px;
+    font-weight: bold;
+    font-family: italic;
+}
+
+.others-menu-content > .offres-menu .card .card-body ul li:nth-child(1) {
+    text-align: center;
+    opacity: 0.7;
+}
+
+.others-menu-content > .offres-menu .card .card-body ul li:nth-child(2n+3) a {
+    border: 2px solid #f8f8ff;
+    text-align: center;
+}
+
+.others-menu-content > .offres-menu .card .card-body ul li:nth-child(2n+3) a i {
+    opacity: 0.6;
 }
