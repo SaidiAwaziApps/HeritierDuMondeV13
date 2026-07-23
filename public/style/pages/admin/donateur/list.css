@@ -15,9 +15,19 @@
         font-family: italic;
     }
 
+    table thead tr th:nth-child(6) {
+        text-align: center;
+    }
+
+
     /* table thead tr th:nth-child(6) {
         text-align: center;
     } */
+
+    table tbody tr td {
+        font-size: 18px;
+        font-family: italic;
+    }
          
     table tbody tr td:nth-child(2) a div {
         width: 45px;
@@ -25,10 +35,13 @@
     }
 
     table tbody tr td:nth-child(2) a:hover,
-    table tbody tr td:nth-child(6) a:hover  {
+    table tbody tr td:nth-child(6) .d-grid a:hover  {
         opacity: 0.6;
     }
 
-    table tbody tr td:nth-child(6) a {
+    table tbody tr td:nth-child(6) .d-grid a {
+        font-size: 14px;
+        font-weight: bold;
+        font-family: italic;
         border: 1px solid #ccc;
     }

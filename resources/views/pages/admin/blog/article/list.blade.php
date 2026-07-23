@@ -14,7 +14,7 @@
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-condensed table-striped" id="articles_list_table">
+                    <table class="table table-bordered table-condensed table-striped" id="articles_list_table">
                         <thead>
                             <tr>
                                 <th>
@@ -64,7 +64,7 @@
                                     {{ $article->titre }}
                                 </td>
                                 <td>
-                                    {{ $article->categorie->nom }}
+                                    {{ $article->categorie->ctg_name }}
                                 </td>
                                 <td>
                                     <a href="{{ Storage::url($article->auteur->morphModel()->photo) }}" title="Profil de l'auteur">

@@ -11,7 +11,7 @@
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-condensed table-striped" id="donateurs_list_table">
+                    <table class="table table-bordered table-condensed table-striped" id="donateurs_list_table">
                         <thead>
                             <tr>
                                 <th>
@@ -63,9 +63,11 @@
                                     {{ $donateur->email }}
                                 </td>
                                 <td>
-                                    <a href="{{ route('admin.donateur.details',['id'=>$donateur->id]) }}" title="Afficher infos detaillees de {{ $donateur->nom }}" class="btn btn-default btn-sm btn-block">
-                                        <i class="fa fa-plus"></i> Plus
-                                    </a>
+                                    <div class="d-grid">
+                                        <a href="{{ route('admin.donateur.details',['id'=>$donateur->id]) }}" title="Afficher infos detaillees de {{ $donateur->nom }}" class="btn btn-default btn-sm btn-block">
+                                            <i class="fa fa-plus"></i> Plus
+                                        </a>
+                                    </div>
                                 </td>
                             </tr>
                             @endforeach
