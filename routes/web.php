@@ -26,6 +26,7 @@ Route::get('/', function () {
 |
 */
 
+// Modules pour admin
 $webAdminModules = [
     'test',
     'identite',
@@ -54,9 +55,21 @@ $webAdminModules = [
     'home',
 ];
 
+// Modules pour visiteur (guest)
+$webGuestModules = [
+    'home'
+];
+
+// Parcourt ensemble modules destinees a admin
 foreach ($webAdminModules as $module) {
     require __DIR__ . "/web/admin/{$module}.php";
 }
+
+// Parcourt ensemble modules destinees a visiteur (guest)
+foreach ($webGuestModules as $module) {
+    require __DIR__ . "/web/guest/{$module}.php";
+}
+
 
 require __DIR__ . "/web/global/share.php";
 
