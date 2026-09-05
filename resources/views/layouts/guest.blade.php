@@ -5,7 +5,6 @@
 
     <meta charset="UTF-8">
 
-    <!-- Responsive -->
     <meta
         name="viewport"
         content="width=device-width, initial-scale=1.0"
@@ -36,6 +35,8 @@
         rel="stylesheet"
         href="{{ asset('dependance/font-awesome/font-awesome.min.css') }}"
     >
+
+    <script src="{{ asset('dependance/font-awesome/font-awesome.js') }}"></script>
 
 
     <style>
@@ -84,9 +85,11 @@
 
             color: var(--text);
 
-            background: var(--white);
+            background-color: var(--white);
 
-            transition: 0.3s;
+            transition:
+                background-color 0.3s ease,
+                color 0.3s ease;
 
         }
 
@@ -97,7 +100,11 @@
 
         .header {
 
-            background: var(--white);
+            width: 100%;
+
+            background-color: var(--white);
+
+            color: var(--text);
 
             border-bottom: 1px solid var(--border);
 
@@ -119,6 +126,19 @@
         }
 
 
+        .navbar > .container-fluid {
+
+            width: 100%;
+
+            display: flex;
+
+            align-items: center;
+
+            position: relative;
+
+        }
+
+
         /* =========================================
            6. LOGO
         ========================================== */
@@ -126,6 +146,8 @@
         .logo {
 
             display: inline-block;
+
+            flex-shrink: 0;
 
         }
 
@@ -147,6 +169,13 @@
            7. MENU PRINCIPAL
         ========================================== */
 
+        .navbar-collapse {
+
+            flex-grow: 0;
+
+        }
+
+
         .navbar-nav {
 
             gap: 15px;
@@ -155,7 +184,78 @@
 
 
         /* =========================================
-           8. LIENS DU MENU
+           8. MENU CENTRE - GRAND ECRAN
+        ========================================== */
+
+        @media (min-width: 992px) {
+
+            .navbar-collapse {
+
+                position: absolute;
+
+                left: 50%;
+
+                transform: translateX(-50%);
+
+                width: max-content;
+
+                display: flex !important;
+
+                align-items: center;
+
+            }
+
+
+            .navbar-nav {
+
+                margin: 0 !important;
+
+                display: flex;
+
+                align-items: center;
+
+                justify-content: center;
+
+            }
+
+
+            /* -----------------------------------------
+               BARRES DE SEPARATION
+               Visibles uniquement sur grand écran
+            ------------------------------------------ */
+
+            .navbar-nav > .nav-item:not(:last-child)::after {
+
+                content: "";
+
+                position: absolute;
+
+                top: 50%;
+
+                right: -8px;
+
+                transform: translateY(-50%);
+
+                width: 1px;
+
+                height: 20px;
+
+                background-color: var(--border);
+
+            }
+
+
+            .navbar-nav > .nav-item {
+
+                position: relative;
+
+            }
+
+        }
+
+
+        /* =========================================
+           9. LIENS DU MENU
         ========================================== */
 
         .navbar .nav-link {
@@ -164,13 +264,28 @@
 
             color: var(--text);
 
-            font-size: 14px;
+            font-family: italic;
+
+            font-size: 17px;
 
             padding: 10px 0 !important;
 
             text-decoration: none !important;
 
             transition: 0.3s;
+
+            white-space: nowrap;
+
+        }
+
+
+        /* Icônes du menu */
+
+        .navbar .nav-link > i:first-child {
+
+            margin-right: 6px;
+
+            font-size: 14px;
 
         }
 
@@ -183,10 +298,10 @@
 
 
         /* =========================================
-           9. SOULIGNEMENT
+           10. SOULIGNEMENT
         ========================================== */
 
-        .navbar .nav-link::after {
+        .navbar .nav-link::before {
 
             content: "";
 
@@ -200,14 +315,14 @@
 
             height: 2px;
 
-            background: var(--green);
+            background-color: var(--green);
 
             transition: width 0.3s ease;
 
         }
 
 
-        .navbar .nav-link:hover::after {
+        .navbar .nav-link:hover::before {
 
             width: 100%;
 
@@ -215,12 +330,56 @@
 
 
         /* =========================================
-           10. OFFRES & SERVICES
+           11. OFFRES & SERVICES
         ========================================== */
 
         .dropdown-toggle::after {
 
             display: none;
+
+        }
+
+
+        .navbar .nav-item.dropdown > .nav-link {
+
+            color: var(--text);
+
+            transition: 0.3s;
+
+        }
+
+
+        .navbar .nav-item.dropdown > .nav-link:hover {
+
+            color: var(--green);
+
+        }
+
+
+        .navbar .nav-item.dropdown > .nav-link::before {
+
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+
+            bottom: 2px;
+
+            width: 0;
+
+            height: 2px;
+
+            background-color: var(--green);
+
+            transition: width 0.3s ease;
+
+        }
+
+
+        .navbar .nav-item.dropdown > .nav-link:hover::before {
+
+            width: 100%;
 
         }
 
@@ -236,7 +395,7 @@
         }
 
 
-        .dropdown-toggle.show i {
+        .dropdown-toggle.show i.bi-chevron-down {
 
             transform: rotate(180deg);
 
@@ -244,7 +403,7 @@
 
 
         /* =========================================
-           11. SOUS-MENU
+           12. SOUS-MENU
         ========================================== */
 
         .dropdown-menu {
@@ -255,7 +414,7 @@
 
             margin-top: 10px !important;
 
-            background: var(--white);
+            background-color: var(--white);
 
             border: 1px solid var(--border);
 
@@ -279,22 +438,86 @@
 
             text-decoration: none;
 
-            transition: 0.3s;
+            transition:
+                color 0.3s ease,
+                background-color 0.3s ease;
 
         }
 
+
+        /* Icônes du sous-menu */
+
+        .dropdown-menu .dropdown-item i {
+
+            width: 20px;
+
+            margin-right: 6px;
+
+            font-size: 14px;
+
+            text-align: center;
+
+        }
+
+
+        /* -----------------------------------------
+           SURVOL DU SOUS-MENU
+        ------------------------------------------ */
 
         .dropdown-menu .dropdown-item:hover {
 
             color: white;
 
-            background: var(--green);
+            background-color: var(--green);
+
+        }
+
+
+        .dropdown-menu .dropdown-item:focus {
+
+            color: white;
+
+            background-color: var(--green);
 
         }
 
 
         /* =========================================
-           12. DARK MODE
+           13. ACTIONS A DROITE
+        ========================================== */
+
+        .navbar-actions {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: flex-end;
+
+            gap: 8px;
+
+            margin-left: auto;
+
+            flex-shrink: 0;
+
+        }
+
+
+        /* =========================================
+           14. HAMBURGER
+        ========================================== */
+
+        .navbar-toggler {
+
+            margin: 0;
+
+            flex-shrink: 0;
+
+        }
+
+
+        /* =========================================
+           15. DARK MODE
         ========================================== */
 
         #dark-mode {
@@ -306,7 +529,13 @@
 
         .theme-container {
 
-            margin-left: 15px;
+            display: flex;
+
+            align-items: center;
+
+            margin: 0;
+
+            padding: 0;
 
         }
 
@@ -329,6 +558,8 @@
 
             cursor: pointer;
 
+            color: var(--text);
+
             font-size: 18px;
 
             transition: 0.3s;
@@ -340,7 +571,7 @@
 
             color: white;
 
-            background: var(--green);
+            background-color: var(--green);
 
             border-color: var(--green);
 
@@ -378,7 +609,7 @@
 
 
         /* =========================================
-           13. DARK MODE DU SITE
+           16. DARK MODE DU SITE
         ========================================== */
 
         body:has(#dark-mode:checked) {
@@ -394,8 +625,35 @@
         }
 
 
+        body:has(#dark-mode:checked) .header {
+
+            background-color: var(--white);
+
+            color: var(--text);
+
+        }
+
+
+        body:has(#dark-mode:checked) .content {
+
+            background-color: var(--white);
+
+            color: var(--text);
+
+        }
+
+
+        body:has(#dark-mode:checked) footer {
+
+            background-color: var(--footer);
+
+            color: var(--text);
+
+        }
+
+
         /* =========================================
-           14. CONTENU
+           17. CONTENU
         ========================================== */
 
         .content {
@@ -405,6 +663,10 @@
             padding: 100px 20px;
 
             text-align: center;
+
+            background-color: var(--white);
+
+            color: var(--text);
 
         }
 
@@ -426,14 +688,14 @@
 
 
         /* =========================================
-           15. FOOTER
+           18. FOOTER
         ========================================== */
 
         footer {
 
             width: 100%;
 
-            background: var(--footer);
+            background-color: var(--footer);
 
             color: var(--text);
 
@@ -444,6 +706,10 @@
         }
 
 
+        /* =========================================
+           19. FOOTER CONTENT
+        ========================================== */
+
         .footer-content {
 
             width: 100%;
@@ -452,15 +718,16 @@
 
             display: grid;
 
-            grid-template-columns: 2fr 1fr 1fr;
+            grid-template-columns:
+                repeat(3, minmax(0, 1fr));
 
-            gap: 30px;
+            gap: 20px;
 
         }
 
 
         /* =========================================
-           16. DESCRIPTION
+           20. DESCRIPTION
         ========================================== */
 
         .platform-description {
@@ -473,12 +740,23 @@
 
             text-align: center;
 
-            padding: 0;
+            width: 100%;
+
+            margin-left: 0;
 
         }
 
 
-        /* Logo */
+        .platform-description > .logo {
+
+            display: block;
+
+            margin-left: auto;
+
+            margin-right: auto;
+
+        }
+
 
         .platform-description img {
 
@@ -492,16 +770,20 @@
 
             margin-bottom: 20px;
 
+            display: block;
+
         }
 
 
-        /* Texte */
+        /* =========================================
+           21. DESCRIPTION TEXTE
+        ========================================== */
 
         .platform-description p {
 
             width: 100%;
 
-            max-width: 350px;
+            max-width: 400px;
 
             margin: 0;
 
@@ -515,8 +797,28 @@
 
 
         /* =========================================
-           17. RESEAUX SOCIAUX
+           22. RESEAUX SOCIAUX
         ========================================== */
+
+        .platform-socials {
+
+            width: 100%;
+
+            margin: 0;
+
+        }
+
+
+        @media all and (min-width: 850px) {
+
+            .platform-socials {
+
+                padding-left: 10px;
+
+            }
+
+        }
+
 
         .platform-socials h6 {
 
@@ -530,8 +832,28 @@
 
 
         /* =========================================
-           18. CONTACTS
+           23. CONTACTS
         ========================================== */
+
+        .platform-contacts {
+
+            width: 100%;
+
+            margin: 0;
+
+        }
+
+
+        @media all and (min-width: 850px) {
+
+            .platform-contacts {
+
+                padding-left: 10px;
+
+            }
+
+        }
+
 
         .platform-contacts h6 {
 
@@ -545,7 +867,7 @@
 
 
         /* =========================================
-           19. COPYRIGHT
+           24. COPYRIGHT
         ========================================== */
 
         .platform-copyright {
@@ -566,13 +888,10 @@
 
 
         /* =========================================
-           20. TABLETTE
+           25. TABLETTE
         ========================================== */
 
         @media (max-width: 991px) {
-
-
-            /* Menu */
 
             .navbar-nav {
 
@@ -592,7 +911,59 @@
             }
 
 
-            /* Dropdown */
+            .navbar-collapse {
+
+                width: 100%;
+
+                flex-basis: 100%;
+
+                order: 3;
+
+            }
+
+
+            /* -----------------------------------------
+               SEPARATION DES ELEMENTS DU MENU
+               SUR PETITS ECRANS
+            ------------------------------------------ */
+
+            .navbar-nav .nav-item {
+
+                border-bottom: 1px solid var(--border);
+
+            }
+
+
+            .navbar-nav .nav-item:last-child {
+
+                border-bottom: none;
+
+            }
+
+
+            /* -----------------------------------------
+               SURVOL DES ELEMENTS DU MENU
+            ------------------------------------------ */
+
+            .navbar-nav > .nav-item > .nav-link:hover {
+
+                color: white;
+
+                background-color: var(--green);
+
+            }
+
+
+            .navbar-nav > .nav-item > .nav-link:hover::before {
+
+                width: 0;
+
+            }
+
+
+            /* -----------------------------------------
+               SOUS-MENU SUR PETIT ECRAN
+            ------------------------------------------ */
 
             .dropdown-menu {
 
@@ -604,29 +975,59 @@
 
                 padding-left: 15px;
 
-                background: transparent;
+                background-color: transparent;
 
             }
 
 
-            /* Dark mode */
+            .dropdown-menu .dropdown-item {
+
+                border-radius: 5px;
+
+            }
+
+
+            .dropdown-menu .dropdown-item:hover {
+
+                color: white;
+
+                background-color: var(--green);
+
+            }
+
+
+            .navbar-actions {
+
+                margin-left: auto;
+
+                margin-right: 0;
+
+                gap: 8px;
+
+                order: 2;
+
+            }
+
 
             .theme-container {
 
-                margin-left: 0;
-
-                margin-top: 10px;
-
-                margin-bottom: 10px;
+                order: 1;
 
             }
 
 
-            /* Footer */
+            .navbar-toggler {
+
+                order: 2;
+
+            }
+
 
             .footer-content {
 
                 grid-template-columns: 1fr 1fr;
+
+                gap: 20px;
 
             }
 
@@ -634,6 +1035,19 @@
             .platform-description {
 
                 grid-column: 1 / -1;
+
+                width: 100%;
+
+                margin-left: 0;
+
+                padding-left: 4px;
+
+            }
+
+
+            .platform-description p {
+
+                max-width: 350px;
 
             }
 
@@ -648,11 +1062,10 @@
 
 
         /* =========================================
-           21. TELEPHONE
+           26. PETITS ECRANS
         ========================================== */
 
         @media (max-width: 575px) {
-
 
             /* Navbar */
 
@@ -665,9 +1078,29 @@
             }
 
 
+            .navbar > .container-fluid {
+
+                width: 100%;
+
+                display: flex;
+
+                align-items: center;
+
+                flex-wrap: wrap;
+
+            }
+
+
             /* Logo */
 
-            .logo img {
+            .navbar > .container-fluid > .logo {
+
+                flex-shrink: 0;
+
+            }
+
+
+            .navbar > .container-fluid > .logo img {
 
                 width: 50px;
 
@@ -676,7 +1109,39 @@
             }
 
 
-            /* Dark mode */
+            /* Actions à droite */
+
+            .navbar-actions {
+
+                margin-left: auto;
+
+                margin-right: 0;
+
+                display: flex;
+
+                align-items: center;
+
+                justify-content: flex-end;
+
+                gap: 8px;
+
+                flex-shrink: 0;
+
+            }
+
+
+            /* Dark Mode */
+
+            .theme-container {
+
+                order: 1;
+
+                margin: 0;
+
+                padding: 0;
+
+            }
+
 
             .theme-button {
 
@@ -685,6 +1150,45 @@
                 height: 36px;
 
                 font-size: 16px;
+
+            }
+
+
+            /* Hamburger */
+
+            .navbar-toggler {
+
+                order: 2;
+
+                margin: 0;
+
+                padding: 6px 8px;
+
+            }
+
+
+            /* Menu ouvert */
+
+            .navbar-collapse {
+
+                width: 100%;
+
+                flex-basis: 100%;
+
+                order: 3;
+
+                margin-top: 10px;
+
+            }
+
+
+            .navbar-nav {
+
+                width: 100%;
+
+                margin-top: 0;
+
+                gap: 0;
 
             }
 
@@ -711,9 +1215,9 @@
 
                 grid-template-columns: 1fr;
 
-                padding: 40px 20px 20px;
+                padding: 10px;
 
-                gap: 30px;
+                gap: 20px;
 
             }
 
@@ -725,6 +1229,14 @@
                 grid-column: 1;
 
                 width: 100%;
+
+                margin-left: 0;
+
+                padding-left: 0;
+
+                padding-bottom: 10px;
+
+                border-bottom: 1px solid var(--border);
 
             }
 
@@ -742,6 +1254,14 @@
 
                 grid-column: 1;
 
+                width: 100%;
+
+                margin: 0;
+
+                padding-bottom: 10px;
+
+                border-bottom: 1px solid var(--border);
+
             }
 
 
@@ -750,6 +1270,10 @@
             .platform-contacts {
 
                 grid-column: 1;
+
+                width: 100%;
+
+                margin: 0;
 
             }
 
@@ -761,6 +1285,8 @@
                 grid-column: 1;
 
                 width: 100%;
+
+                margin: 0;
 
             }
 
@@ -785,11 +1311,12 @@
             <div class="container-fluid">
 
 
-                <!-- =================================
-                     LOGO
-                ================================== -->
+                <!-- Logo -->
 
-                <a href="/" class="logo">
+                <a
+                    href="/"
+                    class="logo"
+                >
 
                     <img
                         src="{{ Storage::url($identite->logo) }}"
@@ -799,28 +1326,7 @@
                 </a>
 
 
-                <!-- =================================
-                     BOUTON MOBILE
-                ================================== -->
-
-                <button
-                    class="navbar-toggler"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#mainMenu"
-                    aria-controls="mainMenu"
-                    aria-expanded="false"
-                    aria-label="Afficher le menu"
-                >
-
-                    <span class="navbar-toggler-icon"></span>
-
-                </button>
-
-
-                <!-- =================================
-                     MENU PRINCIPAL
-                ================================== -->
+                <!-- Menu principal -->
 
                 <div
                     class="collapse navbar-collapse"
@@ -838,7 +1344,11 @@
                                 href="#"
                                 class="nav-link"
                             >
+
+                                <i class="fa fa-home"></i>
+
                                 Accueil
+
                             </a>
 
                         </li>
@@ -852,7 +1362,11 @@
                                 href="#"
                                 class="nav-link"
                             >
+
+                                <i class="fa fa-info-circle"></i>
+
                                 À propos
+
                             </a>
 
                         </li>
@@ -866,7 +1380,11 @@
                                 href="#"
                                 class="nav-link"
                             >
+
+                                <i class="fa fa-users"></i>
+
                                 Bénévoles
+
                             </a>
 
                         </li>
@@ -880,7 +1398,11 @@
                                 href="#"
                                 class="nav-link"
                             >
+
+                                <i class="fa fa-heart"></i>
+
                                 Faire un don
+
                             </a>
 
                         </li>
@@ -894,7 +1416,11 @@
                                 href="#"
                                 class="nav-link"
                             >
+
+                                <i class="fa fa-hand-paper-o"></i>
+
                                 Besoin
+
                             </a>
 
                         </li>
@@ -908,7 +1434,11 @@
                                 href="#"
                                 class="nav-link"
                             >
+
+                                <i class="fa fa-calendar"></i>
+
                                 Événement
+
                             </a>
 
                         </li>
@@ -922,7 +1452,11 @@
                                 href="#"
                                 class="nav-link"
                             >
+
+                                <i class="fa fa-pencil"></i>
+
                                 Blog
+
                             </a>
 
                         </li>
@@ -936,15 +1470,17 @@
                                 href="#"
                                 class="nav-link"
                             >
+
+                                <i class="fa fa-envelope"></i>
+
                                 Contact
+
                             </a>
 
                         </li>
 
 
-                        <!-- =================================
-                             OFFRES & SERVICES
-                        ================================== -->
+                        <!-- Offres & Services -->
 
                         <li class="nav-item dropdown">
 
@@ -954,6 +1490,8 @@
                                 data-bs-toggle="dropdown"
                                 aria-expanded="false"
                             >
+
+                                <i class="fa fa-briefcase"></i>
 
                                 Offres & Services
 
@@ -967,18 +1505,28 @@
                             <ul class="dropdown-menu">
 
 
+                                <!-- Services -->
+
                                 <li>
 
                                     <a
                                         href="#"
                                         class="dropdown-item"
                                     >
+
+                                        <i class="fa fa-cogs"></i>
+
                                         Services
+
                                     </a>
 
                                 </li>
 
+
                                 <li class="dropdown-divider"></li>
+
+
+                                <!-- Appels d'offres -->
 
                                 <li>
 
@@ -986,12 +1534,20 @@
                                         href="#"
                                         class="dropdown-item"
                                     >
+
+                                        <i class="fa fa-bullhorn"></i>
+
                                         Appels d'offres
+
                                     </a>
 
                                 </li>
-                                
+
+
                                 <li class="dropdown-divider"></li>
+
+
+                                <!-- Offres d'emploi -->
 
                                 <li>
 
@@ -999,23 +1555,30 @@
                                         href="#"
                                         class="dropdown-item"
                                     >
+
+                                        <i class="fa fa-briefcase"></i>
+
                                         Offres d'emploi
+
                                     </a>
 
                                 </li>
-
 
                             </ul>
 
                         </li>
 
-
                     </ul>
 
+                </div>
 
-                    <!-- =================================
-                         DARK MODE
-                    ================================== -->
+
+                <!-- Actions à droite -->
+
+                <div class="navbar-actions">
+
+
+                    <!-- Dark Mode -->
 
                     <div class="theme-container">
 
@@ -1023,7 +1586,6 @@
                             type="checkbox"
                             id="dark-mode"
                         >
-
 
                         <label
                             for="dark-mode"
@@ -1044,6 +1606,22 @@
                     </div>
 
 
+                    <!-- Hamburger -->
+
+                    <button
+                        class="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#mainMenu"
+                        aria-controls="mainMenu"
+                        aria-expanded="false"
+                        aria-label="Afficher le menu"
+                    >
+
+                        <span class="navbar-toggler-icon"></span>
+
+                    </button>
+
                 </div>
 
             </div>
@@ -1063,14 +1641,10 @@
             Plateforme Humanitaire
         </h1>
 
-
         <p>
             Ensemble pour une action humanitaire
             plus solidaire.
         </p>
-
-
-        <!-- Contenu Laravel -->
 
         <div class="content-wrapper">
 
@@ -1090,14 +1664,9 @@
         <div class="footer-content">
 
 
-            <!-- =================================
-                 DESCRIPTION
-            ================================== -->
+            <!-- Description -->
 
             <div class="platform-description">
-
-
-                <!-- Logo -->
 
                 <a
                     href="/"
@@ -1111,22 +1680,16 @@
 
                 </a>
 
-
-                <!-- Description -->
-
                 <p>
 
                     {{ $identite->description }}
 
                 </p>
 
-
             </div>
 
 
-            <!-- =================================
-                 RESEAUX SOCIAUX
-            ================================== -->
+            <!-- Réseaux sociaux -->
 
             <div class="platform-socials">
 
@@ -1137,9 +1700,7 @@
             </div>
 
 
-            <!-- =================================
-                 CONTACTS
-            ================================== -->
+            <!-- Contacts -->
 
             <div class="platform-contacts">
 
@@ -1150,13 +1711,12 @@
             </div>
 
 
-            <!-- =================================
-                 COPYRIGHT
-            ================================== -->
+            <!-- Copyright -->
 
             <div class="platform-copyright">
 
                 © 2026 {{ $identite->nom }}.
+
                 Tous droits réservés.
 
                 <br>
@@ -1183,3 +1743,4 @@
 </body>
 
 </html>
+
