@@ -79,7 +79,7 @@
                                     <!-- fin first_content_bloc -->   
                                     <div id="second_content_bloc">
                                         <h6>
-                                            Inserer liens sociaux: <i class="bi bi-facebook" style="color: blue;"></i> <i class="bi bi-twitter" style="color: #00acee;"></i> <i class="bi bi-google" style="color: #db4a39;"></i> <i class="bi bi-instagram" style="color: #C32AA3;"></i> 
+                                            Inserer liens sociaux: <i class="bi bi-facebook" style="color: blue;"></i> <i class="bi bi-twitter" style="color: #00acee;"></i> <i class="fab fa-linkedin-in" style="color: #0A66C2;"></i> <i class="bi bi-instagram" style="color: #C32AA3;"></i> 
                                         </h6>
                                         <div id="social_bloc">
                                             <div id="facebook_bloc">
@@ -95,10 +95,10 @@
                                                 <input type="url" name="twitter" id="twitter" class="form-control" placeholder="Lien Twitter"  value="{{ $identite->sociaux->twitter }}">
                                             </div>
                                             <div id="google_bloc">
-                                                <label for="google">
-                                                    <i class="bi bi-google" style="color: #db4a39;"></i> Google+:
+                                                <label for="linkedIn">
+                                                    <i class="fab fa-linkedin-in" style="color: #0A66C2;"></i> LinkedIn+:
                                                 </label>
-                                                <input type="url" name="google" id="google" class="form-control" placeholder="Lien google+"  value="{{ $identite->sociaux->google }}">
+                                                <input type="url" name="linkedIn" id="linkedIn" class="form-control" placeholder="Lien LinkedIn"  value="{{ $identite->sociaux->linkedIn }}">
                                             </div>
                                             <div id="instagram_bloc">
                                                 <label for="instagram">

@@ -25,6 +25,7 @@ return new class extends Migration
             $table->text('facebook')->nullable();
             $table->text('twitter')->nullable();
             $table->text('google')->nullable();
+            $tanle->text('linkedIn')->nullable();
             $table->text('whatsapp')->nullable(); // correction de "whatsap"
             $table->text('instagram')->nullable();
 

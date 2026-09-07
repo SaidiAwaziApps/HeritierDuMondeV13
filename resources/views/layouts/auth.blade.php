@@ -44,8 +44,8 @@
                         </a> 
                     </li>
                     <li>
-                        <a href="{{ $identite->sociaux->google }}" title="Google+">
-                            <i class="bi bi-google" style="color: #db4a39;"></i>
+                        <a href="{{ $identite->sociaux->linkedIn }}" title="LinkedIn">
+                            <i class="fab fa-linkedin-in" style="color: #0A66C2"></i>
                         </a>
                     </li>
                     <li>

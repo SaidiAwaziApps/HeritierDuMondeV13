@@ -149,18 +149,35 @@
 
             flex-shrink: 0;
 
+            overflow: hidden;
+
+            border-radius: 50%;
+
         }
 
 
         .logo img {
 
-            width: 60px;
+            width: 100%;
 
-            height: 60px;
+            height: 100%;
 
-            object-fit: cover;
+            object-fit: contain;
+
+            object-position: center;
+
+            display: block;
 
             border-radius: 50%;
+
+        }
+
+
+        .navbar .logo {
+
+            width: 120px;
+
+            height: 60px;
 
         }
 
@@ -219,11 +236,6 @@
             }
 
 
-            /* -----------------------------------------
-               BARRES DE SEPARATION
-               Visibles uniquement sur grand écran
-            ------------------------------------------ */
-
             .navbar-nav > .nav-item:not(:last-child)::after {
 
                 content: "";
@@ -279,8 +291,6 @@
         }
 
 
-        /* Icônes du menu */
-
         .navbar .nav-link > i:first-child {
 
             margin-right: 6px;
@@ -293,6 +303,8 @@
         .navbar .nav-link:hover {
 
             color: var(--green);
+
+            font-weight: bold;
 
         }
 
@@ -352,6 +364,8 @@
         .navbar .nav-item.dropdown > .nav-link:hover {
 
             color: var(--green);
+
+            font-weight: bold;
 
         }
 
@@ -445,8 +459,6 @@
         }
 
 
-        /* Icônes du sous-menu */
-
         .dropdown-menu .dropdown-item i {
 
             width: 20px;
@@ -459,10 +471,6 @@
 
         }
 
-
-        /* -----------------------------------------
-           SURVOL DU SOUS-MENU
-        ------------------------------------------ */
 
         .dropdown-menu .dropdown-item:hover {
 
@@ -714,7 +722,7 @@
 
             width: 100%;
 
-            padding: 50px 20px 20px;
+            padding: 20px 20px 20px;
 
             display: grid;
 
@@ -751,24 +759,30 @@
 
             display: block;
 
+            width: 120px;
+
+            height: 120px;
+
             margin-left: auto;
 
             margin-right: auto;
 
+            margin-bottom: 20px;
+
         }
 
 
-        .platform-description img {
+        .platform-description > .logo img {
 
-            width: 100px;
+            width: 100%;
 
-            height: 100px;
+            height: 100%;
 
-            object-fit: cover;
+            object-fit: contain;
+
+            object-position: center;
 
             border-radius: 50%;
-
-            margin-bottom: 20px;
 
             display: block;
 
@@ -922,11 +936,6 @@
             }
 
 
-            /* -----------------------------------------
-               SEPARATION DES ELEMENTS DU MENU
-               SUR PETITS ECRANS
-            ------------------------------------------ */
-
             .navbar-nav .nav-item {
 
                 border-bottom: 1px solid var(--border);
@@ -941,15 +950,13 @@
             }
 
 
-            /* -----------------------------------------
-               SURVOL DES ELEMENTS DU MENU
-            ------------------------------------------ */
-
             .navbar-nav > .nav-item > .nav-link:hover {
 
                 color: white;
 
                 background-color: var(--green);
+
+                font-weight: bold;
 
             }
 
@@ -960,10 +967,6 @@
 
             }
 
-
-            /* -----------------------------------------
-               SOUS-MENU SUR PETIT ECRAN
-            ------------------------------------------ */
 
             .dropdown-menu {
 
@@ -1067,8 +1070,6 @@
 
         @media (max-width: 575px) {
 
-            /* Navbar */
-
             .navbar {
 
                 padding-left: 15px;
@@ -1095,16 +1096,22 @@
 
             .navbar > .container-fluid > .logo {
 
-                flex-shrink: 0;
+                width: 120px;
+
+                height: 50px;
 
             }
 
 
             .navbar > .container-fluid > .logo img {
 
-                width: 50px;
+                width: 100%;
 
-                height: 50px;
+                height: 100%;
+
+                object-fit: contain;
+
+                object-position: center;
 
             }
 
@@ -1241,6 +1248,17 @@
             }
 
 
+            .platform-description > .logo {
+
+                width: 160px;
+
+                height: 160px;
+
+                margin-bottom: 20px;
+
+            }
+
+
             .platform-description p {
 
                 max-width: none;
@@ -1314,7 +1332,7 @@
                 <!-- Logo -->
 
                 <a
-                    href="/"
+                    href="{{ Storage::url($identite->logo) }}"
                     class="logo"
                 >
 
@@ -1384,24 +1402,6 @@
                                 <i class="fa fa-users"></i>
 
                                 Bénévoles
-
-                            </a>
-
-                        </li>
-
-
-                        <!-- Faire un don -->
-
-                        <li class="nav-item">
-
-                            <a
-                                href="#"
-                                class="nav-link"
-                            >
-
-                                <i class="fa fa-heart"></i>
-
-                                Faire un don
 
                             </a>
 
@@ -1517,6 +1517,27 @@
                                         <i class="fa fa-cogs"></i>
 
                                         Services
+
+                                    </a>
+
+                                </li>
+
+
+                                <li class="dropdown-divider"></li>
+
+
+                                <!-- Faire un don -->
+
+                                <li>
+
+                                    <a
+                                        href="#"
+                                        class="dropdown-item"
+                                    >
+
+                                        <i class="fa fa-heart"></i>
+
+                                        Faire un don
 
                                     </a>
 
@@ -1669,7 +1690,7 @@
             <div class="platform-description">
 
                 <a
-                    href="/"
+                    href="{{ Storage::url($identite->logo) }}"
                     class="logo"
                 >
 
@@ -1743,4 +1764,3 @@
 </body>
 
 </html>
-

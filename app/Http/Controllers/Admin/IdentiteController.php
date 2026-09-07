@@ -66,7 +66,7 @@ class IdentiteController extends Controller
         $identite->sociaux()->create([
             'facebook'  => $request->facebook,
             'twitter'   => $request->twitter,
-            'google'    => $request->google,
+            'linkedIn'    => $request->linkedIn,
             'instagram' => $request->instagram,
         ]);
 

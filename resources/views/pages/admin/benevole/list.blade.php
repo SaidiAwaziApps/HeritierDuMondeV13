@@ -49,8 +49,8 @@
                                         <a href="{{ $benevole->sociaux->twitter }}" title="Aller sur Twitter">
                                             <i class="bi bi-twitter" style="color: #00acee;"></i>
                                         </a>
-                                        <a href="{{ $benevole->sociaux->google }}" title="Aller sur Google">
-                                            <i class="bi bi-google" style="color: #db4a39;"></i>
+                                        <a href="{{ $benevole->sociaux->linkedIn }}" title="Aller sur LinkedIn">
+                                            <i class="fab fa-linkedin-in" style="color: #0A66C2;"></i>
                                         </a>
                                         <a href="{{ $benevole->sociaux->instagram }}" title="Aller sur Instagram">
                                             <i class="bi bi-instagram" style="color: #C32AA3;"></i> 

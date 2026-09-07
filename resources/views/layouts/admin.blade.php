@@ -160,7 +160,7 @@
                 <img src="{{ $identite->logo ? Storage::url($identite->logo) : '' }}" style="width: 100%;height: 100%;">
             </div>
             <div id="navbar_text">
-                <span>{{ $identite->nom }}</span>
+                <!-- <span>{{ $identite->nom }}</span> -->
             </div>
             <div id="navbar_collapse">
                 <button type="button" class="btn btn-default btn-sm" id="collapse_button">
@@ -173,8 +173,8 @@
             <ul>
                 <li><a href="{{ $identite->sociaux?->facebook }}"><i class="bi bi-facebook" style="color: blue;"></i></a></li>
                 <li><a href="{{ $identite->sociaux?->twitter }}"><i class="bi bi-twitter" style="color: #00acee;"></i></a></li>
-                <li><a href="{{ $identite->sociaux?->google }}"><i class="bi bi-google" style="color: #db4a39;"></i></a></li>
-                <li><a href="{{ $identite->sociaux?->instagram }}"><i class="bi bi-instagram" style="color: #C32AA3;"></i></a></li>
+                <li><a href="{{ $identite->sociaux?->linkedIn }}"><i class="fab fa-linkedin" style="color: 	#0A66C2;"></i></a></li>
+                <li><a href="{{ $identite->sociaux?->instagram }}"><i class="bi bi-instagram" style="color: #C32AA3"></i></a></li>
             </ul>
         </div> 
 
