@@ -79,18 +79,18 @@
                                     <!-- fin first_content_bloc -->   
                                     <div id="second_content_bloc">
                                         <h6>
-                                            Inserer liens sociaux: <i class="bi bi-facebook" style="color: blue;"></i> <i class="bi bi-twitter" style="color: #00acee;"></i> <i class="fab fa-linkedin-in" style="color: #0A66C2;"></i> <i class="bi bi-instagram" style="color: #C32AA3;"></i> 
+                                            Inserer liens sociaux: <i class="fa fa-facebook" style="color: blue;"></i> <i class="fa fa-twitter" style="color: #00acee;"></i> <i class="fab fa-linkedin-in" style="color: #0A66C2;"></i> <i class="fa fa-instagram" style="color: #C32AA3;"></i> 
                                         </h6>
                                         <div id="social_bloc">
                                             <div id="facebook_bloc">
                                                 <label for="facebook">
-                                                    <i class="bi bi-facebook" style="color: blue;"></i> Facebook:
+                                                    <i class="fa fa-facebook" style="color: blue;"></i> Facebook:
                                                 </label>
                                                 <input type="url" name="facebook" id="facebook" class="form-control" placeholder="Lien facebook" value="{{ $identite->sociaux->facebook }}">
                                             </div>
                                             <div id="twitter_bloc">
                                                 <label for="twitter">
-                                                    <i class="bi bi-twitter" style="color: #00acee;"></i> Twitter:
+                                                    <i class="fa fa-twitter" style="color: #00acee;"></i> Twitter:
                                                 </label>
                                                 <input type="url" name="twitter" id="twitter" class="form-control" placeholder="Lien Twitter"  value="{{ $identite->sociaux->twitter }}">
                                             </div>
@@ -102,7 +102,7 @@
                                             </div>
                                             <div id="instagram_bloc">
                                                 <label for="instagram">
-                                                    <i class="bi bi-instagram" style="color: #C32AA3;"></i> Instagram:
+                                                    <i class="fa fa-instagram" style="color: #C32AA3;"></i> Instagram:
                                                 </label>
                                                 <input type="url" name="instagram" id="instagram" class="form-control" placeholder="Lien Instagram"  value="{{ $identite->sociaux->instagram }}">
                                             </div>

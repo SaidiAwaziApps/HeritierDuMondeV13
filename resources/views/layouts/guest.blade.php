@@ -310,7 +310,7 @@
 
 
         /* =========================================
-           10. SOULIGNEMENT
+           10. SOULIGNEMENT MENU
         ========================================== */
 
         .navbar .nav-link::before {
@@ -711,6 +711,8 @@
 
             transition: 0.3s;
 
+            font-family: italic;
+
         }
 
 
@@ -752,6 +754,8 @@
 
             margin-left: 0;
 
+            font-family: italic;
+
         }
 
 
@@ -759,9 +763,9 @@
 
             display: block;
 
-            width: 120px;
+            width: 160px;
 
-            height: 120px;
+            height: 160px;
 
             margin-left: auto;
 
@@ -807,6 +811,8 @@
 
             font-size: 14px;
 
+            font-family: italic;
+
         }
 
 
@@ -819,6 +825,8 @@
             width: 100%;
 
             margin: 0;
+
+            font-family: italic;
 
         }
 
@@ -836,11 +844,188 @@
 
         .platform-socials h6 {
 
-            margin-bottom: 15px;
+            position: relative;
+
+            display: inline-block;
+
+            margin-bottom: 20px;
+
+            padding-bottom: 8px;
 
             color: var(--green);
 
-            font-size: 16px;
+            font-size: 18px;
+
+            font-weight: bold;
+
+            font-family: italic;
+
+        }
+
+
+        .platform-socials h6::after {
+
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+
+            bottom: 0;
+
+            width: 45px;
+
+            height: 3px;
+
+            background-color: var(--green);
+
+            border-radius: 3px;
+
+        }
+
+
+        .platform-socials ul {
+
+            list-style: none;
+
+            margin: 0;
+
+            padding: 0;
+
+        }
+
+
+        .platform-socials li {
+
+            margin-bottom: 0;
+
+            padding: 7px 0;
+
+            border-bottom: 1px solid rgba(128, 128, 128, 0.15);
+
+        }
+
+
+        .platform-socials li:last-child {
+
+            border-bottom: none;
+
+        }
+
+
+        /*
+         * Liens sociaux :
+         * couleur légèrement différente du texte
+         * pour les identifier comme des liens.
+         */
+
+        .platform-socials a {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            width: fit-content;
+
+            color: #3f5f55;
+
+            font-size: 15px;
+
+            font-family: italic;
+
+            text-decoration: none;
+
+            cursor: pointer;
+
+            position: relative;
+
+            transition:
+                color 0.3s ease,
+                transform 0.3s ease;
+
+        }
+
+
+        /* Petit soulignement discret */
+
+        .platform-socials a::after {
+
+            content: "";
+
+            position: absolute;
+
+            left: 30px;
+
+            bottom: -2px;
+
+            width: 0;
+
+            height: 1px;
+
+            background-color: var(--green);
+
+            transition: width 0.3s ease;
+
+        }
+
+
+        .platform-socials a:hover {
+
+            color: var(--green);
+
+            transform: translateX(4px);
+
+        }
+
+
+        .platform-socials a:hover::after {
+
+            width: calc(100% - 30px);
+
+        }
+
+
+        .platform-socials a i {
+
+            width: 20px;
+
+            text-align: center;
+
+            font-size: 18px;
+
+            transition: 0.3s;
+
+        }
+
+
+        /* Couleurs spécifiques des icônes */
+
+        .platform-socials li:nth-child(1) a i {
+
+            color: #1877f2;
+
+        }
+
+
+        .platform-socials li:nth-child(2) a i {
+
+            color: #1da1f2;
+
+        }
+
+
+        .platform-socials li:nth-child(3) a i {
+
+            color: #0a66c2;
+
+        }
+
+
+        .platform-socials li:nth-child(4) a i {
+
+            color: #e4405f;
 
         }
 
@@ -854,6 +1039,8 @@
             width: 100%;
 
             margin: 0;
+
+            font-family: italic;
 
         }
 
@@ -871,11 +1058,136 @@
 
         .platform-contacts h6 {
 
-            margin-bottom: 15px;
+            position: relative;
+
+            display: inline-block;
+
+            margin-bottom: 20px;
+
+            padding-bottom: 8px;
 
             color: var(--green);
 
+            font-size: 18px;
+
+            font-weight: bold;
+
+            font-family: italic;
+
+        }
+
+
+        .platform-contacts h6::after {
+
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+
+            bottom: 0;
+
+            width: 45px;
+
+            height: 3px;
+
+            background-color: var(--green);
+
+            border-radius: 3px;
+
+        }
+
+
+        .platform-contacts ul {
+
+            list-style: none;
+
+            margin: 0;
+
+            padding: 0;
+
+        }
+
+
+        .platform-contacts li {
+
+            display: flex;
+
+            align-items: flex-start;
+
+            gap: 8px;
+
+            margin-bottom: 0;
+
+            padding: 7px 0;
+
+            color: var(--text);
+
+            font-size: 15px;
+
+            font-family: italic;
+
+            line-height: 1.5;
+
+            border-bottom: 1px solid rgba(128, 128, 128, 0.15);
+
+        }
+
+
+        .platform-contacts li:last-child {
+
+            border-bottom: none;
+
+        }
+
+
+        .platform-contacts li span {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 6px;
+
+            color: var(--text);
+
             font-size: 16px;
+
+            font-weight: bold;
+
+            font-family: italic;
+
+            white-space: nowrap;
+
+        }
+
+
+        .platform-contacts li span i {
+
+            font-size: 17px;
+
+        }
+
+
+        /* Couleurs spécifiques des contacts */
+
+        .platform-contacts li:nth-child(1) span i {
+
+            color: #ea4335;
+
+        }
+
+
+        .platform-contacts li:nth-child(2) span i {
+
+            color: #25d366;
+
+        }
+
+
+        .platform-contacts li:nth-child(3) span i {
+
+            color: #16805c;
 
         }
 
@@ -897,6 +1209,8 @@
             text-align: center;
 
             font-size: 13px;
+
+            font-family: italic;
 
         }
 
@@ -1296,6 +1610,20 @@
             }
 
 
+            .platform-contacts li {
+
+                font-size: 14px;
+
+            }
+
+
+            .platform-contacts li span {
+
+                font-size: 15px;
+
+            }
+
+
             /* Copyright */
 
             .platform-copyright {
@@ -1334,6 +1662,7 @@
                 <a
                     href="{{ Storage::url($identite->logo) }}"
                     class="logo"
+                    title="{{ $identite->nom }}"
                 >
 
                     <img
@@ -1361,6 +1690,7 @@
                             <a
                                 href="#"
                                 class="nav-link"
+                                title="Accueil"
                             >
 
                                 <i class="fa fa-home"></i>
@@ -1379,6 +1709,7 @@
                             <a
                                 href="#"
                                 class="nav-link"
+                                title="À propos"
                             >
 
                                 <i class="fa fa-info-circle"></i>
@@ -1397,6 +1728,7 @@
                             <a
                                 href="#"
                                 class="nav-link"
+                                title="Bénévoles"
                             >
 
                                 <i class="fa fa-users"></i>
@@ -1415,6 +1747,7 @@
                             <a
                                 href="#"
                                 class="nav-link"
+                                title="Besoin"
                             >
 
                                 <i class="fa fa-hand-paper-o"></i>
@@ -1433,6 +1766,7 @@
                             <a
                                 href="#"
                                 class="nav-link"
+                                title="Événement"
                             >
 
                                 <i class="fa fa-calendar"></i>
@@ -1451,6 +1785,7 @@
                             <a
                                 href="#"
                                 class="nav-link"
+                                title="Blog"
                             >
 
                                 <i class="fa fa-pencil"></i>
@@ -1469,6 +1804,7 @@
                             <a
                                 href="#"
                                 class="nav-link"
+                                title="Contact"
                             >
 
                                 <i class="fa fa-envelope"></i>
@@ -1489,6 +1825,7 @@
                                 class="nav-link dropdown-toggle"
                                 data-bs-toggle="dropdown"
                                 aria-expanded="false"
+                                title="Offres & Services"
                             >
 
                                 <i class="fa fa-briefcase"></i>
@@ -1512,6 +1849,7 @@
                                     <a
                                         href="#"
                                         class="dropdown-item"
+                                        title="Services"
                                     >
 
                                         <i class="fa fa-cogs"></i>
@@ -1533,6 +1871,7 @@
                                     <a
                                         href="#"
                                         class="dropdown-item"
+                                        title="Faire un don"
                                     >
 
                                         <i class="fa fa-heart"></i>
@@ -1554,6 +1893,7 @@
                                     <a
                                         href="#"
                                         class="dropdown-item"
+                                        title="Appels d'offres"
                                     >
 
                                         <i class="fa fa-bullhorn"></i>
@@ -1575,6 +1915,7 @@
                                     <a
                                         href="#"
                                         class="dropdown-item"
+                                        title="Offres d'emploi"
                                     >
 
                                         <i class="fa fa-briefcase"></i>
@@ -1612,6 +1953,7 @@
                             for="dark-mode"
                             class="theme-button"
                             aria-label="Activer le mode sombre"
+                            title="Activer / Désactiver le mode sombre"
                         >
 
                             <span class="sun">
@@ -1637,6 +1979,7 @@
                         aria-controls="mainMenu"
                         aria-expanded="false"
                         aria-label="Afficher le menu"
+                        title="Afficher le menu"
                     >
 
                         <span class="navbar-toggler-icon"></span>
@@ -1692,6 +2035,7 @@
                 <a
                     href="{{ Storage::url($identite->logo) }}"
                     class="logo"
+                    title="{{ $identite->nom }}"
                 >
 
                     <img
@@ -1718,6 +2062,81 @@
                     Réseaux sociaux
                 </h6>
 
+                <ul>
+
+                    <li>
+
+                        <a
+                            href="{{ $identite->sociaux->facebook }}"
+                            title="Facebook"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+
+                            <i class="fa fa-facebook"></i>
+
+                            Facebook
+
+                        </a>
+
+                    </li>
+
+
+                    <li>
+
+                        <a
+                            href="{{ $identite->sociaux->twitter }}"
+                            title="Twitter"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+
+                            <i class="fa fa-twitter"></i>
+
+                            Twitter
+
+                        </a>
+
+                    </li>
+
+
+                    <li>
+
+                        <a
+                            href="{{ $identite->sociaux->linkedIn }}"
+                            title="LinkedIn"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+
+                            <i class="fa fa-linkedin"></i>
+
+                            LinkedIn
+
+                        </a>
+
+                    </li>
+
+
+                    <li>
+
+                        <a
+                            href="{{ $identite->sociaux->instagram }}"
+                            title="Instagram"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+
+                            <i class="fa fa-instagram"></i>
+
+                            Instagram
+
+                        </a>
+
+                    </li>
+
+                </ul>
+
             </div>
 
 
@@ -1728,6 +2147,54 @@
                 <h6>
                     Contacts
                 </h6>
+
+                <ul>
+
+                    <li>
+
+                        <span>
+
+                            <i class="fa fa-envelope"></i>
+
+                            Email:
+
+                        </span>
+
+                        {{ $identite->email }}
+
+                    </li>
+
+
+                    <li>
+
+                        <span>
+
+                            <i class="fa fa-phone"></i>
+
+                            Téléphone :
+
+                        </span>
+
+                        {{ $identite->tel }}
+
+                    </li>
+
+
+                    <li>
+
+                        <span>
+
+                            <i class="fa fa-home"></i>
+
+                            Adresse :
+
+                        </span>
+
+                        {{ $identite->adresse }}
+
+                    </li>
+
+                </ul>
 
             </div>
 

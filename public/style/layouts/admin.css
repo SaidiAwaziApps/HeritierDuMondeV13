@@ -92,7 +92,7 @@ body {
     margin-left: -40px;
 }
 
-@media all and (max-width: 700px) {
+/* @media all and (max-width: 700px) {
     #navbar_logo_collapse_button #navbar_logo,
     #navbar_logo_collapse_button #navbar_text {
         display: none;
@@ -101,13 +101,17 @@ body {
     #navbar_logo_collapse_button #navbar_collapse {
         display: block;
     }   
-}
+} */
 
 #navbar #navbar_social_menu ul li {
    float: left;
    margin-left: 20px; 
    list-style-type: none;
    line-height: 40px;
+}
+
+#navbar #navbar_social_menu ul li {
+    color: white;
 }
 
 #navbar_social_menu ul li a:hover {

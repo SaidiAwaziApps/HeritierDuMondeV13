@@ -157,10 +157,12 @@
 
         <div id="navbar_logo_collapse_button">
             <div id="navbar_logo">
-                <img src="{{ $identite->logo ? Storage::url($identite->logo) : '' }}" style="width: 100%;height: 100%;">
+                <a href="{{ $identite->logo ? Storage::url($identite->logo) : '/' }}">
+                    <img src="{{ $identite->logo ? Storage::url($identite->logo) : '' }}" class="rounded-thumbnail" style="width: 100%;height: 100%;">
+                </a>    
             </div>
             <div id="navbar_text">
-                <!-- <span>{{ $identite->nom }}</span> -->
+                <span>{{ $identite->nom }}</span>
             </div>
             <div id="navbar_collapse">
                 <button type="button" class="btn btn-default btn-sm" id="collapse_button">
@@ -171,10 +173,26 @@
 
         <div id="navbar_social_menu">
             <ul>
-                <li><a href="{{ $identite->sociaux?->facebook }}"><i class="bi bi-facebook" style="color: blue;"></i></a></li>
-                <li><a href="{{ $identite->sociaux?->twitter }}"><i class="bi bi-twitter" style="color: #00acee;"></i></a></li>
-                <li><a href="{{ $identite->sociaux?->linkedIn }}"><i class="fab fa-linkedin" style="color: 	#0A66C2;"></i></a></li>
-                <li><a href="{{ $identite->sociaux?->instagram }}"><i class="bi bi-instagram" style="color: #C32AA3"></i></a></li>
+                <li>
+                    <a href="{{ $identite->sociaux?->facebook }}" title="Aller sur Facebook">
+                        <i class="fa fa-facebook" style="color: white;"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ $identite->sociaux?->twitter }}" title="Aller sur Twitter">
+                        <i class="fa fa-twitter" style="color: white;"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ $identite->sociaux?->linkedIn }}" title="Aller sur LinkedIn">
+                        <i class="fab fa-linkedin" style="color: white;"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ $identite->sociaux?->instagram }}" title="Aller sur Instagram">
+                        <i class="fa fa-instagram" style="color: white;"></i>
+                    </a>
+                </li>
             </ul>
         </div> 
 

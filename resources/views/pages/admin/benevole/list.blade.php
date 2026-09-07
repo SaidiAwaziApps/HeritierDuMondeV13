@@ -44,16 +44,16 @@
                                     </li>
                                     <li class="list-group-item" title="Aller sur Facebook">
                                         <a href="{{ $benevole->sociaux->facebook }}">
-                                            <i class="bi bi-facebook" style="color: blue;"></i>
+                                            <i class="fa fa-facebook" style="color: blue;"></i>
                                         </a>
                                         <a href="{{ $benevole->sociaux->twitter }}" title="Aller sur Twitter">
-                                            <i class="bi bi-twitter" style="color: #00acee;"></i>
+                                            <i class="fa fa-twitter" style="color: #00acee;"></i>
                                         </a>
                                         <a href="{{ $benevole->sociaux->linkedIn }}" title="Aller sur LinkedIn">
                                             <i class="fab fa-linkedin-in" style="color: #0A66C2;"></i>
                                         </a>
                                         <a href="{{ $benevole->sociaux->instagram }}" title="Aller sur Instagram">
-                                            <i class="bi bi-instagram" style="color: #C32AA3;"></i> 
+                                            <i class="fa fa-instagram" style="color: #C32AA3;"></i> 
                                         </a>
                                     </li>
                                 </ul>

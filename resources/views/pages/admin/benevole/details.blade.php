@@ -62,12 +62,12 @@
                                         </li>
                                         <li>
                                             <a href="{{ $benevole->sociaux->facebook }}" title="Facebook">
-                                               <i class="bi bi-facebook" style="color: blue;"></i>
+                                               <i class="fa fa-facebook" style="color: blue;"></i>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="{{ $benevole->sociaux->twitter }}" title="Twitter">
-                                               <i class="bi bi-twitter" style="color: #00acee;"></i>
+                                               <i class="fa fa-twitter" style="color: #00acee;"></i>
                                             </a> 
                                         </li>
                                         <li>
@@ -77,7 +77,7 @@
                                         </li>
                                         <li>
                                             <a href="{{ $benevole->sociaux->instagram }}" title="Instagram">
-                                               <i class="bi bi-instagram" style="color: #C32AA3;"></i> 
+                                               <i class="fa fa-instagram" style="color: #C32AA3;"></i> 
                                             </a>
                                         </li>
                                     </ul>
