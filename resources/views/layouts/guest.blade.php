@@ -1,3 +1,13 @@
+ @php
+    function isVideo($path) {
+        $extension_array = ['mp4','MP4','mpeg','MPEG','mpeg-2','MPEG-2','avi','AVI','mov','MOV','wmv','WMV','avi','AVI','avchd','AVCHD','flv','FLV','f4v','F4V','swf','SWF','mkv','MKV','webm','WEBM'];
+        if(in_array(pathinfo($path,PATHINFO_EXTENSION),$extension_array)) {
+            return true;
+        } else {
+            return false;
+        }
+    } 
+@endphp
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -36,7 +46,9 @@
         href="{{ asset('dependance/font-awesome/font-awesome.min.css') }}"
     >
 
-    <script src="{{ asset('dependance/font-awesome/font-awesome.js') }}"></script>
+    <script
+        src="{{ asset('dependance/font-awesome/font-awesome.js') }}"
+    ></script>
 
 
     <style>
@@ -75,6 +87,25 @@
         }
 
 
+        html,
+        body {
+
+            width: 100%;
+
+            margin: 0;
+
+            padding: 0;
+
+        }
+
+
+        html {
+
+            scroll-behavior: smooth;
+
+        }
+
+
         /* =========================================
            3. BODY
         ========================================== */
@@ -102,11 +133,19 @@
 
             width: 100%;
 
+            margin: 0;
+
+            padding: 0;
+
             background-color: var(--white);
 
             color: var(--text);
 
             border-bottom: 1px solid var(--border);
+
+            position: relative;
+
+            z-index: 1000;
 
         }
 
@@ -118,6 +157,8 @@
         .navbar {
 
             min-height: 70px;
+
+            margin: 0;
 
             padding-left: 20px;
 
@@ -190,6 +231,10 @@
 
             flex-grow: 0;
 
+            position: relative;
+
+            z-index: 1100;
+
         }
 
 
@@ -219,6 +264,8 @@
                 display: flex !important;
 
                 align-items: center;
+
+                z-index: 1100;
 
             }
 
@@ -352,6 +399,15 @@
         }
 
 
+        .navbar .nav-item.dropdown {
+
+            position: relative;
+
+            z-index: 1200;
+
+        }
+
+
         .navbar .nav-item.dropdown > .nav-link {
 
             color: var(--text);
@@ -437,6 +493,10 @@
             box-shadow:
                 0 5px 15px rgba(0, 0, 0, 0.10);
 
+            position: absolute !important;
+
+            z-index: 9999 !important;
+
         }
 
 
@@ -507,6 +567,10 @@
             margin-left: auto;
 
             flex-shrink: 0;
+
+            position: relative;
+
+            z-index: 1100;
 
         }
 
@@ -661,14 +725,249 @@
 
 
         /* =========================================
-           17. CONTENU
+           17. CAROUSEL
+        ========================================== */
+
+        #layouts-carousel {
+
+            position: relative;
+
+            width: 100%;
+
+            height: 500px;
+
+            margin: 0;
+
+            padding: 0;
+
+            overflow: hidden;
+
+            background-color: #000;
+
+            z-index: 1;
+
+        }
+
+
+        #layouts-carousel .carousel-inner {
+
+            width: 100%;
+
+            height: 100%;
+
+            margin: 0;
+
+            padding: 0;
+
+        }
+
+
+        #layouts-carousel .carousel-item {
+
+            width: 100%;
+
+            height: 500px;
+
+            margin: 0;
+
+            padding: 0;
+
+        }
+
+
+        #layouts-carousel .carousel-item img {
+
+            display: block;
+
+            width: 100%;
+
+            height: 100%;
+
+            margin: 0;
+
+            padding: 0;
+
+            object-fit: cover;
+
+            object-position: center;
+
+        }
+
+
+        /* =========================================
+           INDICATEURS
+        ========================================== */
+
+        #layouts-carousel .carousel-indicators {
+
+            position: absolute;
+
+            left: 0;
+
+            right: 0;
+
+            bottom: 18px;
+
+            z-index: 10;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 8px;
+
+            margin: 0;
+
+            padding: 0;
+
+        }
+
+
+        #layouts-carousel .carousel-indicators button {
+
+            width: 9px;
+
+            height: 9px;
+
+            margin: 0;
+
+            padding: 0;
+
+            border: 0;
+
+            border-radius: 50%;
+
+            background-color: rgba(255, 255, 255, 0.85);
+
+            opacity: 1;
+
+            transition:
+                width 0.3s ease,
+                background-color 0.3s ease,
+                transform 0.3s ease;
+
+        }
+
+
+        #layouts-carousel .carousel-indicators button.active {
+
+            width: 22px;
+
+            height: 9px;
+
+            border-radius: 10px;
+
+            background-color: var(--green);
+
+            transform: none;
+
+        }
+
+
+        /* =========================================
+           CONTROLES CAROUSEL
+        ========================================== */
+
+        #layouts-carousel .carousel-control-prev,
+        #layouts-carousel .carousel-control-next {
+
+            width: 46px;
+
+            height: 46px;
+
+            top: 50%;
+
+            bottom: auto;
+
+            transform: translateY(-50%);
+
+            border-radius: 50%;
+
+            background-color: rgba(22, 128, 92, 0.65);
+
+            opacity: 1;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            transition:
+                background-color 0.3s ease,
+                transform 0.3s ease,
+                opacity 0.3s ease;
+
+            z-index: 10;
+
+        }
+
+
+        #layouts-carousel .carousel-control-prev {
+
+            left: 20px;
+
+        }
+
+
+        #layouts-carousel .carousel-control-next {
+
+            right: 20px;
+
+        }
+
+
+        #layouts-carousel .carousel-control-prev:hover,
+        #layouts-carousel .carousel-control-next:hover {
+
+            background-color: rgba(22, 128, 92, 0.90);
+
+            opacity: 1;
+
+        }
+
+
+        #layouts-carousel .carousel-control-prev:hover {
+
+            transform: translateY(-50%) scale(1.08);
+
+        }
+
+
+        #layouts-carousel .carousel-control-next:hover {
+
+            transform: translateY(-50%) scale(1.08);
+
+        }
+
+
+        #layouts-carousel .carousel-control-prev-icon,
+        #layouts-carousel .carousel-control-next-icon {
+
+            width: 18px;
+
+            height: 18px;
+
+            background-size: 100% 100%;
+
+        }
+
+
+        /* =========================================
+           18. CONTENU
         ========================================== */
 
         .content {
 
+            width: 100%;
+
             min-height: 500px;
 
-            padding: 100px 20px;
+            margin: 0;
+
+            padding: 0;
 
             text-align: center;
 
@@ -679,29 +978,34 @@
         }
 
 
-        .content h1 {
+        .content-wrapper {
 
-            margin-bottom: 20px;
+            width: 100%;
 
-            font-size: 40px;
+            margin: 0;
 
-        }
+            padding-top: 20px;
 
+            padding-bottom: 20px;
 
-        .content p {
+            padding-left: 0;
 
-            line-height: 1.6;
+            padding-right: 0;
 
         }
 
 
         /* =========================================
-           18. FOOTER
+           19. FOOTER
         ========================================== */
 
         footer {
 
             width: 100%;
+
+            margin: 0;
+
+            padding: 0;
 
             background-color: var(--footer);
 
@@ -717,14 +1021,14 @@
 
 
         /* =========================================
-           19. FOOTER CONTENT
+           20. FOOTER CONTENT
         ========================================== */
 
         .footer-content {
 
             width: 100%;
 
-            padding: 20px 20px 20px;
+            padding: 20px;
 
             display: grid;
 
@@ -737,7 +1041,7 @@
 
 
         /* =========================================
-           20. DESCRIPTION
+           21. DESCRIPTION
         ========================================== */
 
         .platform-description {
@@ -794,7 +1098,7 @@
 
 
         /* =========================================
-           21. DESCRIPTION TEXTE
+           22. DESCRIPTION TEXTE
         ========================================== */
 
         .platform-description p {
@@ -817,7 +1121,7 @@
 
 
         /* =========================================
-           22. RESEAUX SOCIAUX
+           23. RESEAUX SOCIAUX
         ========================================== */
 
         .platform-socials {
@@ -913,12 +1217,6 @@
         }
 
 
-        /*
-         * Liens sociaux :
-         * couleur légèrement différente du texte
-         * pour les identifier comme des liens.
-         */
-
         .platform-socials a {
 
             display: inline-flex;
@@ -947,8 +1245,6 @@
 
         }
 
-
-        /* Petit soulignement discret */
 
         .platform-socials a::after {
 
@@ -1031,7 +1327,7 @@
 
 
         /* =========================================
-           23. CONTACTS
+           24. CONTACTS
         ========================================== */
 
         .platform-contacts {
@@ -1193,7 +1489,7 @@
 
 
         /* =========================================
-           24. COPYRIGHT
+           25. COPYRIGHT
         ========================================== */
 
         .platform-copyright {
@@ -1216,7 +1512,101 @@
 
 
         /* =========================================
-           25. TABLETTE
+           26. BOUTON DE DEFILEMENT
+        ========================================== */
+
+        #scroll-button {
+
+            position: fixed;
+
+            right: 25px;
+
+            bottom: 25px;
+
+            width: 48px;
+
+            height: 48px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border: 1px solid rgba(255, 255, 255, 0.25);
+
+            border-radius: 50%;
+
+            background-color: rgba(22, 128, 92, 0.75);
+
+            color: var(--white);
+
+            font-size: 20px;
+
+            cursor: pointer;
+
+            opacity: 0;
+
+            visibility: hidden;
+
+            transform: translateY(15px);
+
+            transition:
+                opacity 0.3s ease,
+                visibility 0.3s ease,
+                transform 0.3s ease,
+                background-color 0.3s ease,
+                box-shadow 0.3s ease;
+
+            z-index: 10000;
+
+            box-shadow:
+                0 4px 12px rgba(0, 0, 0, 0.18);
+
+        }
+
+
+        #scroll-button.show {
+
+            opacity: 1;
+
+            visibility: visible;
+
+            transform: translateY(0);
+
+        }
+
+
+        #scroll-button:hover {
+
+            background-color: rgba(22, 128, 92, 0.95);
+
+            box-shadow:
+                0 6px 18px rgba(0, 0, 0, 0.25);
+
+            transform: translateY(-3px);
+
+        }
+
+
+        #scroll-button:active {
+
+            transform: translateY(0) scale(0.94);
+
+        }
+
+
+        #scroll-button i {
+
+            line-height: 1;
+
+            transition: transform 0.3s ease;
+
+        }
+
+
+        /* =========================================
+           27. TABLETTE
         ========================================== */
 
         @media (max-width: 991px) {
@@ -1293,6 +1683,10 @@
                 padding-left: 15px;
 
                 background-color: transparent;
+
+                position: static !important;
+
+                z-index: 9999 !important;
 
             }
 
@@ -1375,11 +1769,27 @@
 
             }
 
+
+            /* Carousel tablette */
+
+            #layouts-carousel {
+
+                height: 400px;
+
+            }
+
+
+            #layouts-carousel .carousel-item {
+
+                height: 400px;
+
+            }
+
         }
 
 
         /* =========================================
-           26. PETITS ECRANS
+           28. PETITS ECRANS
         ========================================== */
 
         @media (max-width: 575px) {
@@ -1514,18 +1924,119 @@
             }
 
 
-            /* Contenu */
+            /* Carousel mobile */
 
-            .content {
+            #layouts-carousel {
 
-                padding: 70px 20px;
+                width: 100%;
+
+                height: 250px;
+
+                margin: 0;
+
+                padding: 0;
 
             }
 
 
-            .content h1 {
+            #layouts-carousel .carousel-item {
 
-                font-size: 30px;
+                height: 250px;
+
+            }
+
+
+            #layouts-carousel .carousel-indicators {
+
+                bottom: 12px;
+
+                gap: 6px;
+
+            }
+
+
+            #layouts-carousel .carousel-indicators button {
+
+                width: 7px;
+
+                height: 7px;
+
+            }
+
+
+            #layouts-carousel .carousel-indicators button.active {
+
+                width: 18px;
+
+                height: 7px;
+
+            }
+
+
+            /* Boutons carousel mobile */
+
+            #layouts-carousel .carousel-control-prev,
+            #layouts-carousel .carousel-control-next {
+
+                width: 38px;
+
+                height: 38px;
+
+            }
+
+
+            #layouts-carousel .carousel-control-prev {
+
+                left: 10px;
+
+            }
+
+
+            #layouts-carousel .carousel-control-next {
+
+                right: 10px;
+
+            }
+
+
+            #layouts-carousel .carousel-control-prev-icon,
+            #layouts-carousel .carousel-control-next-icon {
+
+                width: 15px;
+
+                height: 15px;
+
+            }
+
+
+            /* Contenu */
+
+            .content {
+
+                width: 100%;
+
+                min-height: 400px;
+
+                padding: 0;
+
+                margin: 0;
+
+            }
+
+
+            .content-wrapper {
+
+                width: 100%;
+
+                padding-top: 20px;
+
+                padding-bottom: 20px;
+
+                padding-left: 0;
+
+                padding-right: 0;
+
+                margin: 0;
 
             }
 
@@ -1633,6 +2144,23 @@
                 width: 100%;
 
                 margin: 0;
+
+            }
+
+
+            /* Bouton de défilement mobile */
+
+            #scroll-button {
+
+                width: 42px;
+
+                height: 42px;
+
+                right: 15px;
+
+                bottom: 15px;
+
+                font-size: 18px;
 
             }
 
@@ -2001,14 +2529,115 @@
 
     <main class="content">
 
-        <h1>
-            Plateforme Humanitaire
-        </h1>
 
-        <p>
-            Ensemble pour une action humanitaire
-            plus solidaire.
-        </p>
+        <!-- =========================================
+             CAROUSEL
+        ========================================== -->
+
+        <div
+            id="layouts-carousel"
+            class="carousel slide"
+            data-bs-ride="carousel"
+            data-bs-interval="7000"
+        >
+
+
+            <!-- Indicateurs -->
+
+            <div class="carousel-indicators">
+
+                @foreach($identite->images as $index => $image)
+                <button
+                    type="button"
+                    data-bs-target="#layouts-carousel"
+                    data-bs-slide-to="{{ $index + 1 }}"
+                    class="@if($index == 0) active @endif"
+                    aria-current="{{ $index == 0 ? true : false }}"
+                    aria-label="Slide {{ $index + 1 }}"
+                ></button>
+                @endforeach
+            </div>
+
+
+            <!-- Images -->
+
+            <div class="carousel-inner">
+
+                <!-- Slide (carousel-item) -->
+                @foreach($identite->images as $index => $image) 
+                <div class="carousel-item 
+                        @if($index == 0) 
+                            active 
+                        @endif"
+                >
+                    @if(strtolower($image['img_source']) != 'upload')
+                        {!! $image['iframe'] !!}
+                    @elseif(isVideo($image['path']))
+                        <video autoplay muted loop playsinline width="100%" height="100%">
+                            <source src="{{ Storage::url($image['path']) }}">
+                        </video>
+                    @else
+                        <img width="100%" height="100%"
+                            src="{{ Storage::url($image['path']) }}"
+                            alt="{{ $image['titre'] }}"
+                        > 
+                    @endif
+
+                </div>
+                @endforeach
+
+            </div>
+
+
+            <!-- Contrôle précédent -->
+
+            <button
+                class="carousel-control-prev"
+                type="button"
+                data-bs-target="#layouts-carousel"
+                data-bs-slide="prev"
+                aria-label="Image précédente"
+            >
+
+                <span
+                    class="carousel-control-prev-icon"
+                    aria-hidden="true"
+                ></span>
+
+                <span class="visually-hidden">
+                    Précédent
+                </span>
+
+            </button>
+
+
+            <!-- Contrôle suivant -->
+
+            <button
+                class="carousel-control-next"
+                type="button"
+                data-bs-target="#layouts-carousel"
+                data-bs-slide="next"
+                aria-label="Image suivante"
+            >
+
+                <span
+                    class="carousel-control-next-icon"
+                    aria-hidden="true"
+                ></span>
+
+                <span class="visually-hidden">
+                    Suivant
+                </span>
+
+            </button>
+
+        </div>
+
+
+        <!-- =========================================
+             CONTENT WRAPPER
+        ========================================== -->
 
         <div class="content-wrapper">
 
@@ -2220,11 +2849,205 @@
 
 
     <!-- =========================================
+         BOUTON DE DEFILEMENT
+    ========================================== -->
+
+    <button
+        id="scroll-button"
+        type="button"
+        aria-label="Descendre vers le bas"
+        title="Descendre vers le bas"
+    >
+
+        <i
+            id="scroll-button-icon"
+            class="bi bi-arrow-down"
+            aria-hidden="true"
+        ></i>
+
+    </button>
+
+
+    <!-- =========================================
          BOOTSTRAP JS
     ========================================== -->
 
     <script
-        src="{{ asset('dependance/bootstrap/dist/js/bootstrap.bundle.min.js') }}">
+        src="{{ asset('dependance/bootstrap/dist/js/bootstrap.bundle.min.js') }}"
+    ></script>
+
+
+    <!-- =========================================
+         SCROLL BUTTON JS
+    ========================================== -->
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', function () {
+
+            const scrollButton =
+                document.getElementById('scroll-button');
+
+            const scrollButtonIcon =
+                document.getElementById('scroll-button-icon');
+
+
+            const scrollThreshold = 40;
+
+
+            function updateScrollButton() {
+
+                const scrollTop =
+                    window.pageYOffset ||
+                    document.documentElement.scrollTop;
+
+
+                const documentHeight =
+                    document.documentElement.scrollHeight;
+
+
+                const windowHeight =
+                    window.innerHeight;
+
+
+                const maxScroll =
+                    documentHeight - windowHeight;
+
+
+                /*
+                 * Le bouton apparaît uniquement
+                 * lorsqu'on a dépassé 40px.
+                 */
+
+                if (scrollTop > scrollThreshold) {
+
+                    scrollButton.classList.add('show');
+
+                } else {
+
+                    scrollButton.classList.remove('show');
+
+                }
+
+
+                /*
+                 * Si on est proche du bas,
+                 * le bouton permet de remonter.
+                 */
+
+                if (scrollTop >= maxScroll - 40) {
+
+                    scrollButtonIcon.className =
+                        'bi bi-arrow-up';
+
+                    scrollButton.setAttribute(
+                        'aria-label',
+                        'Remonter vers le haut'
+                    );
+
+                    scrollButton.setAttribute(
+                        'title',
+                        'Remonter vers le haut'
+                    );
+
+                } else {
+
+                    /*
+                     * Sinon, il permet de descendre.
+                     */
+
+                    scrollButtonIcon.className =
+                        'bi bi-arrow-down';
+
+                    scrollButton.setAttribute(
+                        'aria-label',
+                        'Descendre vers le bas'
+                    );
+
+                    scrollButton.setAttribute(
+                        'title',
+                        'Descendre vers le bas'
+                    );
+
+                }
+
+            }
+
+
+            scrollButton.addEventListener(
+                'click',
+                function () {
+
+                    const scrollTop =
+                        window.pageYOffset ||
+                        document.documentElement.scrollTop;
+
+
+                    const documentHeight =
+                        document.documentElement.scrollHeight;
+
+
+                    const windowHeight =
+                        window.innerHeight;
+
+
+                    const maxScroll =
+                        documentHeight - windowHeight;
+
+
+                    /*
+                     * Si on est en bas :
+                     * retour vers le haut.
+                     */
+
+                    if (scrollTop >= maxScroll - 40) {
+
+                        window.scrollTo({
+
+                            top: 0,
+
+                            behavior: 'smooth'
+
+                        });
+
+                    } else {
+
+                        /*
+                         * Sinon :
+                         * descendre d'une hauteur d'écran.
+                         */
+
+                        window.scrollBy({
+
+                            top: window.innerHeight * 0.8,
+
+                            behavior: 'smooth'
+
+                        });
+
+                    }
+
+                }
+            );
+
+
+            window.addEventListener(
+                'scroll',
+                updateScrollButton,
+                { passive: true }
+            );
+
+
+            window.addEventListener(
+                'resize',
+                updateScrollButton
+            );
+
+
+            updateScrollButton();
+
+        });
+
     </script>
 
 
