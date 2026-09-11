@@ -1,4 +1,4 @@
- @php
+@php
     function isVideo($path) {
         $extension_array = ['mp4','MP4','mpeg','MPEG','mpeg-2','MPEG-2','avi','AVI','mov','MOV','wmv','WMV','avi','AVI','avchd','AVCHD','flv','FLV','f4v','F4V','swf','SWF','mkv','MKV','webm','WEBM'];
         if(in_array(pathinfo($path,PATHINFO_EXTENSION),$extension_array)) {
@@ -588,6 +588,36 @@
         }
 
 
+        /* Hamburger ouvert / fermé */
+
+        .navbar-toggler .hamburger-open {
+
+            display: block;
+
+        }
+
+
+        .navbar-toggler .hamburger-close {
+
+            display: none;
+
+        }
+
+
+        .navbar-toggler[aria-expanded="true"] .hamburger-open {
+
+            display: none;
+
+        }
+
+
+        .navbar-toggler[aria-expanded="true"] .hamburger-close {
+
+            display: block;
+
+        }
+
+
         /* =========================================
            15. DARK MODE
         ========================================== */
@@ -676,6 +706,15 @@
         #dark-mode:checked ~ .theme-button .moon {
 
             display: block;
+
+        }
+
+
+        /* Hamburger blanc en dark mode */
+
+        body:has(#dark-mode:checked) .navbar-toggler {
+
+            color: #ffffff;
 
         }
 
@@ -1637,6 +1676,16 @@
 
                 order: 3;
 
+                position: absolute;
+
+                top: 100%;
+
+                left: 0;
+
+                z-index: 9999;
+
+                background-color: var(--white);
+
             }
 
 
@@ -1796,7 +1845,7 @@
 
             .navbar {
 
-                padding-left: 15px;
+                padding-left: 24px;
 
                 padding-right: 15px;
 
@@ -1909,6 +1958,16 @@
                 order: 3;
 
                 margin-top: 10px;
+
+                position: absolute;
+
+                top: 100%;
+
+                left: 0;
+
+                z-index: 9999;
+
+                background-color: var(--white);
 
             }
 
@@ -2510,7 +2569,9 @@
                         title="Afficher le menu"
                     >
 
-                        <span class="navbar-toggler-icon"></span>
+                        <i class="bi bi-list hamburger-open"></i>
+
+                        <i class="bi bi-x-lg hamburger-close"></i>
 
                     </button>
 
@@ -2540,8 +2601,6 @@
             data-bs-ride="carousel"
             data-bs-interval="7000"
         >
-
-
             <!-- Indicateurs -->
 
             <div class="carousel-indicators">
@@ -2552,12 +2611,10 @@
                     data-bs-target="#layouts-carousel"
                     data-bs-slide-to="{{ $index + 1 }}"
                     class="@if($index == 0) active @endif"
-                    aria-current="{{ $index == 0 ? true : false }}"
                     aria-label="Slide {{ $index + 1 }}"
                 ></button>
                 @endforeach
             </div>
-
 
             <!-- Images -->
 
@@ -2885,16 +2942,20 @@
 
         document.addEventListener('DOMContentLoaded', function () {
 
+            /* ---- Variables DOM ----*/   
             const scrollButton =
                 document.getElementById('scroll-button');
 
             const scrollButtonIcon =
-                document.getElementById('scroll-button-icon');
+                document.getElementById('scroll-button-icon');    
 
 
             const scrollThreshold = 40;
 
 
+            /* ***************************************************
+             * FONCTION MODIFIANT LE BUTTON DE DEFILEMENT
+             * ***************************************************/
             function updateScrollButton() {
 
                 const scrollTop =
@@ -2974,9 +3035,39 @@
             }
 
 
-            scrollButton.addEventListener(
-                'click',
-                function () {
+            /* ****************************************************
+             * FONCTION MODIFIANT LES DIMENSIONS IFRAMES
+             * ****************************************************/
+            function iframesResize() {
+                
+                const layoutsCarousel = document.getElementById('layouts-carousel');   
+
+                const carouselItems =
+                            layoutsCarousel
+                                .querySelector('.carousel-inner')
+                                .querySelectorAll('.carousel-item');
+
+                const iframes = [];
+
+                carouselItems.forEach(item => {
+
+                    const iframe = item.querySelector('iframe');
+
+                    if (iframe) {
+                        iframes.push(iframe);
+                    }
+
+                });
+
+                iframes.forEach(item => {
+                    item.style.width = '100%';
+                    item.style.height = '100%';
+                });
+            }
+
+
+            /* ---- Au moment du click sur le button defilement ---- */
+            scrollButton.addEventListener('click', function () {
 
                     const scrollTop =
                         window.pageYOffset ||
@@ -3031,23 +3122,26 @@
             );
 
 
+            /* --- Lorsqu'on defile ---- */ 
             window.addEventListener(
                 'scroll',
                 updateScrollButton,
                 { passive: true }
             );
 
-
+            /* --- Lorsqu'on redimentionne ---- */ 
             window.addEventListener(
                 'resize',
                 updateScrollButton
             );
 
-
+            /* --- Appel a la methode updateScrollButton ---- */ 
             updateScrollButton();
 
-        });
+            /* ---- Appel a la methode iframesResize ---- */
+            iframesResize();
 
+        });
     </script>
 
 
