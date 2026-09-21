@@ -2599,9 +2599,9 @@
                 <button
                     type="button"
                     data-bs-target="#layouts-carousel"
-                    data-bs-slide-to="{{ $index + 1 }}"
+                    data-bs-slide-to="{{ $index}}"
                     class="@if($index == 0) active @endif"
-                    aria-label="Slide {{ $index + 1 }}"
+                    aria-label="Slide {{ $index}}"
                 ></button>
                 @endforeach
             </div>
