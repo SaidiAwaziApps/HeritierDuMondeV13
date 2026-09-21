@@ -55,7 +55,7 @@
                                     <label for="date_du_jour">
                                         Date du jour:<i id="required-sign">*</i>
                                     </label>
-                                    <input type="date" name="date_du_jour" id="date_du_jour" class="form-control">
+                                    <input type="datetime-local" name="date_du_jour" id="date_du_jour" class="form-control">
                                 </div>
                             </div>
                             <div id="periode_date_bloc">
@@ -63,13 +63,13 @@
                                     <label for="periode_date_debut">
                                         Debut:<i id="required-sign">*</i>
                                     </label>
-                                    <input type="date" name="periode_date_debut" id="periode_date_debut" class="form-control">
+                                    <input type="datetime-local" name="periode_date_debut" id="periode_date_debut" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label for="periode_date_fin">
                                         Fin:<i id="required-sign">*</i>
                                     </label>
-                                    <input type="date" name="periode_date_fin" id="periode_date_fin" class="form-control">
+                                    <input type="datetime-local" name="periode_date_fin" id="periode_date_fin" class="form-control">
                                 </div>
                             </div>
                             <div id="lieu_bloc">

@@ -17,9 +17,9 @@ return new class extends Migration
             $table->string('type')->nullable();
             $table->string('model')->nullable();
             $table->string('titre')->nullable();
-            $table->date('date_du_jour')->nullable();
-            $table->date('periode_date_debut')->nullable();
-            $table->date('periode_date_fin')->nullable();
+            $table->dateTime('date_du_jour')->nullable();
+            $table->dateTime('periode_date_debut')->nullable();
+            $table->dateTime('periode_date_fin')->nullable();
             $table->string('lieu')->nullable();
             $table->text('contenu')->nullable();
             $table->boolean('status')->default(true);
