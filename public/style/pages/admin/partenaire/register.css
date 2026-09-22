@@ -1,116 +1,129 @@
-.card .card-header span {
-    font-size: 20px;
-    /* font-weight: bold; */
-    font-family: italic;
-}
+    .card .card-header span {
+        font-size: 20px;
+        /* font-weight: bold; */
+        font-family: italic;
+    }
 
-.card .card-header span i[class="fas fa-handshake"] {
-    opacity: 0.4;
-}
+    .card .card-header span i[class="fas fa-handshake"] {
+        opacity: 0.4;
+    }
 
-.card .card-header a {
-    font-size: 18px;
-    font-weight: bold;
-    font-family: italic;
-    color: black;
-    float: right;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    padding: 4px 10px 4px 10px;
-} 
+    .card .card-header a {
+        font-size: 18px;
+        font-weight: bold;
+        font-family: italic;
+        color: black;
+        float: right;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        padding: 4px 10px 4px 10px;
+    } 
 
-.card .card-header a:hover {
-    opacity: 0.4;
-}
-
-
-.partner-form > div {
-    margin-bottom: 2px;
-}
-
-.partner-form div .form-group label {
-    font-size: 18px;
-    /* font-weight: bold; */
-    font-family: italic;
-}
-
-.partner-form div .form-group input,
-.partner-form div .form-group select, 
-.partner-form div .form-group textarea {
-    border-bottom: 1px solid #ccc;
-}
+    .card .card-header a:hover {
+        opacity: 0.4;
+    }
 
 
-.partner-form .submit-button {
-    margin-top: 10px;
-}
+    .partner-form > div {
+        margin-bottom: 2px;
+    }
 
-.partner-form .submit-button span {
-    font-size: 18px;
-    font-weight: bold;
-    font-family: italic;
-}
-
-.partner-form .logo {
-    margin-top: 10px;
-    /* display: flex;
-    justify-content: center; */
-    /* background-color: #f8f8f8; */
-    border-radius: 6px;
-}
-
-.partner-form .logo .form-group label {
-    display: inline-block;
-    /* position: fixed;
-    z-index: 1000; */
-    padding: 6px;
-    border-radius: 4px;
-    background-color: cadetblue;
-    color: white;
-    cursor: pointer;
-}
-
-.partner-form .logo .form-group input {
-    display: none;
-}
+    .partner-form div .form-group label {
+        font-size: 18px;
+        /* font-weight: bold; */
+        font-family: italic;
+    }
 
 
+    .partner-form .socials {
+        margin: 16px 0px 6px 0px;
+    }
 
-i[id="required-sign"] {
-    color: red;
-}
+    .partner-form .socials h6 {
+        text-align: center;
+        font-size: 20px;
+        font-family: italic;
+        padding-bottom: 6px;
+    }
 
-i[id="not-required-sign"] {
-    color: cadetblue;
-    opacity: 0.;
-}
+    .partner-form .socials .socials-content {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+    }
+
+    .partner-form .socials .socials-content .form-group {
+        width: 24.6%;
+    }
+
+    .partner-form .socials .socials-content .form-group label {
+        font-size: 18px;
+        font-family: italic;
+    }
+
+    .partner-form div .form-group input,
+    .partner-form div .form-group select, 
+    .partner-form div .form-group textarea {
+        border-bottom: 1px solid #ccc;
+    }
 
 
-/* .form-group {
-    margin-bottom: 4px;
-}
+    .partner-form .logo {
+        margin-top: 10px;
+        /* display: flex;
+        justify-content: center; */
+        /* background-color: #f8f8f8; */
+        border-radius: 6px;
+    }
 
-input[type="text"], textarea[id="description"] {
-    border-bottom: 2px solid #ccc;
-}
+    .partner-form .logo .form-group label {
+        display: inline-block;
+        /* position: fixed;
+        z-index: 1000; */
+        padding: 6px;
+        border-radius: 4px;
+        background-color: cadetblue;
+        color: white;
+        cursor: pointer;
+    }
 
-label {
-    font-size: 20px;
-    font-weight: bold;
-    font-family: italic;
-}
-
-i[id="required-sign"] {
-    color: red;
-}
+    .partner-form .logo .form-group input {
+        display: none;
+    }
 
 
-#submit_bloc {
-    margin-top: 10px;
-}
 
-#submit_bloc .d-grid button span {
-    font-size: 20px;
-    font-weight: bold;
-    font-family: italic;
-} */
+
+    .partner-form .submit-button {
+        margin-top: 10px;
+    }
+
+    .partner-form .submit-button span {
+        font-size: 18px;
+        font-weight: bold;
+        font-family: italic;
+    }
+
+    
+
+    i[id="required-sign"] {
+        color: red;
+    }
+
+    i[id="not-required-sign"] {
+        color: cadetblue;
+        opacity: 0.;
+    }
+
+
+
+    .validator-error {
+        text-align: center;
+    }
+
+    .validator-error span {
+        font-size: 18px;
+        font-weight: bold;
+        font-family: italic;
+        color: red; 
+    }

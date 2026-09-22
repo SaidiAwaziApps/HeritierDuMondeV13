@@ -15,8 +15,13 @@
             </div>
 
             <div class="card-body">
-                <form action="" method="post" class="partner-form">
+                <form method="post" action="{{ route('admin.partenaire.save') }}" enctype="multipart/form-data" class="partner-form">
                     @csrf
+                    
+                    <div class="identite">
+                        <input type="hidden" name="identite_id" id="identite_id" value="{{ $identite->id }}">
+                    </div>
+
                     <div class="nom">
 
                         <div class="form-group">
@@ -61,7 +66,45 @@
                             </label>
                             <input type="url" name="site_web" id="site_web" class="form-control" placeholder="Entrer Lien site web">
                         </div>
-                    </div>                    
+                    </div>     
+                    
+                    <div class="socials">
+
+                        <h6> Inserer liens sociaux: <i class="fa fa-facebook" style="color: blue;"></i> <i class="fa fa-twitter" style="color: #00acee;"></i> <i class="fab fa-linkedin-in" style="color: #0A66C2;"></i> <i class="fa fa-instagram" style="color: #C32AA3;"></i> </h6>
+
+                        <div class="socials-content">
+
+                            <div class="form-group">
+                                <label for="facebook">
+                                    <i class="fa fa-facebook" style="color: blue;"></i> Facebook:<i id="not-required-sign">*</i>
+                                </label>
+                                <input type="url" name="facebook" id="facebook" class="form-control" placeholder="Lien facebook">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="twitter">
+                                    <i class="fa fa-twitter" style="color: #00acee;"></i> Twitter:<i id="not-required-sign">*</i>
+                                </label>
+                                <input type="url" name="twitter" id="twitter" class="form-control" placeholder="Lien Twitter">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="linkedIn">
+                                    <i class="fab fa-linkedin-in" style="color: #0A66C2;"></i> LinkedIn+:<i id="not-required-sign">*</i>
+                                </label>
+                                <input type="url" name="linkedIn" id="linkedIn" class="form-control" placeholder="Lien LinkedIn">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="instagram">
+                                    <i class="fa fa-instagram" style="color: #C32AA3;"></i> Instagram:<i id="not-required-sign">*</i>
+                                </label>
+                                <input type="url" name="instagram" id="instagram" class="form-control" placeholder="Lien Instagram">
+                            </div>
+
+                        </div>
+
+                    </div>
 
                     <div class="description">
                         <div class="form-group">

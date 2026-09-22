@@ -18,6 +18,11 @@ Route::prefix('admin/partenaire')
     ->as('admin.partenaire.')
     ->group(function() {
           
-        Route::get('/register',[AdminPartenaireController::class, 'register_page'])->name('register_page');    
+        Route::get('/register',[AdminPartenaireController::class, 'register_page'])->name('register_page'); 
+        
+        Route::get('/list',[AdminPartenaireController::class, 'list'])->name('list'); 
+
+
+        Route::post('/save',[AdminPartenaireController::class, 'save'])->name('save'); 
 
     });

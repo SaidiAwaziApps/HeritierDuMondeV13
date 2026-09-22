@@ -6,7 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Partenaire extends Model
 {
-    
+
+    protected $guarded = [];
+
     /**
      * Relation avec identite
      */
