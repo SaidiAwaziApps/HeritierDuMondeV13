@@ -82,6 +82,13 @@ class Identite extends Model
     }
 
     /**
+     * Partenaires
+     */
+    public function partenaires() {
+        return $this->hasMany(Partenaire::class);
+    }
+
+    /**
      * Surcharge de toArray pour charger automatiquement certaines relations
      */
     public function toArray()

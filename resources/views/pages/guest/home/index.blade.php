@@ -555,26 +555,89 @@
         </div>
         
         <div class="ours-blog-content">
+
             <div class="ours-blog-categories">
 
-                @php
-                  
-                   
-                @endphp
-
-
+                @if ($categories->isNotEmpty())
                 <ul>
+
+                    @if($categories->count() > 2)
                     <li>
-                        Tout
+                        <a href="#">
+                            Tout
+                        </a>
                     </li>
+                    @endif
+
+                    @foreach ($categories->take(3) as $categorie)
                     <li>
-                        Tout
+                        <a href="#">
+                            {{ $categorie->ctg_name }}
+                        </a>
                     </li>
+                    @endforeach
+
+                    @if($categories->count() > 3)
+                    <li>
+                        <a href="#">
+                            Autres
+                        </a>
+                    </li>
+                    @endif
+
                 </ul>
+                @endif
+
             </div>
+
+
+            <div class="ours-blog-imgs">
+                @foreach($categories as $categorie)
+                    @foreach($categorie->articles as $article)
+                    <div class="article-item">
+                        @foreach($article->images as $image)
+                        <div class="article-item-img">
+                            @if(strtolower($image->img_source) != 'upload')
+                                {!! $image->iframe !!}
+                            @elseif(isVideo($image->path))
+                            <video autoplay muted loop playsinline width="100%" height="100%">
+                                <source src="{{ Storage::url($image->path) }}">
+                            </video> 
+                            @else
+                            <img width="100%" height="100%"
+                                src="{{ Storage::url($image->path) }}"
+                                alt="{{ $image->titre }}"
+                            > 
+                            @endif   
+                        </div>
+                        @endforeach
+                    </div>
+                    @endforeach
+                @endforeach
+            </div>
+
+
         </div>
     </div>
 
+
+    <!-- =====================================================
+        Nos partenaires
+    ====================================================== -->
+    <div class="ours-partners">
+
+        <h4>
+            Nos partenaires
+        </h4>
+
+        <div class="ours-partners-content">
+            <div class="ours-partners-item">
+                <a href="">
+                    
+                </a>
+            </div>
+        </div>
+    </div>
 
 
 

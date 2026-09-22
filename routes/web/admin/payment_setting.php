@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Middleware\IsAdmin;
+use App\Http\Middleware\IsHighAdmin;
 use App\Http\Middleware\TrackHistoryMiddleware;
 
 use App\Http\Controllers\Admin\PaymentSettingController;
@@ -15,7 +15,7 @@ use App\Http\Controllers\Admin\PaymentSettingController;
 
 Route::prefix('admin/payment-setting')
     ->as('admin.paymentSetting.')
-    ->middleware(IsAdmin::class)
+    ->middleware(IsHighAdmin::class)
     ->group(function() {
 
         // View (affichange)

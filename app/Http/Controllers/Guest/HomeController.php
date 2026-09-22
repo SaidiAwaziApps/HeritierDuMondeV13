@@ -10,6 +10,7 @@ use App\Models\Besoin;
 use App\Models\Don;
 use App\Models\Donateur;
 use App\Models\Evenement;
+use App\Models\Categorie;
 
 class HomeController extends Controller
 {
@@ -34,6 +35,15 @@ class HomeController extends Controller
         // Evenements            
         $evenements = Evenement::where('status','=',true)
                   ->get();  
+
+        // Categories          
+        $categories = Categorie::where('status', true)
+                               ->whereNot('ctg_name', 'non classe')
+                               ->withCount('articles')
+                               ->orderByDesc('articles_count')
+                               ->get();
+
+          
                   
         /* ---- Renvoie la page accueil (home) ---- */
         return view('pages.guest.home.index', [
@@ -41,7 +51,8 @@ class HomeController extends Controller
             'besoins'    => $besoins,
             'dons'       => $dons,
             'donateurs'  => $donateurs,
-            'evenements' => $evenements
+            'evenements' => $evenements,
+            'categories' => $categories
         ]);          
     }
 }

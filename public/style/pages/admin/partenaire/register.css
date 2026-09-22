@@ -1,0 +1,116 @@
+.card .card-header span {
+    font-size: 20px;
+    /* font-weight: bold; */
+    font-family: italic;
+}
+
+.card .card-header span i[class="fas fa-handshake"] {
+    opacity: 0.4;
+}
+
+.card .card-header a {
+    font-size: 18px;
+    font-weight: bold;
+    font-family: italic;
+    color: black;
+    float: right;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 4px 10px 4px 10px;
+} 
+
+.card .card-header a:hover {
+    opacity: 0.4;
+}
+
+
+.partner-form > div {
+    margin-bottom: 2px;
+}
+
+.partner-form div .form-group label {
+    font-size: 18px;
+    /* font-weight: bold; */
+    font-family: italic;
+}
+
+.partner-form div .form-group input,
+.partner-form div .form-group select, 
+.partner-form div .form-group textarea {
+    border-bottom: 1px solid #ccc;
+}
+
+
+.partner-form .submit-button {
+    margin-top: 10px;
+}
+
+.partner-form .submit-button span {
+    font-size: 18px;
+    font-weight: bold;
+    font-family: italic;
+}
+
+.partner-form .logo {
+    margin-top: 10px;
+    /* display: flex;
+    justify-content: center; */
+    /* background-color: #f8f8f8; */
+    border-radius: 6px;
+}
+
+.partner-form .logo .form-group label {
+    display: inline-block;
+    /* position: fixed;
+    z-index: 1000; */
+    padding: 6px;
+    border-radius: 4px;
+    background-color: cadetblue;
+    color: white;
+    cursor: pointer;
+}
+
+.partner-form .logo .form-group input {
+    display: none;
+}
+
+
+
+i[id="required-sign"] {
+    color: red;
+}
+
+i[id="not-required-sign"] {
+    color: cadetblue;
+    opacity: 0.;
+}
+
+
+/* .form-group {
+    margin-bottom: 4px;
+}
+
+input[type="text"], textarea[id="description"] {
+    border-bottom: 2px solid #ccc;
+}
+
+label {
+    font-size: 20px;
+    font-weight: bold;
+    font-family: italic;
+}
+
+i[id="required-sign"] {
+    color: red;
+}
+
+
+#submit_bloc {
+    margin-top: 10px;
+}
+
+#submit_bloc .d-grid button span {
+    font-size: 20px;
+    font-weight: bold;
+    font-family: italic;
+} */

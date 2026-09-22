@@ -51,6 +51,7 @@ $webAdminModules = [
     'contact',
     'message',
     'payment_setting',
+    'partenaire',
     'share',
     'home',
 ];

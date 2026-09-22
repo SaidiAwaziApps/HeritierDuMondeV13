@@ -2604,6 +2604,7 @@
                     aria-label="Slide {{ $index}}"
                 ></button>
                 @endforeach
+
             </div>
 
             <!-- Images -->
@@ -2638,7 +2639,7 @@
 
             <!-- Contrôle précédent -->
 
-            <button
+            <!-- <button
                 class="carousel-control-prev"
                 type="button"
                 data-bs-target="#layouts-carousel"
@@ -2655,12 +2656,12 @@
                     Précédent
                 </span>
 
-            </button>
+            </button> -->
 
 
             <!-- Contrôle suivant -->
 
-            <button
+            <!-- <button
                 class="carousel-control-next"
                 type="button"
                 data-bs-target="#layouts-carousel"
@@ -2677,7 +2678,7 @@
                     Suivant
                 </span>
 
-            </button>
+            </button> -->
 
         </div>
 

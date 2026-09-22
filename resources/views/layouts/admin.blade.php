@@ -131,8 +131,11 @@
     @include('layouts.admin.offre_emploie.head.styles') <!-- // Ensemble de script styles destines a partie head -->
     @include('layouts.admin.offre_emploie.head.scripts') <!-- // Ensemble de script styles destines a partie head -->
 
-    <!-- Ensemble de Styles && scripts destines service  -->
+    <!-- Ensemble de Styles destines service  -->
     @include('layouts.admin.offre_service.head.styles')
+
+    <!-- Ensemble de Styles destines a partenaire  -->
+    @include('layouts.admin.partenaire.head.styles')
     
     <!-- Script dashboard -->
     @include('layouts.admin.dashboard.admin.head.scripts')

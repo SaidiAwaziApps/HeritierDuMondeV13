@@ -92,6 +92,11 @@ return new class extends Migration
         Schema::table('payment_settings', function (Blueprint $table) {
             $table->foreignId('identite_id')->constrained();
         });
+
+        // Relation entre table partenaires && identite
+        Schema::table('partenaires', function (Blueprint $table) {
+            $table->foreignId('identite_id')->constrained();
+        });
     }
 
     /**
