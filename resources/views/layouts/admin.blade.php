@@ -55,6 +55,10 @@
         if(Route::is('admin.evenement.*')) {
             $headTitle = 'Evenements';
         }
+        // partenaires
+        if(Route::is('admin.partenaire.*')) {
+            $headTitle = 'Partenaires';
+        }
     @endphp
     
 
@@ -427,6 +431,14 @@
                        style="background-color: cadetblue; color: white;"
                     @endif>
                     <i class="fa fa-calendar"></i> Evenements
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('admin.partenaire.list') }}"
+                    @if(Route::is('admin.partenaire.*'))
+                       style="background-color: cadetblue; color: white;"
+                    @endif>
+                    <i class="fas fa-handshake"></i> Partenaires
                 </a>
             </li>
         </div>

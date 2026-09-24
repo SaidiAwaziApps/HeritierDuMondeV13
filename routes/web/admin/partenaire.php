@@ -16,13 +16,14 @@ use App\Http\Controllers\Admin\PartenaireController as AdminPartenaireController
 */
 Route::prefix('admin/partenaire')
     ->as('admin.partenaire.')
+    ->middleware(IsAdmin::class)
     ->group(function() {
           
-        Route::get('/register', [AdminPartenaireController::class, 'register_page'])->name('register_page'); 
+        Route::get('/register', [AdminPartenaireController::class, 'register_page'])->middleware(TrackHistoryMiddleware::class)->name('register_page'); 
 
-        Route::get('/update/{id}', [AdminPartenaireController::class, 'update_page'])->name('update_page'); 
+        Route::get('/update/{id}', [AdminPartenaireController::class, 'update_page'])->middleware(TrackHistoryMiddleware::class)->name('update_page'); 
         
-        Route::get('/list', [AdminPartenaireController::class, 'list'])->name('list'); 
+        Route::get('/list', [AdminPartenaireController::class, 'list'])->middleware(TrackHistoryMiddleware::class)->name('list'); 
 
 
 
