@@ -1,0 +1,139 @@
+    .card .card-header span {
+        font-size: 20px;
+        /* font-weight: bold; */
+        font-family: italic;
+    }
+
+    .card .card-header span i[class="fas fa-handshake"] {
+        opacity: 0.4;
+    }
+
+    .card .card-header a {
+        font-size: 18px;
+        font-weight: bold;
+        font-family: italic;
+        color: black;
+        float: right;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        padding: 4px 10px 4px 10px;
+    } 
+
+    .card .card-header a:hover {
+        opacity: 0.4;
+    }
+
+
+
+    .partners-list-content {
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .partners-list-content  .partner-item {
+        width: 23%;
+        margin-right: 0.4%;
+    } 
+
+    @media all and (max-width: 1000px) {
+        .partners-list-content  .partner-item {
+            width: 48%;
+        }  
+
+        .partners-list-content  .partner-item:nth-child(2n+1) {
+            margin-right: 1.8%;
+        } 
+    }
+
+
+    
+    /* ********************************************************************
+     * Bloc contenat les liens reseaux sociaux
+     * **********************************************************************/
+    .partner-item-sociaux {
+        display: flex;
+        justify-content: center;
+        flex-wrap: nowrap;
+    }
+
+    .partner-item-sociaux ul {
+        margin: 0px;
+        padding: 0px;
+    }
+
+    .partner-item-sociaux ul li {
+        float: left;
+        list-style-type: none;
+        margin-right: 6px;
+    }
+
+    @media all and (max-width: 500px) {
+        .partner-item-sociaux ul li { 
+            margin-bottom: 4px;
+        }
+    }
+
+    .partner-item-sociaux ul li a {
+        padding: 4px 6px 4px 6px;
+        border: 1px solid #f8f8ff;
+    }
+
+    .partner-item-sociaux ul li a:hover {
+        opacity: 0.4;
+    }
+
+
+
+
+    /* ********************************************************************
+     * Bloc contenat les buttons
+     * **********************************************************************/
+    .partner-item-actions {
+        display: flex;
+        justify-content: center;
+        flex-wrap: nowrap;
+    }
+
+    
+    .partner-item-actions ul {
+        margin: 0px;
+        padding: 0px;
+    }
+
+    .partner-item-actions ul li {
+        float: left;
+        list-style-type: none;
+    }
+
+    .partner-item-actions ul li:nth-child(1) {
+        margin-right: 4px;
+    }
+
+    .partner-item-actions ul li a:hover,
+    .partner-item-actions ul li form button:hover {
+        opacity: 0.6;
+    }
+
+
+
+    
+    /* ********************************************************************
+     * Bloc contenu introuvable (liste vide)
+     * ********************************************************************/
+    .partners-list-content .not-found-items {
+        width: 100%;
+        margin-top: 10px;
+        padding: 18px 0px 6px 0px;
+        border-radius: 6px;
+        background-color: #f8f8ff;
+    }
+
+    .partners-list-content .not-found-items {
+        text-align: center;
+        font-size: 24px;
+        /* font-weight: bold; */
+        font-family: italic;
+    }
+
+    

@@ -42,14 +42,17 @@
                         </div> 
 
                         @if($errors->any())
-                            <div id="validate_errors_bloc">
-                                @foreach($errors->all() as $error)
+                        <div class="validator-errors">
+                            @foreach($errors->all() as $error)
+                            <div class="validator-error-item">
                                 <span>
                                     {{ $error }} 
                                 </span>
-                                @endforeach
                             </div>
+                            @endforeach
+                        </div>
                         @endif
+                        
                     </div>    
                 </form>
             </div>

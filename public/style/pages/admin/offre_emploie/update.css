@@ -90,14 +90,17 @@
     }
 
 
-    #validate_errors_bloc {
-        margin-top: 6px;
+    .validator-errors {
+        margin-top: 10px;
+    }
+
+    .validator-error-item {
         text-align: center;
     }
 
-    #validate_errors_bloc span {
-        font-size: 16px;
+    .validator-error-item span {
+        font-size: 18px;
         font-weight: bold;
         font-family: italic;
-        color: red;
+        color: red; 
     }

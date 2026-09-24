@@ -52,3 +52,20 @@ i[id="required-sign"] {
     font-weight: bold;
     font-family: italic;
 }
+
+
+
+.validator-errors {
+    margin-top: 10px;
+}
+
+.validator-error-item {
+    text-align: center;
+}
+
+.validator-error-item span {
+    font-size: 18px;
+    font-weight: bold;
+    font-family: italic;
+    color: red; 
+}

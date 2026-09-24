@@ -19,6 +19,22 @@ class PartenaireController extends Controller
         return view('pages.admin.partenaire.register');
     }
 
+    
+    /* *************************************************************
+     * RENVOIE LA PAGE MODIFICATION (UPDATE)
+     * ************************************************************/
+    public function update_page($id) {
+        // Instance a modifier
+        $partenaire = Partenaire::where('id', $id)
+                                ->where('status', true)
+                                ->firstOrFail();
+        
+        // Renvoie la page update                        
+        return view('pages.admin.partenaire.update', [
+            'partenaire' => $partenaire
+        ]);
+    }
+
     /* *************************************************************
      * RENVOIE LA PAGE LIST
      * ************************************************************/
@@ -69,11 +85,81 @@ class PartenaireController extends Controller
                 'linkedIn'  => $request->linkedIn,
                 'instagram' => $request->instagram
             ]));
-            
+
         }
 
         // Redirige a la page list
         return redirect()->route('admin.partenaire.list');
 
+    }
+
+
+    /* *************************************************************
+     * TRAITE && EXECUTE LA MODIFICATION (UPDATE)
+     * ************************************************************/
+    public function update_handler($id, Request $request) {
+        // Validation du formulaire
+        $request->validate([
+            'nom' => ['required', 'string'],
+            'partner_type' => ['required', 'string'],
+            'logo' => ['image', 'mimes:jpg,jpeg,png,webp', 'max:2048'],
+        ]);
+
+        // Instance a modifier
+        $partenaire = Partenaire::where('id', $id)
+                                ->where('status', true)
+                                ->firstOrFail();
+
+        // Initialise $logo
+        $logo = null;
+
+        // Cas de chargement de l'image (logo) 
+        if($request->hasFile('logo')) {
+            $logo = Storage::disk('public')->put('logo', $request->logo); 
+        } else {
+            $logo = $partenaire->logo;
+        }                        
+        
+        // Applique la modification de l'instance
+        $partenaire->update([
+            'nom' => $request->nom,
+            'partner_type' => $request->partner_type,
+            'site_web' => $request->site_web,
+            'description' => $request->description,  
+            'logo' => $logo
+        ]);   
+        
+        // Presence d'au moins un element de reseau sociaux
+        if($request->facebook || $request->twitter || $request->linkedIn || $request->instagram) {
+
+            $partenaire->sociaux->update([
+                'facebook'  => $request->facebook,
+                'twitter'   => $request->twitter,
+                'linkedIn'  => $request->linkedIn,
+                'instagram' => $request->instagram
+            ]);
+
+        }
+
+        // Redirige vers la page list
+        return redirect()->route('admin.partenaire.list');
+    }
+
+    /* *************************************************************
+     * TRAITE && EXECUTE LA SUPPRESSION (DESACTIVATED)
+     * ************************************************************/
+    public function delete_one($id) {
+        // Instance a supprimer (desactiver)
+        $partenaire = Partenaire::where('id', $id)
+                                ->where('status', true)
+                                ->firstOrFail();
+
+        // Execute la suppression (desactivation)
+        $partenaire->update([
+            'status' => false
+        ]);
+        
+        // Redirige a la page list
+        return redirect()->route('admin.partenaire.list');
     }
 }

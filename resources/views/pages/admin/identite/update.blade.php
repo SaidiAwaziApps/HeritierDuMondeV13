@@ -142,13 +142,15 @@
 
                                     <!-- ERREURS VALIDATION FORMULAIRE -->
                                     @if($errors->any())
+                                    <div class="validator-errors">
                                         @foreach($errors->all() as $error)
-                                        <div style="text-align: center;margin-top: 1px;">
-                                            <span style="color: red;font-size: 18px;font-weight: bold;font-family: italic;">
-                                                {{ $error }}
-                                            </span>   
+                                        <div class="validator-error-item">
+                                            <span>
+                                                {{ $error }} 
+                                            </span>
                                         </div>
                                         @endforeach
+                                    </div>
                                     @endif
 
                                 </div>

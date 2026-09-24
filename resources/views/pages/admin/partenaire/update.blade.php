@@ -15,12 +15,10 @@
             </div>
 
             <div class="card-body">
-                <form method="post" action="{{ route('admin.partenaire.save') }}" enctype="multipart/form-data" class="partner-form">
+                <form method="post" action="{{ route('admin.partenaire.update_handler', ['id' => $partenaire->id]) }}" enctype="multipart/form-data" class="partner-form">
+
                     @csrf
-                    
-                    <div class="identite">
-                        <input type="hidden" name="identite_id" id="identite_id" value="{{ $identite->id }}">
-                    </div>
+                    @method("PUT")
 
                     <div class="nom">
 
@@ -28,7 +26,7 @@
                             <label for="nom">
                                 Nom:<i id="required-sign">*</i>
                             </label>
-                            <input type="text" name="nom" id="nom" class="form-control" placeholder="Entrer le nom du partenaire" maxlength="100" required>
+                            <input type="text" name="nom" id="nom" class="form-control" placeholder="Entrer le nom du partenaire" maxlength="100" value="{{ $partenaire->nom }}"  required>
                         </div>                        
                     </div>
 
@@ -38,23 +36,25 @@
                                 Type:<i id="required-sign">*</i>
                             </label>
                             <select name="partner_type" id="partner_type" class="form-control" required>
-                                <option value="">Specifier le type de partenaire</option>
-                                <option value="ONG internationale">ONG internationale</option>
-                                <option value="ONG nationale">ONG nationale</option>
-                                <option value="Organisation communautaire">Organisations communautaire</option>
-                                <option value="Organisation de la société civile">Organisation de la société civile</option>
-                                <option value="Organisation confessionnelle">Organisation confessionnelle</option>
-                                <option value="Agence de Nations Unies">Agence des Nations Unies</option>
-                                <option value="Institution gouvernementale">Institution gouvernementale</option>
-                                <option value="Bailleur de fond">Bailleur de fonds</option>
-                                <option value="Institution financière internationale">Institution financière internationale</option>
-                                <option value="Fondation">Fondation</option>
-                                <option value="Secteur privé">Secteur privé</option>
-                                <option value="Institution académique et de recherche">Institution académique et de recherche</option>
-                                <option value="Réseaux et consortiums">Réseaux et consortiums</option>
-                                <option value="Média">Média</option>
-                                <option value="Partenaires financiers">Partenaires financiers</option>
-                                <option value="Partenaires techniques">Partenaires techniques</option>
+
+                                <option value="{{ $partenaire->partner_type }}"> {{ $partenaire->partner_type }} </option>
+                                
+                                @php
+                                    // Types predefinis
+                                    $parteners_types = [
+                                        'ONG internationale', 'ONG nationale', 'Organisation communautaire', 'Organisation de la société civile',
+                                        'Organisation confessionnelle', 'Agence de Nations Unies', 'Institution gouvernementale',
+                                        'Bailleur de fonds', 'Institution financière internationale', 'Fondation',
+                                        'Secteur privé', 'Institution académique et de recherche', 'Réseaux et consortiums',
+                                        'Média', 'Partenaires financiers', 'Partenaires techniques'
+                                    ];
+                                @endphp
+
+                                @foreach($parteners_types as $partner_type)
+                                    @if($partner_type != $partenaire->partner_type)
+                                        <option value="{{ $partner_type }}"> {{ $partner_type }} </option>
+                                    @endif
+                                @endforeach
                             </select>
                         </div>
                     </div>
@@ -64,7 +64,7 @@
                             <label for="site_web">
                                 Site web:<i id="not-required-sign">*</i>
                             </label>
-                            <input type="url" name="site_web" id="site_web" class="form-control" placeholder="Entrer Lien site web">
+                            <input type="url" name="site_web" id="site_web" class="form-control" placeholder="Entrer Lien site web" value="{{ $partenaire->site_web }}">
                         </div>
                     </div>     
                     
@@ -78,28 +78,28 @@
                                 <label for="facebook">
                                     <i class="fa fa-facebook" style="color: blue;"></i> Facebook:<i id="not-required-sign">*</i>
                                 </label>
-                                <input type="url" name="facebook" id="facebook" class="form-control" placeholder="Lien facebook">
+                                <input type="url" name="facebook" id="facebook" class="form-control" placeholder="Lien facebook" value="{{ $partenaire->sociaux->facebook }}">
                             </div>
 
                             <div class="form-group">
                                 <label for="twitter">
                                     <i class="fa fa-twitter" style="color: #00acee;"></i> Twitter:<i id="not-required-sign">*</i>
                                 </label>
-                                <input type="url" name="twitter" id="twitter" class="form-control" placeholder="Lien Twitter">
+                                <input type="url" name="twitter" id="twitter" class="form-control" placeholder="Lien Twitter" value="{{ $partenaire->sociaux->twitter }}">
                             </div>
 
                             <div class="form-group">
                                 <label for="linkedIn">
                                     <i class="fab fa-linkedin-in" style="color: #0A66C2;"></i> LinkedIn+:<i id="not-required-sign">*</i>
                                 </label>
-                                <input type="url" name="linkedIn" id="linkedIn" class="form-control" placeholder="Lien LinkedIn">
+                                <input type="url" name="linkedIn" id="linkedIn" class="form-control" placeholder="Lien LinkedIn" value="{{ $partenaire->sociaux->linkedIn }}">
                             </div>
 
                             <div class="form-group">
                                 <label for="instagram">
                                     <i class="fa fa-instagram" style="color: #C32AA3;"></i> Instagram:<i id="not-required-sign">*</i>
                                 </label>
-                                <input type="url" name="instagram" id="instagram" class="form-control" placeholder="Lien Instagram">
+                                <input type="url" name="instagram" id="instagram" class="form-control" placeholder="Lien Instagram" value="{{ $partenaire->sociaux->instagram }}">
                             </div>
 
                         </div>
@@ -111,7 +111,7 @@
                             <label for="description">
                                 Description:<i id="not-required-sign">*</i>
                             </label>
-                            <textarea name="description" id="description" cols="30" rows="4" placeholder="Description du partenaire" class="form-control"></textarea>
+                            <textarea name="description" id="description" cols="30" rows="4" placeholder="Description du partenaire" class="form-control" value="{{ $partenaire->description }}"></textarea>
                         </div>
                     </div>
 
@@ -152,8 +152,13 @@
 
         </div> 
 
+        <!-- Scripts internes -->
+        <script type="text/javascript">
+            let partenaire = @json($partenaire);
+        </script> 
+
         <!-- Scripts externes -->
-        <script src="{{ asset('script/pages/admin/partenaire/register.js') }}"></script> 
+        <script src="{{ asset('script/pages/admin/partenaire/update.js') }}"></script> 
 
     </div>
     @endsection
