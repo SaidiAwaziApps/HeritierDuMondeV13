@@ -345,6 +345,14 @@
                     <i class="fa fa-users"></i> Utilisateurs
                 </a>
             </li>
+            <li>
+                <a href="{{ route('admin.partenaire.list') }}"
+                    @if(Route::is('admin.partenaire.*'))
+                       style="background-color: cadetblue; color: white;"
+                    @endif>
+                    <i class="fas fa-handshake"></i> Partenaires
+                </a>
+            </li>
             @endif
 
             <li>
@@ -431,14 +439,6 @@
                        style="background-color: cadetblue; color: white;"
                     @endif>
                     <i class="fa fa-calendar"></i> Evenements
-                </a>
-            </li>
-            <li>
-                <a href="{{ route('admin.partenaire.list') }}"
-                    @if(Route::is('admin.partenaire.*'))
-                       style="background-color: cadetblue; color: white;"
-                    @endif>
-                    <i class="fas fa-handshake"></i> Partenaires
                 </a>
             </li>
         </div>
