@@ -15,7 +15,10 @@ use App\Models\Categorie;
 class HomeController extends Controller
 {
 
-    public function home() {
+   /* *******************************************************************
+    * RENVOIE LA PAGE D'ACCUEIL (INDEX)
+    * ******************************************************************/
+    public function index() {
         // Benevoles
         $benevoles = Benevole::where('status','=',true)
                              ->get();

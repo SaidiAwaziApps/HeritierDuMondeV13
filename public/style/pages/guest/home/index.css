@@ -1,0 +1,105 @@
+  
+   .animate-needs {
+        width: 40%;
+        margin: -350px 0 0 20px;
+
+        position: relative;
+        z-index: 100;
+
+        background-color: transparent;
+    }
+
+
+    @media all and (max-width: 800px) {
+        .animate-needs {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: -60% 0px 0 0px;
+            padding: 20px;
+        }
+    }
+
+    .animate-needs h6 {
+        font-size: 20px;
+        font-family: italic;
+        color: white;
+        opacity: 0.7;
+    }
+
+    @media all and (max-width: 500px) {
+        .animate-needs h6 {
+            margin-bottom: 4px;
+        } 
+    }
+
+    .animate-needs .animate-needs-content {
+        margin-top: 20px;
+    } 
+
+    @media all and (max-width: 500px) {
+        .animate-needs .animate-needs-content {
+            margin-top: 4px;
+        }   
+    }
+
+    .animate-needs-content p {
+        font-size: 20px;
+        font-family: italic;
+        color: white;
+    }
+
+    .animate-needs-content p span {
+        font-size: 26px;
+        font-weight: bold;
+    }
+
+    @media all and (max-width: 500px) {
+        .animate-needs-content p span { 
+            font-size: 18px;
+        }
+    }
+
+
+    .animate-needs .animate-needs-actions {
+        margin-top: 16px;
+    }
+
+    @media all and (max-width: 500px) {
+        .animate-needs .animate-needs-actions {
+            margin-top: 4px;
+        }
+    }
+
+    .animate-needs-actions a {
+        border-radius: 20px;
+    }
+
+    .animate-needs-actions a:hover {
+        opacity: 0.5;
+    }
+
+    .animate-needs-actions a:nth-child(2) {
+        margin-left: 10px;
+    }
+
+    @media all and (max-width: 500px) {
+        .animate-needs-actions a:nth-child(2) { 
+            margin-left: 4px;
+        }
+    }
+
+    .animate-needs-actions a span {
+        font-size: 20px;
+        font-weight: bold;
+        font-family: italic;
+        color: white;
+    }
+
+    @media all and (max-width: 500px) {
+        .animate-needs-actions a span {
+            font-size: 16px;
+        }
+    }

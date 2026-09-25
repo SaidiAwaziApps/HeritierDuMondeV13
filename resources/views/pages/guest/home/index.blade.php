@@ -9,24 +9,20 @@
     ====================================================== -->
     <div class="animate-needs">
 
-        <h6>
+        <h6> Nous apportons de l'aide depuis 2018 </h6>
 
-            <span>
-                Nous apportons de l'aide depuis 2018
-            </span>
-
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-            Explicabo iure, natus pariatur, porro eaque maxime consequuntur
-            facilis ex numquam alias atque dolor sunt suscipit nulla itaque
-            cumque dignissimos! Ut, laboriosam.
-
-        </h6>
+        <div class="animate-needs-content">
+            <p>
+                <span>SYSTEME D'EAU POTABLE POUR DES RURAUX PAUVRES </span>
+            </p>
+        </div>
 
         <div class="animate-needs-actions">
 
             <a
                 href="/"
-                class="btn btn-success"
+                class="btn btn-success" 
+                title="Cliquer pour effectuer un don"
             >
                 <span>
                     Faire un don
@@ -36,6 +32,7 @@
             <a
                 href="/"
                 class="btn btn-info"
+                title="Cliquer pour nous contact"
             >
                 <span>
                     Contactez-nous
@@ -633,7 +630,7 @@
         <div class="ours-partners-content">
             <div class="ours-partners-item">
                 <a href="">
-                    
+
                 </a>
             </div>
         </div>

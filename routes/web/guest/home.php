@@ -12,4 +12,4 @@ use App\Http\Controllers\Guest\HomeController as GuestHomeController;
 |
 */
 
-Route::get('/',[GuestHomeController::class, 'home'])->name('guest.home');
+Route::get('/', [GuestHomeController::class, 'index'])->name('guest.home.index');

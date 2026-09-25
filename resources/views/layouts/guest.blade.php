@@ -12,6 +12,8 @@
 
     <title>{{ $identite->nom }}</title>
 
+    @include('layouts.guest.home.head.styles')
+
 
     <!-- =========================================
          BOOTSTRAP
