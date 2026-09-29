@@ -27,6 +27,20 @@ class HomeController extends Controller
         $besoins = Besoin::where('status','=',true)
                          ->get();
 
+        // Besoins par pages 
+        $besoins_par_page = $besoins
+            ->chunk(3)
+            ->map(function ($groupe) {
+
+            return [
+                'page' => [
+                    'besoins' => $groupe
+                ]
+            ];
+
+        })
+        ->values();                                
+
         // Dons                    
         $dons = Don::where('status','=',true)
                   ->get();

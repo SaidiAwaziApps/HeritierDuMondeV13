@@ -161,7 +161,7 @@
         <div class="humanitarian-situations-needs-content">
 
             @if($besoins)
-
+                
                 <div class="humanitarian-situations-needs-items">
  
                     @foreach($besoins as $item)
@@ -197,11 +197,13 @@
 
         <div class="total-donors">
             <div class="total-donors-img">
-                <img src="{{ asset('image/donateur-image.png') }}" alt="Total donateur">
+                <img src="{{ asset('image/donateur-image.png') }}" class="rounded-thumbnail" alt="Total donateur">
             </div>
             <div class="total-donors-description">
                 <p>
-                    <span></span><br>
+                    <span>
+                        {{ $donateurs->count() }}
+                    </span><br>
                     Donateur total
                 </p>
             </div>    
@@ -209,11 +211,13 @@
 
         <div class="total-subscribe-dons">
             <div class="total-subscribe-dons-img">
-                <img src="{{ asset('image/don-souscrit-image.png') }}" alt="Total donateur">
+                <img src="{{ asset('image/don-souscrit-image.png') }}" class="rounded-thumbnail" alt="Total donateur">
             </div>
             <div class="total-subscribe-dons-description">
                 <p>
-                    <span></span><br>
+                    <span>
+                        {{ $dons->whereNull('reception')->count() }}
+                    </span><br>
                     Dons Souscrits
                 </p>
             </div>    
@@ -221,11 +225,13 @@
 
         <div class="total-volunteer">
             <div class="total-volunteer-img">
-                <img src="{{ asset('image/benevoles-image.png') }}" alt="Total donateur">
+                <img src="{{ asset('image/benevoles-image.png') }}" class="rounded-thumbnail" alt="Total benevoles">
             </div>
             <div class="total-volunteer-description">
                 <p>
-                    <span></span><br>
+                    <span>
+                        {{ $benevoles->count() }}
+                    </span><br>
                     Benevoles
                 </p>
             </div>    
@@ -233,12 +239,14 @@
 
          <div class="total-received-dons">
             <div class="total-received-dons-img">
-                <img src="{{ asset('image/don-recu-image.png') }}" alt="Total donateur">
+                <img src="{{ asset('image/don-recu-image.png') }}" class="rounded-thumbnail" alt="Total donateur">
             </div>
             <div class="total-received-dons-description">
                 <p>
-                    <span></span><br>
-                    Benevoles
+                    <span>
+                        {{ $dons->whereNotNull('reception')->count() }}
+                    </span><br>
+                    Dons recus
                 </p>
             </div>    
         </div>
@@ -258,7 +266,7 @@
         ----------------------------------------------------->
         <div class="upcoming-events">
 
-            <h6> Evenements a venir </h6>
+            <h4> Evenements a venir </h4>
 
             <div class="upcoming-events-content">
 

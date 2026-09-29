@@ -291,7 +291,80 @@
            Bloc statistique
     ========================================================== */
     .statistique {
-        margin-top: 1000px;
-        background-color: #198754;
+        padding: 20px 20px 8px 20px;
+        margin: 4px 10px 10px 10px;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        background-color: #f8f8ff;
     }
 
+    .statistique  > div {
+        width: 20%;
+    }
+
+    @media all and (max-width: 600px) {
+        .statistique  > div {
+            width: 48%;
+        }
+    }
+
+    /* .statistique > div > div:nth-child(1) {
+        background-color: aliceblue;
+    } */
+
+    .statistique > div > div:nth-child(2) p {
+        font-size: 20px;
+        font-weight: bold;
+        font-family: italic;
+        text-transform: uppercase;
+        opacity: 0.8;
+    }
+
+    .statistique > div > div:nth-child(2) p span {
+        opacity: 1;
+        padding: 10px;
+        font-size: 24px;
+        color: #0f6674;
+    }
+
+
+
+
+
+
+    .events {
+        margin-top: 16px;
+        padding: 20px;
+        display: flex;
+        justify-content: space-evenly;
+        /* flex-wrap: wrap; */
+    }
+
+    .events .upcoming-events {
+        width: 60%;
+    }
+
+    .events .all-events {
+        width: 28%;
+    }
+
+    @media all and (max-width: 600px) {
+        .events .upcoming-events {
+            width: 90%;
+        }
+
+        .events .all-events {
+            width: 90%;
+        }
+    }
+
+
+
+    .upcoming-events h4 {
+        font-size: 28px;
+        font-weight: bold;
+        font-family: italic;  
+        text-align: left;
+        padding-bottom: 16px;
+    }

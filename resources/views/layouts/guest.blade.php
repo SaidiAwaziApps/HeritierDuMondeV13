@@ -2595,7 +2595,7 @@
         >
             <!-- Indicateurs -->
 
-            <div class="carousel-indicators">
+            <!-- <div class="carousel-indicators">
 
                 @foreach($identite->images as $index => $image)
                 <button
@@ -2607,7 +2607,7 @@
                 ></button>
                 @endforeach
 
-            </div>
+            </div> -->
 
             <!-- Images -->
 
