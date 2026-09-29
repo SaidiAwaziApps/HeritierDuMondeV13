@@ -141,7 +141,7 @@
 
 
     <!-- =====================================================
-         Bloc Situations-Besoins humanitaires
+        Bloc Situations-Besoins humanitaires
     ====================================================== -->
     <div class="humanitarian-situations-needs">
 
@@ -160,23 +160,30 @@
         <!-- Contenu -->
         <div class="humanitarian-situations-needs-content">
 
-            <div class="humanitarian-situations-needs-items">
+            @if($besoins)
 
-                @forelse($besoins as $item)
+                <div class="humanitarian-situations-needs-items">
+ 
+                    @foreach($besoins as $item)
+                        <div>
+                            <x-guest.besoin.humanitarian-situation-need-item
+                                :besoin="$item"
+                            />
+                        </div>    
 
-                    <x-guest.besoin.humanitarian-situation-need-item
-                        :besoin="$item"
-                    />
+                    @endforeach
 
-                @empty
+                </div>
 
+            @else
+
+                <div class="humanitarian-situations-needs-not-found-items">
                     <p>
-                        Aucun besoin humanitaire disponible pour le moment.
+                            Aucun besoin humanitaire disponible pour le moment.
                     </p>
+                </div>
 
-                @endforelse
-
-            </div>
+            @endif
 
         </div>
 
