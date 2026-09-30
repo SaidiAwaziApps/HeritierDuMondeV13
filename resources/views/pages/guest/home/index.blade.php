@@ -270,7 +270,7 @@
 
             <div class="upcoming-events-content">
 
-                <div id="upcoming-events-carousel" class="carousel slide" data-bs-ride="carousel">
+                <div id="upcoming-events-carousel" class="carousel slide upcoming-events-carousel" data-bs-ride="carousel">
 
                     <!-- Indicateurs -->
                     <div class="carousel-indicators">
@@ -286,7 +286,7 @@
                         <div class="carousel-item @if($index == 0) active @endif">
 
                             @if($evenement->images)
-                            <div class="carousel-item-imgs">
+                            <div class="carousel-item-img">
                             
                                 @php
                                     $image = $evenement->images[0];
@@ -295,24 +295,46 @@
                                 @if (strtolower($image['img_source']) != 'upload')
                                     {!! $image['iframe'] !!}
                                 @elseif (isVideo($image['path']))
-                                    <video autoplay muted loop playsinline width="100%" height="100%">
+                                    <video autoplay muted loop playsinline >
                                         <source src="{{ Storage::url($image['path']) }}">
                                     </video>
                                 @else
-                                    <img
-                                        width="100%"
-                                        height="100%"
-                                        src="{{ Storage::url($image['path']) }}"
-                                        alt="{{ $image['titre'] }}"
-                                    >
+                                    <img src="{{ Storage::url($image['path']) }}" alt="{{ $image['titre'] }}">
                                 @endif
 
                             </div>
                             @endif
 
                             <div class="carousel-item-description">
-                                <h5>{{ $evenement->titre }}</h5>
-                                <p>{{ $evenement->contenu }}</p>
+                               
+                                <h4> {{ $evenement->titre }} </h4>
+
+                                <div class="carousel-item-description-content">
+                        
+                                    <div class="carousel-item-description-content-infos">
+
+                                        <ul class="list-group">
+
+                                            <li> <i class="fa fa-map-marker-alt"></i> {{ $evenement->lieu }} </li>
+
+                                            <li> <i class="fas fa-calendar"></i> @if(strtolower($evenement->type) == 'journalier') {{ \Carbon\Carbon::parse($evenement->date_du_jour)->format('d/m/Y') }} @else {{ \Carbon\Carbon::parse($evenement->periode_date_debut)->format('d/m/Y') }} au {{ \Carbon\Carbon::parse($evenement->periode_date_fin)->format('d/m/Y') }} @endif <li>
+
+                                            <li> <i class="fas fa-clock"></i> @if(strtolower($evenement->type) == 'journalier') {{ \Carbon\Carbon::parse($evenement->date_du_jour)->format('H:i') }} @else {{ \Carbon\Carbon::parse($evenement->periode_date_debut)->format('H:i') }} a {{ \Carbon\Carbon::parse($evenement->periode_date_fin)->format('H:i') }} @endif <li>
+
+                                        </ul>
+
+                                    </div>
+
+                                    <div class="carousel-item-description-content-details">
+                                    
+                                        <a href="" class="btn btn-info btn-sm">
+                                            Details
+                                        </a>
+
+                                    </div>    
+
+                                </div>
+                               
                             </div>
                         </div>
                         @endforeach    
@@ -320,22 +342,22 @@
                     </div>
 
                     <!-- Précédent -->
-                    <button class="carousel-control-prev"
+                    <!-- <button class="carousel-control-prev"
                         type="button"
                         data-bs-target="#upcoming-events-carousel"
                         data-bs-slide="prev">
                         <span class="carousel-control-prev-icon"></span>
                         <span class="visually-hidden">Précédent</span>
-                    </button>
+                    </button> -->
 
                     <!-- Suivant -->
-                    <button class="carousel-control-next"
+                    <!-- <button class="carousel-control-next"
                         type="button"
                         data-bs-target="#upcoming-events-carousel"
                         data-bs-slide="next">
                         <span class="carousel-control-next-icon"></span>
                         <span class="visually-hidden">Suivant</span>
-                    </button>
+                    </button> -->
 
                 </div>
                 
@@ -383,8 +405,23 @@
                     @endif
 
                     <div class="all-events-content-item-description">
+
                         <h6> {{ $evenement->titre }} </h6>
-                        <p> {{ $evenement->contenu }} </p>
+
+                        <div class="all-events-content-item-description-content">
+                        
+                            <ul>
+                                <li>
+                                    <i></i> {{ $evenement->lieu }}
+                                </li>
+                                <li>
+                                    <i></i> 
+                                <li>
+                                    <i></i> 
+                            </ul>
+
+                        </div>
+                        
                     </div>
 
                 </div>

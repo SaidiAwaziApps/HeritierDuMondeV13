@@ -1,370 +1,555 @@
 
-   .animate-needs {
-        width: 40%;
-        margin: -350px 0 0 20px;
+.animate-needs {
+    width: 40%;
+    margin: -350px 0 0 20px;
 
-        position: absolute;
-        z-index: 100;
+    position: absolute;
+    z-index: 100;
 
-        background-color: transparent;
-    }
-
-
-    @media all and (max-width: 800px) {
-        .animate-needs {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            margin: -60% 0px 0 0px;
-            padding: 20px;
-        }
-    }
-
-    .animate-needs h6 {
-        font-size: 20px;
-        font-family: italic;
-        color: white;
-        opacity: 0.7;
-    }
-
-    @media all and (max-width: 500px) {
-        .animate-needs h6 {
-            margin-bottom: 4px;
-        } 
-    }
-
-    .animate-needs .animate-needs-content {
-        margin-top: 20px;
-    } 
-
-    @media all and (max-width: 500px) {
-        .animate-needs .animate-needs-content {
-            margin-top: 4px;
-        }   
-    }
-
-    .animate-needs-content p {
-        font-size: 20px;
-        font-family: italic;
-        color: white;
-    }
-
-    .animate-needs-content p span {
-        font-size: 26px;
-        font-weight: bold;
-    }
-
-    @media all and (max-width: 500px) {
-        .animate-needs-content p span { 
-            font-size: 18px;
-        }
-    }
+    background-color: transparent;
+}
 
 
-    .animate-needs .animate-needs-actions {
-        margin-top: 16px;
-    }
-
-    @media all and (max-width: 500px) {
-        .animate-needs .animate-needs-actions {
-            margin-top: 4px;
-        }
-    }
-
-    .animate-needs-actions a {
-        border-radius: 20px;
-    }
-
-    .animate-needs-actions a:hover {
-        opacity: 0.5;
-    }
-
-    .animate-needs-actions a:nth-child(2) {
-        margin-left: 10px;
-    }
-
-    @media all and (max-width: 500px) {
-        .animate-needs-actions a:nth-child(2) { 
-            margin-left: 4px;
-        }
-    }
-
-    .animate-needs-actions a span {
-        font-size: 20px;
-        font-weight: bold;
-        font-family: italic;
-        color: white;
-    }
-
-    @media all and (max-width: 500px) {
-        .animate-needs-actions a span {
-            font-size: 16px;
-        }
-    }
-
-
-
-   /* =====================================================
-        Comment nous aider ?
-      ===================================================== */
-
-    .how-to-help-us {
+@media all and (max-width: 800px) {
+    .animate-needs {
         width: 100%;
-        margin-top: 6px;
-        text-align: center;
-    }
-
-    .how-to-help-us h4 {
-        margin-bottom: 30px;
-        font-size: 30px;
-        font-weight: bold;
-        font-family: italic;
-    }
-
-
-    .how-to-help-us .how-to-help-us-content {
-        display: flex;
-        justify-content: space-around;
-        align-items: flex-start;
-        gap: 30px;
-    }
-
-    @media all and (max-width: 600px) {
-        .how-to-help-us .how-to-help-us-content { 
-            padding-left: 16px;
-        }
-    }
-
-
-    .how-to-help-us-content > div {
-        width: 30%;
         display: flex;
         flex-direction: column;
+        justify-content: center;
         align-items: center;
+        margin: -60% 0px 0 0px;
+        padding: 20px;
+    }
+}
 
-        text-align: center;
+.animate-needs h6 {
+    font-size: 20px;
+    font-family: italic;
+    color: white;
+    opacity: 0.7;
+}
+
+@media all and (max-width: 500px) {
+    .animate-needs h6 {
+        margin-bottom: 4px;
+    } 
+}
+
+.animate-needs .animate-needs-content {
+    margin-top: 20px;
+} 
+
+@media all and (max-width: 500px) {
+    .animate-needs .animate-needs-content {
+        margin-top: 4px;
+    }   
+}
+
+.animate-needs-content p {
+    font-size: 20px;
+    font-family: italic;
+    color: white;
+}
+
+.animate-needs-content p span {
+    font-size: 26px;
+    font-weight: bold;
+}
+
+@media all and (max-width: 500px) {
+    .animate-needs-content p span { 
+        font-size: 18px;
+    }
+}
+
+
+.animate-needs .animate-needs-actions {
+    margin-top: 16px;
+}
+
+@media all and (max-width: 500px) {
+    .animate-needs .animate-needs-actions {
+        margin-top: 4px;
+    }
+}
+
+.animate-needs-actions a {
+    border-radius: 20px;
+}
+
+.animate-needs-actions a:hover {
+    opacity: 0.5;
+}
+
+.animate-needs-actions a:nth-child(2) {
+    margin-left: 10px;
+}
+
+@media all and (max-width: 500px) {
+    .animate-needs-actions a:nth-child(2) { 
+        margin-left: 4px;
+    }
+}
+
+.animate-needs-actions a span {
+    font-size: 20px;
+    font-weight: bold;
+    font-family: italic;
+    color: white;
+}
+
+@media all and (max-width: 500px) {
+    .animate-needs-actions a span {
+        font-size: 16px;
+    }
+}
+
+
+/* =====================================================
+Comment nous aider ?
+===================================================== */
+
+.how-to-help-us {
+    width: 100%;
+    margin-top: 6px;
+    text-align: center;
+}
+
+.how-to-help-us h4 {
+    margin-bottom: 30px;
+    font-size: 30px;
+    font-weight: bold;
+    font-family: italic;
+    position: relative;
+}
+
+.how-to-help-us > h4::after {
+    content: "";
+    display: block;
+    width: 6%;
+    height: 5px;
+    margin: 8px auto 0;
+    background-color: #198754;
+    border-radius: 3px;
+}
+
+
+.how-to-help-us .how-to-help-us-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    gap: 30px;
+}
+
+@media all and (max-width: 600px) {
+    .how-to-help-us .how-to-help-us-content { 
+        padding-left: 16px;
+    }
+}
+
+
+.how-to-help-us-content > div {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+}
+
+
+.how-to-help-us-content > div > div:nth-child(1) {
+    width: 120px;
+    height: 100px;
+
+    margin-bottom: 20px;
+    padding: 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    box-sizing: border-box;
+
+    background-color: #198754;
+    clip-path: polygon(
+        25% 0%,
+        75% 0%,
+        100% 50%,
+        75% 100%,
+        25% 100%,
+        0% 50%
+    );
+}
+
+@media all and (max-width: 600px) {
+    .how-to-help-us-content > div > div:nth-child(1) {
+        width: 80px;
+        height: 80px;
+    } 
+}
+
+.how-to-help-us-content > div > div:nth-child(1) img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+}
+
+
+.how-to-help-us-content > div > div:nth-child(2) {
+    width: 100%; 
+}
+
+.how-to-help-us-content > div > div h6 {
+    margin: 0 0 10px;
+
+    font-size: 20px;
+    font-weight: bold;
+    font-family: italic;
+}
+
+.how-to-help-us-content > div > div p {
+    margin: 0;
+
+    font-size: 17px;
+    line-height: 1.5;
+    font-family: italic;
+}
+
+@media (max-width: 600px) {
+
+    .how-to-help-us-content {
+        flex-direction: column;
+        align-items: center;
     }
 
+    .how-to-help-us-content > div {
+        width: 90%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        text-align: left;
+    }
 
     .how-to-help-us-content > div > div:nth-child(1) {
         width: 120px;
-        height: 100px;
-
-        margin-bottom: 20px;
-        padding: 20px;
-
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        box-sizing: border-box;
-
-        background-color: #198754;
-        clip-path: polygon(
-            25% 0%,
-            75% 0%,
-            100% 50%,
-            75% 100%,
-            25% 100%,
-            0% 50%
-        );
+        height: 120px;
+        flex-shrink: 0;
+        margin-bottom: 0;
+        margin-right: 20px;
     }
 
-    @media all and (max-width: 600px) {
-        .how-to-help-us-content > div > div:nth-child(1) {
-            width: 80px;
-            height: 80px;
-        } 
-    }
-
-    .how-to-help-us-content > div > div:nth-child(1) img {
-        width: 100%;
-        height: 100%;
-
-        object-fit: contain;
-    }
-
- 
     .how-to-help-us-content > div > div:nth-child(2) {
-        width: 100%; 
+        width: auto;
+        flex: 1;
     }
+}
 
-    .how-to-help-us-content > div > div h6 {
-        margin: 0 0 10px;
 
-        font-size: 20px;
-        font-weight: bold;
-        font-family: italic;
+
+
+/* =========================================================
+Bloc situations humanitaires
+========================================================== */
+
+.humanitarian-situations-needs {
+    margin-top: 30px;
+}
+
+.humanitarian-situations-needs h4 {
+    font-size: 26px;
+    font-weight: bold;
+    font-family: italic;
+    position: relative;
+}
+
+.humanitarian-situations-needs > h4::after {
+    content: "";
+    display: block;
+    width: 6%;
+    height: 5px;
+    margin: 8px auto 0;
+    background-color: #198754;
+    border-radius: 3px;
+}
+
+.humanitarian-situations-needs p {
+    font-size: 20px;
+    font-family: italic;
+    opacity: 0.8;
+}
+
+
+
+.humanitarian-situations-needs .humanitarian-situations-needs-content {
+    margin-top: 4px;
+    padding: 10px;
+}
+
+.humanitarian-situations-needs-items {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.humanitarian-situations-needs-items > div {
+    width: 32.7%;
+    margin: 0px 0px 10px 0px;
+}
+
+
+@media all and (max-width: 600px) {
+    .humanitarian-situations-needs-items > div {
+        width: 46%;
+        /* margin-right: 1.8%; */
+    } 
+}  
+
+
+/* =========================================================
+    Bloc statistique
+========================================================== */
+.statistique {
+    padding: 20px 20px 8px 20px;
+    margin: 4px 10px 10px 10px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    background-color: #f8f8ff;
+}
+
+.statistique  > div {
+    width: 20%;
+}
+
+@media all and (max-width: 600px) {
+    .statistique  > div {
+        width: 48%;
     }
+}
 
-    .how-to-help-us-content > div > div p {
-        margin: 0;
+/* .statistique > div > div:nth-child(1) {
+    background-color: aliceblue;
+} */
 
-        font-size: 17px;
-        line-height: 1.5;
-        font-family: italic;
-    }
+.statistique > div > div:nth-child(2) p {
+    font-size: 20px;
+    font-weight: bold;
+    font-family: italic;
+    text-transform: uppercase;
+    opacity: 0.8;
+}
 
-    @media (max-width: 600px) {
-
-        .how-to-help-us-content {
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .how-to-help-us-content > div {
-            width: 90%;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            text-align: left;
-        }
-
-        .how-to-help-us-content > div > div:nth-child(1) {
-            width: 120px;
-            height: 120px;
-            flex-shrink: 0;
-            margin-bottom: 0;
-            margin-right: 20px;
-        }
-
-        .how-to-help-us-content > div > div:nth-child(2) {
-            width: auto;
-            flex: 1;
-        }
-    }
+.statistique > div > div:nth-child(2) p span {
+    opacity: 1;
+    padding: 10px;
+    font-size: 24px;
+    color: #0f6674;
+}
 
 
 
 
 
 /* =========================================================
-    Bloc situations humanitaires
-   ========================================================== */
+       Bloc evenements 
+========================================================== */
 
-    .humanitarian-situations-needs {
-        margin-top: 30px;
-    }
+.events {
+    margin-top: 6px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
 
-    .humanitarian-situations-needs h4 {
-        font-size: 26px;
-        font-weight: bold;
-        font-family: italic;
-    }
+.events .upcoming-events {
+    width: 60%;
+}
 
-    .humanitarian-situations-needs p {
-        font-size: 20px;
-        font-family: italic;
-        opacity: 0.8;
-    }
+.events .all-events {
+    width: 36%;
+}
 
-
-
-    .humanitarian-situations-needs .humanitarian-situations-needs-content {
-        margin-top: 4px;
-        padding: 10px;
-    }
-
-    .humanitarian-situations-needs-items {
-        display: flex;
-        justify-content: flex-start;
-        flex-wrap: wrap;
-    }
-    
-    .humanitarian-situations-needs-items > div {
-        width: 32%;
-        margin: 0px 1% 10px 0px;
-    }
-
-
-    @media all and (max-width: 600px) {
-        .humanitarian-situations-needs-items > div {
-            width: 46%;
-            margin-right: 1.8%;
-        } 
-    }  
-
-
-    /* =========================================================
-           Bloc statistique
-    ========================================================== */
-    .statistique {
-        padding: 20px 20px 8px 20px;
-        margin: 4px 10px 10px 10px;
-        display: flex;
-        justify-content: space-around;
-        flex-wrap: wrap;
-        background-color: #f8f8ff;
-    }
-
-    .statistique  > div {
-        width: 20%;
-    }
-
-    @media all and (max-width: 600px) {
-        .statistique  > div {
-            width: 48%;
-        }
-    }
-
-    /* .statistique > div > div:nth-child(1) {
-        background-color: aliceblue;
-    } */
-
-    .statistique > div > div:nth-child(2) p {
-        font-size: 20px;
-        font-weight: bold;
-        font-family: italic;
-        text-transform: uppercase;
-        opacity: 0.8;
-    }
-
-    .statistique > div > div:nth-child(2) p span {
-        opacity: 1;
-        padding: 10px;
-        font-size: 24px;
-        color: #0f6674;
-    }
-
-
-
-
-
-
-    .events {
-        margin-top: 16px;
-        padding: 20px;
-        display: flex;
-        justify-content: space-evenly;
-        /* flex-wrap: wrap; */
-    }
-
+@media all and (max-width: 600px) {
     .events .upcoming-events {
-        width: 60%;
+        width: 100%;
     }
 
     .events .all-events {
-        width: 28%;
+        width: 100%;
     }
+}
 
-    @media all and (max-width: 600px) {
-        .events .upcoming-events {
-            width: 90%;
-        }
 
-        .events .all-events {
-            width: 90%;
-        }
+
+.upcoming-events > h4 {
+    font-size: 28px;
+    font-weight: bold;
+    font-family: italic;  
+    text-align: left;
+    padding-bottom: 16px;
+    opacity: 0.9;
+
+    position: relative;
+}
+
+.upcoming-events > h4::after { 
+    content: "";
+    display: block;
+    width: 12%; 
+    height: 5px; 
+    margin-top: 8px; 
+    background-color: #198754; 
+    border-radius: 3px; 
+}
+
+
+
+.upcoming-events-content {
+    width: 100%;
+}
+
+.upcoming-events-content .upcoming-events-carousel {
+    width: 100%;
+    height: 100%;
+}
+
+.upcoming-events-carousel .carousel-inner {
+    width: 100%;
+    height: 100%;
+}
+
+.upcoming-events-carousel .carousel-inner .carousel-item {
+    width: 100%;
+    height: 100%;
+} 
+
+.upcoming-events-carousel .carousel-inner .carousel-item .carousel-item-img {
+    width: 100%;
+    height: 360px;
+}
+
+
+.upcoming-events-carousel .carousel-inner .carousel-item .carousel-item-img video,
+
+.upcoming-events-carousel .carousel-inner .carousel-item .carousel-item-img img, 
+    
+.upcoming-events-carousel .carousel-inner .carousel-item .carousel-item-img iframe {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+
+.upcoming-events-carousel .carousel-inner .carousel-item .carousel-item-description {
+    padding: 16px 16px 30px 16px;
+    margin-top: 2px;
+    background-color: aliceblue;
+}
+
+.upcoming-events-carousel .carousel-inner .carousel-item .carousel-item-description h4 {
+    font-size: 22px;
+    font-weight: normal;
+    font-family: italic;
+    text-align: left;
+}
+
+.upcoming-events-carousel .carousel-inner .carousel-item .carousel-item-description-content {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.upcoming-events-carousel .carousel-inner .carousel-item .carousel-item-description-content div:nth-child(1)  {
+    width: 50%;
+    text-align: left;
+}
+
+@media all and (max-width: 600px) {
+    .upcoming-events-carousel .carousel-inner .carousel-item .carousel-item-description-content div:nth-child(1)  {
+        width: 100%;
     }
+}
+
+.upcoming-events-carousel .carousel-inner .carousel-item .carousel-item-description-content div:nth-child(1) ul {
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+
+.upcoming-events-carousel .carousel-inner .carousel-item .carousel-item-description-content div:nth-child(1) ul li {
+    list-style-type: none;
+    font-size: 20px;
+    font-family: italic;
+}
+
+.upcoming-events-carousel .carousel-inner .carousel-item .carousel-item-description-content div:nth-child(1) ul li i {
+    color: #198754; 
+    opacity: 0.9;
+}
 
 
 
-    .upcoming-events h4 {
-        font-size: 28px;
-        font-weight: bold;
-        font-family: italic;  
-        text-align: left;
-        padding-bottom: 16px;
+.upcoming-events-carousel .carousel-inner .carousel-item .carousel-item-description-content div:nth-child(2) {
+    width: 36%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media all and (max-width: 600px) {
+    .upcoming-events-carousel .carousel-inner .carousel-item .carousel-item-description-content div:nth-child(2)  {
+        width: 100%;
+        margin-top: 20px;
     }
+}
+
+
+
+.upcoming-events-carousel .carousel-inner .carousel-item .carousel-item-description-content div:nth-child(2) a {
+    width: 100%;
+    padding: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    background-color: #198754;
+}
+
+
+@media all and (max-width: 600px) {
+    .upcoming-events-carousel .carousel-inner .carousel-item .carousel-item-description-content div:nth-child(2) a {
+        width: 80%;
+    }
+}
+
+
+/* =========================================================
+       Indicateurs du carousel
+========================================================== */
+
+.upcoming-events-carousel .carousel-indicators {
+    margin-bottom: 10px;
+}
+
+.upcoming-events-carousel .carousel-indicators button {
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+
+    padding: 0;
+
+    border-radius: 50%;
+    border: none;
+
+    background-color: #198754;
+
+    opacity: 0.5;
+}
+
+.upcoming-events-carousel .carousel-indicators button.active {
+    opacity: 1;
+}
+
