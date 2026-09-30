@@ -327,7 +327,7 @@
 
                                     <div class="carousel-item-description-content-details">
                                     
-                                        <a href="" class="btn btn-info btn-sm">
+                                        <a href="" class="btn btn-info btn-sm" title="Cliquer pour plus details">
                                             Details
                                         </a>
 
@@ -372,7 +372,7 @@
 
         <div class="all-events">
 
-            <h6> Nous avons plus de 24 événements chaque année </h6>
+            <h4> Nous avons plus de 24 événements chaque année </h4>
 
             <div class="all-events-content">
 
@@ -382,47 +382,78 @@
                     @if(isset($evenement->images))
                     <div class="all-events-content-item-imgs">
 
-                        @php
-                            $image = $evenement->images[0];
-                        @endphp
+                        <div id="all-events-content-item-imgs-carousel" class="carousel slide all-events-content-item-imgs-carousel">
 
-                        @if (strtolower($image['img_source']) != 'upload')
-                            {!! $image['iframe'] !!}
-                        @elseif (isVideo($image['path']))
-                            <video autoplay muted loop playsinline width="100%" height="100%">
-                                <source src="{{ Storage::url($image['path']) }}">
-                            </video>
-                        @else
-                            <img
-                                width="100%"
-                                height="100%"
-                                src="{{ Storage::url($image['path']) }}"
-                                alt="{{ $image['titre'] }}"
-                            >
-                        @endif
+                            <!-- Indicateurs -->
+                            <!-- <div class="carousel-indicators">
+                                @foreach($evenement->images as $index => $image)
+                                    <button type="button" data-bs-target="#all-events-content-item-imgs-carousel" data-bs-slide-to="{{ $index }}" class="@if($index == 0) active @endif"></button>
+                                @endforeach
+                            </div> -->
+
+                            <div class="carousel-inner">
+
+                                @foreach($evenement->images as $index => $image)
+                                <div class="carousel-item @if($index == 0) active @endif">
+
+                                    @if (strtolower($image['img_source']) != 'upload')
+                                        {!! $image['iframe'] !!}
+                                    @elseif (isVideo($image['path']))
+                                        <video autoplay muted loop playsinline width="100%" height="100%">
+                                            <source src="{{ Storage::url($image['path']) }}">
+                                        </video>
+                                    @else
+                                        <img
+                                            width="100%"
+                                            height="100%"
+                                            src="{{ Storage::url($image['path']) }}"
+                                            alt="{{ $image['titre'] }}"
+                                        >
+                                    @endif
+                                    
+                                </div>
+                                @endforeach
+
+                            </div>
+
+                        </div>    
 
                     </div>
                     @endif
 
                     <div class="all-events-content-item-description">
+                    
+                        <h4> {{ $evenement->titre }} </h6>
 
-                        <h6> {{ $evenement->titre }} </h6>
-
-                        <div class="all-events-content-item-description-content">
+                        <div class="all-events-item-description-content">
                         
-                            <ul>
-                                <li>
-                                    <i></i> {{ $evenement->lieu }}
-                                </li>
-                                <li>
-                                    <i></i> 
-                                <li>
-                                    <i></i> 
-                            </ul>
+                            <div class="all-events-item-description-content-infos">
+
+                                <ul class="list-group">
+
+                                    <li> <i class="fa fa-map-marker-alt"></i> {{ $evenement->lieu }} </li>
+
+                                    <li> <i class="fas fa-calendar"></i> @if(strtolower($evenement->type) == 'journalier') {{ \Carbon\Carbon::parse($evenement->date_du_jour)->format('d/m/Y') }} @else {{ \Carbon\Carbon::parse($evenement->periode_date_debut)->format('d/m/Y') }} au {{ \Carbon\Carbon::parse($evenement->periode_date_fin)->format('d/m/Y') }} @endif <li>
+
+                                    <li> <i class="fas fa-clock"></i> @if(strtolower($evenement->type) == 'journalier') {{ \Carbon\Carbon::parse($evenement->date_du_jour)->format('H:i') }} @else {{ \Carbon\Carbon::parse($evenement->periode_date_debut)->format('H:i') }} a {{ \Carbon\Carbon::parse($evenement->periode_date_fin)->format('H:i') }} @endif <li>
+
+                                </ul>
+
+                            </div>
+
+                            <div class="all-events-item-description-content-details">
+                                    
+                                <a href="" class="btn btn-info btn-sm" title="Cliquer pour plus de details">
+                                    Details
+                                </a>
+
+                            </div>  
 
                         </div>
                         
                     </div>
+
+                    <!-- Fin all-events-content-item-description -->
 
                 </div>
                 @endforeach

@@ -525,6 +525,12 @@ Bloc situations humanitaires
     }
 }
 
+.upcoming-events-carousel .carousel-inner .carousel-item .carousel-item-description-content div:nth-child(2) a:hover {
+    background-color: transparent;
+    border: 2px solid green;
+    color: black;
+}
+
 
 /* =========================================================
        Indicateurs du carousel
@@ -553,3 +559,149 @@ Bloc situations humanitaires
     opacity: 1;
 }
 
+
+
+
+
+.all-events {
+    margin-top: 1px;
+}
+
+@media all and (max-width: 600px) {
+    .all-events {
+        margin-top: 20px;
+    }
+}
+
+.all-events h4 {
+    font-size: 36px;
+    /* font-weight: bold; */
+    font-family: italic;
+    text-align: left;
+    padding: 0px 4px 0px 4px;
+}
+
+.all-events .all-events-content {
+    height: 500px;
+    overflow-y: auto;
+    margin-top: 24px;
+}
+
+.all-events-content-item {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: nowrap;
+
+    margin-bottom: 10px;
+}
+
+.all-events-content-item .all-events-content-item-imgs {
+    width: 40%;
+}
+
+.all-events-content-item .all-events-content-item-description {
+    width: 56%;
+    padding: 2px 10px 10px 4px;
+}
+
+
+@media all and (max-width: 600px) {
+    .all-events-content-item .all-events-content-item-imgs {
+        width: 34%;
+    }
+
+    .all-events-content-item .all-events-content-item-description {
+        width: 64%;
+    }
+}
+
+
+/* 
+    .all-events-content-item-imgs  
+*/
+
+.all-events-content-item-imgs .all-events-content-item-imgs-carousel .carousel-inner .carousel-item {
+    width: 100%;
+    height: 170px;
+}
+
+.all-events-content-item-imgs .all-events-content-item-imgs-carousel .carousel-inner .carousel-item img,
+
+.all-events-content-item-imgs .all-events-content-item-imgs-carousel .carousel-inner .carousel-item video,
+
+.all-events-content-item-imgs .all-events-content-item-imgs-carousel .carousel-inner .carousel-item iframe {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* 
+    .all-events-content-item-description  
+*/
+
+.all-events-content-item-description h4 {
+    font-size: 18px;
+    font-weight: bold;
+    font-family: italic;
+
+    text-align: left;
+
+    opacity: 0.9;
+}
+
+
+
+.all-events-item-description-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: nowrap;
+    margin-top: 4px;
+}
+
+.all-events-item-description-content > div:nth-child(1) {
+    width: 60%;
+}
+
+.all-events-item-description-content > div:nth-child(2) {
+    width: 38%;
+}
+
+
+
+.all-events-item-description-content > div:nth-child(1) ul {
+    padding: 0px;
+    margin: 0px;
+    text-align: left;
+}
+
+.all-events-item-description-content > div:nth-child(1) ul li {
+    font-size: 18px;
+    font-family: italic;
+    list-style-type: none;
+}
+
+.all-events-item-description-content > div:nth-child(1) ul li i {
+    color: #198754; 
+    text-align: left;
+    opacity: 0.9;
+}
+
+
+.all-events-item-description-content > div:nth-child(2) {
+    padding-top: 10px;
+}
+
+.all-events-item-description-content > div:nth-child(2) a {
+    width: 100%;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    background-color: #198754;
+}
+
+.all-events-item-description-content > div:nth-child(2) a:hover {
+    background-color: transparent;
+    border: 2px solid green;
+    color: black; 
+}
