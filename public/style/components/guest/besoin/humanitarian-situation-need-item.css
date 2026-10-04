@@ -88,3 +88,17 @@
     color: white;
     margin-bottom: 6px;
 }
+
+
+.humanitarian-situation-need-item .item-actions a:hover {
+    background-color: transparent;
+    color: black;
+}
+
+.humanitarian-situation-need-item .item-actions a:hover:nth-child(1) {
+    border: 2px solid green;
+}
+
+.humanitarian-situation-need-item .item-actions a:hover:nth-child(2) {
+    border: 2px solid #0dcaf0;
+}

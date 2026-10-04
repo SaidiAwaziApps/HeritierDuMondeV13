@@ -307,7 +307,8 @@
 
                             <div class="carousel-item-description">
                                
-                                <h4> {{ $evenement->titre }} </h4>
+                                <h4 class="d-none d-md-block"> {{ \Illuminate\Support\Str::limit($evenement->titre, 50, '...') }} </h4>
+                                <h4 class="d-block d-md-none"> {{ \Illuminate\Support\Str::limit($evenement->titre, 30, '...') }} </h4>
 
                                 <div class="carousel-item-description-content">
                         
@@ -382,12 +383,15 @@
                     @if(isset($evenement->images))
                     <div class="all-events-content-item-imgs">
 
-                        <div id="all-events-content-item-imgs-carousel" class="carousel slide all-events-content-item-imgs-carousel">
+                        <div id="all-events-content-item-imgs-carousel-{{ $evenement->id }}" class="carousel slide all-events-content-item-imgs-carousel"
+                            data-bs-ride="carousel"
+                            data-bs-interval="4000"
+                        >
 
                             <!-- Indicateurs -->
                             <!-- <div class="carousel-indicators">
                                 @foreach($evenement->images as $index => $image)
-                                    <button type="button" data-bs-target="#all-events-content-item-imgs-carousel" data-bs-slide-to="{{ $index }}" class="@if($index == 0) active @endif"></button>
+                                    <button type="button" data-bs-target="#all-events-content-item-imgs-carousel-{{ $evenement->id }}" data-bs-slide-to="{{ $index }}" class="@if($index == 0) active @endif"></button>
                                 @endforeach
                             </div> -->
 
@@ -423,7 +427,8 @@
 
                     <div class="all-events-content-item-description">
                     
-                        <h4> {{ $evenement->titre }} </h6>
+                        <h4 class="d-none d-md-block"> {{ \Illuminate\Support\Str::limit($evenement->titre, 50, '...') }} </h4>
+                        <h4 class="d-block d-md-none"> {{ \Illuminate\Support\Str::limit($evenement->titre, 30, '...') }} </h4>
 
                         <div class="all-events-item-description-content">
                         
@@ -473,7 +478,7 @@
 
     <div class="volunters">
 
-        <h6> rencontrer nos bénévoles </h6>
+        <h4> rencontrer nos bénévoles </h4>
 
         <p>
             Entrez en contanct avec les bénévoles qui nous accompagnent tous les jours dans nos interventions. Ils vous donnerons d'amples informations concernant la manière dont vos aides sont accueillis par les bénéficiaires, surtout par les plus vulnérables.
@@ -718,9 +723,6 @@
             </div>
         </div>
     </div>
-
-
-
 
 </div>
 

@@ -2217,6 +2217,52 @@
 
         }
 
+
+
+
+        /* =========================================
+            DARK MODE
+        ========================================= */
+
+        body:has(#dark-mode:checked) .humanitarian-situation-need-item,
+        body:has(#dark-mode:checked) .upcoming-events-carousel .carousel-inner .carousel-item .carousel-item-description {
+            background-color: #212529;
+        }
+
+        body:has(#dark-mode:checked) .humanitarian-situation-need-item .item-content,
+        body:has(#dark-mode:checked) .humanitarian-situation-need-item .item-content h4,
+        body:has(#dark-mode:checked) .humanitarian-situation-need-item .item-description p,
+        body:has(#dark-mode:checked) .how-to-help-us,
+        body:has(#dark-mode:checked) .how-to-help-us h4,
+        body:has(#dark-mode:checked) .how-to-help-us-content > div > div h6,
+        body:has(#dark-mode:checked) .how-to-help-us-content > div > div p,
+        body:has(#dark-mode:checked) .humanitarian-situations-needs,
+        body:has(#dark-mode:checked) .humanitarian-situations-needs h4,
+        body:has(#dark-mode:checked) .humanitarian-situations-needs p,
+        body:has(#dark-mode:checked) .statistique > div > div:nth-child(2) p,
+        body:has(#dark-mode:checked) .upcoming-events > h4,
+        body:has(#dark-mode:checked) .upcoming-events-carousel .carousel-inner .carousel-item .carousel-item-description h4, 
+        body:has(#dark-mode:checked) .upcoming-events-carousel .carousel-inner .carousel-item .carousel-item-description-content div:nth-child(1) ul li,
+        body:has(#dark-mode:checked) .all-events h4,
+        body:has(#dark-mode:checked) .all-events-content-item-description h4,
+        body:has(#dark-mode:checked) .all-events-item-description-content > div:nth-child(1) ul li {
+            color: #f5f5f5;
+        }
+
+body:has(#dark-mode:checked) .statistique {
+    background-color: #212529;
+}
+
+body:has(#dark-mode:checked) .humanitarian-situation-need-item .item-description p {
+    color: #f5f5f5;
+}
+
+body:has(#dark-mode:checked) .humanitarian-situation-need-item .item-actions a:hover,
+body:has(#dark-mode:checked) .upcoming-events-carousel .carousel-inner .carousel-item .carousel-item-description-content div:nth-child(2) a:hover,
+body:has(#dark-mode:checked) .all-events-item-description-content > div:nth-child(2) a:hover {
+    color: white;
+}
+
     </style>
 
 </head>

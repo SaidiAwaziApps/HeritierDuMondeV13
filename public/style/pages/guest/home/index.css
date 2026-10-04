@@ -78,8 +78,18 @@
 }
 
 .animate-needs-actions a:hover {
-    opacity: 0.5;
+    background-color: transparent;
+    color: white;
 }
+
+.animate-needs-actions a:nth-child(1):hover {
+    border: 2px solid green;
+}
+
+.animate-needs-actions a:nth-child(2):hover {
+    border: 2px solid #0dcaf0;
+}
+
 
 .animate-needs-actions a:nth-child(2) {
     margin-left: 10px;
@@ -593,6 +603,8 @@ Bloc situations humanitaires
     flex-wrap: nowrap;
 
     margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
 }
 
 .all-events-content-item .all-events-content-item-imgs {

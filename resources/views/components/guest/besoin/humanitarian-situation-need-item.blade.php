@@ -76,68 +76,32 @@
 
         </div>
 
-
-        <!----------------------------------------------------
-            Partie Statistique
-        ------------------------------------------------------>
         <div class="item-stat">
-
-            <div class="pourcent">
-                <p>0%</p>
-            </div>
-
+            <div class="pourcent"><p>0%</p></div>
             <div class="progress">
-
-                <div
-                    class="progress-bar"
-                    id="progressbar-{{ $besoin->id }}"
-                    role="progressbar"
-                ></div>
-
+                <div class="progress-bar" id="progressbar-{{ $besoin->id }}" role="progressbar"></div>
             </div>
-
         </div>
 
-
-        <!----------------------------------------------------
-            Partie Contenu
-        ------------------------------------------------------>
         <div class="item-content">
 
-            <h4>
-                {{ $besoin->intitule }}
+            <h4 class="d-none d-md-block">
+                {{ \Illuminate\Support\Str::limit($besoin->intitule, 50, '...') }}
             </h4>
 
+            <h4 class="d-block d-md-none">
+                {{ \Illuminate\Support\Str::limit($besoin->intitule, 30, '...') }}
+            </h4>
 
-            <div class="item-description">
-
-                <p>
-                    {{ $besoin->contenu }}
-                </p>
-
-            </div>
-
+            <div class="item-description"><p>{{ $besoin->contenu }}</p></div>
 
             <div class="item-actions">
-
-                <a
-                    href="/"
-                    class="btn btn-success"
-                >
-                    Faire un don
-                </a>
-
-                <a
-                    href="/"
-                    class="btn btn-info"
-                >
-                    Détails
-                </a>
-
+                <a href="/" class="btn btn-success" title="Cliquer pour effectuer un don">Faire un don</a>
+                <a href="/" class="btn btn-info" title="Cliquer pour plus de details">Détails</a>
             </div>
-
+            
         </div>
 
     </div>
-
+    
 </div>
