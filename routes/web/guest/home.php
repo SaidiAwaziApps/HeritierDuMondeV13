@@ -13,3 +13,7 @@ use App\Http\Controllers\Guest\HomeController as GuestHomeController;
 */
 
 Route::get('/', [GuestHomeController::class, 'index'])->name('guest.home.index');
+
+Route::get('/test-rapide', function() {
+    return 'Okay';
+});

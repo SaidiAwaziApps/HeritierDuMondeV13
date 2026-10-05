@@ -1,4 +1,10 @@
 
+@media all and (min-width: 720px) {
+    .page-content {
+        padding: 10px 1% 10px 1%;
+    }
+}
+
 .animate-needs {
     width: 40%;
     margin: -350px 0 0 20px;
@@ -314,7 +320,40 @@ Bloc situations humanitaires
         width: 46%;
         /* margin-right: 1.8%; */
     } 
+
+    .humanitarian-situations-needs-items > div:nth-child(3) {
+        width: 100%;
+    }
 }  
+
+
+
+.humanitarian-situations-needs-more-items-actions {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+
+    padding: 10px;
+}
+
+.humanitarian-situations-needs-more-items-actions a {
+    font-size: 16px;
+    font-weight: bold;
+    font-family: italic;
+
+    padding: 6px 16px;
+    border: 3px solid #f8f8ff;
+    border-radius: 16px;
+}
+
+.humanitarian-situations-needs-more-items-actions a:hover {
+    opacity: 0.6;
+}
+
+
+
+
 
 
 /* =========================================================
@@ -368,11 +407,19 @@ Bloc situations humanitaires
 
 .events {
     margin-top: 6px;
-    padding: 20px;
+    padding: 20px 0px 20px 0px;
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
 }
+
+@media all and (max-width: 600px) {
+    .events {
+        padding: 20px 10px; 
+    }
+}
+
+
 
 .events .upcoming-events {
     width: 60%;
@@ -717,3 +764,185 @@ Bloc situations humanitaires
     border: 2px solid green;
     color: black; 
 }
+
+
+
+
+.all-events-more-items-actions {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+
+    padding: 10px;
+}
+
+.all-events-more-items-actions a {
+    font-size: 16px;
+    font-weight: bold;
+    font-family: italic;
+
+    padding: 6px 16px;
+    border: 3px solid #f8f8ff;
+    border-radius: 16px;
+}
+
+.all-events-more-items-actions a:hover {
+    opacity: 0.6;
+}
+
+
+
+
+
+
+
+/* =========================================================
+    Bloc benevoles (volunters) 
+========================================================== */
+
+.volunters {
+    margin-top: 10px;
+    /* padding: 10px 5% 10px 5%; */
+}
+
+@media all and (min-width: 720px) {
+    .volunters {
+        padding: 10px 10% 10px 10%; 
+    }
+}
+
+@media all and (max-width: 720px) {
+    .volunters {
+        padding: 10px; 
+    }
+}
+
+.volunters > h4 { 
+    font-size: 22px;
+    font-weight: bold;
+    font-family: italic;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.volunters > h4::after {
+    content: "";
+    display: block;
+    width: 64px;
+    height: 5px;
+    margin: 8px auto 0;
+    background-color: #198754;
+    border-radius: 3px;
+}
+
+@media all and (max-width: 600px) {
+    .volunters > h4::after {
+        width: 30px;
+    }
+}
+
+.volunters > p {
+    font-size: 18px;
+    font-family: italic;
+    text-align: center;
+    padding: 0px 5% 0px 5%;
+}
+
+.volunters-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.volunters-content-item {
+    width: 23%;
+    margin-bottom: 10px;
+}
+
+@media all and (max-width: 720px) {
+    .volunters-content-item {
+        width: 48%;
+    }
+}
+
+
+
+.volunters-content-item-img {
+    width: 100%;
+    height: 300px;
+}
+
+@media all and (max-width: 720px) {
+    .volunters-content-item-img {
+        height: 200px;
+    } 
+}
+
+.volunters-content-item-img img {
+    object-fit: cover;
+}
+
+.volunters-content-item-identity {
+    margin: 8px 0px 0px 0px;
+}
+
+.volunters-content-item-identity p {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: italic;
+}
+
+.volunters-content-item-contact {
+    padding: 16px 10px 2px 10px;
+    border-radius: 4px;
+    background-color: #f8f8ff;
+}
+
+.volunters-content-item-contact ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+}
+
+.volunters-content-item-contact ul li {
+    float: left;
+    list-style-type: none;
+}
+
+.volunters-content-item-contact ul li:nth-child(n+2) {
+    margin-left: 14px;
+}
+
+.volunters-content-item-contact ul li a:hover {
+    opacity: 0.3;
+}
+
+
+
+
+.volunters-content-more-items-actions {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+
+    padding: 10px;
+}
+
+.volunters-content-more-items-actions a {
+    font-size: 16px;
+    font-weight: bold;
+    font-family: italic;
+
+    padding: 6px 16px;
+    border: 3px solid #f8f8ff;
+    border-radius: 16px;
+}
+
+.volunters-content-more-items-actions a:hover {
+    opacity: 0.6;
+}
+
+

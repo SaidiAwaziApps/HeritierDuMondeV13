@@ -7,6 +7,7 @@
     <!-- =====================================================
          Bloc besoins animées
     ====================================================== -->
+    @if($besoins)
     <div class="animate-needs">
 
         <h6> Nous apportons de l'aide depuis 2018 </h6>
@@ -42,6 +43,7 @@
         </div>
 
     </div>
+    @endif
 
 
     <!-- =====================================================
@@ -143,6 +145,7 @@
     <!-- =====================================================
         Bloc Situations-Besoins humanitaires
     ====================================================== -->
+    @if($besoins)
     <div class="humanitarian-situations-needs">
 
         <!-- Titre -->
@@ -175,6 +178,16 @@
 
                 </div>
 
+                @if($besoins->count() > 3)
+                <div class="humanitarian-situations-needs-more-items-actions">
+
+                    <a href="#" class="btn btn-default btn-sm" title="Cliquer pour consulter plus de besoins">
+                       <i class="fa fa-plus"></i> Afficher plus
+                    </a>
+
+                </div>
+                @endif
+
             @else
 
                 <div class="humanitarian-situations-needs-not-found-items">
@@ -188,6 +201,7 @@
         </div>
 
     </div>
+    @endif
 
 
     <!-- =====================================================
@@ -259,6 +273,7 @@
     <!-- =====================================================
         Bloc Evenements
     ====================================================== -->
+    @if($evenements)
     <div class="events">
        
         <!---------------------------------------------------
@@ -463,12 +478,23 @@
                 </div>
                 @endforeach
 
+
+                @if($evenements->count() > 4)
+                <div class="all-events-more-items-actions">
+
+                    <a href="#" class="btn btn-default btn-sm" title="Cliquer pour consulter plus de besoins">
+                       <i class="fa fa-plus"></i> Afficher plus
+                    </a>
+
+                </div>
+                @endif
+
             </div>
            
         </div> 
        
     </div>
-
+    @endif
 
 
 
@@ -476,9 +502,10 @@
         Bloc Benevoles
     ====================================================== -->
 
+    @if($benevoles)
     <div class="volunters">
 
-        <h4> rencontrer nos bénévoles </h4>
+        <h4> Rencontrer nos bénévoles </h4>
 
         <p>
             Entrez en contanct avec les bénévoles qui nous accompagnent tous les jours dans nos interventions. Ils vous donnerons d'amples informations concernant la manière dont vos aides sont accueillis par les bénéficiaires, surtout par les plus vulnérables.
@@ -494,14 +521,16 @@
                     Image profil 
                  ------------------------------------------->
                 <div class="volunters-content-item-img">
-                    <img src="{{ asset(Storage::url($benevole->photo)) }}" alt="Profil {{ $benevole->nom }}" class="rounded-thumbnail" style="width: 100%; height: 100%;">
+                    <a href="{{ Storage::url($benevole->photo) }}" title="Cliquer pour afficher le profil">
+                        <img src="{{ asset(Storage::url($benevole->photo)) }}" alt="Profil {{ $benevole->nom }}" class="rounded-thumbnail" style="width: 100%; height: 100%;">
+                    </a>    
                 </div>
 
                 <!------------------------------------------
                     Identite 
                  ------------------------------------------->
                 <div class="volunters-content-item-identity">
-                    
+                    <p> {{ $benevole->nom }} {{ $benevole->prenom }} </p>
                 </div> 
 
                 <!------------------------------------------
@@ -511,28 +540,28 @@
                 
                     <ul>
                         <li>
-                            <a href="{{ $benevole->sociaux['facebook'] }}" target="_blank">
-                                <i class="fa fa-facebook" style="#1877F2"></i>
+                            <a href="{{ $benevole->sociaux['facebook'] }}" target="_blank" title="Aller sur facebook">
+                                <i class="fa fa-facebook" style="color: #1877F2"></i>
                             </a>   
                         </li>
                         <li>
-                            <a href="{{ $benevole->sociaux['linkedIn'] }}" target="_blank">
-                                <i class="fab fa-linkedin" style="#0A66C2"></i>
+                            <a href="{{ $benevole->sociaux['linkedIn'] }}" target="_blank" title="Aller sur linkendin">
+                                <i class="fab fa-linkedin" style="color: #0A66C2"></i>
                             </a>   
                         </li>
                         <li>
-                            <a href="{{ $benevole->sociaux['whatsap'] }}" target="_blank">
-                                <i class="fa fa-whatsapp" style="#25D366"></i>
+                            <a href="{{ $benevole->sociaux['instagram'] }}" target="_blank" title="Aller sur instagram">
+                                <i class="fa fa-instagram" style="color: #E4405F"></i>
                             </a>   
                         </li>
                         <li>
-                            <a href="{{ $benevole->sociaux['twitter'] }}" target="_blank">
-                                <i class="fa fa-twitter" style="#1DA1F2"></i>
+                            <a href="{{ $benevole->sociaux['twitter'] }}" target="_blank" title="Aller sur twitter">
+                                <i class="fa fa-twitter" style="color: #1DA1F2"></i>
                             </a>   
                         </li>
                     </ul>
 
-                </div>  
+                </div>
 
             </div>
 
@@ -544,10 +573,21 @@
 
             @endforelse
 
+
+            @if($benevoles->count() > 4)
+                <div class="volunters-content-more-items-actions">
+
+                <a href="#" class="btn btn-default btn-sm" title="Cliquer pour consulter plus de besoins">
+                    <i class="fa fa-plus"></i> Afficher plus
+                </a>
+
+            </div>
+            @endif
+
         </div>
 
     </div>
-
+    @endif
 
 
 
