@@ -598,19 +598,23 @@
 
     @if($dons)
     <div class="how-donors-talks">
+
         <div class="how-donors-talks-explain">
+
             <h4>Professionnalisme et Dynamisme, nos atouts fars sur terrain.</h4>
-            <h6>
-                Que disent les donateurs, les benevoles et les beneficiaires
-            </h6>
+
+            <h6>Que disent les donateurs, les benevoles et les beneficiaires</h6>
+            
             <p>
                 A chaque intervention sur le terrain, nous restons en contact permanent avec nos donateurs; et a ce terme, nous evaluons ensemble l'execution globale de 
                 de l'intervention concernee. Nos donateurs s'exprime par notre strategie operatoire,
             </p>
+
         </div>
 
         <div class="how-donors-talks-content">
-            <div id="how-donors-talks-carousel" class="carousel slide" data-bs-ride="carousel">
+            <div id="how-donors-talks-carousel" class="carousel how-donors-talks-carousel slide" data-bs-ride="carousel">
+
                 <div class="carousel-indicators">
                     @foreach($dons as $index => $don)
                     <button type="button" data-bs-target="#how-donors-talks-carousel" data-bs-slide-to="{{ $index }}"
@@ -626,7 +630,7 @@
                         <div class="donor-informations">
                             <div class="donor-profil">
                                 <a href="{{ Storage::url($don->donateur->photo) }}" title="Profil {{ $don->donateur->nom }}">
-                                    <img src="{{ Storage::url($don->donateur->photo) }}" alt="Profil {{ $don->donateur->nom }}" class="rounded-circle" style="width: 40px; height: 40px;"> 
+                                    <img src="{{ Storage::url($don->donateur->photo) }}" alt="Profil {{ $don->donateur->nom }}" class="rounded-circle" style="width: 50px; height: 50px;"> 
                                 </a>
                             </div>
                             <div class="donor-description">
@@ -645,7 +649,7 @@
                     
                 </div>
 
-                <button class="carousel-control-prev" type="button"
+                <!-- <button class="carousel-control-prev" type="button"
                     data-bs-target="#how-donors-talks-carousel" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon"></span>
                     <span class="visually-hidden">Précédent</span>
@@ -655,7 +659,7 @@
                     data-bs-target="#how-donors-talks-carousel" data-bs-slide="next">
                     <span class="carousel-control-next-icon"></span>
                     <span class="visually-hidden">Suivant</span>
-               </button>
+               </button> -->
             </div>
 
         </div>
