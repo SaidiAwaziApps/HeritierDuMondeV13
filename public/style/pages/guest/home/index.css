@@ -1175,21 +1175,29 @@ Bloc situations humanitaires
 
 .categories-articles-imgs {
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-start;
     flex-wrap: wrap;
 }
 
-@media all and (min-width: 600px) {
+@media all and (max-width: 600px) {
     .categories-articles-imgs {
-        justify-content: flex-start; 
+        justify-content: space-around; 
     } 
 }
 
 .categories-articles-imgs .img-item {
     width: 23%;
     height: 200px;
-    margin: 0px 0.4% 20px 0px;
+    margin-bottom: 20px;
 }
+
+
+@media all and (min-width: 600px) {
+    .categories-articles-imgs .img-item {
+        margin-left: 0.4%;  
+    } 
+}
+
 
 @media all and (max-width: 600px) {
     .categories-articles-imgs .img-item {
