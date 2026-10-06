@@ -745,6 +745,10 @@
                     aria-labelledby="all_article_categories"
                 >
                     
+                    @php
+                        $hasImages = false;
+                    @endphp
+
                     <div class="categories-articles-imgs">
 
                         @foreach($categories as $categorie)
@@ -753,22 +757,26 @@
 
                                 @foreach($article->images as $image)
 
-                                <div class="img-item">
+                                    @php
+                                        $hasImages = true;
+                                    @endphp
 
-                                    @if(strtolower($image->img_source) != 'upload')
-                                        {!! $image->iframe !!}
-                                    @elseif(isVideo($image->path))
-                                    <video autoplay muted loop playsinline width="100%" height="100%">
-                                        <source src="{{ Storage::url($image->path) }}">
-                                    </video> 
-                                    @else
-                                    <img width="100%" height="100%"
-                                        src="{{ Storage::url($image->path) }}"
-                                        alt="{{ $image->titre }}"
-                                    > 
-                                    @endif
+                                    <div class="img-item">
 
-                                </div>
+                                        @if(strtolower($image->img_source) != 'upload')
+                                            {!! $image->iframe !!}
+                                        @elseif(isVideo($image->path))
+                                        <video autoplay muted loop playsinline width="100%" height="100%">
+                                            <source src="{{ Storage::url($image->path) }}">
+                                        </video> 
+                                        @else
+                                        <img width="100%" height="100%"
+                                            src="{{ Storage::url($image->path) }}"
+                                            alt="{{ $image->titre }}"
+                                        > 
+                                        @endif
+
+                                    </div>
 
                                 @endforeach
 
@@ -777,6 +785,12 @@
                         @endforeach 
                     
                     </div>
+
+                    @if(!$hasImages)
+                    <div class="categories-articles-imgs-empty">
+                        <p>Aucune image !!!</p>
+                    </div>
+                    @endif
 
                 </div>                 
                 @endif <!-- fin tab-pane -->
@@ -790,13 +804,19 @@
                     aria-labelledby="{{ $categorie->ctg_name }}"
                 >
                     
+                    @php
+                        $hasImages = false;
+                    @endphp
+
                     <div class="categories-articles-imgs">
 
-                        @foreach($categories as $categorie)
-
-                            @foreach($categorie->articles as $article)
+                        @foreach($categorie->articles as $article)
                              
-                                @foreach($article->images as $image)
+                            @foreach($article->images as $image)
+
+                                @php
+                                    $hasImages = true;
+                                @endphp
 
                                 <div class="img-item">
 
@@ -812,16 +832,20 @@
                                         alt="{{ $image->titre }}"
                                     > 
                                     @endif
-                                    
+                                        
                                 </div>
-  
-                                @endforeach
 
                             @endforeach
  
                         @endforeach
 
                     </div>
+
+                    @if(!$hasImages)
+                    <div class="categories-articles-imgs-empty">
+                        <p>Aucune image !!!</p>
+                    </div>
+                    @endif
                     
                 </div>
                 @endforeach <!-- fin tab-pane -->
@@ -834,6 +858,11 @@
                     role="tabpanel"
                     aria-labelledby="others_article_categories"
                 > 
+
+                    @php
+                        $hasImages = false;
+                    @endphp
+
                     <div class="categories-articles-imgs">
 
                         @foreach($categories as $index => $categorie)
@@ -845,22 +874,26 @@
 
                                 @foreach($article->images as $image)
 
-                                <div class="img-item">
+                                    @php
+                                        $hasImages = true;
+                                    @endphp
 
-                                    @if(strtolower($image->img_source) != 'upload')
-                                        {!! $image->iframe !!}
-                                    @elseif(isVideo($image->path))
-                                    <video autoplay muted loop playsinline width="100%" height="100%">
-                                        <source src="{{ Storage::url($image->path) }}">
-                                    </video> 
-                                    @else
-                                    <img width="100%" height="100%"
-                                        src="{{ Storage::url($image->path) }}"
-                                        alt="{{ $image->titre }}"
-                                    > 
-                                    @endif
-                                   
-                                </div>
+                                    <div class="img-item">
+
+                                        @if(strtolower($image->img_source) != 'upload')
+                                            {!! $image->iframe !!}
+                                        @elseif(isVideo($image->path))
+                                        <video autoplay muted loop playsinline width="100%" height="100%">
+                                            <source src="{{ Storage::url($image->path) }}">
+                                        </video> 
+                                        @else
+                                        <img width="100%" height="100%"
+                                            src="{{ Storage::url($image->path) }}"
+                                            alt="{{ $image->titre }}"
+                                        > 
+                                        @endif
+                                       
+                                    </div>
 
                                 @endforeach
 
@@ -868,8 +901,14 @@
 
                         @endforeach
 
-                    </div>     
-                    
+                    </div>
+
+                    @if(!$hasImages)
+                    <div class="categories-articles-imgs-empty">
+                        <p>Aucune image !!!</p>
+                    </div>
+                    @endif
+                        
                 </div>
                 @endif <!-- fin tab-pane -->
 
