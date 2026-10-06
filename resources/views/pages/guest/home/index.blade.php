@@ -683,70 +683,202 @@
             </p>
         </div>
         
+        @if ($categories->isNotEmpty())
         <div class="ours-blog-content">
 
-            <div class="ours-blog-categories">
+            <ul class="nav nav-pills justify-content-center" id="myTab" role="tablist">
 
-                @if ($categories->isNotEmpty())
-                <ul>
-
-                    @if($categories->count() > 2)
-                    <li>
-                        <a href="#">
-                            Tout
-                        </a>
-                    </li>
-                    @endif
-
-                    @foreach ($categories->take(3) as $categorie)
-                    <li>
-                        <a href="#">
-                            {{ $categorie->ctg_name }}
-                        </a>
-                    </li>
-                    @endforeach
-
-                    @if($categories->count() > 3)
-                    <li>
-                        <a href="#">
-                            Autres
-                        </a>
-                    </li>
-                    @endif
-
-                </ul>
+                @if($categories->count() > 2)
+                <li class="nav-item" role="presentation">
+                    <a
+                        class="nav-link active"
+                        data-bs-toggle="pill"
+                        data-bs-target="#all_article_categories"
+                        type="button"
+                        role="tab"
+                        aria-controls="all_article_categories"
+                        aria-selected="true"
+                    >
+                        Tout
+                    </a>
+                </li>
                 @endif
 
-            </div>
-
-
-            <div class="ours-blog-imgs">
-                @foreach($categories as $categorie)
-                    @foreach($categorie->articles as $article)
-                    <div class="article-item">
-                        @foreach($article->images as $image)
-                        <div class="article-item-img">
-                            @if(strtolower($image->img_source) != 'upload')
-                                {!! $image->iframe !!}
-                            @elseif(isVideo($image->path))
-                            <video autoplay muted loop playsinline width="100%" height="100%">
-                                <source src="{{ Storage::url($image->path) }}">
-                            </video> 
-                            @else
-                            <img width="100%" height="100%"
-                                src="{{ Storage::url($image->path) }}"
-                                alt="{{ $image->titre }}"
-                            > 
-                            @endif   
-                        </div>
-                        @endforeach
-                    </div>
-                    @endforeach
+                @foreach ($categories->take(3) as $categorie)
+                <li class="nav-item">
+                    <a  class="nav-link" 
+                        data-bs-toggle="pill"
+                        data-bs-target="#{{ $categorie->ctg_name }}"
+                        type="button"
+                        role="tab"
+                        aria-controls="{{ $categorie->ctg_name }}"
+                        aria-selected="true">
+                        {{ $categorie->ctg_name }}
+                    </a>
+                </li>
                 @endforeach
+
+                @if($categories->count() > 3)
+                <li class="nav-item">
+                    <a  class="nav-link" 
+                        data-bs-toggle="pill"
+                        data-bs-target="#others_article_categories"
+                        type="button"
+                        role="tab"
+                        aria-controls="others_article_categories"
+                        aria-selected="true">
+                        Autres
+                    </a>
+                </li>
+                @endif
+
+            </ul>
+
+
+            <div class="tab-content mt-3">
+
+                @if($categories->count() > 2)
+                <div
+                    class="tab-pane active"
+                    id="all_article_categories"
+                    role="tabpanel"
+                    aria-labelledby="all_article_categories"
+                >
+                    
+                    <div class="categories-articles-imgs">
+
+                        @foreach($categories as $categorie)
+
+                            @foreach($categorie->articles as $article)
+
+                                @foreach($article->images as $image)
+
+                                <div class="img-item">
+
+                                    @if(strtolower($image->img_source) != 'upload')
+                                        {!! $image->iframe !!}
+                                    @elseif(isVideo($image->path))
+                                    <video autoplay muted loop playsinline width="100%" height="100%">
+                                        <source src="{{ Storage::url($image->path) }}">
+                                    </video> 
+                                    @else
+                                    <img width="100%" height="100%"
+                                        src="{{ Storage::url($image->path) }}"
+                                        alt="{{ $image->titre }}"
+                                    > 
+                                    @endif
+
+                                </div>
+
+                                @endforeach
+
+                            @endforeach
+
+                        @endforeach 
+                    
+                    </div>
+
+                </div>                 
+                @endif <!-- fin tab-pane -->
+            
+
+                @foreach($categories->take(3) as $categorie)
+                <div
+                    class="tab-pane fade"
+                    id="{{ $categorie->ctg_name }}"
+                    role="tabpanel"
+                    aria-labelledby="{{ $categorie->ctg_name }}"
+                >
+                    
+                    <div class="categories-articles-imgs">
+
+                        @foreach($categories as $categorie)
+
+                            @foreach($categorie->articles as $article)
+                             
+                                @foreach($article->images as $image)
+
+                                <div class="img-item">
+
+                                    @if(strtolower($image->img_source) != 'upload')
+                                        {!! $image->iframe !!}
+                                    @elseif(isVideo($image->path))
+                                    <video autoplay muted loop playsinline width="100%" height="100%">
+                                        <source src="{{ Storage::url($image->path) }}">
+                                    </video> 
+                                    @else
+                                    <img width="100%" height="100%"
+                                        src="{{ Storage::url($image->path) }}"
+                                        alt="{{ $image->titre }}"
+                                    > 
+                                    @endif
+                                    
+                                </div>
+  
+                                @endforeach
+
+                            @endforeach
+ 
+                        @endforeach
+
+                    </div>
+                    
+                </div>
+                @endforeach <!-- fin tab-pane -->
+
+                
+                @if($categories->count() > 3)
+                <div
+                    class="tab-pane fade"
+                    id="others_article_categories"
+                    role="tabpanel"
+                    aria-labelledby="others_article_categories"
+                > 
+                    <div class="categories-articles-imgs">
+
+                        @foreach($categories as $index => $categorie)
+                        
+                            <!-- Saute les trois premiere -->
+                            @continue($index < 3)
+
+                            @foreach($categorie->articles as $article)
+
+                                @foreach($article->images as $image)
+
+                                <div class="img-item">
+
+                                    @if(strtolower($image->img_source) != 'upload')
+                                        {!! $image->iframe !!}
+                                    @elseif(isVideo($image->path))
+                                    <video autoplay muted loop playsinline width="100%" height="100%">
+                                        <source src="{{ Storage::url($image->path) }}">
+                                    </video> 
+                                    @else
+                                    <img width="100%" height="100%"
+                                        src="{{ Storage::url($image->path) }}"
+                                        alt="{{ $image->titre }}"
+                                    > 
+                                    @endif
+                                   
+                                </div>
+
+                                @endforeach
+
+                            @endforeach
+
+                        @endforeach
+
+                    </div>     
+                    
+                </div>
+                @endif <!-- fin tab-pane -->
+
             </div>
-
-
+            <!-- fin tab-content -->
+    
         </div>
+        @endif
+
     </div>
 
 

@@ -2249,19 +2249,25 @@
             color: #f5f5f5;
         }
 
-body:has(#dark-mode:checked) .statistique {
-    background-color: #212529;
-}
+        body:has(#dark-mode:checked) .statistique {
+            background-color: #212529;
+        }
 
-body:has(#dark-mode:checked) .humanitarian-situation-need-item .item-description p {
-    color: #f5f5f5;
-}
+        body:has(#dark-mode:checked) .humanitarian-situation-need-item .item-description p {
+            color: #f5f5f5;
+        }
 
-body:has(#dark-mode:checked) .humanitarian-situation-need-item .item-actions a:hover,
-body:has(#dark-mode:checked) .upcoming-events-carousel .carousel-inner .carousel-item .carousel-item-description-content div:nth-child(2) a:hover,
-body:has(#dark-mode:checked) .all-events-item-description-content > div:nth-child(2) a:hover {
-    color: white;
-}
+        body:has(#dark-mode:checked) .humanitarian-situation-need-item .item-actions a:hover,
+        body:has(#dark-mode:checked) .upcoming-events-carousel .carousel-inner .carousel-item .carousel-item-description-content div:nth-child(2) a:hover,
+        body:has(#dark-mode:checked) .all-events-item-description-content > div:nth-child(2) a:hover {
+            color: white;
+        }
+
+        body:has(#dark-mode:checked) .how-donors-talks,
+        body:has(#dark-mode:checked) .how-donors-talks-carousel {
+            background-color: #212529;
+        }
+
 
     </style>
 

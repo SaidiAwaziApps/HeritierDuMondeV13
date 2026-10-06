@@ -1091,3 +1091,118 @@ Bloc situations humanitaires
 .how-donors-talks-carousel .carousel-indicators button.active {
     opacity: 1;
 }
+
+
+
+
+
+
+
+
+
+
+/*  =====================================================
+        Notre Blog
+    ====================================================== */
+
+.ours-blog {
+    margin-top: 32px;
+    padding: 20px;
+}
+
+@media all and (min-width: 720px) {
+    .ours-blog {
+        margin: 32px 4%;
+    }
+}
+
+.ours-blog-description h4 {
+    font-size: 28px;
+    font-weight: bold;
+    font-family: italic;
+}
+
+.ours-blog-description h4::after {
+    content: "";
+    display: block;
+    width: 48px;
+    height: 5px;
+    margin: 4px auto 0;
+    background-color: #198754;
+    border-radius: 3px; 
+}
+
+.ours-blog-description p {
+    font-size: 20px;
+    font-family: italic;
+
+    text-align: center;
+
+    padding: 4px 20px 20px 20px;
+}
+
+
+
+.ours-blog-content {
+    margin-top: 4px;
+}
+
+
+@media all and (min-width: 720px) {
+
+    .ours-blog-description p { 
+        padding: 10px 7%;
+    }
+
+}
+
+
+.ours-blog-content ul li:nth-child(n+2) {
+    margin-left: 3px;
+}
+
+.ours-blog-content ul li a {
+    font-size: 18px;
+    font-weight: bold;
+    font-family: italic;
+
+    color: cadetblue;
+
+    padding: 4px 10px;
+    border: 2px solid #f8f8ff;
+}
+
+
+.categories-articles-imgs {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+@media all and (min-width: 600px) {
+    .categories-articles-imgs {
+        justify-content: flex-start; 
+    } 
+}
+
+.categories-articles-imgs .img-item {
+    width: 23%;
+    height: 200px;
+    margin: 0px 0.4% 20px 0px;
+}
+
+@media all and (max-width: 600px) {
+    .categories-articles-imgs .img-item {
+        height: 80px;
+    } 
+}
+
+
+.categories-articles-imgs .img-item video,
+.categories-articles-imgs .img-item img,
+.categories-articles-imgs .img-item iframe {
+    width: 100%;
+    height: 100%;
+}  
+
+
