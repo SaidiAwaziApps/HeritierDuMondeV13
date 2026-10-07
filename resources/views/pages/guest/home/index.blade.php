@@ -924,20 +924,92 @@
     <!-- =====================================================
         Nos partenaires
     ====================================================== -->
+
+    @if($partenaires)
     <div class="ours-partners">
 
         <h4>
             Nos partenaires
         </h4>
 
-        <div class="ours-partners-content">
-            <div class="ours-partners-item">
-                <a href="">
+        <p>
+            Aucune action humanitaire durable ne peut se construire seul. Nos partenaires jouent un rôle essentiel dans la réalisation de nos différentes interventions auprès des communautés vulnérables. Grâce à leur confiance, leur accompagnement et leur contribution, nous pouvons renforcer notre capacité d'action et répondre plus efficacement aux besoins des populations.
 
-                </a>
+            Qu'ils apportent un soutien financier, matériel, technique ou institutionnel, chacun de nos partenaires contribue, à son niveau, à transformer nos projets en actions concrètes sur le terrain. Leur engagement nous permet notamment de soutenir les personnes en situation de vulnérabilité, de répondre aux urgences humanitaires et de développer des initiatives favorisant l'accès à l'eau, à l'éducation et à de meilleures conditions de vie.
+
+            Nous considérons ainsi nos partenaires comme de véritables acteurs de notre mission. Leur collaboration, leur expertise et leur disponibilité constituent une force importante pour atteindre davantage de bénéficiaires et inscrire nos interventions dans la durée.
+
+            Ensemble, nous construisons des solutions, nous renforçons les communautés et nous contribuons à redonner espoir à ceux qui en ont le plus besoin.
+        </p>
+
+        <div class="ours-partners-content">
+
+            @foreach($partenaires as $partenaire)
+            <div class="ours-partners-item">
+
+                <div class="ours-partners-item-logo-site-web">
+
+                    <a  href="#" 
+                        alt="Logo {{ $partenaire->logo }}"
+                        type="button"
+                        class="btn btn-default"
+                        data-bs-toggle="popover"
+                        data-bs-html="true"
+                        data-bs-placement="bottom"
+                        data-bs-content='
+                            <ul class="list-unstyled mb-0">
+                                <li><a href="#" class="dropdown-item">Accueil</a></li>
+                                <li><a href="#" class="dropdown-item">Articles</a></li>
+                                <li><a href="#" class="dropdown-item">Catégories</a></li>
+                                <li><a href="#" class="dropdown-item">Contact</a></li>
+                            </ul>
+                        '
+                    >
+                        <img src="{{ Storage::url($partenaire->logo) }}" alt="Logo {{ $partenaire->nom }}" class="rounded-thumbnail">
+                    </a>
+                </div>
+                
+                <!-- <div class="ours-partners-item-description">
+
+                    <ul>
+
+                        <li>
+                            <a href="{{ $partenaire->sociaux['facebook'] }}" target="_blank" title="Aller sur facebook">
+                                <i class="fa fa-facebook" style="color: #1877F2"></i>
+                            </a>   
+                        </li>
+
+                        <li>
+                            <a href="{{ $partenaire->sociaux['linkedIn'] }}" target="_blank" title="Aller sur linkendin">
+                                <i class="fab fa-linkedin" style="color: #0A66C2"></i>
+                            </a>   
+                        </li>
+
+                        <li>
+                            <a href="{{ $partenaire->sociaux['instagram'] }}" target="_blank" title="Aller sur instagram">
+                                <i class="fa fa-instagram" style="color: #E4405F"></i>
+                            </a>   
+                        </li>
+
+                        <li>
+                            <a href="{{ $partenaire->sociaux['twitter'] }}" target="_blank" title="Aller sur twitter">
+                                <i class="fa fa-twitter" style="color: #1DA1F2"></i>
+                            </a>   
+                        </li>
+                    
+                    </ul>
+
+                </div> -->
+                
             </div>
+            @endforeach
+
         </div>
     </div>
+    @endif
+
+
+    <script src="{{ asset('script/pages/guest/home/index.js') }}"> </script>
 
 </div>
 

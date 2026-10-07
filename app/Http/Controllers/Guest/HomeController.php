@@ -11,6 +11,7 @@ use App\Models\Don;
 use App\Models\Donateur;
 use App\Models\Evenement;
 use App\Models\Categorie;
+use App\Models\Partenaire;
 
 class HomeController extends Controller
 {
@@ -60,16 +61,21 @@ class HomeController extends Controller
                                ->orderByDesc('articles_count')
                                ->get();
 
+        // Partenaires
+        $partenaires = Partenaire::where('status', '=', true)
+                                 ->get();                       
+
           
                   
         /* ---- Renvoie la page accueil (home) ---- */
         return view('pages.guest.home.index', [
-            'benevoles'  => $benevoles,
-            'besoins'    => $besoins,
-            'dons'       => $dons,
-            'donateurs'  => $donateurs,
-            'evenements' => $evenements,
-            'categories' => $categories
+            'benevoles'   => $benevoles,
+            'besoins'     => $besoins,
+            'dons'        => $dons,
+            'donateurs'   => $donateurs,
+            'evenements'  => $evenements,
+            'categories'  => $categories,
+            'partenaires' => $partenaires
         ]);          
     }
 }
