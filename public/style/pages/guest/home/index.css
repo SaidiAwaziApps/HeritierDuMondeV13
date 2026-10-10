@@ -491,7 +491,7 @@ Bloc situations humanitaires
 .upcoming-events-carousel .carousel-inner .carousel-item .carousel-item-img video,
 
 .upcoming-events-carousel .carousel-inner .carousel-item .carousel-item-img img, 
-    
+
 .upcoming-events-carousel .carousel-inner .carousel-item .carousel-item-img iframe {
     width: 100%;
     height: 100%;
@@ -960,7 +960,7 @@ Bloc situations humanitaires
     margin-top: 32px;
 
     padding: 20px;
-    
+
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -1187,7 +1187,7 @@ Bloc situations humanitaires
 }
 
 .categories-articles-imgs-empty p {
-    
+
     font-size: 24px;
     font-family: italic;
     opacity: 0.8;
@@ -1255,7 +1255,7 @@ Bloc situations humanitaires
 
 .ours-partners h4 {
     text-align: center;
-    
+
     font-size: 24px;
     font-weight: bold;
     font-family: italic;
@@ -1287,7 +1287,7 @@ Bloc situations humanitaires
 .ours-partners-content {
     display: flex;
     justify-content: center;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
 
     margin-top: 40px;
 }
@@ -1328,3 +1328,180 @@ Bloc situations humanitaires
     list-style-type: none;
 }
 
+
+
+/* =====================================================
+    Popover Nos partenaires
+====================================================== */
+
+.ours-partners-popover {
+    --bs-popover-bg: #111312;
+    --bs-popover-border-color: #303a34;
+    --bs-popover-body-color: #f5f7f5;
+    --bs-popover-max-width: 270px;
+    --bs-popover-border-radius: 14px;
+
+    border: 1px solid #303a34;
+    border-radius: 14px;
+
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, 0.30),
+        0 3px 10px rgba(0, 0, 0, 0.18);
+
+    overflow: hidden;
+}
+
+.ours-partners-popover .popover-arrow::before {
+    border-bottom-color: #303a34;
+}
+
+.ours-partners-popover .popover-arrow::after {
+    border-bottom-color: #111312;
+}
+
+.ours-partners-popover .popover-body {
+    padding: 10px;
+    color: #f5f7f5;
+    background: #f8f8ff;
+    border-radius: 14px;
+}
+
+.ours-partners-popover-menu {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.ours-partners-popover-menu li {
+    margin: 3px 0;
+    border-bottom: 1px solid rgba(25, 135, 84, 0.10);
+}
+
+.ours-partners-popover-menu li:last-child {
+    border-bottom: none;
+}
+
+.ours-partners-popover-menu li a.dropdown-item {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    gap: 13px;
+
+    padding: 12px 13px;
+
+    font-size: 16px;
+    font-weight: bold;
+    font-family: italic;
+
+    color: black;
+
+    font-weight: 500;
+    text-decoration: none;
+
+    border-radius: 8px;
+
+    transition:
+        color 0.25s ease,
+        background-color 0.25s ease,
+        padding-left 0.25s ease;
+}
+
+.ours-partners-popover-menu li a.dropdown-item i {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+
+    /* color: #35c987; */
+    background: rgba(25, 135, 84, 0.13);
+
+    border: 1px solid rgba(53, 201, 135, 0.12);
+    border-radius: 8px;
+
+    font-size: 16px;
+
+    transition:
+        color 0.25s ease,
+        background-color 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.ours-partners-popover-menu li:nth-child(1) a.dropdown-item i {
+    color: #198754;
+}
+
+.ours-partners-popover-menu li:nth-child(2) a.dropdown-item i {
+    color: #1877F2;
+}
+
+.ours-partners-popover-menu li:nth-child(3) a.dropdown-item i {
+    color: #1DA1F2;
+}
+
+
+.ours-partners-popover-menu li:nth-child(4) a.dropdown-item i {
+    color: #0A66C2;
+}
+
+.ours-partners-popover-menu li:nth-child(5) a.dropdown-item i {
+    color: #E4405F;
+}
+
+
+
+
+.ours-partners-popover-menu li a.dropdown-item::after {
+    content: "\F285";
+
+    margin-left: auto;
+
+    color: #68776e;
+    font-family: "bootstrap-icons";
+    font-size: 11px;
+
+    transition:
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.ours-partners-popover-menu li a.dropdown-item:hover,
+.ours-partners-popover-menu li a.dropdown-item:focus {
+    padding-left: 17px;
+
+    color: #ffffff;
+    background: #1c2821;
+
+    outline: none;
+}
+
+.ours-partners-popover-menu li a.dropdown-item:hover i,
+.ours-partners-popover-menu li a.dropdown-item:focus i {
+    background: rgba(25, 135, 84, 0.13);
+    border-color: rgba(53, 201, 135, 0.12);
+}
+
+.ours-partners-popover-menu li a.dropdown-item:hover::after,
+.ours-partners-popover-menu li a.dropdown-item:focus::after {
+    color: #35c987;
+    transform: translateX(3px);
+}
+
+@media all and (max-width: 480px) {
+    .ours-partners-popover {
+        --bs-popover-max-width: 250px;
+    }
+
+    .ours-partners-popover-menu li a.dropdown-item {
+        padding: 10px;
+        font-size: 13px;
+    }
+
+    .ours-partners-popover-menu li a.dropdown-item i {
+        width: 28px;
+        height: 28px;
+    }
+}

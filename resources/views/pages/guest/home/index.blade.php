@@ -948,25 +948,66 @@
             <div class="ours-partners-item">
 
                 <div class="ours-partners-item-logo-site-web">
-
-                    <a  href="#" 
+     
+                    <a  href="#"
                         alt="Logo {{ $partenaire->logo }}"
                         type="button"
                         class="btn btn-default"
                         data-bs-toggle="popover"
                         data-bs-html="true"
                         data-bs-placement="bottom"
+                        data-bs-custom-class="ours-partners-popover"
                         data-bs-content='
-                            <ul class="list-unstyled mb-0">
-                                <li><a href="#" class="dropdown-item">Accueil</a></li>
-                                <li><a href="#" class="dropdown-item">Articles</a></li>
-                                <li><a href="#" class="dropdown-item">Catégories</a></li>
-                                <li><a href="#" class="dropdown-item">Contact</a></li>
-                            </ul>
+                        <ul class="ours-partners-popover-menu">
+                           
+                            <li>
+                                <a href="{{ $partenaire->site_web }}" class="dropdown-item" title="Visiter le site web de notre partenaire">
+                                    <i class="fa fa-globe" style="color: #198754;"></i>
+                                    <span>Site web</span>
+                                </a>
+                            </li>
+
+                            @if($partenaire->sociaux && $partenaire->sociaux->facebook)
+                            <li>
+                                <a href="{{ $partenaire->sociaux->facebook }}" class="dropdown-item" title="Aller sur facebook">
+                                    <i class="fa fa-facebook" style="color: #1877F2;"></i>
+                                    <span>facebook</span>
+                                </a>
+                            </li>
+                            @endif
+
+                            @if($partenaire->sociaux && $partenaire->sociaux->twitter)
+                            <li>
+                                <a href="{{ $partenaire->sociaux->twitter }}" class="dropdown-item" title="Aller sur twitter">
+                                    <i class="fa fa-twitter" style="color: #1DA1F2;"></i>
+                                    <span>Twitter</span>
+                                </a>
+                            </li>
+                            @endif
+
+                            @if($partenaire->sociaux && $partenaire->sociaux->linkedIn)
+                            <li>
+                                <a href="{{ $partenaire->sociaux->linkedIn }}" class="dropdown-item" title="Aller sur LinkedIn">
+                                    <i class="fab fa-linkedin" style="color: #0A66C2;"></i>
+                                    <span>Likendin</span>
+                                </a>
+                            </li>
+                            @endif
+
+                            @if($partenaire->sociaux && $partenaire->sociaux->instagram)
+                            <li>
+                                <a href="{{ $partenaire->sociaux->instagram }}" class="dropdown-item" title="Aller sur Instagram">
+                                    <i class="fa fa-instagram" style="color: #E4405F;"></i>
+                                    <span>Instagram</span>
+                                </a>
+                            </li>
+                            @endif
+                        </ul>
                         '
                     >
                         <img src="{{ Storage::url($partenaire->logo) }}" alt="Logo {{ $partenaire->nom }}" class="rounded-thumbnail">
                     </a>
+                    
                 </div>
                 
                 <!-- <div class="ours-partners-item-description">
