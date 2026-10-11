@@ -3189,6 +3189,8 @@
         });
     </script>
 
+    <script src="{{ asset('script/layouts/guest.js') }}"></script>
+
 
 </body>
 
