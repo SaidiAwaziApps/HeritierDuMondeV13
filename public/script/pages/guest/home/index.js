@@ -39,18 +39,23 @@ document.addEventListener('DOMContentLoaded', function() {
 
     }, 4000)
 
+     
     // Animation paragraphe humanitarianSituationsNeedsTextIntitule
 
     setInterval(() => {
-        humanitarianSituationsNeedsTextIntitule.style.opacity = '0';
-    }, 6000);
 
-    setInterval(() => {
-        humanitarianSituationsNeedsTextIntitule.innerHTML = besoins[index].intitule;
-        humanitarianSituationsNeedsTextIntitule.style.opacity = '0.8';
-        
-        index = (index + 1) % besoins.length;
-    }, 6600);
+        humanitarianSituationsNeedsTextIntitule.style.opacity = '0';
+
+        setTimeout(() => {
+
+            index = (index + 1) % besoins.length;
+
+            humanitarianSituationsNeedsTextIntitule.innerHTML = besoins[index].intitule;
+            humanitarianSituationsNeedsTextIntitule.style.opacity = '0.8';
+
+        }, 1600);
+
+    }, 6000);   
 
 
     // Redimentionne le dernier element se trouvant a une index impair pour le petit ecran
