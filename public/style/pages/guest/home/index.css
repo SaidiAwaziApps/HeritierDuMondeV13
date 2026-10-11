@@ -120,6 +120,48 @@
 }
 
 
+
+/* ****************************************************************
+ * Animation besoins (contenu animate need)
+ * *****************************************************************/
+
+.animate-needs-content {
+    opacity: 0;
+    animation: animateNeedsFromBottom 4s ease-in-out infinite;
+}
+
+.animate-needs-actions {
+    opacity: 0;
+    animation: animateNeedsFromTop 4s ease-in-out infinite;
+}
+
+@keyframes animateNeedsFromBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(80px);
+    }
+
+    30%, 100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes animateNeedsFromTop {
+    0% {
+        opacity: 0;
+        transform: translateY(-80px);
+    }
+
+    30%, 100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+
 /* =====================================================
 Comment nous aider ?
 ===================================================== */

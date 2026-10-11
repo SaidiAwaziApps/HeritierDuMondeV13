@@ -77,10 +77,23 @@
         </div>
 
         <div class="item-stat">
-            <div class="pourcent"><p>0%</p></div>
-            <div class="progress">
-                <div class="progress-bar" id="progressbar-{{ $besoin->id }}" role="progressbar"></div>
+   
+            @php
+                 
+                $receivedAmountPourcent = oneBesoinDonateStat($besoin)['receivedAmountPourcent'];
+
+            @endphp
+           
+            <div class="pourcent" style="background-color: @if($receivedAmountPourcent >= 75) #198754; @elseif($receivedAmountPourcent < 50) brown; @else #0D6EFD;  @endif">
+                <p> {{ $receivedAmountPourcent }}%</p>
             </div>
+
+            <div class="progression">
+                <div class="progress">
+                     <div class="progress-bar" id="progressbar-{{ $besoin->id }}" role="progressbar" style="width: {{ $receivedAmountPourcent }}%;"></div>
+                </div>
+            </div>
+            
         </div>
 
         <div class="item-content">

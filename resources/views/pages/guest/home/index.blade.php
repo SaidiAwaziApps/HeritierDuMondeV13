@@ -7,7 +7,7 @@
     <!-- =====================================================
          Bloc besoins animées
     ====================================================== -->
-    @if($besoins)
+    @if($besoins && $besoins->count() > 1)
     <div class="animate-needs">
 
         <h6> Nous apportons de l'aide depuis 2018 </h6>
