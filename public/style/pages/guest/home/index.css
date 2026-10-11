@@ -321,6 +321,8 @@ Bloc situations humanitaires
     position: relative;
 }
 
+
+
 .humanitarian-situations-needs > h4::after {
     content: "";
     display: block;
@@ -331,10 +333,13 @@ Bloc situations humanitaires
     border-radius: 3px;
 }
 
-.humanitarian-situations-needs p {
-    font-size: 20px;
+.humanitarian-situations-needs > p {
+    font-size: 21px;
+    font-weight: bold;
     font-family: italic;
-    opacity: 0.8;
+    color: brown;
+    /* opacity: 0.8; */
+    transition: all 2s ease-in-out;
 }
 
 

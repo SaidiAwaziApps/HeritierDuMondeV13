@@ -154,10 +154,8 @@
         </h4>
 
         <!-- Texte -->
-        <p>
-            Déplacement massif de la population de Sake vers le camp
-            de Mugunga suite aux dernières attaques des rebelles,
-            il y a urgence.
+        <p class="humanitarian-situations-needs-text-intitule">
+            {{ $besoins[0]->intitule }}
         </p>
 
         <!-- Contenu -->

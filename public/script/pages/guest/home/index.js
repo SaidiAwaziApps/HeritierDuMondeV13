@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const animateNeedsContent = document.querySelector('.animate-needs-content');
     const animateNeedsActions = document.querySelector('.animate-needs-actions');
     const humanitarianNeedItemComponents = document.querySelectorAll('.humanitarian-situation-need-item-component');
+    const humanitarianSituationsNeedsTextIntitule = document.querySelector('.humanitarian-situations-needs-text-intitule');
     const voluntersContentItems = document.querySelectorAll('.volunters-content-item');
     const popoverElements = document.querySelectorAll('[data-bs-toggle="popover"]');
 
@@ -29,14 +30,27 @@ document.addEventListener('DOMContentLoaded', function() {
 
     animateNeedsActions.style.animation = 'animateNeedsFromTop 4s ease-in-out infinite';
 
+   // Animation bloc animate-needs
+
     setInterval(() => {
         
         animateNeedsContent.querySelector('p').querySelector('span').innerHTML = besoins[index].intitule;
         animateNeedsActions.querySelector('a').setAttribute('href','/besoin/'+besoins[index].id);
-        
-        index = (index + 1) % besoins.length;
 
     }, 4000)
+
+    // Animation paragraphe humanitarianSituationsNeedsTextIntitule
+
+    setInterval(() => {
+        humanitarianSituationsNeedsTextIntitule.style.opacity = '0';
+    }, 6000);
+
+    setInterval(() => {
+        humanitarianSituationsNeedsTextIntitule.innerHTML = besoins[index].intitule;
+        humanitarianSituationsNeedsTextIntitule.style.opacity = '0.8';
+        
+        index = (index + 1) % besoins.length;
+    }, 6600);
 
 
     // Redimentionne le dernier element se trouvant a une index impair pour le petit ecran
