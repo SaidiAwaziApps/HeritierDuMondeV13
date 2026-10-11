@@ -30,7 +30,7 @@
                 </span>
             </a>
 
-            <a
+            <!-- <a
                 href="/"
                 class="btn btn-info"
                 title="Cliquer pour nous contact"
@@ -38,7 +38,7 @@
                 <span>
                     Contactez-nous
                 </span>
-            </a>
+            </a> -->
 
         </div>
 
@@ -168,7 +168,7 @@
                 <div class="humanitarian-situations-needs-items">
  
                     @foreach($besoins as $item)
-                        <div>
+                        <div class="humanitarian-situation-need-item-component">
                             <x-guest.besoin.humanitarian-situation-need-item
                                 :besoin="$item"
                             />
@@ -1049,7 +1049,13 @@
     </div>
     @endif
 
+    <!-- Script interne -->
+    <script type="text/javascript">
+        // Besoins
+        let besoins = @json($besoins);
+    </script>
 
+    <!-- Script externe -->
     <script src="{{ asset('script/pages/guest/home/index.js') }}"> </script>
 
 </div>
