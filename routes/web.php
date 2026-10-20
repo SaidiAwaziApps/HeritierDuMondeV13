@@ -58,7 +58,8 @@ $webAdminModules = [
 
 // Modules pour visiteur (guest)
 $webGuestModules = [
-    'home'
+    'home',
+    'about'
 ];
 
 // Parcourt ensemble modules destinees a admin

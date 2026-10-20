@@ -14,6 +14,8 @@
 
     @include('layouts.guest.home.head.styles')
 
+    @include('layouts.guest.about.head.styles')
+
 
     <!-- =========================================
          BOOTSTRAP
@@ -2319,7 +2321,7 @@
                         <li class="nav-item">
 
                             <a
-                                href="#"
+                                href="{{ route('guest.home.index') }}"
                                 class="nav-link"
                                 title="Accueil"
                             >
@@ -2338,7 +2340,7 @@
                         <li class="nav-item">
 
                             <a
-                                href="#"
+                                href="{{ route('guest.about.about_us') }}"
                                 class="nav-link"
                                 title="À propos"
                             >

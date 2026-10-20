@@ -84,7 +84,7 @@
 
             @endphp
            
-            <div class="pourcent" style="background-color: @if($receivedAmountPourcent >= 75) #198754; @elseif($receivedAmountPourcent < 50) brown; @else #0D6EFD;  @endif">
+            <div class="pourcent" style="background-color: @if($receivedAmountPourcent >= 75) green ; @elseif($receivedAmountPourcent < 50) brown; @else #0D6EFD;  @endif">
                 <p> {{ $receivedAmountPourcent }}%</p>
             </div>
 

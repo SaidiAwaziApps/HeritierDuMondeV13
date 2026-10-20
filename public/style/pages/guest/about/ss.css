@@ -1,0 +1,357 @@
+/* .page-content {
+    padding: 20px;
+} */
+
+
+.page-title {
+
+    width: 100%;
+
+    margin: -220px 0 0 0;
+
+    position: absolute;
+    z-index: 1000;
+}
+
+.page-title h1 {
+    /* font-size: 40px; */
+    font-weight: bold;
+    font-family: italic;
+
+    /* text-align: center; */
+
+    color: white;
+
+    opacity: 0.7;
+
+}
+
+
+
+.needs-how-to-helps-us {
+    padding: 4px 10% 4px 10%;
+    margin-top: 4%;
+}
+
+.needs-how-to-helps-us-content {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+}
+
+.needs-how-to-helps-us-content > .needs {
+    flex: 0 0 46%;
+    width: 46%;
+    min-width: 0;
+    margin-right: 0.6%;
+}
+
+.needs-how-to-helps-us-content > .how-to-help-us {
+    flex: 0 0 46%;
+    width: 46%;
+    min-width: 0;
+}
+
+@media all and (max-width: 600px) {
+    .needs-how-to-helps-us-content {
+        flex-wrap: wrap;
+    }
+
+    .needs-how-to-helps-us-content > .needs {
+        flex: 0 0 100%;
+        width: 100%;
+        margin-right: 0px;
+    }
+
+    .needs-how-to-helps-us-content > .how-to-help-us {
+        flex: 0 0 100%;
+        width: 100%;
+    }
+}
+
+
+.how-to-help-us h4 {
+    margin-bottom: 30px;
+    font-size: 30px;
+    font-weight: bold;
+    font-family: italic;
+    position: relative;
+}
+
+.how-to-help-us > h4::after {
+    content: "";
+    display: block;
+    width: 6%;
+    height: 5px;
+    margin: 8px auto 0;
+    background-color: #198754;
+    border-radius: 3px;
+}
+
+
+.how-to-help-us .how-to-help-us-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    gap: 30px;
+}
+
+@media all and (max-width: 600px) {
+    .how-to-help-us .how-to-help-us-content { 
+        padding-left: 16px;
+    }
+}
+
+
+.how-to-help-us-content > div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+}
+
+
+.how-to-help-us-content > div > div:nth-child(1) {
+    width: 120px;
+    height: 100px;
+
+    margin-bottom: 20px;
+    padding: 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    box-sizing: border-box;
+
+    background-color: #198754;
+    clip-path: polygon(
+        25% 0%,
+        75% 0%,
+        100% 50%,
+        75% 100%,
+        25% 100%,
+        0% 50%
+    );
+}
+
+@media all and (max-width: 600px) {
+    .how-to-help-us-content > div > div:nth-child(1) {
+        width: 80px;
+        height: 80px;
+    } 
+}
+
+.how-to-help-us-content > div > div:nth-child(1) img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+}
+
+
+.how-to-help-us-content > div > div:nth-child(2) {
+    width: 100%; 
+}
+
+.how-to-help-us-content > div > div h6 {
+    margin: 0 0 10px;
+
+    font-size: 20px;
+    font-weight: bold;
+    font-family: italic;
+}
+
+.how-to-help-us-content > div > div p {
+    margin: 0;
+
+    font-size: 17px;
+    line-height: 1.5;
+    font-family: italic;
+}
+
+/* @media (max-width: 600px) { */
+
+    .how-to-help-us-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .how-to-help-us-content > div {
+        width: 90%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        text-align: left;
+    }
+
+    .how-to-help-us-content > div > div:nth-child(1) {
+        width: 120px;
+        height: 120px;
+        flex-shrink: 0;
+        margin-bottom: 0;
+        margin-right: 20px;
+    }
+
+    .how-to-help-us-content > div > div:nth-child(2) {
+        width: auto;
+        flex: 1;
+    }
+/* } */
+
+#needs-carousel > .carousel-inner {
+    width: 100%;
+}
+
+#needs-carousel > .carousel-inner > .carousel-item {
+    width: 100%;
+}
+
+/* Indicateurs du carousel exterieur */
+
+#needs-carousel > .carousel-indicators {
+    margin-bottom: 10px;
+    gap: 6px;
+}
+
+#needs-carousel > .carousel-indicators button {
+    width: 9px;
+    height: 9px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background-color: #198754;
+    opacity: 0.45;
+}
+
+#needs-carousel > .carousel-indicators button.active {
+    background-color: #198754;
+    opacity: 1;
+}
+
+
+
+
+.humanitarian-situation-need-item {
+    background-color: aliceblue;
+    padding-bottom: 20px;
+}
+
+.humanitarian-situation-need-item .item-imgs {
+    width: 100%;
+}
+
+.humanitarian-situation-need-item .item-imgs > div {
+    width: 100%;
+}
+
+.humanitarian-situation-need-item .item-img > div  {
+    width: 100%;
+}
+
+.humanitarian-situation-need-item .item-img > div {
+    width: 100%;
+    height: 280px;
+}
+
+.humanitarian-situation-need-item .item-img > div img,
+.humanitarian-situation-need-item .item-img > div video,
+.humanitarian-situation-need-item .item-img > div iframe {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+
+.humanitarian-situation-need-item .progression {
+    padding: 12px;
+    border-radius: 24px;
+    background-color: #f8f8ff;
+    opacity: 0.5;
+}
+
+.humanitarian-situation-need-item .progress {
+    opacity: 1;
+}
+
+
+
+.humanitarian-situation-need-item .item-stat {
+    position: relative;
+    margin-top: -124px;
+    padding: 0px 30px 0px 30px;
+    z-index: 1000;
+}
+
+.humanitarian-situation-need-item .item-stat .pourcent {
+    padding: 6px 10px 6px 10px;
+    width: 68px;
+    height: 40px;
+    background-color: brown;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    opacity: 0.9;
+}
+
+.humanitarian-situation-need-item .item-stat .pourcent p {
+    font-size: 20px;
+    font-weight: bold;
+    font-family: italic;
+    color: white;
+}
+
+
+
+
+.humanitarian-situation-need-item .item-content {
+    position: relative;
+    padding: 10px;
+    margin-top: 48px;
+}
+
+.humanitarian-situation-need-item h4 {
+    font-size: 22px;
+    font-weight: bold;
+    font-family: italic;
+}
+
+
+.humanitarian-situation-need-item .item-description p {
+    font-size: 20px;
+    font-family: italic;
+}
+
+
+
+
+.humanitarian-situation-need-item .item-actions {
+    margin-top: 4px;
+}
+
+.humanitarian-situation-need-item .item-actions a {
+    font-size: 18px; 
+    font-family: italic;
+    color: white;
+    margin-bottom: 6px;
+}
+
+
+.humanitarian-situation-need-item .item-actions a:hover {
+    background-color: transparent;
+    color: black;
+}
+
+.humanitarian-situation-need-item .item-actions a:hover:nth-child(1) {
+    border: 2px solid green;
+}
+
+.humanitarian-situation-need-item .item-actions a:hover:nth-child(2) {
+    border: 2px solid #0dcaf0;
+}

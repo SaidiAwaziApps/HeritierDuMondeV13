@@ -1,0 +1,535 @@
+
+.page-title {
+
+    width: 100%;
+
+    margin: -20px 0 0 0;
+
+    padding: 6px;
+
+    background-color: #FFFAF0;
+}
+
+.page-title h1 {
+    font-size: 32px;
+    /* font-weight: bold; */
+    font-family: italic;
+
+    /* opacity: 0.6; */
+}
+
+
+
+
+/* =====================================================
+   Besoins && comment nous aider
+===================================================== */
+
+.needs-how-to-helps-us {
+    margin-top: 50px;
+}
+
+
+.needs-how-to-helps-us-content {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+
+.needs,
+.how-to-help-us {
+    width: 44%;
+}
+
+.needs {
+    margin-right: 3%;
+}
+
+@media all and (max-width: 800px) {
+
+    .needs, 
+    .how-to-help-us {
+        width: 90%;
+        margin-right: 0%;
+    }
+
+    .needs {
+       margin-right: 3%;
+    }
+
+}
+
+
+
+/* =====================================================
+   Besoins (needs)
+===================================================== */
+
+
+.needs {
+    background-color: aliceblue;
+    padding-bottom: 20px;
+}
+
+/* Indicateurs du carousel en forme de boules vertes */
+.needs .carousel-indicators button {
+    width: 12px;
+    height: 12px;
+    padding: 0;
+    margin: 0 4px;
+    border: 0;
+    border-radius: 50%;
+    background-color: cadetblue;
+    opacity: 0.5;
+}
+
+.needs .carousel-indicators button.active {
+    background-color: cadetblue;
+    opacity: 1;
+}
+
+.needs .item-imgs {
+    width: 100%;
+}
+
+.needs .item-imgs > div {
+    width: 100%;
+}
+
+.needs .item-imgs > div {
+    width: 100%;
+}
+
+.needs .item-imgs > div {
+    width: 100%;
+    height: 280px;
+}
+
+.needs .item-imgs > div img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+
+.needs .progression {
+    padding: 12px;
+    border-radius: 24px;
+    background-color: #f8f8ff;
+    opacity: 0.5;
+}
+
+.needs .progress {
+    opacity: 1;
+}
+
+
+
+.needs .item-stat {
+    position: relative;
+    margin-top: -124px;
+    padding: 0px 30px 0px 30px;
+    z-index: 1000;
+}
+
+.needs .item-stat .pourcent {
+    padding: 6px 10px 6px 10px;
+    width: 68px;
+    height: 40px;
+    background-color: brown;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    opacity: 0.9;
+}
+
+.needs .item-stat .pourcent p {
+    font-size: 20px;
+    font-weight: bold;
+    font-family: italic;
+    color: white;
+}
+
+
+
+
+.needs .item-content {
+    position: relative;
+    padding: 10px;
+    margin-top: 58px;
+}
+
+.needs h4 {
+    font-size: 22px;
+    font-weight: bold;
+    font-family: italic;
+}
+
+
+.needs .item-description p {
+    font-size: 20px;
+    font-family: italic;
+}
+
+
+
+
+.needs .item-actions {
+    margin-top: 4px;
+}
+
+.needs .item-actions a {
+    font-size: 18px; 
+    font-family: italic;
+    color: white;
+    margin-bottom: 6px;
+}
+
+
+.needs .item-actions a:hover {
+    background-color: transparent;
+    color: black;
+}
+
+.needs .item-actions a:hover:nth-child(1) {
+    border: 2px solid green;
+}
+
+.needs .item-actions a:hover:nth-child(2) {
+    border: 2px solid #0dcaf0;
+}
+
+
+
+/* =====================================================
+Comment nous aider ?
+===================================================== */
+
+.how-to-help-us {
+    padding-top: 20px;
+}
+
+.how-to-help-us h4 {
+    margin-bottom: 30px;
+    font-size: 30px;
+    font-weight: bold;
+    font-family: italic;
+    text-align: left;
+    position: relative;
+}
+
+.how-to-help-us > h4::after {
+    content: "";
+    display: block;
+    width: 10%;
+    height: 5px;
+    margin: 8px  0;
+    background-color: #198754;
+    border-radius: 3px;
+}
+
+
+.how-to-help-us .how-to-help-us-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: stretch;
+    gap: 30px;
+    width: 100%;
+}
+
+@media all and (max-width: 600px) {
+    .how-to-help-us .how-to-help-us-content { 
+        padding-left: 16px;
+    }
+}
+
+
+.how-to-help-us-content > div {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    text-align: left;
+}
+
+
+.how-to-help-us-content > div > div:nth-child(1) {
+    width: 120px;
+    height: 100px;
+
+    margin-bottom: 0;
+    margin-right: 20px;
+    padding: 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    box-sizing: border-box;
+
+    background-color: #198754;
+    clip-path: polygon(
+        25% 0%,
+        75% 0%,
+        100% 50%,
+        75% 100%,
+        25% 100%,
+        0% 50%
+    );
+}
+
+@media all and (max-width: 600px) {
+    .how-to-help-us-content > div > div:nth-child(1) {
+        width: 80px;
+        height: 80px;
+    } 
+}
+
+.how-to-help-us-content > div > div:nth-child(1) img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+}
+
+
+.how-to-help-us-content > div > div:nth-child(2) {
+    width: auto;
+    flex: 1;
+}
+
+.how-to-help-us-content > div > div h6 {
+    margin: 0 0 10px;
+
+    font-size: 20px;
+    font-weight: bold;
+    font-family: italic;
+}
+
+.how-to-help-us-content > div > div p {
+    margin: 0;
+
+    font-size: 17px;
+    line-height: 1.5;
+    font-family: italic;
+}
+
+@media (max-width: 600px) {
+
+    .how-to-help-us-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .how-to-help-us-content > div {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        text-align: left;
+    }
+
+    .how-to-help-us-content > div > div:nth-child(1) {
+        width: 120px;
+        height: 120px;
+        flex-shrink: 0;
+        margin-bottom: 0;
+        margin-right: 20px;
+    }
+
+    .how-to-help-us-content > div > div:nth-child(2) {
+        width: auto;
+        flex: 1;
+    }
+}
+
+
+
+
+
+/* =========================================================
+    Bloc statistique
+========================================================== */
+
+.statistique {
+    padding: 24px 20px 8px 20px;
+    margin: 50px 4% 10px 4%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    background-color: #f8f8ff;
+}
+
+.statistique  > div {
+    width: 20%;
+}
+
+@media all and (max-width: 600px) {
+    .statistique  > div {
+        width: 48%;
+    }
+}
+
+/* .statistique > div > div:nth-child(1) {
+    background-color: aliceblue;
+} */
+
+
+.statistique > div > div:nth-child(2) p {
+    font-size: 20px;
+    font-weight: bold;
+    font-family: italic;
+    text-transform: uppercase;
+    opacity: 0.8;
+}
+
+.statistique > div > div:nth-child(2) p span {
+    opacity: 1;
+    padding: 10px;
+    font-size: 24px;
+    color: #0f6674;
+}
+
+
+
+
+/* ===============================================================
+    Bloc questionnements && evenements (questions-events)
+============================================================= */
+
+.questions-events {
+    margin: 50px 3%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.questions-events > div {
+    width: 48%;
+    /* background-color: #0f6674; */
+}
+
+.questions-events > div:nth-child(1) {
+    margin-right: 2%; 
+}
+
+@media all and (max-width: 720px) {
+    .questions-events > div {
+        width: 100%;
+    }
+
+    .questions-events > div:nth-child(1) {
+        margin-right: 0px; 
+    } 
+}
+
+
+/* ===============================================================
+    1. Questions (questionnements)
+============================================================= */
+
+.questions {
+    margin: 0px;
+    padding: 0px;
+}
+
+.questions h4 {
+    font-size: 32px; 
+    font-weight: bold;
+    font-family:  italic;
+
+    text-align: left;
+
+    opacity: 0.9;
+}
+
+.questions h4::after {
+    content: "";
+    display: block;
+    width: 10%;
+    height: 5px;
+    margin: 8px  0;
+    background-color: #198754;
+    border-radius: 3px;
+}
+
+
+
+.questions-content {
+    margin-top: 20px;
+}
+
+
+
+
+/* Masquer le chevron par défaut de Bootstrap */
+.accordion-button::after {
+    display: none;
+}
+
+/* Ajouter le signe + lorsque l'élément est fermé */
+.accordion-button::before {
+    content: "+";
+    order: 2;
+    margin-left: auto;
+    font-size: 26px;
+    font-weight: 900;
+    color: #198754;
+}
+
+/* Afficher le signe − lorsque l'élément est ouvert */
+.accordion-button:not(.collapsed)::before {
+    content: "−";
+    font-weight: 900;
+}
+
+
+.accordion-item {
+    border: none;
+}
+
+.accordion-header:hover {
+    opacity: 0.8;
+}
+
+.accordion-header button {
+    font-size: 20px;
+    /* font-weight: bold; */
+    font-family: italic;
+}
+
+
+.accordion-body {
+    font-size: 20px;
+    font-family: italic;
+
+    text-align: justify;
+}
+
+/* Fond blanc et suppression des bordures de l'accordéon */
+#questionsAccordion,
+#questionsAccordion .accordion-item,
+#questionsAccordion .accordion-header,
+#questionsAccordion .accordion-button,
+#questionsAccordion .accordion-collapse,
+#questionsAccordion .accordion-body {
+    background-color: white;
+    border: none;
+}
+
+/* Supprimer les ombres et contours initiaux du bouton */
+#questionsAccordion .accordion-button,
+#questionsAccordion .accordion-button:focus {
+    box-shadow: none;
+    outline: none;
+}
+
+/* Conserver le fond blanc lorsque l'accordéon est ouvert */
+#questionsAccordion .accordion-button:not(.collapsed) {
+    background-color: white;
+    color: inherit;
+    box-shadow: none;
+}
