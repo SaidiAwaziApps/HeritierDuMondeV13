@@ -407,17 +407,21 @@ Comment nous aider ?
     flex-wrap: wrap;
 }
 
-.questions-events > div {
-    width: 48%;
+.questions-events > div:nth-child(1) {
+    width: 44%;
+    margin-right: 3%; 
     /* background-color: #0f6674; */
 }
 
-.questions-events > div:nth-child(1) {
-    margin-right: 2%; 
+.questions-events > div:nth-child(2) {
+    width: 51%;
+    /* background-color: #0f6674; */
 }
 
+
 @media all and (max-width: 720px) {
-    .questions-events > div {
+    .questions-events > div:nth-child(1),
+    .questions-events > div:nth-child(2) {
         width: 100%;
     }
 
@@ -533,3 +537,274 @@ Comment nous aider ?
     color: inherit;
     box-shadow: none;
 }
+
+
+
+
+
+
+
+/*  ===============================================================
+        EVENTS (Evenements)
+=================================================================== */
+
+.events {
+    margin: 0px;
+    padding: 4px 0;
+}
+
+@media all and (max-width: 720px) {
+    .events { 
+        margin-top: 40px;
+    } 
+}
+
+.events h4 {
+    font-size: 32px;
+    font-family: italic;
+
+    text-align: left;
+}
+
+
+.events-content {
+    height: 500px;
+    overflow-y: auto;
+    margin-top: 32px;
+}
+
+
+.events-content-item {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: nowrap;
+
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.events-content-item .events-content-item-imgs {
+    width: 40%;
+}
+
+.events-content-item .events-content-item-description {
+    width: 56%;
+    padding: 2px 10px 10px 4px;
+}
+
+
+@media all and (max-width: 600px) {
+    .events-content-item .events-content-item-imgs {
+        width: 34%;
+    }
+
+    .events-content-item .events-content-item-description {
+        width: 64%;
+    }
+}
+
+
+/* 
+    .events-content-item-imgs  
+*/
+
+.events-content-item-imgs .carousel-item {
+    width: 100%;
+    height: 170px;
+}
+
+.events-content-item-imgs img,
+
+.events-content-item-imgs video,
+
+.events-content-item-imgs iframe {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* 
+    .all-events-content-item-description  
+*/
+
+.events-content-item-description h4 {
+    font-size: 18px;
+    font-weight: bold;
+    font-family: italic;
+
+    text-align: left;
+
+    opacity: 0.9;
+}
+
+
+
+.events-item-description-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: nowrap;
+    margin-top: 4px;
+}
+
+.events-item-description-content > div:nth-child(1) {
+    width: 60%;
+}
+
+.events-item-description-content > div:nth-child(2) {
+    width: 38%;
+}
+
+
+
+.events-item-description-content > div:nth-child(1) ul {
+    padding: 0px;
+    margin: 0px;
+    text-align: left;
+}
+
+.events-item-description-content > div:nth-child(1) ul li {
+    font-size: 18px;
+    font-family: italic;
+    list-style-type: none;
+}
+
+.events-item-description-content > div:nth-child(1) ul li i {
+    color: #198754; 
+    text-align: left;
+    opacity: 0.9;
+}
+
+
+.events-item-description-content > div:nth-child(2) {
+    padding-top: 10px;
+}
+
+.events-item-description-content > div:nth-child(2) a {
+    width: 100%;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    background-color: #198754;
+}
+
+.events-item-description-content > div:nth-child(2) a:hover {
+    background-color: transparent;
+    border: 2px solid green;
+    color: black; 
+}
+
+
+
+
+.events-more-items-actions {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+
+    padding: 10px;
+}
+
+.events-more-items-actions a {
+    font-size: 16px;
+    font-weight: bold;
+    font-family: italic;
+
+    padding: 6px 16px;
+    border: 3px solid #f8f8ff;
+    border-radius: 16px;
+}
+
+.events-more-items-actions a:hover {
+    opacity: 0.6;
+}
+
+
+
+
+
+
+
+/* =====================================================
+   Mode sombre : bloc Besoins (needs)
+===================================================== */
+
+body:has(#dark-mode:checked) .needs {
+    background-color: #121212;
+    color: white;
+}
+
+body:has(#dark-mode:checked) .needs h4,
+body:has(#dark-mode:checked) .needs .item-description,
+body:has(#dark-mode:checked) .needs .item-description p,
+body:has(#dark-mode:checked) .needs .item-content,
+body:has(#dark-mode:checked) .needs .item-content p,
+body:has(#dark-mode:checked) .needs .item-content span {
+    color: white;
+}
+
+body:has(#dark-mode:checked) .needs .progression {
+    background-color: #292929;
+    color: white;
+    opacity: 1;
+}
+
+body:has(#dark-mode:checked) .needs .progress {
+    background-color: #198754;
+}
+
+body:has(#dark-mode:checked) .needs .item-stat .pourcent {
+    background-color: #8b4513;
+    opacity: 1;
+}
+
+body:has(#dark-mode:checked) .needs .item-stat .pourcent p {
+    color: white;
+}
+
+body:has(#dark-mode:checked) .needs .carousel-indicators button {
+    background-color: #198754;
+    opacity: 0.6;
+}
+
+body:has(#dark-mode:checked) .needs .carousel-indicators button.active {
+    background-color: #198754;
+    opacity: 1;
+}
+
+
+/* =====================================================
+   Mode sombre : accordéon des questions
+===================================================== */
+
+body:has(#dark-mode:checked) #questionsAccordion,
+body:has(#dark-mode:checked) #questionsAccordion .accordion-item,
+body:has(#dark-mode:checked) #questionsAccordion .accordion-header,
+body:has(#dark-mode:checked) #questionsAccordion .accordion-button,
+body:has(#dark-mode:checked) #questionsAccordion .accordion-collapse,
+body:has(#dark-mode:checked) #questionsAccordion .accordion-body {
+    background-color: #000;
+    color: #fff;
+    border: none;
+}
+
+body:has(#dark-mode:checked) #questionsAccordion .accordion-button,
+body:has(#dark-mode:checked) #questionsAccordion .accordion-button:not(.collapsed),
+body:has(#dark-mode:checked) #questionsAccordion .accordion-button:focus {
+    background-color: #000;
+    color: #fff;
+    box-shadow: none;
+    outline: none;
+}
+
+body:has(#dark-mode:checked) #questionsAccordion .accordion-button::before {
+    color: #198754;
+}
+
+body:has(#dark-mode:checked) #questionsAccordion .accordion-body {
+    color: #fff;
+}
+
+

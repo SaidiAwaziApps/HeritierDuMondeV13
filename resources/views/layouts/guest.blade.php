@@ -16,6 +16,8 @@
 
     @include('layouts.guest.about.head.styles')
 
+    @include('layouts.guest.benevole.head.styles')
+
 
     <!-- =========================================
          BOOTSTRAP
@@ -2359,7 +2361,7 @@
                         <li class="nav-item">
 
                             <a
-                                href="#"
+                                href="{{ route('guest.benevole.list') }}"
                                 class="nav-link"
                                 title="Bénévoles"
                             >

@@ -487,7 +487,7 @@
                 </div>
                 @endif
 
-            </div>
+            </div> <!-- fin bloc .all-events-content -->
            
         </div> 
        

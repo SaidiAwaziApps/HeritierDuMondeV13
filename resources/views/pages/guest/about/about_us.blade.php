@@ -396,11 +396,110 @@
 
             <div class="events-content">
 
-            </div>
+                @foreach($evenements as $evenement)
+                <div class="events-content-item">
+
+                    @if(isset($evenement->images))
+                    <div class="events-content-item-imgs">
+
+                        <div id="events-content-item-imgs-carousel-{{ $evenement->id }}" class="carousel slide all-events-content-item-imgs-carousel"
+                            data-bs-ride="carousel"
+                            data-bs-interval="4000"
+                        >
+
+                            <!-- Indicateurs -->
+                            <!-- <div class="carousel-indicators">
+                                @foreach($evenement->images as $index => $image)
+                                    <button type="button" data-bs-target="#all-events-content-item-imgs-carousel-{{ $evenement->id }}" data-bs-slide-to="{{ $index }}" class="@if($index == 0) active @endif"></button>
+                                @endforeach
+                            </div> -->
+
+                            <div class="carousel-inner">
+
+                                @foreach($evenement->images as $index => $image)
+                                <div class="carousel-item @if($index == 0) active @endif">
+
+                                    @if (strtolower($image['img_source']) != 'upload')
+                                        {!! $image['iframe'] !!}
+                                    @elseif (isVideo($image['path']))
+                                        <video autoplay muted loop playsinline width="100%" height="100%">
+                                            <source src="{{ Storage::url($image['path']) }}">
+                                        </video>
+                                    @else
+                                        <img
+                                            width="100%"
+                                            height="100%"
+                                            src="{{ Storage::url($image['path']) }}"
+                                            alt="{{ $image['titre'] }}"
+                                        >
+                                    @endif
+                                    
+                                </div>
+                                @endforeach
+
+                            </div>
+
+                        </div>    
+
+                    </div>
+                    @endif
+
+                    <div class="events-content-item-description">
+                    
+                        <h4 class="d-none d-md-block"> {{ \Illuminate\Support\Str::limit($evenement->titre, 50, '...') }} </h4>
+                        <h4 class="d-block d-md-none"> {{ \Illuminate\Support\Str::limit($evenement->titre, 30, '...') }} </h4>
+
+                        <div class="events-item-description-content">
+                        
+                            <div class="events-item-description-content-infos">
+
+                                <ul class="list-group">
+
+                                    <li> <i class="fa fa-map-marker-alt"></i> {{ $evenement->lieu }} </li>
+
+                                    <li> <i class="fas fa-calendar"></i> @if(strtolower($evenement->type) == 'journalier') {{ \Carbon\Carbon::parse($evenement->date_du_jour)->format('d/m/Y') }} @else {{ \Carbon\Carbon::parse($evenement->periode_date_debut)->format('d/m/Y') }} au {{ \Carbon\Carbon::parse($evenement->periode_date_fin)->format('d/m/Y') }} @endif <li>
+
+                                    <li> <i class="fas fa-clock"></i> @if(strtolower($evenement->type) == 'journalier') {{ \Carbon\Carbon::parse($evenement->date_du_jour)->format('H:i') }} @else {{ \Carbon\Carbon::parse($evenement->periode_date_debut)->format('H:i') }} a {{ \Carbon\Carbon::parse($evenement->periode_date_fin)->format('H:i') }} @endif <li>
+
+                                </ul>
+
+                            </div>
+
+                            <div class="events-item-description-content-details">
+                                    
+                                <a href="" class="btn btn-info btn-sm" title="Cliquer pour plus de details">
+                                    Details
+                                </a>
+
+                            </div>  
+
+                        </div>
+                        
+                    </div> <!-- Fin bloc events-content-item-description -->
+
+                </div>
+                @endforeach
+
+
+                @if($evenements->count() > 4)
+                <div class="events-more-items-actions">
+
+                    <a href="#" class="btn btn-default btn-sm" title="Cliquer pour consulter plus de besoins">
+                       <i class="fa fa-plus"></i> Afficher plus
+                    </a>
+
+                </div>
+                @endif
+                 
+            </div> <!-- fin bloc events-content -->
 
         </div> <!-- Fin bloc events (evenements) -->
         
     </div> <!-- fin bloc questions-events (Questionnements && evenements) -->
+
+
+    <!-- Script externe -->
+    <script src="{{ asset('script/pages/guest/about/about_us.js') }}"></script> 
 
 </div>    
 

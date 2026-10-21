@@ -1,0 +1,53 @@
+
+.page-title {
+
+    width: 100%;
+
+    margin: -20px 0 0 0;
+
+    padding: 6px;
+
+    background-color: #FFFAF0;
+}
+
+.page-title h1 {
+    font-size: 32px;
+    /* font-weight: bold; */
+    font-family: italic;
+
+    /* opacity: 0.6; */
+}
+
+
+
+.volunters {
+    margin: 10px 5%;
+}
+
+@media all and (min-width: 720px) {
+    .volunters {
+        margin: 40px 5%;
+    }
+}
+
+.volunters-content {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.volunters-content > div {
+    width: 23%;
+    margin: 0 2% 10px 0;
+}
+
+@media all and (max-width: 720px) {
+    .volunters-content > div {
+        width: 48%;
+        margin: 0 1.8% 10px 0;
+    }
+
+}
+
+
+
