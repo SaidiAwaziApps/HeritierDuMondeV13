@@ -13,3 +13,5 @@ use App\Http\Controllers\Guest\BenevoleController as GuestBenevolecontroller;
 */
 
 Route::get('/benevole/list', [GuestBenevolecontroller::class, 'list'])->name('guest.benevole.list');
+
+Route::get('/benevole/register', [GuestBenevolecontroller::class, 'register'])->name('guest.benevole.register');

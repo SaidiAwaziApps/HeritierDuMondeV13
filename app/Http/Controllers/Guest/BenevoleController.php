@@ -23,4 +23,15 @@ class BenevoleController extends Controller
         ]);                     
     }
 
+
+
+    /* **********************************************************
+     * RENVOIE A LA PAGE ENREGISTREMENT (REGISTER)
+     * **********************************************************/
+
+    public function register() {
+        // Renvoie la page
+        return view('pages.guest.benevole.register');
+    }
+
 }

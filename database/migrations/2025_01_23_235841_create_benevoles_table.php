@@ -20,6 +20,13 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('pays')->nullable();
             $table->string('ville')->nullable();
+            $table->string('profession');
+            $table->text('competences');
+            $table->string('langues');
+            $table->text('experience')->nullable();
+            $table->text('domaines_intervention');
+            $table->string('disponibilite');
+            $table->texte('motivation');
             $table->string('photo')->nullable();
             $table->boolean('status')->default(true);
         });

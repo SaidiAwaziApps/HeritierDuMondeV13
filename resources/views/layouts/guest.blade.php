@@ -42,9 +42,13 @@
         href="{{ asset('dependance/font-awesome/font-awesome.min.css') }}"
     >
 
+    <script src="{{ asset('dependance/jquery/jquery-3.7.1.min.js') }}"></script>
+
     <script
         src="{{ asset('dependance/font-awesome/font-awesome.js') }}"
     ></script>
+
+    @include('layouts.guest.benevole.head.scripts')
 
 
     <style>
