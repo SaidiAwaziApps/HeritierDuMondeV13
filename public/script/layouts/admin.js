@@ -94,10 +94,26 @@ document.addEventListener('DOMContentLoaded',function() {
     window.Echo
         .private('App.Models.User.'+window.user.id)
         .notification((notification) => {
+
             // Notification pour moderation && page different de details pour blog article
             if(notification?.moderateable && window.currentRouteName != 'admin.article.details') {
                 showModerationMessage(notification); 
-            }  
+            }
+        
+            // Notification pour enregistrement nouveau benevole
+            if (notification?.object?.toLowerCase() == 'nouveau_benevole') {
+
+                const voluntersNotReadNotifications = document.querySelector('#volunters-not-read-notifications');
+
+                if (voluntersNotReadNotifications) {
+                    const notify_number = parseInt(voluntersNotReadNotifications.innerHTML, 10) || 0;
+
+                    voluntersNotReadNotifications.innerHTML = notify_number + 1;
+                }
+
+            }
+
+            
         });
 });
 

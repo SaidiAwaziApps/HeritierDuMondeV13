@@ -511,7 +511,7 @@
 
         <div class="volunters-content">
 
-            @forelse($benevoles as $benevole)
+            @forelse($benevoles->take(4) as $benevole)
 
             <div class="volunters-content-item">
                  
@@ -575,7 +575,7 @@
             @if($benevoles->count() > 4)
                 <div class="volunters-content-more-items-actions">
 
-                <a href="#" class="btn btn-default btn-sm" title="Cliquer pour consulter plus de besoins">
+                <a href="{{ route('guest.benevole.list') }}" class="btn btn-default btn-sm" title="Cliquer pour consulter plus de besoins">
                     <i class="fa fa-plus"></i> Afficher plus
                 </a>
 

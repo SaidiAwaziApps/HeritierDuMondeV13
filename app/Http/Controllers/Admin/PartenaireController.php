@@ -60,7 +60,7 @@ class PartenaireController extends Controller
             'identite_id' => ['required'],
             'nom' => ['required', 'string'],
             'partner_type' => ['required', 'string'],
-            'logo' => ['required', 'image', 'mimes:jpg,jpeg,png,webp', 'max:2048'],
+            'logo' => ['required', 'image', 'mimes:jpg,jpeg,png,webp'],
         ]);
 
         // Stockage de l'image (logo)

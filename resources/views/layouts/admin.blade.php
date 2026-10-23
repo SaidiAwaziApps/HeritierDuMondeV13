@@ -368,7 +368,7 @@
                     @if(Route::is('admin.benevole.*'))
                        style="background-color: cadetblue; color: white;"
                     @endif>
-                    <i class="fas fa-hands-helping"></i> Benevoles
+                    <i class="fas fa-hands-helping"></i> Benevoles <sup> <i class="badge bg-danger" id="volunters-not-read-notifications"></i> </sup> 
                 </a>
             </li>
             <li>

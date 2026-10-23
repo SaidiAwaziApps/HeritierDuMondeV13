@@ -51,6 +51,7 @@ class ModerateableNotification extends Notification implements ShouldQueue
     public function toBroadcast(mixed $notifiable): BroadcastMessage
     {
         return new BroadcastMessage([
+            'object' => 'moderation_commentaire',
             'moderateable' => $this->moderateable,
             'message' => $this->message,
             'status' => $this->status,
@@ -64,6 +65,7 @@ class ModerateableNotification extends Notification implements ShouldQueue
     public function toArray(mixed $notifiable): array
     {
         return [
+            'object' => 'moderation_commentaire',
             'moderateable' => $this->moderateable,
             'message' => $this->message,
             'status' => $this->status,

@@ -48,7 +48,7 @@
 
         <div class="volunters-content">
         
-            <form action="#" method="post" enctype="multipart/form-data">
+            <form id="volunters-register-form" action="{{ route('guest.benevole.save') }}" method="post" enctype="multipart/form-data">
 
                 @csrf
 
@@ -131,20 +131,39 @@
 
 
                     <!-- =====================================================
+                        Bloc sexe
+                    ====================================================== -->
+
+                    <div class="sexe">
+
+                        <div class="sexe-content">
+                            <label for="sexe">
+                                Sexe:<i id="required-sign">*</i>
+                            </label>
+
+                            <input type="radio" name="sexe" id="sexe" value="M"> <span>M</span>
+                            <input type="radio" name="sexe" id="sexe" value="F"> <span>F</span>
+                        </div>    
+
+                    </div> <!-- fin bloc .sexe -->
+
+
+                    <!-- =====================================================
                         Bloc Telephone && Email
                     ====================================================== -->
 
                     <div class="tel-email">
 
                         <div class="form-group">
-                            <label for="telephone">
+
+                            <label for="tel">
                                 Numéro de téléphone avec indicatif international:
                                 <i id="required-sign">*</i>
                             </label>
 
                             <input
                                 type="tel"
-                                name="telephone"
+                                name="tel"
                                 id="tel"
                                 class="form-control"
                                 placeholder="Exemple : +257 00 00 00 00"
@@ -537,6 +556,40 @@
                     </div> <!-- fin bloc .submit-bloc -->
 
 
+                    
+                    <!-- Toast de feedback -->
+                    <div class="toast-container position-fixed top-0 end-0 p-3">
+
+                        <!-- Toast de succès -->
+                        @if(session('success')) 
+                        <div id="successToast" class="toast text-bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+                            <div class="d-flex">
+                                <div class="toast-body">
+                                    <i class="bi bi-check-circle-fill me-2"></i>
+                                    {{ session('success') }}
+                                </div>
+                                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Fermer"></button>
+                            </div>
+                        </div>
+                        @endif
+
+                        <!-- Toast d'erreur -->
+                        @if($errors->any()) 
+                        <div id="errorToast" class="toast text-bg-danger border-0 mt-2" role="alert" aria-live="assertive" aria-atomic="true">
+                            <div class="d-flex">
+                                <div class="toast-body">
+                                    <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                                   
+                                    {{ implode(',', $errors->all()) }}
+
+                                </div>
+                                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Fermer"></button>
+                            </div>
+                        </div>
+                        @endif
+
+                    </div> <!-- fin bloc toast .toast-container -->
+
                 </div> <!-- fin bloc .volunters-form-content -->
 
             </form>
@@ -544,7 +597,6 @@
         </div>
 
     </div>
-
 
     <!-- Script externe -->
     <script src="{{ asset('script/pages/guest/benevole/register.js') }}"></script> 

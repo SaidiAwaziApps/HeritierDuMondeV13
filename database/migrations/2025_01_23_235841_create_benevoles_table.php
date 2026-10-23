@@ -15,8 +15,10 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string('nom')->nullable();
-            $table->string('postnom')->nullable();
+            // $table->string('postnom')->nullable();
             $table->string('prenom')->nullable();
+            $table->string('sexe')->nullable();
+            $table->string('tel')->nullable();
             $table->string('email')->unique();
             $table->string('pays')->nullable();
             $table->string('ville')->nullable();
@@ -26,7 +28,8 @@ return new class extends Migration
             $table->text('experience')->nullable();
             $table->text('domaines_intervention');
             $table->string('disponibilite');
-            $table->texte('motivation');
+            $table->text('motivation');
+            $table->string('approbation')->default('attente');
             $table->string('photo')->nullable();
             $table->boolean('status')->default(true);
         });
