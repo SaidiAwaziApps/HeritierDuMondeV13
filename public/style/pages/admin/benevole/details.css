@@ -1,128 +1,394 @@
-    .card-title {
-        /* text-align: center; */
-        font-weight: bold;
-        font-family: italic;
-        opacity: 0.6;
-    }
 
-    .card-title i {
-        opacity: 0.4;
-    }
+/* ========================================
+   TITRE PRINCIPAL
+======================================== */
 
+#global_content > .card > .card-header .card-title {
+    font-weight: bold;
+    font-style: italic;
+    opacity: 0.8;
+    margin-bottom: 0;
+}
+
+#global_content > .card > .card-header .card-title i {
+    color: #16805c;
+    margin-right: 8px;
+    opacity: 1;
+}
+
+
+/* ========================================
+   TITRES DES SECTIONS
+======================================== */
+
+#global_content .card > .card-header h6 {
+    font-weight: bold;
+    font-size: 20px;
+    font-family: italic;
+    color: #16805c;
+}
+
+#global_content .card > .card-header h6 i {
+    margin-right: 8px;
+}
+
+
+/* ========================================
+   IDENTITÉ ET INFORMATIONS PERSONNELLES
+======================================== */
+
+#benevole_info {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    flex-wrap: nowrap;
+    gap: 20px;
+}
+
+#benevole_info > #profil_bloc {
+    width: 30%;
+    min-width: 220px;
+}
+
+#benevole_info > #meta_bloc {
+    width: 70%;
+    min-width: 0;
+}
+
+#benevole_info > #profil_bloc > .card {
+    height: 100%;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#benevole_info > #profil_bloc > .card > .card-body {
+    min-height: 260px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+    background-color: #f8faf9;
+}
+
+#benevole_info > #profil_bloc > .card > .card-body > a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 236px;
+    text-align: center;
+}
+
+#benevole_info > #profil_bloc img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 236px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 8px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+#benevole_info > #profil_bloc img:hover {
+    opacity: 0.92;
+    transform: scale(1.02);
+}
+
+
+/* ========================================
+   PHOTO ABSENTE
+======================================== */
+
+#profil_placeholder {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    min-height: 236px;
+    color: #6b7280;
+    text-align: center;
+}
+
+#profil_placeholder i {
+    font-size: 75px;
+    color: #b7c9c1;
+}
+
+#profil_placeholder span {
+    font-size: 14px;
+}
+
+
+/* ========================================
+   LISTE DES INFORMATIONS PERSONNELLES
+======================================== */
+
+#benevole_info > #meta_bloc > .list-group {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#benevole_info > #meta_bloc ul li {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 13px 15px;
+    border-color: #e5e7eb;
+}
+
+#benevole_info > #meta_bloc ul li:nth-child(odd) {
+    background-color: #f8fafc;
+}
+
+#benevole_info > #meta_bloc ul li span:first-child {
+    flex: 0 0 115px;
+    font-weight: bold;
+    color: #374151;
+}
+
+#benevole_info > #meta_bloc ul li span:last-child {
+    flex: 1;
+    min-width: 0;
+    overflow-wrap: anywhere;
+    color: #4b5563;
+}
+
+#benevole_info > #meta_bloc ul li span {
+    font-size: 18px;
+    font-family: italic;
+}
+
+
+/* ========================================
+   PROFIL HUMANITAIRE ET COMPÉTENCES
+======================================== */
+
+#global_content .benevole-detail-item {
+    height: 100%;
+    padding: 18px;
+    background-color: #f8fafc;
+    border: 1px solid #e5e7eb;
+    border-left: 4px solid #16805c;
+    border-radius: 8px;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#global_content .benevole-detail-item:hover {
+    background-color: #ffffff;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+}
+
+#global_content .benevole-detail-title {
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-family: italic;
+    font-weight: bold;
+    color: #16805c;
+}
+
+#global_content .benevole-detail-title i {
+    width: 22px;
+    margin-right: 6px;
+    text-align: center;
+}
+
+#global_content .benevole-detail-content {
+    color: #4b5563;
+    font-size: 19px;
+    font-family: italic;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+    white-space: pre-line;
+}
+
+
+/* ========================================
+   RÉSEAUX SOCIAUX
+======================================== */
+
+#sociaux_info #sociaux_info_content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+#sociaux_info .sociaux-label {
+    font-size: 19px;
+    font-family: italic;
+    font-weight: 600;
+    color: #4b5563;
+}
+
+#sociaux_info #sociaux_info_content ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+#sociaux_info #sociaux_info_content ul li {
+    margin: 0;
+    padding: 0;
+}
+
+#sociaux_info #sociaux_info_content ul li a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 42px;
+    height: 42px;
+    border: 1px solid #e5e7eb;
+    border-radius: 50%;
+    background-color: #ffffff;
+    color: #16805c;
+    font-size: 18px;
+    text-decoration: none;
+    transition: color 0.2s ease,
+                background-color 0.2s ease,
+                transform 0.2s ease;
+}
+
+#sociaux_info #sociaux_info_content ul li a:hover {
+    color: #ffffff;
+    background-color: #16805c;
+    transform: translateY(-3px);
+}
+
+
+/* ========================================
+   RESPONSIVE : TABLETTES
+======================================== */
+
+@media all and (max-width: 768px) {
 
     #benevole_info {
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: nowrap;
+        gap: 15px;
     }
 
     #benevole_info > #profil_bloc {
-        width: 30%;
+        width: 35%;
+        min-width: 160px;
     }
 
     #benevole_info > #meta_bloc {
-        width: 69%;
+        width: 65%;
     }
 
-    @media all and (max-width: 500px) {
-        #benevole_info {
-            display: block;
-        }
-
-        #benevole_info > div {
-            margin-bottom: 6px;
-        }
-
-        #benevole_info > #profil_bloc {
-            width: 100%;
-        }
-
-        #benevole_info > #meta_bloc {
-            width: 100%;
-        }
+    #benevole_info > #profil_bloc > .card > .card-body {
+        min-height: 220px;
     }
 
-    #benevole_info > #profil_bloc > div.card .card-body {
-        height: 220px;
+    #benevole_info > #profil_bloc > .card > .card-body > a,
+    #benevole_info > #profil_bloc img {
+        min-height: 196px;
     }
 
-    #benevole_info > #meta_bloc ul li span {
-        font-size: 18px;
-        font-family: italic;
+    #benevole_info > #meta_bloc ul li {
+        padding: 11px 12px;
+        gap: 8px;
     }
 
-    #benevole_info > #meta_bloc ul li span:nth-child(1) {
-        font-weight: bold;
-        margin-right: 2px;
+    #benevole_info > #meta_bloc ul li span:first-child {
+        flex-basis: 90px;
     }
 
-    /* 
-        div#benevole_info > div#meta_bloc ul li:nth-child(5) {
-            text-align: center;
-            background-color: #f8f8ff;
-    } */
-
-    #benevole_info > #meta_bloc ul li:nth-child(5) span:nth-child(3n+1) {
-        font-weight: bold; 
+    #global_content .benevole-detail-item {
+        padding: 15px;
     }
-
-    #benevole_info > #meta_bloc ul li:nth-child(5) a {
-        text-decoration: none;
-        margin-right:8px;
-    }
-
-    #benevole_info > #meta_bloc ul li:nth-child(5) a:hover {
-        opacity: 0.4;
-    }
+}
 
 
-    #don_info {
-        margin-top: 20px;
-    }
+/* ========================================
+   RESPONSIVE : MOBILES
+======================================== */
 
-    #don_info h5 {
-        font-size: 20px;
-        font-weight: bold;
-        font-family: italic;
-        padding-bottom: 6px;
-        border-bottom: 2px solid black;
-        text-align: center;
-        opacity: 0.6;
-    }
+@media all and (max-width: 500px) {
 
-    #sociaux_info {
-        padding: 18px 0px 6px 0px;
-        margin-top: 10px;
-        border-radius: 6px;
-        background-color: #f8f8ff;
-    }
-
-    #sociaux_info > div {
+    #benevole_info {
         display: flex;
-        justify-content: center;
-        align-items: center;
+        flex-direction: column;
+        gap: 15px;
     }
 
-    #sociaux_info > div ul li {
-        float: left;
-        margin-left: 16px;
-        list-style-type: none;
+    #benevole_info > #profil_bloc,
+    #benevole_info > #meta_bloc {
+        width: 100%;
+        min-width: 0;
     }
 
-    #sociaux_info > div ul li span {
-        font-size: 19px;
+    #benevole_info > #profil_bloc > .card > .card-body {
+        min-height: 0;
+        height: auto;
+        padding: 12px;
+    }
+
+    #benevole_info > #profil_bloc > .card > .card-body > a {
+        width: 100%;
+        height: auto;
+        min-height: 0;
+    }
+
+    #benevole_info > #profil_bloc img {
+        width: 100%;
+        height: 260px;
+        min-height: 0;
+        object-fit: contain;
+    }
+
+    #profil_placeholder {
+        min-height: 180px;
+    }
+
+    #benevole_info > #meta_bloc ul li {
+        flex-wrap: wrap;
+        gap: 4px;
+        padding: 12px;
+    }
+
+    #benevole_info > #meta_bloc ul li span:first-child {
+        flex: 0 0 100%;
+    }
+
+    #benevole_info > #meta_bloc ul li span:last-child {
+        flex: 0 0 100%;
+    }
+
+    #global_content .benevole-detail-item {
+        padding: 14px;
+    }
+
+    #global_content .benevole-detail-title {
+        font-size: 20px;
         font-family: italic;
     }
 
-    @media all and (max-width: 500px) {
-        #sociaux_info > div ul li {
-            margin-left: 20px;
-        }
-        #sociaux_info > div ul li span {
-            display: none;
-        } 
+    #global_content .benevole-detail-content {
+        font-size: 20px;
+        font-family: italic;
     }
 
-    #sociaux_info > div ul li a:hover {
-        opacity: 0.4;
+    #sociaux_info #sociaux_info_content {
+        flex-direction: column;
+        align-items: flex-start;
     }
+
+    #sociaux_info #sociaux_info_content ul {
+        gap: 10px;
+    }
+
+    #sociaux_info #sociaux_info_content ul li a {
+        width: 40px;
+        height: 40px;
+    }
+}
