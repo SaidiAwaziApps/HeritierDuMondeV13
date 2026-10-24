@@ -1,11 +1,14 @@
+
     .card-title {
-        font-family: italic;
-        /* text-align: center; */
-        opacity: 0.7;
+        font-weight: bold;
+        font-style: italic;
+        opacity: 0.8;
+        /* margin-bottom: 0; */
     }
 
-    .card-title i{
-        opacity: 0.4;
+    .card-title i {
+        color: #16805c;
+        opacity: 0.6;
     }
 
 
@@ -147,43 +150,66 @@
     }
 
 
-    #data_item ul li {
+    .data_item ul li {
         text-align: center;
     }
 
-    #data_item ul li a {
+    .data_item ul li a {
         text-decoration: none;
         color: black;
         font-family: italic;
     }
 
+    .data_item ul li:nth-child(2) a {
+        color: #16805c;
+        font-weight: bold;
+    }
 
-    #data_item ul li:nth-child(1) div {
+
+    .data_item ul li:nth-child(1) div {
         width: 100%;
         height: 140px;
     }
 
-    #data_item ul li:nth-child(2) a:hover {
+    .data_item ul li:nth-child(2) a:hover {
         text-decoration: underline;
-        color: cadetblue; 
+        color: #16805c; 
     }
 
 
-    #data_item ul li:nth-child(n+3) a {
-        margin-right: 3px;
+    .data_item ul li:nth-child(n+3) a {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 32px;
+        height: 32px;
+        margin-left: 2px;
+        margin-right: 2px;
+        border: 1px solid #e5e7eb;
+        border-radius: 50%;
+        background-color: #ffffff;
+        color: #16805c;
+        font-size: 14px;
+        text-decoration: none;
+        vertical-align: middle;
+        transition: color 0.2s ease,
+                    background-color 0.2s ease,
+                    transform 0.2s ease;
     }
 
-    #data_item ul li:nth-child(n+3) a:hover {
-        opacity: 0.5;
+    .data_item ul li:nth-child(n+3) a:hover {
+        color: #ffffff;
+        background-color: #16805c;
+        transform: translateY(-3px);
     }
 
-    #data_item ul li:nth-child(3) a {
-        margin-left: 5px;
-        display: none;
+    .data_item ul li:nth-child(3) a {
+        margin-left: 2px;
+        display: inline-flex;
     }
 
         
-    #data_more_option {
+    .data_more_option {
         width: 100%;
         height: 100%;
         background-color: #fff;
@@ -192,12 +218,11 @@
         display: none;
     }
 
-    #data_more_option a {
+    .data_more_option button {
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 100%;
-        height: 100%;
+        margin: 0 auto;
     }
 
 
@@ -215,5 +240,3 @@
         font-family: italic;
         opacity: 0.6;
     }
-
-

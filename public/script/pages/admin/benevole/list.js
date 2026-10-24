@@ -1,3 +1,4 @@
+
 /* ****************************************************************
  * METHODE FAISANT APPEL A L' API && AFFICHE LES RESULTATS
  * ***************************************************************/
@@ -23,24 +24,35 @@ async function autocompleteResult(search,suggestions) {
 
                 li.setAttribute('class','list-group-item');
 
-                li.innerHTML = '<a href="/admin/benevole/details/'+benevole.id+'">'+
+                li.innerHTML = '<a href="/admin/benevole/details/'+benevole.id+'" '+
+                                    'data-bs-toggle="popover" '+
+                                    'data-bs-trigger="hover focus" '+
+                                    'data-bs-placement="right" '+
+                                    'data-bs-content="Consulter '+benevole.nom+' '+benevole.prenom+'.">'+
                                     '<img src="'+window.STORAGE_PATH_URL+'/'+benevole.photo+'" class="rounded-circle">'+
                                     '<span>'+benevole.nom+' '+benevole.prenom+'</span>'
-                                +'</a>';             
+                                +'</a>';
 
                 ul.appendChild(li);
             });
 
             suggestions.appendChild(ul);
+
+            /* Initialisation des popovers des suggestions */
+            if (typeof bootstrap !== 'undefined' && bootstrap.Popover) {
+                suggestions.querySelectorAll('[data-bs-toggle="popover"]').forEach(function (element) {
+                    new bootstrap.Popover(element);
+                });
+            }
         }
     })
     .catch(error => {
         suggestions.innerHTML =
-                error.response   
+                error.response
                 ? '<div class="no-result">Aucun resultat !!!</div>'
                 : '<div class="no-result">Echec de connection au serveur !!!</div>'
     });
-} 
+}
 
 /* ****************************************************************
  * LORSQUE LE CONTENU DU DOM EST CHARGE
@@ -49,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
     /* ---- Variables DOM & timeout ---- */
     const input = document.getElementById("search");
     const suggestions = document.getElementById("suggestions");
-    
+
     let timeout = null;
 
     input.addEventListener("input", function () {
@@ -66,16 +78,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
         timeout = setTimeout(() => {
             suggestions.style.display = "block";
-            autocompleteResult(search, suggestions); 
+            autocompleteResult(search, suggestions);
         }, 300);
     });
 
     /* ---- Lorsqu'on on clique en dehors du bloc autocomplete ---- */
     document.addEventListener("click", function(e){
         if(!e.target.closest(".autocomplete")){
-            suggestions.style.display = "none";  
+            suggestions.style.display = "none";
         }
     });
 });
-
-

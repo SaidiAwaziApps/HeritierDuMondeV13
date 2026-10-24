@@ -31,21 +31,14 @@
                         <div id="profil_bloc">
                             <div class="card">
                                 <div class="card-body">
-                                    @if(!empty($benevole->photo))
-                                        <a href="{{ Storage::url($benevole->photo) }}"
-                                           title="Profil de {{ $benevole->nom }}">
-                                            <img
-                                                src="{{ Storage::url($benevole->photo) }}"
-                                                alt="Photo de profil de {{ $benevole->nom }}"
-                                                class="rounded-thumbnail cover"
-                                            >
-                                        </a>
-                                    @else
-                                        <div id="profil_placeholder">
-                                            <i class="fas fa-user-circle"></i>
-                                            <span>Aucune photo disponible</span>
-                                        </div>
-                                    @endif
+                                    <a href="{{ $benevole->photo ? Storage::url($benevole->photo) : asset('image/default_benevole.png') }}"
+                                        title="Profil de {{ $benevole->nom }}">
+                                        <img
+                                            src="{{ $benevole->photo ? Storage::url($benevole->photo) : asset('image/default_benevole.png') }}"
+                                            alt="Photo de profil de {{ $benevole->nom }}"
+                                            class="rounded-thumbnail cover"
+                                        >
+                                    </a>
                                 </div>
                             </div>
                         </div>
