@@ -10,7 +10,7 @@
     ====================================================== -->
     <div class="page-title">
         <h1>
-            Benevoles
+            <i class="fa fa-users"></i> Benevoles
         </h1>
     </div>
 
@@ -20,9 +20,9 @@
     ====================================================== -->
     <div class="volunters">
 
-        <h1>
+        <h2>
             Devenez bénévole et changez des vies !
-        </h1>
+        </h2>
 
         <!-- <p>
 
@@ -52,10 +52,10 @@
 
                 @csrf
 
-                <!-- <h2>
+                <!-- <h3>
                     <i>Rejoignez nous</i><br>
                     Devenez bénévole
-                </h2> -->
+                </h3> -->
 
                 <div class="volunters-form-content">
 

@@ -109,8 +109,22 @@
             <div class="item-description"><p>{{ $besoin->contenu }}</p></div>
 
             <div class="item-actions">
-                <a href="/" class="btn btn-success" title="Cliquer pour effectuer un don">Faire un don</a>
-                <a href="/" class="btn btn-info" title="Cliquer pour plus de details">Détails</a>
+                <a  href="/" class="btn btn-success" 
+                    data-bs-toggle="popover"
+                    data-bs-trigger="hover focus"
+                    data-bs-placement="top"
+                    data-bs-content="Cliquer pour effectuer un don"
+                >
+                    Faire un don
+                </a>
+                <a  href="/" class="btn btn-info"
+                    data-bs-toggle="popover"
+                    data-bs-trigger="hover focus"
+                    data-bs-placement="top"
+                    data-bs-content="Cliquer pour plus de detail"
+                >
+                   Détails
+                </a>
             </div>
             
         </div>

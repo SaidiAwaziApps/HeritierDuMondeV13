@@ -457,6 +457,18 @@
     window.paymentSetting = @json($paymentSetting);
 </script>
 
+<!-- Script interne : initialisation des popovers -->
+<!-- <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        if (typeof bootstrap !== 'undefined' && bootstrap.Popover) {
+            document.querySelectorAll('[data-bs-toggle="popover"]').forEach(function (element) {
+                new bootstrap.Popover(element);
+            });
+        }
+    });
+</script> -->
+
+
 <!-- Script externe -->
 <script src="{{ asset('script/layouts/admin.js') }}"></script>
 

@@ -1226,7 +1226,7 @@ Bloc situations humanitaires
 
 .categories-articles-imgs {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     flex-wrap: wrap;
 }
 
@@ -1245,24 +1245,24 @@ Bloc situations humanitaires
 }
 
 
-@media all and (max-width: 600px) {
+/* @media all and (max-width: 600px) {
     .categories-articles-imgs {
         justify-content: space-around; 
     } 
-}
+} */
 
 .categories-articles-imgs .img-item {
     width: 23%;
     height: 200px;
-    margin-bottom: 20px;
+    margin: 0px 0.8% 20px 0px;
 }
 
-
+/* 
 @media all and (min-width: 600px) {
     .categories-articles-imgs .img-item {
         margin-left: 0.4%;  
     } 
-}
+} */
 
 
 @media all and (max-width: 600px) {

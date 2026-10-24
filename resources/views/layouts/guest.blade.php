@@ -2309,7 +2309,7 @@
                 <a
                     href="{{ Storage::url($identite->logo) }}"
                     class="logo"
-                    title="{{ $identite->nom }}"
+                    data-bs-content="{{ $identite->nom }}"
                 >
 
                     <img
@@ -2337,7 +2337,7 @@
                             <a
                                 href="{{ route('guest.home.index') }}"
                                 class="nav-link"
-                                title="Accueil"
+                                data-bs-content="Accueil"
                             >
 
                                 <i class="fa fa-home"></i>
@@ -2356,7 +2356,7 @@
                             <a
                                 href="{{ route('guest.about.about_us') }}"
                                 class="nav-link"
-                                title="À propos"
+                                data-bs-content="À propos"
                             >
 
                                 <i class="fa fa-info-circle"></i>
@@ -2375,7 +2375,7 @@
                             <a
                                 href="{{ route('guest.benevole.list') }}"
                                 class="nav-link"
-                                title="Bénévoles"
+                                data-bs-content="Bénévoles"
                             >
 
                                 <i class="fa fa-users"></i>
@@ -2394,7 +2394,7 @@
                             <a
                                 href="#"
                                 class="nav-link"
-                                title="Besoin"
+                                data-bs-content="Besoin"
                             >
 
                                 <i class="fa fa-hand-paper-o"></i>
@@ -2413,7 +2413,7 @@
                             <a
                                 href="#"
                                 class="nav-link"
-                                title="Événement"
+                                data-bs-content="Événement"
                             >
 
                                 <i class="fa fa-calendar"></i>
@@ -2432,7 +2432,7 @@
                             <a
                                 href="#"
                                 class="nav-link"
-                                title="Blog"
+                                data-bs-content="Blog"
                             >
 
                                 <i class="fa fa-pencil"></i>
@@ -2451,7 +2451,7 @@
                             <a
                                 href="#"
                                 class="nav-link"
-                                title="Contact"
+                                data-bs-content="Contact"
                             >
 
                                 <i class="fa fa-envelope"></i>
@@ -2472,7 +2472,7 @@
                                 class="nav-link dropdown-toggle"
                                 data-bs-toggle="dropdown"
                                 aria-expanded="false"
-                                title="Offres & Services"
+                                data-bs-content="Offres & Services"
                             >
 
                                 <i class="fa fa-briefcase"></i>
@@ -2496,7 +2496,7 @@
                                     <a
                                         href="#"
                                         class="dropdown-item"
-                                        title="Services"
+                                        data-bs-content="Services"
                                     >
 
                                         <i class="fa fa-cogs"></i>
@@ -2518,7 +2518,7 @@
                                     <a
                                         href="#"
                                         class="dropdown-item"
-                                        title="Faire un don"
+                                        data-bs-content="Faire un don"
                                     >
 
                                         <i class="fa fa-heart"></i>
@@ -2540,7 +2540,7 @@
                                     <a
                                         href="#"
                                         class="dropdown-item"
-                                        title="Appels d'offres"
+                                        data-bs-content="Appels d'offres"
                                     >
 
                                         <i class="fa fa-bullhorn"></i>
@@ -2562,7 +2562,7 @@
                                     <a
                                         href="#"
                                         class="dropdown-item"
-                                        title="Offres d'emploi"
+                                        data-bs-content="Offres d'emploi"
                                     >
 
                                         <i class="fa fa-briefcase"></i>
@@ -2600,7 +2600,7 @@
                             for="dark-mode"
                             class="theme-button"
                             aria-label="Activer le mode sombre"
-                            title="Activer / Désactiver le mode sombre"
+                            data-bs-content="Activer / Désactiver le mode sombre"
                         >
 
                             <span class="sun">
@@ -2626,7 +2626,7 @@
                         aria-controls="mainMenu"
                         aria-expanded="false"
                         aria-label="Afficher le menu"
-                        title="Afficher le menu"
+                        data-bs-content="Afficher le menu"
                     >
 
                         <i class="bi bi-list hamburger-open"></i>
@@ -2782,7 +2782,7 @@
                 <a
                     href="{{ Storage::url($identite->logo) }}"
                     class="logo"
-                    title="{{ $identite->nom }}"
+                    title="Logo"
                 >
 
                     <img
@@ -2815,7 +2815,7 @@
 
                         <a
                             href="{{ $identite->sociaux->facebook }}"
-                            title="Facebook"
+                            data-bs-content="Facebook"
                             target="_blank"
                             rel="noopener noreferrer"
                         >
@@ -2833,7 +2833,7 @@
 
                         <a
                             href="{{ $identite->sociaux->twitter }}"
-                            title="Twitter"
+                            data-bs-content="Twitter"
                             target="_blank"
                             rel="noopener noreferrer"
                         >
@@ -2851,7 +2851,7 @@
 
                         <a
                             href="{{ $identite->sociaux->linkedIn }}"
-                            title="LinkedIn"
+                            data-bs-content="LinkedIn"
                             target="_blank"
                             rel="noopener noreferrer"
                         >
@@ -2869,7 +2869,7 @@
 
                         <a
                             href="{{ $identite->sociaux->instagram }}"
-                            title="Instagram"
+                            data-bs-content="Instagram"
                             target="_blank"
                             rel="noopener noreferrer"
                         >
@@ -2974,7 +2974,7 @@
         id="scroll-button"
         type="button"
         aria-label="Descendre vers le bas"
-        title="Descendre vers le bas"
+        data-bs-content="Descendre vers le bas"
     >
 
         <i
@@ -3068,9 +3068,22 @@
                     );
 
                     scrollButton.setAttribute(
-                        'title',
+                        'data-bs-content',
                         'Remonter vers le haut'
                     );
+
+                    const scrollPopover = bootstrap.Popover.getInstance(scrollButton);
+                    if (scrollPopover) {
+                        if (typeof scrollPopover.setContent === 'function') {
+                            scrollPopover.setContent({ '.popover-body': 'Remonter vers le haut' });
+                        } else {
+                            scrollPopover.dispose();
+                            new bootstrap.Popover(scrollButton, {
+                                trigger: 'hover focus',
+                                placement: 'top'
+                            });
+                        }
+                    }
 
                 } else {
 
@@ -3087,9 +3100,22 @@
                     );
 
                     scrollButton.setAttribute(
-                        'title',
+                        'data-bs-content',
                         'Descendre vers le bas'
                     );
+
+                    const scrollPopover = bootstrap.Popover.getInstance(scrollButton);
+                    if (scrollPopover) {
+                        if (typeof scrollPopover.setContent === 'function') {
+                            scrollPopover.setContent({ '.popover-body': 'Descendre vers le bas' });
+                        } else {
+                            scrollPopover.dispose();
+                            new bootstrap.Popover(scrollButton, {
+                                trigger: 'hover focus',
+                                placement: 'top'
+                            });
+                        }
+                    }
 
                 }
 
@@ -3205,6 +3231,27 @@
         });
     </script>
 
+
+    
+    <!-- Script interne : initialisation des popovers -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (typeof bootstrap !== 'undefined' && bootstrap.Popover) {
+                document.querySelectorAll('[data-bs-content]').forEach(function (element) {
+                    if (!bootstrap.Popover.getInstance(element)) {
+                        new bootstrap.Popover(element, {
+                            trigger: 'hover focus',
+                            placement: element.closest('#mainMenu, .dropdown-menu') ? 'bottom' : 'top'
+                        });
+                    }
+                });
+            }
+        });
+    </script>
+
+
+
+    <!-- Script externe -->
     <script src="{{ asset('script/layouts/guest.js') }}"></script>
 
 

@@ -1,3 +1,4 @@
+
 @extends('layouts.guest')
 
 @section('content')
@@ -22,8 +23,11 @@
 
             <a
                 href="/"
-                class="btn btn-success" 
-                title="Cliquer pour effectuer un don"
+                class="btn btn-success"
+                data-bs-toggle="popover"
+                data-bs-trigger="hover focus"
+                data-bs-placement="top"
+                data-bs-content="Cliquer pour effectuer un don"
             >
                 <span>
                     Faire un don
@@ -33,7 +37,10 @@
             <!-- <a
                 href="/"
                 class="btn btn-info"
-                title="Cliquer pour nous contact"
+                data-bs-toggle="popover"
+                data-bs-trigger="hover focus"
+                data-bs-placement="top"
+                data-bs-content="Cliquer pour nous contact"
             >
                 <span>
                     Contactez-nous
@@ -162,15 +169,15 @@
         <div class="humanitarian-situations-needs-content">
 
             @if($besoins)
-                
+
                 <div class="humanitarian-situations-needs-items">
- 
+
                     @foreach($besoins as $item)
                         <div class="humanitarian-situation-need-item-component">
                             <x-guest.besoin.humanitarian-situation-need-item
                                 :besoin="$item"
                             />
-                        </div>    
+                        </div>
 
                     @endforeach
 
@@ -179,7 +186,11 @@
                 @if($besoins->count() > 3)
                 <div class="humanitarian-situations-needs-more-items-actions">
 
-                    <a href="#" class="btn btn-default btn-sm" title="Cliquer pour consulter plus de besoins">
+                    <a href="#" class="btn btn-default btn-sm"
+                       data-bs-toggle="popover"
+                       data-bs-trigger="hover focus"
+                       data-bs-placement="top"
+                       data-bs-content="Cliquer pour consulter plus de besoins">
                        <i class="fa fa-plus"></i> Afficher plus
                     </a>
 
@@ -218,7 +229,7 @@
                     </span><br>
                     Donateur total
                 </p>
-            </div>    
+            </div>
         </div>
 
         <div class="total-subscribe-dons">
@@ -232,7 +243,7 @@
                     </span><br>
                     Dons Souscrits
                 </p>
-            </div>    
+            </div>
         </div>
 
         <div class="total-volunteer">
@@ -246,7 +257,7 @@
                     </span><br>
                     Benevoles
                 </p>
-            </div>    
+            </div>
         </div>
 
          <div class="total-received-dons">
@@ -260,7 +271,7 @@
                     </span><br>
                     Dons recus
                 </p>
-            </div>    
+            </div>
         </div>
 
     </div>
@@ -273,9 +284,9 @@
     ====================================================== -->
     @if($evenements)
     <div class="events">
-       
+
         <!---------------------------------------------------
-            Evenements a venir 
+            Evenements a venir
         ----------------------------------------------------->
         <div class="upcoming-events">
 
@@ -300,7 +311,7 @@
 
                             @if($evenement->images)
                             <div class="carousel-item-img">
-                            
+
                                 @php
                                     $image = $evenement->images[0];
                                 @endphp
@@ -319,12 +330,12 @@
                             @endif
 
                             <div class="carousel-item-description">
-                               
+
                                 <h4 class="d-none d-md-block"> {{ \Illuminate\Support\Str::limit($evenement->titre, 50, '...') }} </h4>
                                 <h4 class="d-block d-md-none"> {{ \Illuminate\Support\Str::limit($evenement->titre, 30, '...') }} </h4>
 
                                 <div class="carousel-item-description-content">
-                        
+
                                     <div class="carousel-item-description-content-infos">
 
                                         <ul class="list-group">
@@ -340,18 +351,22 @@
                                     </div>
 
                                     <div class="carousel-item-description-content-details">
-                                    
-                                        <a href="" class="btn btn-info btn-sm" title="Cliquer pour plus details">
+
+                                        <a href="" class="btn btn-info btn-sm"
+                                           data-bs-toggle="popover"
+                                           data-bs-trigger="hover focus"
+                                           data-bs-placement="top"
+                                           data-bs-content="Cliquer pour plus details">
                                             Details
                                         </a>
 
-                                    </div>    
+                                    </div>
 
                                 </div>
-                               
+
                             </div>
                         </div>
-                        @endforeach    
+                        @endforeach
 
                     </div>
 
@@ -374,14 +389,14 @@
                     </button> -->
 
                 </div>
-                
+
             </div>
 
         </div>
 
 
-        <!--------------------------------------------------------- 
-            Tous les evenements (annees) 
+        <!---------------------------------------------------------
+            Tous les evenements (annees)
         ----------------------------------------------------------->
 
         <div class="all-events">
@@ -427,24 +442,24 @@
                                             alt="{{ $image['titre'] }}"
                                         >
                                     @endif
-                                    
+
                                 </div>
                                 @endforeach
 
                             </div>
 
-                        </div>    
+                        </div>
 
                     </div>
                     @endif
 
                     <div class="all-events-content-item-description">
-                    
+
                         <h4 class="d-none d-md-block"> {{ \Illuminate\Support\Str::limit($evenement->titre, 50, '...') }} </h4>
                         <h4 class="d-block d-md-none"> {{ \Illuminate\Support\Str::limit($evenement->titre, 30, '...') }} </h4>
 
                         <div class="all-events-item-description-content">
-                        
+
                             <div class="all-events-item-description-content-infos">
 
                                 <ul class="list-group">
@@ -460,15 +475,19 @@
                             </div>
 
                             <div class="all-events-item-description-content-details">
-                                    
-                                <a href="" class="btn btn-info btn-sm" title="Cliquer pour plus de details">
+
+                                <a href="" class="btn btn-info btn-sm"
+                                   data-bs-toggle="popover"
+                                   data-bs-trigger="hover focus"
+                                   data-bs-placement="top"
+                                   data-bs-content="Cliquer pour plus de details">
                                     Details
                                 </a>
 
-                            </div>  
+                            </div>
 
                         </div>
-                        
+
                     </div>
 
                     <!-- Fin all-events-content-item-description -->
@@ -480,7 +499,11 @@
                 @if($evenements->count() > 4)
                 <div class="all-events-more-items-actions">
 
-                    <a href="#" class="btn btn-default btn-sm" title="Cliquer pour consulter plus de besoins">
+                    <a href="#" class="btn btn-default btn-sm"
+                       data-bs-toggle="popover"
+                       data-bs-trigger="hover focus"
+                       data-bs-placement="top"
+                       data-bs-content="Cliquer pour consulter plus de besoins">
                        <i class="fa fa-plus"></i> Afficher plus
                     </a>
 
@@ -488,9 +511,9 @@
                 @endif
 
             </div> <!-- fin bloc .all-events-content -->
-           
-        </div> 
-       
+
+        </div>
+
     </div>
     @endif
 
@@ -514,52 +537,10 @@
             @forelse($benevoles->take(4) as $benevole)
 
             <div class="volunters-content-item">
-                 
-                <!------------------------------------------
-                    Image profil 
-                 ------------------------------------------->
-                <div class="volunters-content-item-img">
-                    <a href="{{ Storage::url($benevole->photo) }}" title="Cliquer pour afficher le profil">
-                        <img src="{{ asset(Storage::url($benevole->photo)) }}" alt="Profil {{ $benevole->nom }}" class="rounded-thumbnail" style="width: 100%; height: 100%;">
-                    </a>    
-                </div>
 
-                <!------------------------------------------
-                    Identite 
-                 ------------------------------------------->
-                <div class="volunters-content-item-identity">
-                    <p> {{ $benevole->nom }} {{ $benevole->prenom }} </p>
-                </div> 
-
-                <!------------------------------------------
-                    Contact 
-                 ------------------------------------------->
-                <div class="volunters-content-item-contact">
-                
-                    <ul>
-                        <li>
-                            <a href="{{ $benevole->sociaux['facebook'] }}" target="_blank" title="Aller sur facebook">
-                                <i class="fa fa-facebook" style="color: #1877F2"></i>
-                            </a>   
-                        </li>
-                        <li>
-                            <a href="{{ $benevole->sociaux['linkedIn'] }}" target="_blank" title="Aller sur linkendin">
-                                <i class="fab fa-linkedin" style="color: #0A66C2"></i>
-                            </a>   
-                        </li>
-                        <li>
-                            <a href="{{ $benevole->sociaux['instagram'] }}" target="_blank" title="Aller sur instagram">
-                                <i class="fa fa-instagram" style="color: #E4405F"></i>
-                            </a>   
-                        </li>
-                        <li>
-                            <a href="{{ $benevole->sociaux['twitter'] }}" target="_blank" title="Aller sur twitter">
-                                <i class="fa fa-twitter" style="color: #1DA1F2"></i>
-                            </a>   
-                        </li>
-                    </ul>
-
-                </div>
+                <x-guest.benevole.volunter-item
+                   :benevole="$benevole"
+                />
 
             </div>
 
@@ -575,7 +556,11 @@
             @if($benevoles->count() > 4)
                 <div class="volunters-content-more-items-actions">
 
-                <a href="{{ route('guest.benevole.list') }}" class="btn btn-default btn-sm" title="Cliquer pour consulter plus de besoins">
+                <a href="{{ route('guest.benevole.list') }}" class="btn btn-default btn-sm"
+                   data-bs-toggle="popover"
+                   data-bs-trigger="hover focus"
+                   data-bs-placement="top"
+                   data-bs-content="Cliquer pour consulter plus de besoins">
                     <i class="fa fa-plus"></i> Afficher plus
                 </a>
 
@@ -602,9 +587,9 @@
             <h4>Professionnalisme et Dynamisme, nos atouts fars sur terrain.</h4>
 
             <h6>Que disent les donateurs, les benevoles et les beneficiaires</h6>
-            
+
             <p>
-                A chaque intervention sur le terrain, nous restons en contact permanent avec nos donateurs; et a ce terme, nous evaluons ensemble l'execution globale de 
+                A chaque intervention sur le terrain, nous restons en contact permanent avec nos donateurs; et a ce terme, nous evaluons ensemble l'execution globale de
                 de l'intervention concernee. Nos donateurs s'exprime par notre strategie operatoire,
             </p>
 
@@ -627,8 +612,12 @@
                     <div class="carousel-item @if($index == 0) active @endif">
                         <div class="donor-informations">
                             <div class="donor-profil">
-                                <a href="{{ Storage::url($don->donateur->photo) }}" title="Profil {{ $don->donateur->nom }}">
-                                    <img src="{{ Storage::url($don->donateur->photo) }}" alt="Profil {{ $don->donateur->nom }}" class="rounded-circle" style="width: 50px; height: 50px;"> 
+                                <a href="{{ Storage::url($don->donateur->photo) }}"
+                                   data-bs-toggle="popover"
+                                   data-bs-trigger="hover focus"
+                                   data-bs-placement="top"
+                                   data-bs-content="Profil {{ $don->donateur->nom }}">
+                                    <img src="{{ Storage::url($don->donateur->photo) }}" alt="Profil {{ $don->donateur->nom }}" class="rounded-circle" style="width: 50px; height: 50px;">
                                 </a>
                             </div>
                             <div class="donor-description">
@@ -644,7 +633,7 @@
                     </div>
                     @endforeach
 
-                    
+
                 </div>
 
                 <!-- <button class="carousel-control-prev" type="button"
@@ -680,7 +669,7 @@
                 Nous nous proposons d'élargir les objectifs de notre organisation suite à l'évolution et la dégradation permanente de la situation humanitaire du jour au lendemain dans notre pays. Dans le secteur de l'éducation par exemple, plus les années passent, plus un nombre important d'enfants croissent en dehors du circuit éducatif classique. Nous nous proposons de créer plus de centres de formation pour résorber, tant soit peu, cette masse d'enfants en manque d'éducation, socle du développement durable d'une communauté, d'un pays. C'est ici notre lieu d'échange par excellence.
             </p>
         </div>
-        
+
         @if ($categories->isNotEmpty())
         <div class="ours-blog-content">
 
@@ -704,7 +693,7 @@
 
                 @foreach ($categories->take(3) as $categorie)
                 <li class="nav-item">
-                    <a  class="nav-link" 
+                    <a  class="nav-link"
                         data-bs-toggle="pill"
                         data-bs-target="#{{ $categorie->ctg_name }}"
                         type="button"
@@ -718,7 +707,7 @@
 
                 @if($categories->count() > 3)
                 <li class="nav-item">
-                    <a  class="nav-link" 
+                    <a  class="nav-link"
                         data-bs-toggle="pill"
                         data-bs-target="#others_article_categories"
                         type="button"
@@ -742,7 +731,7 @@
                     role="tabpanel"
                     aria-labelledby="all_article_categories"
                 >
-                    
+
                     @php
                         $hasImages = false;
                     @endphp
@@ -766,12 +755,12 @@
                                         @elseif(isVideo($image->path))
                                         <video autoplay muted loop playsinline width="100%" height="100%">
                                             <source src="{{ Storage::url($image->path) }}">
-                                        </video> 
+                                        </video>
                                         @else
                                         <img width="100%" height="100%"
                                             src="{{ Storage::url($image->path) }}"
                                             alt="{{ $image->titre }}"
-                                        > 
+                                        >
                                         @endif
 
                                     </div>
@@ -780,8 +769,8 @@
 
                             @endforeach
 
-                        @endforeach 
-                    
+                        @endforeach
+
                     </div>
 
                     @if(!$hasImages)
@@ -790,9 +779,9 @@
                     </div>
                     @endif
 
-                </div>                 
+                </div>
                 @endif <!-- fin tab-pane -->
-            
+
 
                 @foreach($categories->take(3) as $categorie)
                 <div
@@ -801,7 +790,7 @@
                     role="tabpanel"
                     aria-labelledby="{{ $categorie->ctg_name }}"
                 >
-                    
+
                     @php
                         $hasImages = false;
                     @endphp
@@ -809,7 +798,7 @@
                     <div class="categories-articles-imgs">
 
                         @foreach($categorie->articles as $article)
-                             
+
                             @foreach($article->images as $image)
 
                                 @php
@@ -823,18 +812,18 @@
                                     @elseif(isVideo($image->path))
                                     <video autoplay muted loop playsinline width="100%" height="100%">
                                         <source src="{{ Storage::url($image->path) }}">
-                                    </video> 
+                                    </video>
                                     @else
                                     <img width="100%" height="100%"
                                         src="{{ Storage::url($image->path) }}"
                                         alt="{{ $image->titre }}"
-                                    > 
+                                    >
                                     @endif
-                                        
+
                                 </div>
 
                             @endforeach
- 
+
                         @endforeach
 
                     </div>
@@ -844,18 +833,18 @@
                         <p>Aucune image !!!</p>
                     </div>
                     @endif
-                    
+
                 </div>
                 @endforeach <!-- fin tab-pane -->
 
-                
+
                 @if($categories->count() > 3)
                 <div
                     class="tab-pane fade"
                     id="others_article_categories"
                     role="tabpanel"
                     aria-labelledby="others_article_categories"
-                > 
+                >
 
                     @php
                         $hasImages = false;
@@ -864,7 +853,7 @@
                     <div class="categories-articles-imgs">
 
                         @foreach($categories as $index => $categorie)
-                        
+
                             <!-- Saute les trois premiere -->
                             @continue($index < 3)
 
@@ -883,14 +872,14 @@
                                         @elseif(isVideo($image->path))
                                         <video autoplay muted loop playsinline width="100%" height="100%">
                                             <source src="{{ Storage::url($image->path) }}">
-                                        </video> 
+                                        </video>
                                         @else
                                         <img width="100%" height="100%"
                                             src="{{ Storage::url($image->path) }}"
                                             alt="{{ $image->titre }}"
-                                        > 
+                                        >
                                         @endif
-                                       
+
                                     </div>
 
                                 @endforeach
@@ -906,13 +895,13 @@
                         <p>Aucune image !!!</p>
                     </div>
                     @endif
-                        
+
                 </div>
                 @endif <!-- fin tab-pane -->
 
             </div>
             <!-- fin tab-content -->
-    
+
         </div>
         @endif
 
@@ -946,7 +935,7 @@
             <div class="ours-partners-item">
 
                 <div class="ours-partners-item-logo-site-web">
-     
+
                     <a  href="#"
                         alt="Logo {{ $partenaire->logo }}"
                         type="button"
@@ -957,9 +946,13 @@
                         data-bs-custom-class="ours-partners-popover"
                         data-bs-content='
                         <ul class="ours-partners-popover-menu">
-                           
+
                             <li>
-                                <a href="{{ $partenaire->site_web }}" class="dropdown-item" title="Visiter le site web de notre partenaire">
+                                <a href="{{ $partenaire->site_web }}" class="dropdown-item"
+                                   data-bs-toggle="popover"
+                                   data-bs-trigger="hover focus"
+                                   data-bs-placement="right"
+                                   data-bs-content="Visiter le site web de notre partenaire">
                                     <i class="fa fa-globe" style="color: #198754;"></i>
                                     <span>Site web</span>
                                 </a>
@@ -967,7 +960,11 @@
 
                             @if($partenaire->sociaux && $partenaire->sociaux->facebook)
                             <li>
-                                <a href="{{ $partenaire->sociaux->facebook }}" class="dropdown-item" title="Aller sur facebook">
+                                <a href="{{ $partenaire->sociaux->facebook }}" class="dropdown-item"
+                                   data-bs-toggle="popover"
+                                   data-bs-trigger="hover focus"
+                                   data-bs-placement="right"
+                                   data-bs-content="Aller sur facebook">
                                     <i class="fa fa-facebook" style="color: #1877F2;"></i>
                                     <span>facebook</span>
                                 </a>
@@ -976,7 +973,11 @@
 
                             @if($partenaire->sociaux && $partenaire->sociaux->twitter)
                             <li>
-                                <a href="{{ $partenaire->sociaux->twitter }}" class="dropdown-item" title="Aller sur twitter">
+                                <a href="{{ $partenaire->sociaux->twitter }}" class="dropdown-item"
+                                   data-bs-toggle="popover"
+                                   data-bs-trigger="hover focus"
+                                   data-bs-placement="right"
+                                   data-bs-content="Aller sur twitter">
                                     <i class="fa fa-twitter" style="color: #1DA1F2;"></i>
                                     <span>Twitter</span>
                                 </a>
@@ -985,7 +986,11 @@
 
                             @if($partenaire->sociaux && $partenaire->sociaux->linkedIn)
                             <li>
-                                <a href="{{ $partenaire->sociaux->linkedIn }}" class="dropdown-item" title="Aller sur LinkedIn">
+                                <a href="{{ $partenaire->sociaux->linkedIn }}" class="dropdown-item"
+                                   data-bs-toggle="popover"
+                                   data-bs-trigger="hover focus"
+                                   data-bs-placement="right"
+                                   data-bs-content="Aller sur linkendin">
                                     <i class="fab fa-linkedin" style="color: #0A66C2;"></i>
                                     <span>Likendin</span>
                                 </a>
@@ -994,7 +999,11 @@
 
                             @if($partenaire->sociaux && $partenaire->sociaux->instagram)
                             <li>
-                                <a href="{{ $partenaire->sociaux->instagram }}" class="dropdown-item" title="Aller sur Instagram">
+                                <a href="{{ $partenaire->sociaux->instagram }}" class="dropdown-item"
+                                   data-bs-toggle="popover"
+                                   data-bs-trigger="hover focus"
+                                   data-bs-placement="right"
+                                   data-bs-content="Aller sur instagram">
                                     <i class="fa fa-instagram" style="color: #E4405F;"></i>
                                     <span>Instagram</span>
                                 </a>
@@ -1005,41 +1014,57 @@
                     >
                         <img src="{{ Storage::url($partenaire->logo) }}" alt="Logo {{ $partenaire->nom }}" class="rounded-thumbnail">
                     </a>
-                    
+
                 </div>
-                
+
                 <!-- <div class="ours-partners-item-description">
 
                     <ul>
 
                         <li>
-                            <a href="{{ $partenaire->sociaux['facebook'] }}" target="_blank" title="Aller sur facebook">
+                            <a href="{{ $partenaire->sociaux['facebook'] }}" target="_blank"
+                               data-bs-toggle="popover"
+                               data-bs-trigger="hover focus"
+                               data-bs-placement="top"
+                               data-bs-content="Aller sur facebook">
                                 <i class="fa fa-facebook" style="color: #1877F2"></i>
-                            </a>   
+                            </a>
                         </li>
 
                         <li>
-                            <a href="{{ $partenaire->sociaux['linkedIn'] }}" target="_blank" title="Aller sur linkendin">
+                            <a href="{{ $partenaire->sociaux['linkedIn'] }}" target="_blank"
+                               data-bs-toggle="popover"
+                               data-bs-trigger="hover focus"
+                               data-bs-placement="top"
+                               data-bs-content="Aller sur linkendin">
                                 <i class="fab fa-linkedin" style="color: #0A66C2"></i>
-                            </a>   
+                            </a>
                         </li>
 
                         <li>
-                            <a href="{{ $partenaire->sociaux['instagram'] }}" target="_blank" title="Aller sur instagram">
+                            <a href="{{ $partenaire->sociaux['instagram'] }}" target="_blank"
+                               data-bs-toggle="popover"
+                               data-bs-trigger="hover focus"
+                               data-bs-placement="top"
+                               data-bs-content="Aller sur instagram">
                                 <i class="fa fa-instagram" style="color: #E4405F"></i>
-                            </a>   
+                            </a>
                         </li>
 
                         <li>
-                            <a href="{{ $partenaire->sociaux['twitter'] }}" target="_blank" title="Aller sur twitter">
+                            <a href="{{ $partenaire->sociaux['twitter'] }}" target="_blank"
+                               data-bs-toggle="popover"
+                               data-bs-trigger="hover focus"
+                               data-bs-placement="top"
+                               data-bs-content="Aller sur twitter">
                                 <i class="fa fa-twitter" style="color: #1DA1F2"></i>
-                            </a>   
+                            </a>
                         </li>
-                    
+
                     </ul>
 
                 </div> -->
-                
+
             </div>
             @endforeach
 

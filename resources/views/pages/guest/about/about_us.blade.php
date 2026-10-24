@@ -136,8 +136,25 @@
                                 </div>
 
                                 <div class="item-actions">
-                                    <a href="/" class="btn btn-success" title="Cliquer pour effectuer un don">Faire un don</a>
-                                    <a href="/" class="btn btn-info" title="Cliquer pour plus de details">Détails</a>
+
+                                    <a  href="/" class="btn btn-success"
+                                        data-bs-toggle="popover"
+                                        data-bs-placement="bottom"
+                                        data-bs-html="true"
+                                        data-bs-content="Cliquer pour effectuer un don"
+                                    >
+                                        Faire un don
+                                    </a>
+
+                                    <a  href="/" class="btn btn-info" 
+                                        data-bs-toggle="popover"
+                                        data-bs-placement="bottom"
+                                        data-bs-html="true"
+                                        data-bs-content="Cliquer pour plus de details"
+                                    >
+                                        Détails
+                                    </a>
+
                                 </div>
 
                             </div> <!-- Fin bloc .item-content -->  
@@ -356,7 +373,10 @@
                                 data-bs-target="#collapse-{{ $index }}"
                                 aria-expanded="true"
                                 aria-controls="collapse-{{ $index }}"
-                                title="Cliquer pour plus d'informations"
+                                data-bs-toggle="popover"
+                                data-bs-trigger="hover focus"
+                                data-bs-placement="top"
+                                data-bs-content="Plus d'informations"
                             >
                                 {{ strtoupper($questionnement->question) }}
                             </button>
@@ -467,7 +487,12 @@
 
                             <div class="events-item-description-content-details">
                                     
-                                <a href="" class="btn btn-info btn-sm" title="Cliquer pour plus de details">
+                                <a  href="" class="btn btn-info btn-sm"
+                                    data-bs-toggle="popover"
+                                    data-bs-placement="top"
+                                    data-bs-html="true"
+                                    data-bs-content="Cliquer pour plus de details"
+                                >
                                     Details
                                 </a>
 
@@ -484,8 +509,13 @@
                 @if($evenements->count() > 4)
                 <div class="events-more-items-actions">
 
-                    <a href="#" class="btn btn-default btn-sm" title="Cliquer pour consulter plus de besoins">
-                       <i class="fa fa-plus"></i> Afficher plus
+                    <a  href="#" class="btn btn-default btn-sm"
+                        data-bs-toggle="popover"
+                        data-bs-placement="top"
+                        data-bs-html="true"
+                        data-bs-content="Cliquer pour consulter plus de besoins"
+                    >
+                        <i class="fa fa-plus"></i> Afficher plus
                     </a>
 
                 </div>

@@ -10,7 +10,7 @@
     ====================================================== -->
     <div class="page-title">
         <h1>
-            Benevoles
+            <i class="fa fa-users"></i> Benevoles
         </h1>
     </div>
 
@@ -48,9 +48,6 @@
         </div>
 
     </div>
-
-
-
 
     <!-- Script externe -->
     <script src="{{ asset('script/pages/guest/about/about_us.js') }}"></script> 

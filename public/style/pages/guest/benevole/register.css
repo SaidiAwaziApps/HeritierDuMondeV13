@@ -7,15 +7,23 @@
 
     padding: 6px;
 
-    background-color: #FFFAF0;
+    background-color: #f8f8ff;
 }
 
+
 .page-title h1 {
-    font-size: 32px;
-    /* font-weight: bold; */
+    font-size: 30px;
+    font-weight: bold;
     font-family: italic;
+    color: #16805c;
 
     /* opacity: 0.6; */
+}
+
+
+.page-title h1 i {
+    font-size: 22px;
+    opacity: 0.6;
 }
 
 
@@ -24,7 +32,7 @@
     margin: 10px 6%;
 }
 
-.volunters h1 {
+.volunters h2 {
     font-family: italic;
 }
 
@@ -54,11 +62,11 @@
 }
 
 
-.volunters-content form h2 {
+/* .volunters-content form h3 {
     font-size: 24px;
     font-family: italic;
     text-align: center;
-}
+} */
 
 .volunters-content form h2 i {
     font-size: 20px;
@@ -387,3 +395,84 @@ i[id="required-sign"] {
    font-size: 20px;
    font-family: italic;  
 } 
+
+
+
+
+
+
+
+
+
+/* **************************************************************
+ * MODE SOMBRE - FORMULAIRE DES BENEVOLES
+ * ***************************************************************/
+
+body:has(#dark-mode:checked) .volunters-form-content {
+    background-color: #242424;
+    color: #f5f5f5;
+}
+
+body:has(#dark-mode:checked) .volunters-form-content label,
+body:has(#dark-mode:checked) .volunters-form-content h5,
+body:has(#dark-mode:checked) .volunters-form-content p,
+body:has(#dark-mode:checked) .volunters h2 {
+    color: #f5f5f5;
+}
+
+body:has(#dark-mode:checked) .volunters-form-content input:not([type="radio"]):not([type="file"]),
+body:has(#dark-mode:checked) .volunters-form-content textarea,
+body:has(#dark-mode:checked) .volunters-form-content select {
+    background-color: #333333;
+    color: #ffffff;
+    border-color: #666666;
+}
+
+body:has(#dark-mode:checked) .volunters-form-content input::placeholder,
+body:has(#dark-mode:checked) .volunters-form-content textarea::placeholder {
+    color: #c5c5c5;
+    opacity: 1;
+}
+
+body:has(#dark-mode:checked) .volunters-form-content select option {
+    background-color: #333333;
+    color: #ffffff;
+}
+
+body:has(#dark-mode:checked) .volunters-form-content .photo-circle {
+    background-color: #303030;
+}
+
+body:has(#dark-mode:checked) .volunters-form-content .photo-add {
+    border-color: #242424;
+}
+
+body:has(#dark-mode:checked) .volunters-form-content .profile-photo small {
+    color: #cccccc;
+}
+
+body:has(#dark-mode:checked) .volunters-form-content .select2-container--default .select2-selection--multiple {
+    background-color: #333333;
+    border-color: #666666;
+}
+
+body:has(#dark-mode:checked) .volunters-form-content .select2-container--default .select2-selection--multiple .select2-selection__choice {
+    background-color: #444444;
+    border-color: #666666;
+    color: #ffffff;
+}
+
+body:has(#dark-mode:checked) .volunters-form-content .select2-container--default .select2-selection--multiple .select2-selection__choice__display,
+body:has(#dark-mode:checked) .volunters-form-content .select2-container--default .select2-selection--multiple .select2-search--inline .select2-search__field {
+    color: #ffffff;
+}
+
+body:has(#dark-mode:checked) .volunters-form-content .select2-container--default .select2-results__option {
+    background-color: #333333;
+    color: #ffffff;
+}
+
+body:has(#dark-mode:checked) .volunters-form-content .select2-container--default .select2-results__option--highlighted[aria-selected] {
+    background-color: #16805c;
+    color: #ffffff;
+}
